@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Shop | Kimondo Adventures</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        forest: '#2E7D32',
+                        golden: '#F5A623',
+                        choco: '#6D3A1F',
+                        turquoise: '#00BCD4',
+                        warm: '#5D4037',
+                        light: '#fcfbf9',
+                        dark: '#0a0f0d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light text-warm font-sans antialiased flex flex-col min-h-screen">
+
+    <div id="kimondo-header"></div>
+
+    <section class="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden w-full pt-24 pb-20">
+        
+        <div class="absolute inset-0 z-0">
+            <img src="IMG/1 (9).jpg" class="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out" alt="Zanzibar Gift Shop">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-forest/90"></div>
+        </div>
+
+        <div class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10 reveal active">
+            
+            <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
+                <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Zanzibar Treasures</span>
+            </div>
+            
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1]">
+                Authentic <br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">Local Crafts</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed mb-12 drop-shadow-md">
+                Discover unique souvenirs and genuine artisan products directly from Zanzibar. Take home a piece of the island.
+            </p>
+            
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block z-10">
+            <div class="w-8 h-12 rounded-full border-2 border-white/30 flex items-center justify-center p-2 backdrop-blur-sm">
+                <div class="w-1 h-3 bg-golden rounded-full"></div>
+            </div>
+        </div>
+        
+    </section>
+
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-20">
+        
+        <div class="flex items-center justify-between mb-12 pb-6 border-b-2 border-warm/10 reveal">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-forest mb-2">Our Collections</h2>
+                <p class="text-warm/70 font-light">Handpicked items from local artisans</p>
+            </div>
+            <div class="hidden md:flex items-center gap-2 text-forest">
+                <i class="fa-solid fa-shopping-cart text-2xl"></i>
+                <span id="cart-count" class="text-2xl font-bold">0</span>
+            </div>
+        </div>
+
+        <div id="collections-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        </div>
+
+        <div class="text-center mb-16 reveal">
+            <h3 class="text-2xl font-serif font-bold text-forest mb-6">How It Works</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-warm/5">
+                    <div class="mb-4">
+                        <span class="inline-block w-12 h-12 rounded-full bg-golden text-white text-xl font-bold flex items-center justify-center">1</span>
+                    </div>
+                    <h4 class="font-semibold text-lg text-forest mb-2">Browse & Add to Cart</h4>
+                    <p class="text-warm/70 text-sm">Browse our collection and add your favorite items to cart.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-warm/5">
+                    <div class="mb-4">
+                        <span class="inline-block w-12 h-12 rounded-full bg-golden text-white text-xl font-bold flex items-center justify-center">2</span>
+                    </div>
+                    <h4 class="font-semibold text-lg font-serif text-forest mb-2">Contact Us</h4>
+                    <p class="text-warm/70 text-sm">Click the cart to review and contact us via WhatsApp.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-warm/5">
+                    <div class="mb-4">
+                        <span class="inline-block w-12 h-12 rounded-full bg-golden text-white text-xl font-bold flex items-center justify-center">3</span>
+                    </div>
+                    <h4 class="font-semibold text-lg text-forest mb-2">Receive your piece of Zanzibar</h4>
+                    <p class="text-warm/70 text-sm">At your doorstep.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="https://wa.me/255777123456" target="_blank" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full transition shadow-md">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+            </a>
+        </div>
+    </main>
+
+    <div id="kimondo-footer"></div>
+
+    <div id="toast-container" class="fixed bottom-4 right-4 space-y-3 z-50"></div>
+
+    <div id="cart-icon" class="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-golden text-dark flex items-center justify-center text-2xl cursor-pointer hover:scale-110 transition-transform shadow-lg z-40">
+        <i class="fas fa-shopping-bag"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Kimondo Gift Shop | Authentic Souvenirs from Zanzibar</title>
+    
+    <!-- Tailwind + Fonts + Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        forest: '#2E7D32',
+                        golden: '#F5A623',
+                        choco: '#6D3A1F',
+                        turquoise: '#00BCD4',
+                        warm: '#5D4037',
+                        light: '#fcfbf9',
+                        dark: '#0a0f0d',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #F5A623; border-radius: 10px; }
+
+        /* Smooth scroll & base */
+        html { scroll-behavior: smooth; }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Card hover effects */
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+
+        /* Toast notification */
+        .toast {
+            animation: fadeOut 3s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: translateY(0); }
+            70% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-20px); visibility: hidden; }
+        }
+    </style>
+</head>
+<body class="bg-light text-warm font-sans antialiased">
+
+    <div id="kimondo-header"></div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-32 overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-forest/5 -skew-x-12 translate-x-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal active">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-forest/5 text-forest text-xs font-bold uppercase tracking-widest mb-8">
+                    <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
+                    Now Available Globally
+                </div>
+                <h1 class="text-6xl md:text-8xl font-serif font-bold text-forest leading-[0.9] mb-8">
+                    Take a Piece <br> of <span class="gradient-text italic font-light">Zanzibar</span>
+                </h1>
+                <p class="text-lg text-warm/60 max-w-md font-light leading-relaxed mb-10">
+                    Authentic, locally made souvenirs and wellness gifts, handcrafted by artisans across the Spice Island.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#featured" class="bg-forest text-white px-10 py-5 rounded-2xl font-bold hover:bg-dark transition-all shadow-xl hover:shadow-forest/20">Shop Now</a>
+                    <a href="#how" class="bg-white border border-warm/10 px-10 py-5 rounded-2xl font-bold hover:bg-warm/5 transition-all">How it Works</a>
+                </div>
+            </div>
+            
+            <div class="relative reveal active" style="transition-delay: 200ms;">
+                <div class="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
+                    <img src="IMG/1 (1).jpg" class="w-full h-full object-cover" alt="Artisan Crafts">
+                </div>
+                <div class="absolute -bottom-10 -right-10 w-64 h-64 border-[16px] border-golden/20 rounded-[4rem] -z-0"></div>
+                <div class="absolute -top-10 -left-10 bg-white p-6 rounded-3xl shadow-xl z-20 hidden md:block">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-golden/20 rounded-2xl flex items-center justify-center text-golden">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-warm/40 uppercase tracking-tighter">100% Organic</p>
+                            <p class="text-sm font-bold text-forest">Zanzibar Spices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Featured Collections -->
+    <section id="collections" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <span class="text-golden text-sm uppercase tracking-wider">✨ Curated with Love</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mt-2">Featured Collections</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 reveal" id="collections-grid">
+            <!-- Collection cards will be injected dynamically -->
+        </div>
+    </section>
+
+    <!-- Why Shop With Us -->
+    <section class="bg-warm/5 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-golden text-sm uppercase tracking-wider">Why Choose Us</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mt-2">Shop With Purpose</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check-circle text-2xl text-golden"></i>
+                    </div>
+                    <h3 class="font-bold text-forest text-lg">Authentic Products</h3>
+                    <p class="text-warm/70 text-sm mt-2">All items are handmade or locally sourced.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hands-helping text-2xl text-golden"></i>
+                    </div>
+                    <h3 class="font-bold text-forest text-lg">Support Local Artisans</h3>
+                    <p class="text-warm/70 text-sm mt-2">Your purchase helps the local community thrive.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-2xl text-golden"></i>
+                    </div>
+                    <h3 class="font-bold text-forest text-lg">Curated Quality</h3>
+                    <p class="text-warm/70 text-sm mt-2">Every product is carefully selected for quality and uniqueness.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                    <div class="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gift text-2xl text-golden"></i>
+                    </div>
+                    <h3 class="font-bold text-forest text-lg">Perfect for Gifting</h3>
+                    <p class="text-warm/70 text-sm mt-2">Unique, beautiful, and meaningful gifts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy -->
+    <section class="max-w-5xl mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <span class="text-golden text-sm uppercase tracking-wider">Easy Steps</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mt-2">How to Buy</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+            <div class="relative group">
+                <div class="w-20 h-20 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold text-forest">1</div>
+                <h3 class="font-semibold text-lg">Browse collections online</h3>
+                <p class="text-warm/70 text-sm">Explore our unique products.</p>
+            </div>
+            <div class="relative group">
+                <div class="w-20 h-20 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold text-forest">2</div>
+                <h3 class="font-semibold text-lg">Add items to your cart</h3>
+                <p class="text-warm/70 text-sm">Select your favorites.</p>
+            </div>
+            <div class="relative group">
+                <div class="w-20 h-20 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold text-forest">3</div>
+                <h3 class="font-semibold text-lg">Contact us via WhatsApp</h3>
+                <p class="text-warm/70 text-sm">For payment and delivery options.</p>
+            </div>
+            <div class="relative group">
+                <div class="w-20 h-20 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold text-forest">4</div>
+                <h3 class="font-semibold text-lg">Receive your piece of Zanzibar</h3>
+                <p class="text-warm/70 text-sm">At your doorstep.</p>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <a href="https://wa.me/255777123456" target="_blank" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full transition shadow-md">
+                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+        const collections = [
+            {
+                title: "Handmade Crafts",
+                desc: "Beautifully crafted baskets, pottery, and home décor made by local artisans. Perfect for adding an authentic Zanzibar touch to your home or office.",
+                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&w=600&q=80",
+                price: "$25 - $85",
+                tag: "Décor"
+            },
+            {
+                title: "Zanzibar Spices",
+                desc: "Authentic cloves, nutmeg, and vanilla sourced from the island of Zanzibar. Perfect for cooking, aromatic experiences, or as unique gifts.",
+                image: "https://images.unsplash.com/photo-1596647903254-8e5ba138e6df?ixlib=rb-4.0.3&w=600&q=80",
+                price: "$12 - $45",
+                tag: "Spices"
+            },
+            {
+                title: "Natural Wellness",
+                desc: "Natural wellness products including sea moss, crafted to support a healthy lifestyle. Perfect for daily nourishment or as thoughtful gifts.",
+                image: "https://images.unsplash.com/photo-1579722820308-d74e571813a8?ixlib=rb-4.0.3&w=600&q=80",
+                price: "$18 - $55",
+                tag: "Wellness"
+            },
+            {
+                title: "Beachwear & Accessories",
+                desc: "Stylish sarongs, hats, bags, and jewelry designed for both tourists and locals. Perfect for your beach adventures or as unique gifts.",
+                image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&w=600&q=80",
+                price: "$15 - $60",
+                tag: "Fashion"
+            },
+            {
+                title: "Souvenirs",
+                desc: "From magnets and keychains to traditional carvings, these items make the perfect memento of your Zanzibar experience.",
+                image: "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?ixlib=rb-4.0.3&w=600&q=80",
+                price: "$5 - $35",
+                tag: "Keepsakes"
+            },
+            {
+                title: "Art & Décor",
+                desc: "Local paintings, carvings, and decorative items that tell a story of Zanzibar’s vibrant culture and history.",
+                image: "https://images.unsplash.com/photo-1565593293613-ba2e12e0a1b9?ixlib=rb-4.0.3&w=600&q=80",
+                price: "$30 - $150",
+                tag: "Art"
+            }
+        ];
+
+        // Render collections
+        const grid = document.getElementById('collections-grid');
+        grid.innerHTML = collections.map(col => `
+            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md border border-warm/5 flex flex-col h-full">
+                <div class="h-56 overflow-hidden">
+                    <img src="${col.image}" alt="${col.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-golden">${col.tag}</span>
+                        <span class="text-sm font-semibold text-forest">${col.price}</span>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-forest mb-2">${col.title}</h3>
+                    <p class="text-warm/70 text-sm mb-4 flex-grow">${col.desc}</p>
+                    <button onclick="addToCart('${col.title}', '${col.price}')" class="mt-2 w-full bg-forest hover:bg-forest/80 text-white py-2 rounded-full transition flex items-center justify-center gap-2 text-sm font-semibold">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        `).join('');
+
+        // Simple cart simulation
+        let cartCount = 0;
+        const cartCountSpan = document.getElementById('cart-count');
+        const cartIcon = document.getElementById('cart-icon');
+
+        function addToCart(itemName, price) {
+            cartCount++;
+            cartCountSpan.innerText = cartCount;
+            showToast(`✨ ${itemName} added to cart! (${price})`);
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'bg-dark text-white px-5 py-2 rounded-full shadow-lg text-sm toast';
+            toast.innerText = message;
+            document.getElementById('toast-container').appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        cartIcon.addEventListener('click', () => {
+            if (cartCount > 0) {
+                showToast(`You have ${cartCount} item(s) in your cart. Contact us on WhatsApp to complete your order!`);
+            } else {
+                showToast('Your cart is empty. Start shopping!');
+            }
+        });
+
+        // Reveal animations
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(r => observer.observe(r));
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
