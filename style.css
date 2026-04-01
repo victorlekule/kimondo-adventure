@@ -1,0 +1,18 @@
+/* ============================================
+   GLOBAL STYLES - All Pages
+   ============================================ */
+
+/* Smooth reveal animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ============================================
+   GALLERY PAGE STYLES
+   ============================================ */
+
+/* Hide scrollbar for category filters */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Lightbox animation */
+#lightbox { backdrop-filter: blur(8px); transition: opacity 0.3s ease; }
