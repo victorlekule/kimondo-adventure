@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </a>
                     </div>
 
-                    <nav class="hidden lg:flex items-center justify-end gap-4 xl:gap-6 flex-grow px-4">
+                    <nav class="hidden lg:flex items-center justify-end gap-4 xl:gap-6 ml-auto">
                         ${desktopLinksHTML}
                         <a href="${bookingLink.url}" class="bg-golden hover:bg-yellow-500 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-md font-semibold text-xs lg:text-sm xl:text-base tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 ml-2 lg:ml-4 flex-shrink-0">
                             ${bookingLink.name}
