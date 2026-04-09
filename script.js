@@ -120,14 +120,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         </a>
                     </div>
 
-                    <nav class="hidden xl:flex items-center justify-end space-x-8 flex-grow pr-2">
+                    <nav class="hidden lg:flex items-center justify-end space-x-8 flex-grow pr-2">
                         ${desktopLinksHTML}
                         <a href="${bookingLink.url}" class="bg-golden hover:bg-yellow-500 text-white px-8 py-3 rounded-md font-semibold tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 ml-4">
                             ${bookingLink.name}
                         </a>
                     </nav>
 
-                    <div class="xl:hidden flex items-center justify-end flex-grow">
+                    <div class="lg:hidden flex items-center justify-end flex-grow">
                         <button id="mobile-menu-btn" class="text-forest hover:text-golden focus:outline-none p-2">
                             <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
 
-            <div id="mobile-menu" class="hidden xl:hidden bg-white border-r border-b border-t border-gray-100 shadow-xl absolute font-sans top-full left-0 w-max pr-6 rounded-br-2xl overflow-hidden">
+            <div id="mobile-menu" class="hidden lg:hidden bg-white border-r border-b border-t border-gray-100 shadow-xl absolute font-sans top-full left-0 w-max pr-6 rounded-br-2xl overflow-hidden">
                 <div class="flex flex-col py-2">
                     ${mobileLinksHTML}
                     <div class="px-4 py-4">
