@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const bookingLink = { name: 'Booking', url: 'booking.html' };
 
-    // Get current page filename, decode it (to handle spaces like %20), default to index.html
+    // Get current page filename, decode it, default to index.html
     let currentPage = window.location.pathname.split('/').pop();
     if (!currentPage || currentPage === '') {
         currentPage = 'index.html';
@@ -84,13 +84,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 4. Build Links with Active State Logic
+    // EXPERT FIX: Corrected the baseClasses for desktop so they don't break on 1024px Mac screens
     const desktopLinksHTML = navLinks.map(link => {
         const isActive = currentPage === link.url;
-        const baseClasses = "transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide whitespace-nowrap";
+        // Removed 'block', 'px-4', and 'border-b' which were meant for mobile
+        // Added responsive padding (px-2 lg:px-3) and smaller base text
+        const baseClasses = "transition-colors duration-300 text-xs lg:text-sm xl:text-base tracking-wide whitespace-nowrap px-2 lg:px-3";
         
-        // Apply forest, bold, and underline if active
         const stateClasses = isActive 
-            ? "text-forest font-bold underline underline-offset-3 decoration-1.5" 
+            ? "text-forest font-bold underline underline-offset-4 decoration-2" 
             : "text-warm font-medium hover:text-forest";
 
         return `<a href="${link.url}" class="${baseClasses} ${stateClasses}">${link.name}</a>`;
@@ -100,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const isActive = currentPage === link.url;
         const baseClasses = "block px-4 py-3 transition-colors duration-300 text-sm border-b border-gray-100";
         
-        // Apply forest, bold, and underline if active
         const stateClasses = isActive 
             ? "text-forest font-bold underline underline-offset-2 decoration-1.5" 
             : "text-warm font-medium hover:bg-forest/5 hover:text-forest";
@@ -110,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 5. Create the Complete Header HTML Structure
     const headerHTML = `
-        <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <header class="bg-white shadow-md fixed w-full top-0 z-[9999]">
             <div class="w-full px-3 sm:px-4 md:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20 md:h-24">
                     
@@ -120,14 +121,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         </a>
                     </div>
 
-                    <nav class="hidden lg:flex items-center justify-end gap-4 xl:gap-6 ml-auto">
+                    <nav class="hidden xl:flex items-center justify-end gap-1 ml-auto">
                         ${desktopLinksHTML}
-                        <a href="${bookingLink.url}" class="bg-golden hover:bg-yellow-500 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-md font-semibold text-xs lg:text-sm xl:text-base tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 ml-2 lg:ml-4 flex-shrink-0">
+                        <a href="${bookingLink.url}" class="bg-golden hover:bg-yellow-500 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-md font-semibold text-xs lg:text-sm tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 ml-4 flex-shrink-0">
                             ${bookingLink.name}
                         </a>
                     </nav>
 
-                    <div class="lg:hidden flex items-center justify-end flex-grow gap-2">
+                    <div class="xl:hidden flex items-center justify-end flex-grow gap-2">
                         <button id="mobile-menu-btn" class="text-forest hover:text-golden focus:outline-none p-2 -mr-2 flex-shrink-0">
                             <svg class="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -138,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
 
-            <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-100 shadow-lg font-sans">
+            <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-gray-100 shadow-lg font-sans">
                 <div class="flex flex-col max-h-96 overflow-y-auto py-2">
                     ${mobileLinksHTML}
                     <div class="px-4 py-4">
