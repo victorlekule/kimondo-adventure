@@ -86,11 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. Build Links with Active State Logic
     const desktopLinksHTML = navLinks.map(link => {
         const isActive = currentPage === link.url;
-        const baseClasses = "transition-colors duration-300 text-base tracking-wide";
+        const baseClasses = "transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide whitespace-nowrap";
         
         // Apply forest, bold, and underline if active
         const stateClasses = isActive 
-            ? "text-forest font-bold underline underline-offset-4 decoration-2" 
+            ? "text-forest font-bold underline underline-offset-3 decoration-1.5" 
             : "text-warm font-medium hover:text-forest";
 
         return `<a href="${link.url}" class="${baseClasses} ${stateClasses}">${link.name}</a>`;
@@ -98,12 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mobileLinksHTML = navLinks.map(link => {
         const isActive = currentPage === link.url;
-        const baseClasses = "block px-6 py-3 transition-colors duration-300 border-b border-gray-100 whitespace-nowrap";
+        const baseClasses = "block px-4 py-3 transition-colors duration-300 text-sm border-b border-gray-100";
         
         // Apply forest, bold, and underline if active
         const stateClasses = isActive 
-            ? "text-forest font-bold underline underline-offset-4 decoration-2" 
-            : "text-warm font-medium hover:bg-forest hover:text-white";
+            ? "text-forest font-bold underline underline-offset-2 decoration-1.5" 
+            : "text-warm font-medium hover:bg-forest/5 hover:text-forest";
 
         return `<a href="${link.url}" class="${baseClasses} ${stateClasses}">${link.name}</a>`;
     }).join('');
@@ -111,25 +111,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // 5. Create the Complete Header HTML Structure
     const headerHTML = `
         <header class="bg-white shadow-md fixed w-full top-0 z-50">
-            <div class="w-full px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-24">
+            <div class="w-full px-3 sm:px-4 md:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20 md:h-24">
                     
-                    <div class="flex-shrink-0 flex items-center ml-1">
-                        <a href="index.html" class="text-3xl font-serif font-bold text-forest flex items-center gap-2 whitespace-nowrap">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif font-bold text-forest flex items-center gap-1 sm:gap-2 whitespace-nowrap">
                             Kimondo <span class="text-golden italic">Adventures</span>
                         </a>
                     </div>
 
-                    <nav class="hidden lg:flex items-center justify-end space-x-8 flex-grow pr-2">
+                    <nav class="hidden lg:flex items-center justify-end gap-4 xl:gap-6 flex-grow px-4">
                         ${desktopLinksHTML}
-                        <a href="${bookingLink.url}" class="bg-golden hover:bg-yellow-500 text-white px-8 py-3 rounded-md font-semibold tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 ml-4">
+                        <a href="${bookingLink.url}" class="bg-golden hover:bg-yellow-500 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-md font-semibold text-xs lg:text-sm xl:text-base tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 ml-2 lg:ml-4 flex-shrink-0">
                             ${bookingLink.name}
                         </a>
                     </nav>
 
-                    <div class="lg:hidden flex items-center justify-end flex-grow">
-                        <button id="mobile-menu-btn" class="text-forest hover:text-golden focus:outline-none p-2">
-                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="lg:hidden flex items-center justify-end flex-grow gap-2">
+                        <button id="mobile-menu-btn" class="text-forest hover:text-golden focus:outline-none p-2 -mr-2 flex-shrink-0">
+                            <svg class="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                             </svg>
                         </button>
@@ -138,11 +138,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
 
-            <div id="mobile-menu" class="hidden lg:hidden bg-white border-r border-b border-t border-gray-100 shadow-xl absolute font-sans top-full left-0 w-max pr-6 rounded-br-2xl overflow-hidden">
-                <div class="flex flex-col py-2">
+            <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-100 shadow-lg font-sans">
+                <div class="flex flex-col max-h-96 overflow-y-auto py-2">
                     ${mobileLinksHTML}
                     <div class="px-4 py-4">
-                        <a href="${bookingLink.url}" class="block text-center bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-md font-semibold tracking-wider shadow-sm transition-colors duration-300 whitespace-nowrap">
+                        <a href="${bookingLink.url}" class="block text-center bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-md font-semibold text-sm tracking-wider shadow-sm transition-colors duration-300">
                             ${bookingLink.name}
                         </a>
                     </div>
