@@ -6,14 +6,12 @@
     <title>Experiences & Services | Kimondo Adventures</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    <link rel="stylesheet" href="css/style.css">    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'],
                         serif: ['"Playfair Display"', 'serif'],
                     },
                     colors: {
@@ -29,50 +27,178 @@
             }
         }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         .fade-in { animation: fadeIn 0.5s ease-in-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
         
-        /* Scroll padding for fixed header - accounts for 96px header height */
+        /* Line clamp utilities - with vendor prefix support for compatibility */
+        .line-clamp-2 { 
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-clamp: 2;
+        }
+        
+        .line-clamp-3 { 
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-clamp: 3;
+        }
+        
+        /* Scroll padding for fixed header */
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 150px;
         }
         
-        /* Add substantial padding to prevent header overlap */
         #activities-view {
             scroll-margin-top: 150px;
             padding-top: 80px !important;
         }
         
-        /* Service title specific margin */
         #service-title {
             margin-top: 60px;
-        }        
-        /* Ensure back button section stays visible */
+        }
+        
         #activities-view > div:first-child {
             position: relative;
             z-index: 10;
             margin-top: 20px;
-        }    </style>
+        }
+        
+        /* Progress Bar styles */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 100;
+        }
+        #progressBar {
+            height: 100%;
+            background: #F5A623;
+            width: 0%;
+        }
+        
+        /* Particle animations */
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+        .particle {
+            position: absolute;
+            bottom: 0;
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+    </style>
 </head>
 <body class="bg-light text-warm font-sans antialiased overflow-x-hidden min-h-screen flex flex-col pt-24">
 
-      <div id="kimondo-header"></div>
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
 
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0 opacity-30 hidden"></div>
 
- 
-  <!-- Hero Section with Parallax -->
-<section id="hero-section" class="relative min-h-[80vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden w-full pt-28 pb-32">
-        
+    <div id="kimondo-header">
+        <!-- Fallback Header - Always Visible -->
+        <header class="bg-white shadow-md fixed w-full top-0 z-50">
+            <div class="w-full px-3 sm:px-4 md:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20 md:h-24">
+                    
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-serif font-bold text-forest flex items-center gap-1 sm:gap-2 whitespace-nowrap">
+                            Kimondo <span class="text-golden italic">Adventures</span>
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation (lg and above) -->
+                    <nav class="hidden lg:flex items-center justify-end gap-4 xl:gap-6 flex-grow px-4">
+                        <a href="index.html" class="transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide text-warm font-medium hover:text-forest">Home</a>
+                        <a href="about us.html" class="transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide text-warm font-medium hover:text-forest">About</a>
+                        <a href="why choose.html" class="transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide text-warm font-medium hover:text-forest">Why Us</a>
+                        <a href="zanzibar.html" class="transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide text-forest font-bold underline underline-offset-3 decoration-1.5">Zanzibar Tours</a>
+                        <a href="tanzania.html" class="transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide text-warm font-medium hover:text-forest hidden xl:inline">Tanzania Safaris</a>
+                        <a href="gift shop.html" class="transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide text-warm font-medium hover:text-forest hidden xl:inline">Gift Shop</a>
+                        <a href="gallery.html" class="transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide text-warm font-medium hover:text-forest hidden lg:inline">Gallery</a>
+                        <a href="blog.html" class="transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide text-warm font-medium hover:text-forest hidden lg:inline">Blog</a>
+                        <a href="contact.html" class="transition-colors duration-300 text-xs sm:text-sm lg:text-sm xl:text-base tracking-wide text-warm font-medium hover:text-forest hidden xl:inline">Contact</a>
+                        <a href="booking.html" class="bg-golden hover:bg-yellow-500 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-md font-semibold text-xs lg:text-sm xl:text-base tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 ml-2 lg:ml-4 flex-shrink-0">
+                            Booking
+                        </a>
+                    </nav>
+
+                    <!-- Mobile Menu Button (below lg) -->
+                    <div class="lg:hidden flex items-center justify-end flex-grow gap-2">
+                        <button id="mobile-menu-btn" class="text-forest hover:text-golden focus:outline-none p-2 -mr-2 flex-shrink-0">
+                            <svg class="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown (below lg) -->
+            <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-100 shadow-lg font-sans">
+                <div class="flex flex-col max-h-96 overflow-y-auto py-2">
+                    <a href="index.html" class="block px-4 py-3 transition-colors duration-300 text-sm text-warm font-medium hover:bg-forest/5 hover:text-forest border-b border-gray-100">Home</a>
+                    <a href="about us.html" class="block px-4 py-3 transition-colors duration-300 text-sm text-warm font-medium hover:bg-forest/5 hover:text-forest border-b border-gray-100">About Us</a>
+                    <a href="why choose.html" class="block px-4 py-3 transition-colors duration-300 text-sm text-warm font-medium hover:bg-forest/5 hover:text-forest border-b border-gray-100">Why Us</a>
+                    <a href="zanzibar.html" class="block px-4 py-3 transition-colors duration-300 text-sm text-forest font-bold underline underline-offset-2 decoration-1.5 border-b border-gray-100">Zanzibar Tours</a>
+                    <a href="tanzania.html" class="block px-4 py-3 transition-colors duration-300 text-sm text-warm font-medium hover:bg-forest/5 hover:text-forest border-b border-gray-100">Tanzania Safaris</a>
+                    <a href="gift shop.html" class="block px-4 py-3 transition-colors duration-300 text-sm text-warm font-medium hover:bg-forest/5 hover:text-forest border-b border-gray-100">Gift Shop</a>
+                    <a href="gallery.html" class="block px-4 py-3 transition-colors duration-300 text-sm text-warm font-medium hover:bg-forest/5 hover:text-forest border-b border-gray-100">Gallery</a>
+                    <a href="blog.html" class="block px-4 py-3 transition-colors duration-300 text-sm text-warm font-medium hover:bg-forest/5 hover:text-forest border-b border-gray-100">Blog</a>
+                    <a href="contact.html" class="block px-4 py-3 transition-colors duration-300 text-sm text-warm font-medium hover:bg-forest/5 hover:text-forest border-b border-gray-100">Contact</a>
+                    <div class="px-4 py-4">
+                        <a href="booking.html" class="block text-center bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-md font-semibold text-sm tracking-wider shadow-sm transition-colors duration-300">
+                            Booking
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                    } else {
+                        menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <section id="hero-section" class="relative min-h-[80vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden w-full pt-28 pb-32">
         <div class="absolute inset-0 z-0">
-            <img src="IMG/1 (1).jpg" class="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out" alt="Zanzibar" />
+            <img src="IMG/1 (1).jpg" class="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out" alt="Zanzibar" onerror="this.src='https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1600&auto=format&fit=crop'"/>
             <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-forest/90"></div>
         </div>
 
         <div class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10 reveal active">
-            
             <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
                 <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
                 <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Zanzibar Island</span>
@@ -88,14 +214,13 @@
             </p>
 
             <div class="flex flex-wrap justify-center gap-5">
-                <a href="#categories" class="bg-golden hover:bg-amber-400 text-dark font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_0_20px_rgba(245,166,35,0.4)] transform hover:-translate-y-1">
+                <a href="#categories-view" class="bg-golden hover:bg-amber-400 text-dark font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_0_20px_rgba(245,166,35,0.4)] transform hover:-translate-y-1">
                     <i class="fas fa-compass text-lg"></i> Explore Experiences
                 </a>
                 <a href="#contact" class="bg-white/10 hover:bg-white/20 px-8 py-4 rounded-full transition-all duration-300 text-white flex items-center gap-3 backdrop-blur-md border border-white/20 transform hover:-translate-y-1">
                     <i class="fas fa-headset text-lg"></i> Travel Advisor
                 </a>
             </div>
-            
         </div>
 
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block z-10">
@@ -107,9 +232,7 @@
         <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-light to-transparent z-0"></div>
     </section>
 
-
     <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative z-20 -mt-16 pt-32" id="main-content">
-        
         <div id="explore-heading" class="text-center mb-12 px-4 reveal">
             <h2 class="text-3xl md:text-5xl font-serif font-bold text-forest mb-4 capitalize">
                 Explore Zanzibar Tours
@@ -146,29 +269,27 @@
         </div>
     </main>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top fixed bottom-24 right-6 z-40 bg-golden text-dark w-12 h-12 rounded-full shadow-lg hover:bg-amber-500 transition-all flex items-center justify-center">
+    <button id="backToTop" class="back-to-top hidden fixed bottom-24 right-6 z-40 bg-golden text-dark w-12 h-12 rounded-full shadow-lg hover:bg-amber-500 transition-all flex items-center justify-center">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Floating WhatsApp -->
     <div class="fixed bottom-6 right-6 z-30 floating-wa">
         <a href="https://wa.me/255777123456" class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
             <i class="fab fa-whatsapp text-2xl"></i>
         </a>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
-            { bg: "bg-golden", hover: "hover:bg-amber-500", text: "text-white" },      // Golden
-            { bg: "bg-turquoise", hover: "hover:bg-cyan-600", text: "text-white" },    // Turquoise
-            { bg: "bg-forest", hover: "hover:bg-green-700", text: "text-white" },      // Forest
-            { bg: "bg-warm", hover: "hover:bg-amber-800", text: "text-white" },        // Warm
-            { bg: "bg-choco", hover: "hover:bg-orange-800", text: "text-white" }       // Choco
+    <script>
+        // --- Added Missing Array Definition ---
+        const accentColors = [
+            { bg: "bg-golden", hover: "hover:bg-amber-500", text: "text-white" },
+            { bg: "bg-turquoise", hover: "hover:bg-cyan-600", text: "text-white" },
+            { bg: "bg-forest", hover: "hover:bg-green-700", text: "text-white" },
+            { bg: "bg-warm", hover: "hover:bg-amber-800", text: "text-white" },
+            { bg: "bg-choco", hover: "hover:bg-orange-800", text: "text-white" }
         ];
 
-        // --- Full Data (unchanged) ---
+        // --- Full Data ---
         const servicesData = [
             {
                 id: "water-sports",
@@ -244,7 +365,7 @@
                 return `
                     <div onclick="openService('${service.id}')" class="group cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col h-full reveal category-card">
                         <div class="aspect-[4/3] w-full overflow-hidden relative shrink-0">
-                            <img src="${service.image}" alt="${service.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="${service.image}" alt="${service.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=1600&auto=format&fit=crop'">
                             <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
                             <div class="absolute bottom-6 left-6 right-6">
                                 <h3 class="text-2xl font-serif font-bold text-white mb-2 group-hover:text-golden transition-colors">${service.title}</h3>
@@ -290,7 +411,7 @@
                 <div class="flex flex-col ${rowDir} gap-8 lg:gap-12 bg-white rounded-3xl p-5 md:p-8 lg:p-10 shadow-sm border border-warm/5 fade-in hover:shadow-xl transition-shadow duration-500">
                     <div class="w-full md:w-5/12 lg:w-1/2">
                         <div class="aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden shadow-lg sticky top-24">
-                            <img src="${act.image}" alt="${act.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                            <img src="${act.image}" alt="${act.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1600&auto=format&fit=crop'">
                         </div>
                     </div>
                     <div class="w-full md:w-7/12 lg:w-1/2 flex flex-col justify-center">
@@ -349,37 +470,34 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function addToBooking(name, price) { alert(name + " (" + price + ") added to your booking list!"); }
+        function addToBooking(name, price) { 
+            alert(name + " (" + price + ") added to your booking list!"); 
+        }
 
         renderCategories();
 
         // --- Scroll progress, back to top, header effect ---
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
+   
 
-            const backBtn = document.getElementById('backToTop');
-            if (winScroll > 300) backBtn.classList.add('visible');
-            else backBtn.classList.remove('visible');
+        const backBtn = document.getElementById('backToTop');
+        if(backBtn) {
+            backBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
 
-            const header = document.getElementById('modern-header');
-            if (winScroll > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        });
-
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        document.getElementById('cart-button').addEventListener('click', () => {
-            alert('Your cart is ready! (demo)');
-        });
+        const cartBtn = document.getElementById('cart-button');
+        if(cartBtn) {
+            cartBtn.addEventListener('click', () => {
+                alert('Your cart is ready! (demo)');
+            });
+        }
 
         // --- Generate subtle particles ---
         function createParticles() {
             const container = document.getElementById('particles');
+            if(!container) return; // Defensive check
+            
             for (let i = 0; i < 40; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');

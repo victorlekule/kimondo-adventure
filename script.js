@@ -3,6 +3,36 @@
    Functions: Header creation, mobile menu toggle
    ============================================ */
 
+// 0. Inject Global Utility Styles
+const globalStyles = document.createElement('style');
+globalStyles.textContent = `
+    /* Line clamp utilities - with vendor prefix support for compatibility */
+    .line-clamp-2 { 
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-clamp: 2;
+    }
+    
+    .line-clamp-3 { 
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-clamp: 3;
+    }
+    
+    .line-clamp-4 { 
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-clamp: 4;
+    }
+`;
+document.head.appendChild(globalStyles);
+
 // 1. Inject Luxury Google Fonts (Playfair Display & Montserrat)
 const fontLink = document.createElement('link');
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap';
@@ -138,6 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
 
 // ============================================
 // SCROLL REVEAL ANIMATION - Used on All Pages
