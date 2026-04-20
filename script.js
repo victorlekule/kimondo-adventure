@@ -144,7 +144,8 @@ function buildHeaderHTML(currentLang = 'en') {
     const desktopLinksHTML = navLinks.map(link => {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const isActive = decodeURIComponent(currentPage) === decodeURIComponent(link.url);
-        const baseClasses = "transition-colors duration-300 text-sm lg:text-base tracking-wide whitespace-nowrap px-3";
+        // FIX: Removed whitespace-nowrap and updated breakpoints to xl
+        const baseClasses = "transition-colors duration-300 text-sm xl:text-base tracking-wide px-2 lg:px-3";
         const stateClasses = isActive
             ? "text-forest font-bold underline underline-offset-4 decoration-2"
             : "text-warm font-medium hover:text-forest";
@@ -174,7 +175,7 @@ return `
         
         <div class="bg-gradient-to-r from-warm to-choco text-white py-2 md:py-3">
             <div class="w-full px-2 lg:px-4 flex flex-row items-center justify-between flex-nowrap">
-                <div class="hidden xl:flex items-center text-xs font-medium tracking-wider text-golden/80 uppercase whitespace-nowrap">
+                <div class="hidden xl:flex items-center text-xs font-medium tracking-wider text-golden/80 uppercase ">
                     <i class="fas fa-globe mr-1"></i> <span data-i18n="tagline">Find your peace, one destination at a time</span>
                 </div>
                 
@@ -215,15 +216,15 @@ return `
                 </a>
             </div>
 
-            <nav class="hidden lg:flex items-center justify-center flex-1 gap-1 xl:gap-4 px-4">
+            <nav class="hidden xl:flex items-center justify-center flex-1 min-w-0 flex-wrap gap-1 xl:gap-2 px-2 lg:px-4">
                 ${desktopLinksHTML}
             </nav>
 
             <div class="flex-shrink-0 flex items-center gap-2">
-                <a href="${bookingLink.url}" class="hidden lg:inline-block bg-golden hover:bg-yellow-500 text-white px-5 lg:px-6 py-2 lg:py-3 rounded-md font-semibold tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 text-sm lg:text-base whitespace-nowrap" data-i18n="${bookingLink.i18n}">
+                <a href="${bookingLink.url}" class="hidden xl:inline-block bg-golden hover:bg-yellow-500 text-white px-5 xl:px-6 py-2 xl:py-3 rounded-md font-semibold tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 text-sm xl:text-base whitespace-nowrap" data-i18n="${bookingLink.i18n}">
                     ${t[bookingLink.i18n]}
                 </a>
-                <button id="mobile-menu-btn" class="lg:hidden text-forest hover:text-golden focus:outline-none p-2">
+                <button id="mobile-menu-btn" class="xl:hidden text-forest hover:text-golden focus:outline-none p-2">
                     <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -231,7 +232,7 @@ return `
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-r border-b border-t border-gray-100 shadow-xl absolute font-sans top-full left-0 w-full sm:w-max rounded-br-2xl overflow-hidden">
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-r border-b border-t border-gray-100 shadow-xl absolute font-sans top-full left-0 w-full sm:w-max rounded-br-2xl overflow-hidden">
             <div class="flex flex-col py-2">
                 ${mobileLinksHTML}
                 <div class="px-4 py-4">
