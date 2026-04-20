@@ -137,6 +137,7 @@ const navLinks = [
 const bookingLink = { name: 'Booking', url: 'booking.html', i18n: 'navBooking' };
 
 // 6. Build Header HTML (to be injected on DOMContentLoaded)
+// 6. Build Header HTML (to be injected on DOMContentLoaded)
 function buildHeaderHTML(currentLang = 'en') {
     const t = translations[currentLang];
 
@@ -144,8 +145,11 @@ function buildHeaderHTML(currentLang = 'en') {
     const desktopLinksHTML = navLinks.map(link => {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const isActive = decodeURIComponent(currentPage) === decodeURIComponent(link.url);
-        // FIX: Removed whitespace-nowrap and updated breakpoints to xl
-        const baseClasses = "transition-colors duration-300 text-sm xl:text-base tracking-wide px-2 lg:px-3";
+        
+        // FIX: Re-added whitespace-nowrap. Shrunk base text size and padding so it fits on 13"/14" Macs.
+        // It will only scale up to text-base and px-3 on massive 2xl screens (1536px+)
+        const baseClasses = "transition-colors duration-300 text-[13px] xl:text-sm 2xl:text-base tracking-wide whitespace-nowrap px-1.5 xl:px-2 2xl:px-3";
+        
         const stateClasses = isActive
             ? "text-forest font-bold underline underline-offset-4 decoration-2"
             : "text-warm font-medium hover:text-forest";
@@ -170,7 +174,7 @@ function buildHeaderHTML(currentLang = 'en') {
         </div>
     `).join('');
 
-return `
+    return `
     <header class="bg-white shadow-md fixed w-full top-0 z-[9999]">
         
         <div class="bg-gradient-to-r from-warm to-choco text-white py-2 md:py-3">
@@ -191,7 +195,7 @@ return `
                     </a>
                     <a href="mailto:hello@kimondoadventures.com" class="hidden md:flex items-center gap-2 hover:text-golden transition-colors group">
                         <i class="fa-solid fa-envelope text-golden text-base group-hover:scale-110 transition-transform"></i>
-                        <span>@kimondoadventures.com</span>
+                        <span>hello@kimondoadventures.com</span>
                     </a>
                 </div>
                 
@@ -216,7 +220,7 @@ return `
                 </a>
             </div>
 
-            <nav class="hidden xl:flex items-center justify-center flex-1 min-w-0 flex-wrap gap-1 xl:gap-2 px-2 lg:px-4">
+            <nav class="hidden xl:flex items-center justify-center flex-1 min-w-0 gap-0.5 2xl:gap-4 px-2">
                 ${desktopLinksHTML}
             </nav>
 
