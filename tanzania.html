@@ -3,58 +3,496 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kimondo Adventure | Tanzania & Zanzibar</title>
+    <title>Tanzania Safaris · Complete Guide | Kimondo Adventures</title>
+    
+    <!-- Tailwind + Custom Fonts & Colors -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom color palette */
+        :root {
+            --forest: #2E7D32;
+            --golden: #F5A623;
+            --choco: #6D3A1F;
+            --turquoise: #00BCD4;
+            --warm: #5D4037;
+            --brand-dark: #0B0C0E;
+            --brand-blue: #0D8ABC;
+            --brand-yellow: #FCEE21;
+            --light-stone: #F7F5F0;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #1E1E1E;
+            background-color: #fff;
+        }
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom utility classes */
+        .bg-forest { background-color: var(--forest); }
+        .text-forest { color: var(--forest); }
+        .bg-golden { background-color: var(--golden); }
+        .text-golden { color: var(--golden); }
+        .border-golden { border-color: var(--golden); }
+        .bg-choco { background-color: var(--choco); }
+        .text-choco { color: var(--choco); }
+        .bg-turquoise { background-color: var(--turquoise); }
+        .text-turquoise { color: var(--turquoise); }
+        .bg-warm { background-color: var(--warm); }
+        .text-warm { color: var(--warm); }
+        .bg-brand-dark { background-color: var(--brand-dark); }
+        .bg-brand-blue { background-color: var(--brand-blue); }
+        .text-brand-blue { color: var(--brand-blue); }
+        .bg-brand-yellow { background-color: var(--brand-yellow); }
+        .bg-stone { background-color: var(--light-stone); }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 30px -12px rgba(0,0,0,0.15);
+        }
+        
+        .category-nav {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255,255,255,0.92);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(145deg, rgba(11,12,14,0.75) 0%, rgba(46,125,50,0.4) 100%);
+        }
+        
+        html { scroll-padding-top: 100px; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 10000;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            max-width: 1000px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+        }
+        .modal-content::-webkit-scrollbar { width: 6px; }
+        .modal-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+    </style>
 </head>
-<body class="bg-light text-warm font-sans antialiased overflow-x-hidden flex flex-col min-h-screen pt-24">
-
+<body class="antialiased">
     <div id="kimondo-header"></div>
 
-    <section id="hero-safari" class="relative min-h-[70vh] md:min-h-[50vh] flex items-center justify-center overflow-hidden w-full pt-24 pb-16">
+<!-- ===== STICKY HEADER ===== -->
+
+
+<main class="pt-20">
+    <!-- ===== HERO SECTION ===== -->
+    <section class="relative h-[70vh] min-h-[550px] flex items-center justify-center overflow-hidden">
+        <img src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=1600" 
+             alt="Serengeti plains" 
+             class="absolute inset-0 w-full h-full object-cover scale-105">
+        <div class="absolute inset-0 hero-gradient"></div>
         
-        <div class="absolute inset-0 z-0 bg-black">
-            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out" alt="Tanzania Safari Landscape" />
-            
-            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-forest/90"></div>
-        </div>
-
-        <div class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10 reveal active">
-            
-            <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
-                <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
-                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Tanzania Mainland</span>
-            </div>
-            
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1]">
-                Experience the <br class="hidden sm:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">Wild Heart of Africa</span>
+        <div class="relative z-10 text-center text-white max-w-5xl px-6">
+            <span class="inline-block bg-golden/90 text-brand-dark text-sm font-bold px-5 py-2 rounded-full mb-6 tracking-wider">
+                TANZANIA • EAST AFRICA
+            </span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold serif leading-tight mb-4">
+                Wild. Untamed. <br><span class="text-golden">Unforgettable.</span>
             </h1>
-            
-            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed mb-12 drop-shadow-md">
-                Embark on an unforgettable journey through the Serengeti, Ngorongoro Crater, and beyond. Witness the majesty of nature up close with our expert guides.
+            <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
+                From the endless plains of the Serengeti to the crater floor of Ngorongoro — hand‑crafted safaris, expert guides, and memories that last a lifetime.
             </p>
-
-            <div class="flex flex-wrap justify-center gap-5">
-                <a href="#safari-packages" class="bg-golden hover:bg-amber-400 text-dark font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_0_20px_rgba(245,166,35,0.4)] transform hover:-translate-y-1">
-                    <i class="fa-solid fa-binoculars text-lg"></i> View Safaris
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#safaris" class="bg-golden hover:bg-amber-500 text-brand-dark font-bold px-8 py-4 rounded-full shadow-lg transition transform hover:scale-105">
+                    Explore All Packages <i class="fas fa-arrow-right ml-2"></i>
                 </a>
-                <a href="#custom-safari" class="bg-white/10 hover:bg-white/20 px-8 py-4 rounded-full transition-all duration-300 text-white flex items-center gap-3 backdrop-blur-md border border-white/20 transform hover:-translate-y-1">
-                    <i class="fa-solid fa-map-location-dot text-lg"></i> Custom Expedition
+                <a href="#contact" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-8 py-4 rounded-full border border-white/40 transition">
+                    Customize My Safari
                 </a>
             </div>
             
-        </div>
-
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block z-10">
-            <div class="w-8 h-12 rounded-full border-2 border-white/30 flex items-center justify-center p-2 backdrop-blur-sm">
-                <div class="w-1 h-3 bg-golden rounded-full"></div>
+            <div class="flex flex-wrap justify-center gap-6 mt-12">
+                <div class="trust-badge flex items-center gap-2 px-5 py-2 rounded-full text-white bg-white/15 backdrop-blur-sm">
+                    <i class="fas fa-star text-golden"></i>
+                    <span>5.0 · 800+ reviews</span>
+                </div>
+                <div class="trust-badge flex items-center gap-2 px-5 py-2 rounded-full text-white bg-white/15 backdrop-blur-sm">
+                    <i class="fas fa-shield-alt text-golden"></i>
+                    <span>Expert guides</span>
+                </div>
+                <div class="trust-badge flex items-center gap-2 px-5 py-2 rounded-full text-white bg-white/15 backdrop-blur-sm">
+                    <i class="fas fa-calendar-check text-golden"></i>
+                    <span>Flexible dates</span>
+                </div>
             </div>
         </div>
-
-        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-forest to-transparent z-0"></div>
     </section>
 
+    <!-- ===== CATEGORY NAVIGATION ===== -->
+    <div id="stickyCategoryNav" class="category-nav sticky top-[72px] z-40 border-b border-gray-200 py-3 px-4">
+        <div class="max-w-7xl mx-auto flex overflow-x-auto gap-2 md:gap-6 justify-start md:justify-center hide-scrollbar">
+            <button data-category="all" class="category-pill whitespace-nowrap px-6 py-2.5 rounded-full bg-forest text-white font-medium text-sm flex items-center gap-2 transition">
+                <i class="fas fa-globe-africa"></i> All Safaris
+            </button>
+            <button data-category="game" class="category-pill whitespace-nowrap px-6 py-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium text-sm flex items-center gap-2 transition">
+                <i class="fas fa-paw"></i> Game Safaris
+            </button>
+            <button data-category="kilimanjaro" class="category-pill whitespace-nowrap px-6 py-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium text-sm flex items-center gap-2 transition">
+                <i class="fas fa-mountain"></i> Kilimanjaro
+            </button>
+            <button data-category="special" class="category-pill whitespace-nowrap px-6 py-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium text-sm flex items-center gap-2 transition">
+                <i class="fas fa-gem"></i> Special Tours
+            </button>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- ===== SAFARIS GRID ===== -->
+    <section id="safaris" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="text-golden font-bold tracking-widest uppercase text-sm">Beyond the Postcard</span>
+                <h2 class="text-4xl md:text-5xl font-bold serif text-forest mt-2 mb-4">Tanzania Safari Collection</h2>
+                <div class="w-20 h-1 bg-golden mx-auto rounded-full"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-5 text-lg">
+                    From iconic game drives to summit adventures — every itinerary is crafted for wonder.
+                </p>
+            </div>
+
+            <div id="safariGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT / CUSTOM ===== -->
+    <section id="contact" class="bg-stone py-16 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-choco font-bold tracking-wider text-sm">TAILOR‑MADE SAFARIS</span>
+            <h2 class="text-3xl md:text-4xl font-bold serif text-forest mt-3 mb-5">Let's Build Your Dream Safari</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">All itineraries are fully customizable. Tell us your dates, budget, and wish list — we build the rest.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:info@kimondoadventures.com" class="bg-forest text-white px-8 py-4 rounded-full font-semibold shadow-md hover:bg-green-800 transition flex items-center gap-2">
+                    <i class="far fa-envelope"></i> info@kimondoadventures.com
+                </a>
+                <a href="tel:+255658840425" class="border-2 border-forest text-forest hover:bg-forest/5 px-8 py-4 rounded-full font-semibold flex items-center gap-2">
+                    <i class="fas fa-phone-alt"></i> +255 65 884 0425
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ===== MODAL FOR SAFARI DETAILS ===== -->
+<div id="safariModal" class="modal" onclick="closeModal()">
+    <div class="modal-content relative" onclick="event.stopPropagation()">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl z-10">&times;</button>
+        <div id="modalBody" class="p-6 md:p-8">
+            <!-- Dynamic content -->
+        </div>
+    </div>
+</div>
+
+
+<script>
+    (function(){
+        "use strict";
+
+        // ---------- COMPLETE SAFARI DATABASE (fully detailed) ----------
+        const safariPackages = [
+            // ========== GAME SAFARIS ==========
+            { id: 1, name: "3-Day Taste of Tanzania Safari — Midrange", category: "game", duration: "3 days", price: "$1,500", location: "Lake Manyara · Ngorongoro · Tarangire", shortDesc: "Three iconic parks in three unforgettable days. Zanzibar ↔ Zanzibar.", image: "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Lake Manyara · Ngorongoro Crater · Tarangire. With our experienced driver-guides, this is a trip of a lifetime.",
+              itinerary: ["Day 1: Zanzibar to Lake Manyara NP, full-day game drive, overnight Lake Manyara Serena Lodge", "Day 2: Ngorongoro Crater floor (5hr game drive), overnight Tarangire Sopa Lodge", "Day 3: Tarangire half-day game drive, flight back to Zanzibar"],
+              included: ["Return domestic flights ZNZ-ARK", "4x4 Land Cruiser (3 days)", "Airport transfers", "Lake Manyara Serena Luxury Lodge (1nt F/B)", "Tarangire Sopa Lodge (1nt F/B)", "All park fees", "Picnic lunches"],
+              notIncluded: ["International flights", "Visa (USD $100 US / $50 other)", "Tips", "Optional activities", "Personal expenses"] },
+              
+            { id: 2, name: "3-Day Tanzania Luxury Safari", category: "game", duration: "3 days", price: "$1,600", location: "Kilimanjaro Airport · Manyara · Tarangire · Ngorongoro", shortDesc: "Luxury lodges and the best of northern Tanzania.", image: "https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Lake Manyara · Tarangire · Ngorongoro Crater. Stay in premium lodges.",
+              itinerary: ["Day 1: Arrival Kilimanjaro Airport, transfer Grand Melia Hotel Arusha (B&B)", "Day 2: Lake Manyara game drive, overnight Lake Manyara Serena Lodge (F/B)", "Day 3: Tarangire full day, overnight Sopa Lodge (F/B)", "Day 4: Ngorongoro Crater 5-6hr tour, return Arusha Grand Melia (B&B)", "Day 5: Departure transfer"],
+              included: ["4x4 Land Cruiser", "Airport transfers", "Grand Melia Hotel Arusha (2nts B&B)", "Lake Manyara Serena Lodge (F/B)", "Tarangire Sopa Lodge (F/B)", "All park fees", "Picnic lunches"],
+              notIncluded: ["International flights", "Visa", "Tips", "Optional activities"] },
+              
+            { id: 3, name: "4-Day Tanzania Luxury Safari", category: "game", duration: "4 days", price: "On request", location: "Serengeti · Ngorongoro Crater", shortDesc: "Serengeti and Ngorongoro in style. Optional flight upgrade.", image: "https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Serengeti · Ngorongoro Crater. Stay at BushTops and Pioneer camps. Optional flight Arusha→Serengeti (+$150).",
+              itinerary: ["Day 1: Arrival Kilimanjaro Airport, Gran Melia Hotel", "Day 2: Arusha to Serengeti, game drive, Serengeti BushTops Luxury Camp (F/B)", "Day 3: Central Serengeti full day, Serengeti Pioneer Luxury Camp", "Day 4: Serengeti to Ngorongoro, The Highland at Ngorongoro", "Day 5: Crater tour, return Arusha, departure (optional Zanzibar flight +$175)"],
+              included: ["4x4 Land Cruiser", "Airport transfers", "All listed accommodation (F/B)", "Professional guide", "All park fees"],
+              notIncluded: ["International flights", "Visa", "Tips", "Optional flight upgrades"] },
+              
+            { id: 4, name: "4-Day Tanzania Safari — Shared Tour", category: "game", duration: "4 days", price: "$680", location: "Zanzibar ↔ Zanzibar · Tarangire · Serengeti · Ngorongoro", shortDesc: "Affordable camping safari with flights from Zanzibar.", image: "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Tarangire · Serengeti · Ngorongoro Crater. Camping accommodation.",
+              itinerary: ["Day 1: Zanzibar to Arusha flight, Tarangire game drive, Fig Tree Campsite", "Day 2: Mto wa Mbu to Serengeti, game drive, Seronera Campsite (F/B)", "Day 3: Central Serengeti full day, Seronera Campsite", "Day 4: Ngorongoro Crater 5hr tour, flight back to Zanzibar"],
+              included: ["Return domestic flights ZNZ-ARK", "4x4 Land Cruiser", "Airport transfers", "Camping accommodation (F/B)", "All park fees", "Picnic lunches"],
+              notIncluded: ["International flights", "Visa", "Tips", "Optional activities"] },
+              
+            { id: 5, name: "3-Day Serengeti & Ngorongoro — Private Tour", category: "game", duration: "3 days", price: "$2,160", location: "Kilimanjaro Airport · Serengeti · Ngorongoro", shortDesc: "Private tour focusing on Serengeti and the crater.", image: "https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Serengeti · Ngorongoro Crater. Private 4x4 and guide.",
+              itinerary: ["Day 0: Arrival Kilimanjaro Airport, Moivaro Lodge Arusha (B&B)", "Day 1: Arusha to Serengeti, game drive, Serengeti Wild Camp (F/B)", "Day 2: Serengeti to Ngorongoro, game drive en route, Ngorongoro Rhino Lodge (F/B)", "Day 3: Ngorongoro Crater 5-6hr tour, return Arusha Ambassador Hotel (B&B)", "Day 4: Departure transfer"],
+              included: ["4x4 Land Cruiser", "All park fees", "Moivaro Lodge (arrival night)", "Serengeti Wild Camp (F/B)", "Ngorongoro Rhino Lodge (F/B)", "Ambassador Hotel (B&B)", "Airport transfers"],
+              notIncluded: ["International flights", "Visa", "Tips"] },
+              
+            { id: 6, name: "8-Day Serengeti Migration Safari — Private", category: "game", duration: "8 days", price: "$2,750", location: "July–August Special · Tarangire · Serengeti North · Ngorongoro", shortDesc: "Best time for wildebeest migration & Mara River crossings.", image: "https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Tarangire · Central & Northern Serengeti · Ngorongoro. Witness the great migration and river crossings.",
+              itinerary: ["Day 1: Arrival Kilimanjaro, Rivertrees Country Inn", "Day 2: Tarangire, Marera Valley Lodge", "Day 3: Serengeti, Serengeti Wild Camp", "Day 4: Central Serengeti, Serengeti Mara River Camp", "Day 5: Northern Serengeti, Africa Safari Serengeti North", "Day 6: Serengeti to Ngorongoro, Ngorongoro Wild Camp", "Day 7: Ngorongoro Crater, return Rivertrees", "Day 8: Departure"],
+              included: ["4x4 Land Cruiser (5 safari days)", "All park fees", "Accommodation as listed (F/B)", "Airport transfers", "Game drives"],
+              notIncluded: ["International flights", "Visa", "Balloon Safari ($546)", "Tips"] },
+              
+            { id: 7, name: "5-Day Budget Safari — Shared Tour", category: "game", duration: "5 days", price: "On request", location: "Manyara · Tarangire · Serengeti · Ngorongoro", shortDesc: "Shared camping safari covering the northern circuit.", image: "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Tarangire, Lake Manyara, Serengeti, Ngorongoro. Camping accommodation.",
+              itinerary: ["Day 1: Arusha to Tarangire, Kizumba Campsite", "Day 2: Lake Manyara, Kizumba Campsite", "Day 3: Lake Manyara to Serengeti, Serengeti Wild Camp", "Day 4: Serengeti to Ngorongoro, Ngorongoro Ang'ata Camp or Rhino Lodge", "Day 5: Ngorongoro Crater, return Arusha (Venice/Ambassador Hotel)"],
+              included: ["4x4 Land Cruiser", "All park fees", "Camping/lodge (as listed)", "Professional guide", "Picnic lunches", "Round-trip airport transfers"],
+              notIncluded: ["International flights", "Visa", "Tips"] },
+              
+            { id: 8, name: "7-Day Flying Parks Luxury Safari", category: "game", duration: "7 days", price: "$5,600", location: "Zanzibar ↔ Zanzibar · Fly between parks", shortDesc: "Zero road fatigue. Maximum wildlife. Fly between Serengeti, Ngorongoro, Tarangire, Manyara.", image: "https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Fly-in luxury safari covering Serengeti, Ngorongoro, Tarangire, Manyara.",
+              itinerary: ["Day 1: Fly Zanzibar to Serengeti, game drive, Serengeti Explore Luxury Lodge", "Day 2: Serengeti full day, Acacia Wildlife Lodge", "Day 3: Northern Serengeti, Four Seasons", "Day 4: Serengeti to Ngorongoro, Serena Lodge", "Day 5: Ngorongoro to Tarangire, Sopa Lodge", "Day 6: Tarangire, Lake Manyara Serena Lodge", "Day 7: Lake Manyara game drive, fly to Zanzibar"],
+              included: ["All domestic flights", "4x4 Land Cruiser", "Luxury lodges (F/B)", "All park fees", "Professional guide", "Airport transfers"],
+              notIncluded: ["International flights", "Visa", "Tips"] },
+              
+            { id: 9, name: "9-Day Photographic Wilderness Safari — Shared", category: "game", duration: "9 days", price: "On request", location: "Serengeti Central · Ndutu · Ngorongoro", shortDesc: "Dedicated photographic 4x4. Local chef at picnic sites.", image: "https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Photographic safari with sunrise/sunset game drives. Designed for photographers.",
+              itinerary: ["Day 1: JRO to Arusha Venice Hotel (B&B)", "Days 2-5: Serengeti Central, Serengeti Rest House/Nyani Camp (F/B)", "Day 6: Ndutu Southern Serengeti, Ndutu Heritage Camp", "Day 7: Ndutu full day, Ndutu Heritage Camp", "Day 8: Ngorongoro Crater, return Arusha Venice Hotel (B&B)", "Day 9: Transfer to JRO"],
+              included: ["Photographic 4x4 jeep (7 days)", "All park fees", "Arusha Venice Hotel (2nts B&B)", "Serengeti Nyani Camp (4nts F/B)", "Ndutu Heritage Camp (2nts F/B)", "Professional driver-guide", "JRO transfers"],
+              notIncluded: ["International flights", "Visa", "Balloon Safari", "Tips"] },
+              
+            { id: 10, name: "10-Day Southern Tanzania Safari", category: "game", duration: "10 days", price: "On request", location: "Nyerere (Selous) · Udzungwa · Ruaha · Mikumi", shortDesc: "Boat safari, walking safari, waterfall hiking. The untouched south.", image: "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Southern circuit: Selous, Udzungwa, Ruaha, Mikumi. Game drives, boat safari, walking safari.",
+              itinerary: ["Day 1: Dar to Nyerere (Selous), boat safari", "Days 2-3: Selous game drives", "Day 4: Selous to Mikumi", "Day 5: Mikumi to Udzungwa hike, return Mikumi", "Day 6: Mikumi to Ruaha", "Days 7-8: Ruaha game drives", "Day 9: Ruaha to Mikumi", "Day 10: Mikumi to Dar es Salaam"],
+              included: ["All transport", "Accommodation (F/B)", "Boat safari", "Walking safari", "Professional guide", "Game drives"],
+              notIncluded: ["International flights", "Visa", "Tips", "Optional Maasai tour"] },
+            
+            // ========== SPECIAL & COMBINATION ==========
+            { id: 20, name: "2-Day Hot Air Balloon Safari (Fly-in)", category: "special", duration: "2 days", price: "$2,600", location: "Zanzibar → Serengeti → Zanzibar", shortDesc: "Sunrise balloon flight over Serengeti + champagne breakfast.", image: "https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Fly from Zanzibar for a balloon safari and luxury overnight. Best time: dry season June-October.",
+              itinerary: ["Day 1: Early flight Zanzibar to Serengeti, afternoon game drive, luxury tented camp", "Day 2: 04:45 pickup, 1hr balloon flight, champagne bush breakfast, final game drive, return flight to Zanzibar"],
+              included: ["Return domestic flights ZNZ-Serengeti", "Hot air balloon flight (1hr)", "Champagne bush breakfast", "Private game drives", "Luxury tented camp (F/B)", "All transfers"],
+              notIncluded: ["International flights", "Visa", "Tips"] },
+              
+            { id: 21, name: "7-Day Honeymoon Budget Safari — Private", category: "special", duration: "7 days", price: "$3,400", location: "Tarangire · Serengeti · Ngorongoro · Manyara", shortDesc: "Budget camping meets luxury finale. Made for two.", image: "https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Private honeymoon safari with mix of camping and luxury lodge (Four Seasons).",
+              itinerary: ["Day 0: Arrival Arusha, Ambassador Hotel", "Day 1: Tarangire, Panorama Campsite", "Day 2: Serengeti, Seronera Campsite", "Day 3: Ndutu Serengeti, camping", "Day 4: Central Serengeti, Four Seasons Luxury Lodge", "Day 5: Leisure / optional balloon, Four Seasons", "Day 6: Ngorongoro Crater, Simba Campsite", "Day 7: Lake Manyara, departure"],
+              included: ["4x4 Land Cruiser", "All park fees", "Accommodation as listed", "Professional guide", "Picnic lunches", "Airport transfers"],
+              notIncluded: ["International flights", "Visa", "Tips", "Balloon safari"] },
+              
+            { id: 22, name: "15-Day Best of Tanzania: Safari + Zanzibar", category: "special", duration: "15 days", price: "$4,850", location: "Tarangire · Manyara · Serengeti · Ngorongoro · Hadzabe · Kilimanjaro · Zanzibar", shortDesc: "Wildlife, culture, mountain, and beach — all in one epic journey.", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Complete Tanzania experience including Hadzabe bushmen and Zanzibar beach.",
+              itinerary: ["Days 1-9: Northern safari (Tarangire, Manyara, Serengeti, Ngorongoro) + Hadzabe Bushmen experience", "Day 10: Kilimanjaro day hike (Marangu)", "Days 11-15: Zanzibar (Stone Town, Nakupenda Beach, Jozani Forest, Menai Bay, North Coast leisure)"],
+              included: ["All transport and transfers", "Accommodation as listed", "Meals as per plan", "Professional guides", "All park fees", "Domestic flight to Zanzibar"],
+              notIncluded: ["International flights", "Visa", "Tips", "Optional activities"] },
+              
+            { id: 23, name: "8-Day Kenya & Tanzania Safari — Private", category: "special", duration: "8 days", price: "On request", location: "Amboseli (Kenya) · Tarangire · Ngorongoro · Serengeti", shortDesc: "Combine Kenya's Amboseli with Tanzania's northern circuit.", image: "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Amboseli (Kilimanjaro views) then Tarangire, Ngorongoro, Serengeti.",
+              itinerary: ["Day 1: Nairobi to Amboseli, Sentrim Amboseli Lodge", "Day 2: Amboseli full day", "Day 3: Amboseli to Arusha, Africa Safari Arusha", "Day 4: Tarangire, Africa Safari Lake Manyara", "Day 5: Ngorongoro Crater, Ngorongoro Safari Lodge", "Day 6: Serengeti, Kati Kati Tented Lodge", "Day 7: Serengeti full day, Mara Kati Kati", "Day 8: Serengeti to Arusha / extensions"],
+              included: ["4x4 Land Cruiser", "7 nights accommodation (F/B)", "All park fees", "Professional driver-guide", "Airport transfers", "Drinking water"],
+              notIncluded: ["International flights", "Tips", "Visa", "Personal items"] },
+              
+            { id: 24, name: "12-Day Kenya, Tanzania & Zanzibar Beach Holiday", category: "special", duration: "12 days", price: "$5,500", location: "Masai Mara · Serengeti · Ngorongoro · Zanzibar", shortDesc: "Big Five safari plus Zanzibar beach relaxation.", image: "https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Masai Mara, Serengeti, Ngorongoro, then Zanzibar with Safari Blue and diving.",
+              itinerary: ["Day 1: Arrival Nairobi, After 40 Hotel", "Day 2: Nairobi to Masai Mara, Ashnil Mara Camp", "Day 3: Masai Mara full day", "Day 4: Masai Mara to Serengeti, Serengeti Wild Camp", "Day 5: Serengeti full day", "Day 6: Serengeti to Ngorongoro, Ngorongoro Safari Lodge", "Day 7: Ngorongoro Crater, fly to Zanzibar, Zanzibar Spice Hotel", "Day 8: Stone Town & Prison Island", "Day 9: Safari Blue", "Day 10: Scuba Diving (2 dives)", "Day 11: Mnemba Island dolphins & snorkelling", "Day 12: Departure"],
+              included: ["All transport and transfers", "11 nights accommodation", "Meals as specified", "Professional guides", "Park fees", "Safari Blue", "Scuba diving (2 dives)", "Dolphin & snorkelling trip"],
+              notIncluded: ["International flights", "Tips", "Visa", "Personal items"] },
+            
+            // ========== KILIMANJARO ROUTES ==========
+            { id: 30, name: "Marangu Route - 5 Days", category: "kilimanjaro", duration: "5 days", price: "$1,500", location: "Kilimanjaro · 'Coca-Cola' route", shortDesc: "Hut accommodation. Oldest and most popular path. Extra acclimatisation day available.", image: "https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Marangu Route: only route with huts. 5-day climb. Huts: Mandara (2,720m), Horombo (3,720m), Kibo (4,720m).",
+              itinerary: ["Day 1: Marangu Gate (1,820m) → Mandara Hut (2,720m) 8km/4-5hrs", "Day 2: Mandara Hut → Horombo Hut (3,720m) 12.5km/4-6hrs", "Day 3: Horombo Hut → Kibo Hut (4,720m) 9.5km/5-6hrs", "Day 4: Kibo Hut → Uhuru Peak (5,895m) → Horombo Hut (start midnight, 21.5km total)", "Day 5: Horombo Hut → Marangu Gate 18km/6hrs"],
+              included: ["Park fees", "Rescue fees", "Conservation fee", "Camping/hut fees", "Professional guides, porters, cook", "3 meals daily on mountain", "Purified water", "Mountain tents, mess tent, sleeping mats", "Pulse oximeter, emergency oxygen", "2 nights hotel (before/after)", "Airport transfers"],
+              notIncluded: ["International flights", "Visa", "Personal gear", "Sleeping bag", "Laundry", "Tips for crew", "Travel insurance"] },
+              
+            { id: 31, name: "Machame Route - 6 Days", category: "kilimanjaro", duration: "6 days", price: "$2,100", location: "Kilimanjaro · 'Whiskey' route", shortDesc: "Most scenic route. Tent camping. Higher success rate. For physically fit trekkers.", image: "https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Machame Route: 6 days, scenic, camping. Descent via Mweka.",
+              itinerary: ["Day 1: Machame Gate (1,830m) → Machame Camp (3,050m) 11km/5-6hrs", "Day 2: Machame Camp → Shira Camp (3,850m) 5km/4-5hrs", "Day 3: Shira Camp → Lava Tower (4,650m) → Barranco Camp (4,000m) 10km/5-6hrs", "Day 4: Barranco Camp → Barafu Camp (4,700m) 9km/6-8hrs", "Day 5: Barafu → Uhuru Peak (5,895m) → Mweka Camp (3,090m) summit midnight-2am", "Day 6: Mweka Camp → Mweka Gate (1,680m) 10km/3-4hrs"],
+              included: ["All park & rescue fees", "Camping equipment", "Professional guides, porters, cook", "3 meals daily", "Purified water", "Pulse oximeter, oxygen", "2 nights hotel", "Airport transfers"],
+              notIncluded: ["International flights", "Visa", "Personal gear", "Tips"] },
+              
+            { id: 32, name: "Lemosho Route - 7 Days", category: "kilimanjaro", duration: "7 days", price: "$2,100", location: "Kilimanjaro · Best acclimatisation", shortDesc: "Gold standard. Highest success rates. Western approach.", image: "https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Lemosho Route: 7 days, best acclimatisation.",
+              itinerary: ["Day 0: Arrival, hotel briefing", "Day 1: Lemosho Gate (2,100m) → Big Tree Camp (2,650m) 7km", "Day 2: Big Tree → Shira 2 Camp (3,850m) 17km", "Day 3: Shira 2 → Lava Tower → Barranco Camp (3,900m) 10km", "Day 4: Barranco → Karanga Camp (3,995m) 5.5km", "Day 5: Karanga → Barafu Camp (4,672m) 4km", "Day 6: Barafu → Uhuru Peak → Mweka Camp (3,100m) 17km", "Day 7: Mweka Camp → Mweka Gate 10km"],
+              included: ["Park fees", "Camping", "Guides/porters", "Meals", "Oxygen", "2 nights hotel", "Transfers"],
+              notIncluded: ["Flights", "Visa", "Gear", "Tips"] },
+              
+            { id: 33, name: "Shira Route - 6 Days", category: "kilimanjaro", duration: "6 days", price: "$1,800", location: "Kilimanjaro · Remote western approach", shortDesc: "Fewer crowds. Spectacular Shira Plateau views. For experienced hikers.", image: "https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Shira Route: 6 days, starts at higher altitude.",
+              itinerary: ["Day 1: Shira Gate (1,830m) → Shira 2 Camp (3,850m) 8km/4-5hrs", "Day 2: Shira 2 → Lava Tower → Barranco Camp 10km/5-6hrs", "Day 3: Barranco → Karanga Camp 5km/3-4hrs", "Day 4: Karanga → Barafu Camp 4km/3-4hrs", "Day 5: Barafu → Uhuru Peak → Mweka Camp", "Day 6: Mweka Camp → Mweka Gate"],
+              included: ["Park fees", "Camping", "Guides/porters", "Meals", "Oxygen", "Hotel nights", "Transfers"],
+              notIncluded: ["Flights", "Visa", "Gear"] },
+              
+            { id: 34, name: "Umbwe Route - 6 Days", category: "kilimanjaro", duration: "6 days", price: "$1,800", location: "Kilimanjaro · Steepest and most direct", shortDesc: "Most challenging. For strong hikers confident in rapid altitude acclimatisation.", image: "https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Umbwe Route: steep, direct, low traffic. IMAX film route.",
+              itinerary: ["Day 1: Umbwe Gate (1,800m) → Umbwe Cave Camp (2,850m) 10km/5-7hrs", "Day 2: Umbwe Cave → Barranco Camp (3,915m) 7km/6hrs", "Day 3: Barranco → Karanga Camp 5km/4-5hrs", "Day 4: Karanga → Barafu Camp 4km/4-5hrs", "Day 5: Barafu → Uhuru Peak → Mweka Camp", "Day 6: Mweka Camp → Mweka Gate"],
+              included: ["Park fees", "Camping", "Guides/porters", "Meals", "Oxygen", "Hotel", "Transfers"],
+              notIncluded: ["Flights", "Visa"] },
+              
+            { id: 35, name: "Rongai Route - 6 Days", category: "kilimanjaro", duration: "6 days", price: "$1,800", location: "Kilimanjaro · Northern approach", shortDesc: "Least crowded. Best wildlife sightings on the mountain. Remote feel.", image: "https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Rongai Route: 6 days, northern side, descent via Marangu.",
+              itinerary: ["Day 1: Rongai Gate → Simba Camp 6km/3-4hrs", "Day 2: First Cave → Kikelewa Camp 9km/6-7hrs", "Day 3: Kikelewa → Mawenzi Tarn Camp 6km/4hrs", "Day 4: Mawenzi Tarn → Kibo Camp 4km/3hrs", "Day 5: Kibo → Uhuru Peak → Horombo Hut", "Day 6: Horombo Hut → Marangu Gate 20km/5-7hrs"],
+              included: ["Park fees", "Camping", "Guides/porters", "Meals", "Oxygen", "Hotel", "Transfers"],
+              notIncluded: ["Flights"] },
+              
+            { id: 36, name: "Umbwe Western Breach - 6 Days", category: "kilimanjaro", duration: "6 days", price: "$1,800", location: "Kilimanjaro · Crater sleep", shortDesc: "Sleep inside Kilimanjaro's inner crater. One of only a few hundred people who do this each year.", image: "https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "Umbwe via Western Breach. Overnight in crater.",
+              itinerary: ["Day 1: Umbwe Gate → Umbwe Cave Camp", "Day 2: Umbwe Cave → Barranco Camp", "Day 3: Barranco → Lava Tower → Arrow Glacier Camp", "Day 4: Arrow Glacier → Crater Floor (5,700m)", "Day 5: Crater → Uhuru Peak → Mweka Camp", "Day 6: Mweka Camp → Mweka Gate"],
+              included: ["Park fees", "Camping", "Special permits", "Guides/porters", "Meals", "Hotel", "Transfers"],
+              notIncluded: ["Flights"] },
+              
+            { id: 37, name: "Northern Circuit - 10 Days", category: "kilimanjaro", duration: "10 days", price: "$3,000", location: "Kilimanjaro · Full Northern Circuit", shortDesc: "Ultimate Kilimanjaro experience. Highest success rates on the mountain.", image: "https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "10-day Northern Circuit, best acclimatisation, traverses entire northern slopes.",
+              itinerary: ["Day 1: Arrival Springlands Hotel", "Day 2: Londorossi Gate → Mkubwa Camp", "Day 3: Mkubwa → Shira 1", "Day 4: Shira 1 → Moir Camp", "Day 5: Moir → Buffalo/Pofu Camp", "Day 6: Pofu → Kikelewa/Third Caves", "Day 7: Third Caves → Mawenzi Tarn", "Day 8: Mawenzi Tarn → Outward Bound Camp", "Day 9: Outward Bound → Uhuru Peak → Millennium Camp", "Day 10: Millennium → Mweka Gate"],
+              included: ["All park fees", "Camping", "Guides/porters", "Meals", "Oxygen", "2 nights hotel", "Transfers"],
+              notIncluded: ["Flights", "Visa"] },
+              
+            { id: 38, name: "Mount Meru Trek - 3 Days", category: "kilimanjaro", duration: "3 days", price: "$900", location: "Mount Meru · 4,566m", shortDesc: "Perfect acclimatisation before Kilimanjaro, or a standalone adventure.", image: "https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=600",
+              fullDesc: "3-day Mount Meru trek. Tanzania's second highest peak.",
+              itinerary: ["Day 1: Momella Gate to Mariakamba Hut (2,516m) 10km/4hrs", "Day 2: Mariakamba to Saddle Hut (3,566m) 4km/3-4hrs, sunset walk Little Meru", "Day 3: Summit Socialist Peak (4,566m) 2am start, descend to Momella Gate 14km/6-8hrs, transfer Arusha"],
+              included: ["All park & rescue fees", "Mountain equipment", "Professional guides, porters, cook", "3 meals daily", "2 nights hotel (before/after)", "Airport transfers", "Sleeping mattress", "Water"],
+              notIncluded: ["Visa ($50)", "Personal expenses", "Tips ($15/day guide, $10/day porter)"] }
+        ];
+
+        // Render grid
+        function renderSafaris(filterCategory = 'all') {
+            const grid = document.getElementById('safariGrid');
+            const filtered = filterCategory === 'all' ? safariPackages : safariPackages.filter(p => p.category === filterCategory);
+            
+            let html = '';
+            filtered.forEach(pkg => {
+                html += `
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden card-hover flex flex-col">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="${pkg.image}" alt="${pkg.name}" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-forest/90 text-white text-xs px-3 py-1 rounded-full">${pkg.duration}</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold serif text-forest leading-tight mb-1">${pkg.name}</h3>
+                            <p class="text-golden font-bold text-lg mb-1">${pkg.price} <span class="text-xs text-gray-400 font-normal">/ person</span></p>
+                            <p class="text-gray-500 text-sm mb-2"><i class="fas fa-map-marker-alt mr-1 text-golden"></i>${pkg.location}</p>
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2">${pkg.shortDesc}</p>
+                            <div class="mt-auto flex gap-2">
+                                <button onclick="openModal(${pkg.id})" class="flex-1 bg-forest hover:bg-green-800 text-white font-semibold py-2.5 rounded-lg text-sm transition">
+                                    View Details
+                                </button>
+                                <button onclick="addToBooking('${pkg.name}')" class="border border-forest text-forest hover:bg-forest/5 px-4 py-2.5 rounded-lg text-sm">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            grid.innerHTML = html || '<p class="col-span-full text-center text-gray-500 py-12">No safaris found in this category.</p>';
+        }
+
+        // Modal functions
+        window.openModal = function(id) {
+            const pkg = safariPackages.find(p => p.id === id);
+            if (!pkg) return;
+            
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="space-y-5">
+                    <div>
+                        <span class="text-golden text-sm font-bold uppercase tracking-wider">${pkg.duration} · ${pkg.category === 'game' ? 'Game Safari' : pkg.category === 'kilimanjaro' ? 'Kilimanjaro Climb' : 'Special Tour'}</span>
+                        <h2 class="text-3xl font-bold serif text-forest mt-1">${pkg.name}</h2>
+                        <p class="text-2xl font-bold text-golden mt-2">${pkg.price} <span class="text-sm font-normal text-gray-500">per person</span></p>
+                    </div>
+                    <p class="text-gray-700">${pkg.fullDesc}</p>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-forest flex items-center gap-2"><i class="fas fa-list-check text-golden"></i> Itinerary Highlights</h4>
+                            <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                                ${pkg.itinerary.map(i => `<li class="flex gap-2"><i class="fas fa-chevron-right text-golden text-xs mt-1"></i>${i}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-green-50 p-4 rounded-xl">
+                                <p class="font-bold text-green-700"><i class="fas fa-check-circle mr-1"></i> Included</p>
+                                <ul class="text-sm mt-1 list-disc list-inside">${pkg.included.map(i => `<li>${i}</li>`).join('')}</ul>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded-xl">
+                                <p class="font-bold text-red-700"><i class="fas fa-times-circle mr-1"></i> Not Included</p>
+                                <ul class="text-sm mt-1 list-disc list-inside">${pkg.notIncluded.map(i => `<li>${i}</li>`).join('')}</ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-3 pt-4 border-t">
+                        <button onclick="closeModal()" class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Close</button>
+                        <button onclick="addToBooking('${pkg.name}'); closeModal()" class="bg-golden hover:bg-amber-500 text-brand-dark font-bold px-8 py-2 rounded-lg shadow">Add to Enquiry</button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('safariModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeModal = function() {
+            document.getElementById('safariModal').classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        window.addToBooking = function(name) {
+            alert(`"${name}" added to your enquiry! (Demo)`);
+        };
+
+        // Category filtering
+        document.querySelectorAll('.category-pill').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.category-pill').forEach(b => {
+                    b.classList.remove('bg-forest', 'text-white');
+                    b.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                this.classList.remove('bg-gray-100', 'text-gray-700');
+                this.classList.add('bg-forest', 'text-white');
+                
+                const cat = this.dataset.category;
+                renderSafaris(cat);
+            });
+        });
+
+        // Initial render
+        renderSafaris('all');
+
+        // Close modal on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Click outside modal to close
+        document.getElementById('safariModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+    })();
+</script>
+
+
+<style>
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .trust-badge { background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); }
+</style>
+
+<script src="script.js"></script>
+
 </body>
 </html>

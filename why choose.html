@@ -3,25 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kimondo Adventure | Tanzania & Zanzibar</title>
+    <title>Why Choose Us | Kimondo Adventures · Tours, Beaches & Gift Shop</title>
+    
+    <!-- Tailwind + Custom Fonts & Colors -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bg-light text-warm font-sans antialiased overflow-x-hidden flex flex-col min-h-screen pt-24">
-
-    <div id="kimondo-header"></div>
-
-    <section class="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden w-full pt-24 pb-16">
+    
+    <style>
+        /* === BRAND COLOR PALETTE === */
+        :root {
+            --forest: #2E7D32;
+            --golden: #F5A623;
+            --choco: #6D3A1F;
+            --turquoise: #00BCD4;
+            --warm: #5D4037;
+            --brand-dark: #0B0C0E;
+            --brand-blue: #0D8ABC;
+            --brand-yellow: #FCEE21;
+            --light-stone: #F7F5F0;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #1E1E1E;
+            background-color: #fff;
+        }
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .bg-forest { background-color: var(--forest); }
+        .text-forest { color: var(--forest); }
+        .bg-golden { background-color: var(--golden); }
+        .text-golden { color: var(--golden); }
+        .border-golden { border-color: var(--golden); }
+        .bg-choco { background-color: var(--choco); }
+        .text-choco { color: var(--choco); }
+        .bg-turquoise { background-color: var(--turquoise); }
+        .text-turquoise { color: var(--turquoise); }
+        .bg-warm { background-color: var(--warm); }
+        .text-warm { color: var(--warm); }
+        .bg-brand-dark { background-color: var(--brand-dark); }
+        .bg-brand-blue { background-color: var(--brand-blue); }
+        .text-brand-blue { color: var(--brand-blue); }
+        .bg-brand-yellow { background-color: var(--brand-yellow); }
+        .bg-stone { background-color: var(--light-stone); }
         
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 30px -12px rgba(0,0,0,0.15);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(145deg, rgba(11,12,14,0.85) 0%, rgba(46,125,50,0.4) 100%);
+        }
+        
+        .service-pillar-card {
+            border-left: 4px solid var(--golden);
+            transition: all 0.3s ease;
+        }
+        .service-pillar-card:hover {
+            border-left-color: var(--turquoise);
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- ===== STICKY HEADER ===== -->
+<div id="kimondo-header"></div>
+
+<main class="pt-20">
+    <!-- ===== HERO SECTION ===== -->
+    <section class="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden w-full">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out" alt="African Safari Landscape">
-            
-            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-forest/90"></div>
+            <img src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=2000" 
+                 class="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out" 
+                 alt="Zanzibar beach paradise">
+            <div class="absolute inset-0 hero-gradient"></div>
         </div>
 
-        <div class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10 reveal active">
-            
+        <div class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10">
             <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
                 <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
                 <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">The Kimondo Difference</span>
@@ -33,168 +97,226 @@
             </h1>
             
             <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed mb-10 drop-shadow-md">
-                We don’t just book tours; we curate memories. Discover why thousands of travelers trust Kimondo Adventures to turn their dream vacations into reality.
+                We don't just book tours; we curate memories. Discover why thousands of travelers trust Kimondo Adventures for tours, beaches, and unique gifts.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
-                <div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/10 transition-colors">
-                    <div class="w-8 h-8 rounded-full bg-golden/20 flex items-center justify-center text-golden">
-                        <i class="fa-solid fa-star text-sm"></i>
-                    </div>
+                <div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg">
+                    <div class="w-8 h-8 rounded-full bg-golden/20 flex items-center justify-center text-golden"><i class="fa-solid fa-star"></i></div>
                     <span class="text-xs md:text-sm font-bold text-white uppercase tracking-wider">5-Star Rated</span>
                 </div>
-                
-                <div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/10 transition-colors">
-                    <div class="w-8 h-8 rounded-full bg-golden/20 flex items-center justify-center text-golden">
-                        <i class="fa-solid fa-map-location-dot text-sm"></i>
-                    </div>
+                <div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg">
+                    <div class="w-8 h-8 rounded-full bg-golden/20 flex items-center justify-center text-golden"><i class="fa-solid fa-map-location-dot"></i></div>
                     <span class="text-xs md:text-sm font-bold text-white uppercase tracking-wider">Local Experts</span>
                 </div>
-                
-                <div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/10 transition-colors">
-                    <div class="w-8 h-8 rounded-full bg-golden/20 flex items-center justify-center text-golden">
-                        <i class="fa-solid fa-shield-halved text-sm"></i>
-                    </div>
+                <div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg">
+                    <div class="w-8 h-8 rounded-full bg-golden/20 flex items-center justify-center text-golden"><i class="fa-solid fa-shield-halved"></i></div>
                     <span class="text-xs md:text-sm font-bold text-white uppercase tracking-wider">Safe & Secure</span>
                 </div>
             </div>
 
-            <div class="mt-2 animate-bounce">
+            <div class="animate-bounce mt-2">
                 <div class="w-8 h-12 rounded-full border-2 border-white/30 flex items-center justify-center p-2 backdrop-blur-sm">
                     <div class="w-1 h-3 bg-golden rounded-full"></div>
                 </div>
             </div>
-            
         </div>
     </section>
 
-<section class="py-20 md:py-32 bg-[#fcfbf9] relative overflow-hidden">
-        
+    <!-- ===== WHY CHOOSE US FEATURES GRID (Core values) ===== -->
+    <section class="py-20 md:py-32 bg-stone relative overflow-hidden">
         <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-golden/5 rounded-full blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
         <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-turquoise/5 rounded-full blur-[150px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            
             <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
-                
+                <!-- Left sticky intro -->
                 <div class="lg:w-5/12 relative">
                     <div class="lg:sticky lg:top-32 space-y-8">
-                        
                         <div>
-                            <h2 class="text-sm uppercase tracking-widest text-golden font-bold font-sans mb-4">Why Choose Kimondo Adventures</h2>
+                            <h2 class="text-sm uppercase tracking-widest text-golden font-bold mb-4">Why Choose Kimondo Adventures</h2>
                             <h3 class="text-4xl md:text-5xl font-serif font-bold text-forest leading-tight mb-6">
                                 More Than a Trip — <br>
-                                <span class="text-golden italic font-light">It’s an Experience</span>
+                                <span class="text-golden italic font-light">It's an Experience</span>
                             </h3>
                             <div class="w-16 h-1 bg-golden mb-6 rounded-full"></div>
-                            <p class="text-lg text-warm/80 font-sans leading-relaxed">
-                                At Kimondo Adventures, we go beyond standard tours. We focus on delivering memorable, personalized, and high-quality experiences that stand out.
+                            <p class="text-lg text-warm/80 leading-relaxed">
+                                At Kimondo Adventures, we go beyond standard tours. We focus on delivering memorable, personalized, and high-quality experiences that stand out — whether you're exploring, relaxing on the beach, or shopping for unique souvenirs.
                             </p>
                         </div>
 
                         <div class="bg-white p-8 rounded-3xl shadow-lg border-l-4 border-golden relative overflow-hidden mt-10">
                             <div class="absolute -right-10 -top-10 w-32 h-32 bg-golden/10 rounded-full blur-2xl"></div>
-                            
                             <h4 class="text-xl font-serif font-bold text-choco mb-3 relative z-10">Ready to Experience the Difference?</h4>
                             <p class="text-sm text-warm/70 mb-6 relative z-10">
                                 Book with Kimondo Adventures today and let us create something unforgettable for you.
                             </p>
-                            <a href="#book" class="inline-flex items-center justify-center w-full px-6 py-3.5 bg-golden hover:bg-yellow-500 text-dark font-bold font-sans rounded-full shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative z-10">
-                                Start Your Journey
+                            <a href="#contact" class="inline-flex items-center justify-center w-full px-6 py-3.5 bg-golden hover:bg-amber-500 text-brand-dark font-bold rounded-full shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative z-10">
+                                Start Your Journey <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
-                        
                     </div>
                 </div>
 
-
-
-<div class="lg:w-7/12">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-        
-        <div class="bg-white p-8 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:border-turquoise/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-            <div class="mb-6 group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-map-location-dot text-4xl text-turquoise"></i>
-            </div>
-            <h4 class="text-xl font-serif font-bold text-forest mb-3">Local Expertise You Can Trust</h4>
-            <p class="text-warm/70 text-sm leading-relaxed font-sans">
-                We know Zanzibar and Tanzania inside out. From hidden gems to must-see destinations, we guide you like a local — because we are locals.
-            </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:border-golden/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-            <div class="mb-6 group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-bullseye text-4xl text-golden"></i>
-            </div>
-            <h4 class="text-xl font-serif font-bold text-forest mb-3">Personalized Experiences</h4>
-            <p class="text-warm/70 text-sm leading-relaxed font-sans">
-                No two travelers are the same. We tailor every experience to match your style — whether you want adventure, relaxation, romance, or content creation.
-            </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:border-forest/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-            <div class="mb-6 group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-star text-4xl text-forest"></i>
-            </div>
-            <h4 class="text-xl font-serif font-bold text-forest mb-3">Premium Quality Service</h4>
-            <p class="text-warm/70 text-sm leading-relaxed font-sans">
-                We prioritize professionalism, comfort, and attention to detail to ensure every moment of your journey is smooth and enjoyable.
-            </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:border-turquoise/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-            <div class="mb-6 group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-camera text-4xl text-turquoise"></i>
-            </div>
-            <h4 class="text-xl font-serif font-bold text-forest mb-3">Perfect for Memories & Content</h4>
-            <p class="text-warm/70 text-sm leading-relaxed font-sans">
-                Our experiences are designed not only for fun but also for stunning photos and videos — ideal for capturing unforgettable moments.
-            </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:border-golden/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-            <div class="mb-6 group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-handshake text-4xl text-golden"></i>
-            </div>
-            <h4 class="text-xl font-serif font-bold text-forest mb-3">Reliable & Friendly Team</h4>
-            <p class="text-warm/70 text-sm leading-relaxed font-sans">
-                From your first message to the end of your experience, our team is responsive, supportive, and committed to your satisfaction.
-            </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:border-forest/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-            <div class="mb-6 group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-wallet text-4xl text-forest"></i>
-            </div>
-            <h4 class="text-xl font-serif font-bold text-forest mb-3">Transparent & Fair Pricing</h4>
-            <p class="text-warm/70 text-sm leading-relaxed font-sans">
-                What you see is what you get — quality experiences at honest prices without any hidden surprises.
-            </p>
-        </div>
-
-        <div class="sm:col-span-2 bg-gradient-to-br from-forest to-[#1b4d1e] p-8 md:p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 relative overflow-hidden text-white mt-2">
-            <div class="absolute top-0 right-0 w-40 h-40 bg-golden/20 rounded-full blur-3xl pointer-events-none"></div>
-            
-            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 relative z-10">
-                <div class="flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <i class="fa-solid fa-shield-check text-5xl text-white"></i>
+                <!-- Right features grid -->
+                <div class="lg:w-7/12">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-turquoise/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
+                            <div class="mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-map-location-dot text-4xl text-turquoise"></i></div>
+                            <h4 class="text-xl font-serif font-bold text-forest mb-3">Local Expertise You Can Trust</h4>
+                            <p class="text-warm/70 text-sm leading-relaxed">We know Zanzibar and Tanzania inside out. From hidden gems to must-see destinations, we guide you like a local — because we are locals.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-golden/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
+                            <div class="mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-bullseye text-4xl text-golden"></i></div>
+                            <h4 class="text-xl font-serif font-bold text-forest mb-3">Personalized Experiences</h4>
+                            <p class="text-warm/70 text-sm leading-relaxed">No two travelers are the same. We tailor every experience to match your style — adventure, relaxation, romance, or content creation.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-forest/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
+                            <div class="mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-star text-4xl text-forest"></i></div>
+                            <h4 class="text-xl font-serif font-bold text-forest mb-3">Premium Quality Service</h4>
+                            <p class="text-warm/70 text-sm leading-relaxed">We prioritize professionalism, comfort, and attention to detail to ensure every moment of your journey is smooth and enjoyable.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-turquoise/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
+                            <div class="mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-camera text-4xl text-turquoise"></i></div>
+                            <h4 class="text-xl font-serif font-bold text-forest mb-3">Perfect for Memories & Content</h4>
+                            <p class="text-warm/70 text-sm leading-relaxed">Our experiences are designed not only for fun but also for stunning photos and videos — ideal for capturing unforgettable moments.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-golden/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
+                            <div class="mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-handshake text-4xl text-golden"></i></div>
+                            <h4 class="text-xl font-serif font-bold text-forest mb-3">Reliable & Friendly Team</h4>
+                            <p class="text-warm/70 text-sm leading-relaxed">From your first message to the end of your experience, our team is responsive, supportive, and committed to your satisfaction.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:border-forest/30 hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
+                            <div class="mb-6 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-wallet text-4xl text-forest"></i></div>
+                            <h4 class="text-xl font-serif font-bold text-forest mb-3">Transparent & Fair Pricing</h4>
+                            <p class="text-warm/70 text-sm leading-relaxed">What you see is what you get — quality experiences at honest prices without any hidden surprises.</p>
+                        </div>
+                        <div class="sm:col-span-2 bg-gradient-to-br from-forest to-[#1b4d1e] p-8 md:p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 relative overflow-hidden text-white mt-2">
+                            <div class="absolute top-0 right-0 w-40 h-40 bg-golden/20 rounded-full blur-3xl pointer-events-none"></div>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 relative z-10">
+                                <div class="flex-shrink-0 group-hover:scale-110 transition-transform duration-300"><i class="fa-solid fa-shield-check text-5xl text-white"></i></div>
+                                <div>
+                                    <h4 class="text-2xl font-serif font-bold text-white mb-2">Trusted by Travelers</h4>
+                                    <p class="text-green-50 text-sm md:text-base leading-relaxed max-w-xl">We've built our reputation through happy clients and unforgettable experiences — and we're ready to do the same for you.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-2xl font-serif font-bold text-white mb-2">Trusted by Travelers</h4>
-                    <p class="text-green-50 text-sm md:text-base leading-relaxed font-sans max-w-xl">
-                        We’ve built our reputation through happy clients and unforgettable experiences — and we’re ready to do the same for you.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
             </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <!-- ===== SERVICE PILLARS: TOURS · BEACHES · GIFT SHOP ===== -->
+    <section class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-14">
+                <span class="text-golden font-bold tracking-widest uppercase text-sm">What We Offer</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-forest mt-3 mb-4">Three Ways to Experience Kimondo</h2>
+                <div class="w-20 h-1 bg-golden mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
+                <!-- Tours -->
+                <div class="bg-stone rounded-3xl p-8 shadow-md card-hover service-pillar-card">
+                    <div class="w-16 h-16 rounded-2xl bg-turquoise/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-compass text-3xl text-turquoise"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-forest mb-3">Curated Tours & Safaris</h3>
+                    <p class="text-warm/70 mb-5 leading-relaxed">From Stone Town walks to Serengeti migrations — our tours are led by expert guides who bring each destination to life. We handle every detail so you can immerse yourself in the adventure.</p>
+                    <ul class="space-y-2 text-sm text-warm/80 mb-6">
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-forest mt-1"></i><span>Private & small group options</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-forest mt-1"></i><span>Customizable itineraries</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-forest mt-1"></i><span>All-inclusive packages available</span></li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-forest font-semibold hover:text-golden transition gap-1">Explore Tours <i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+
+                <!-- Beaches -->
+                <div class="bg-stone rounded-3xl p-8 shadow-md card-hover service-pillar-card">
+                    <div class="w-16 h-16 rounded-2xl bg-golden/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-umbrella-beach text-3xl text-golden"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-forest mb-3">Beach & Ocean Experiences</h3>
+                    <p class="text-warm/70 mb-5 leading-relaxed">Zanzibar's turquoise waters are our playground. Enjoy sandbank picnics, sunset dhows, snorkeling, or simply relax on pristine beaches — we know the best spots.</p>
+                    <ul class="space-y-2 text-sm text-warm/80 mb-6">
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-forest mt-1"></i><span>Nakupenda Sandbank & Safari Blue</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-forest mt-1"></i><span>Private beach setups & romance packages</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-forest mt-1"></i><span>Water sports & dolphin tours</span></li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-forest font-semibold hover:text-golden transition gap-1">Discover Beaches <i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+
+                <!-- Gift Shop -->
+                <div class="bg-stone rounded-3xl p-8 shadow-md card-hover service-pillar-card">
+                    <div class="w-16 h-16 rounded-2xl bg-choco/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-gift text-3xl text-choco"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-forest mb-3">Kimondo Gift Shop</h3>
+                    <p class="text-warm/70 mb-5 leading-relaxed">Take a piece of Tanzania home. Our curated gift shop features authentic Maasai crafts, Zanzibar spices, handmade jewelry, and Kimondo branded merchandise — perfect souvenirs and gifts.</p>
+                    <ul class="space-y-2 text-sm text-warm/80 mb-6">
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-forest mt-1"></i><span>Ethically sourced local crafts</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-forest mt-1"></i><span>Custom gift wrapping & shipping</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-forest mt-1"></i><span>Exclusive Kimondo apparel</span></li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-forest font-semibold hover:text-golden transition gap-1">Shop Gifts <i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS + STATS ===== -->
+    <section class="py-16 bg-forest text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-serif font-bold">What Our Guests Say</h3>
+                <div class="w-16 h-1 bg-golden mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm p-7 rounded-2xl">
+                    <div class="text-golden mb-3">★★★★★</div>
+                    <p class="italic mb-4">"Kimondo made our honeymoon perfect. The beach dinner setup was magical and the safari guide was incredibly knowledgeable."</p>
+                    <p class="font-semibold">— James & Aisha</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-7 rounded-2xl">
+                    <div class="text-golden mb-3">★★★★★</div>
+                    <p class="italic mb-4">"I bought gifts for my whole family from their shop — beautiful quality and authentic. Plus the Stone Town tour was a highlight."</p>
+                    <p class="font-semibold">— Michael T.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-7 rounded-2xl">
+                    <div class="text-golden mb-3">★★★★★</div>
+                    <p class="italic mb-4">"Everything was seamless. The team is responsive and friendly. We'll definitely book again next year."</p>
+                    <p class="font-semibold">— Olivia K.</p>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 text-center">
+                <div><div class="text-4xl font-serif font-bold text-golden">5+</div><div class="text-sm uppercase tracking-wider mt-2">Years of Excellence</div></div>
+                <div><div class="text-4xl font-serif font-bold text-golden">2k+</div><div class="text-sm uppercase tracking-wider mt-2">Happy Travelers</div></div>
+                <div><div class="text-4xl font-serif font-bold text-golden">50+</div><div class="text-sm uppercase tracking-wider mt-2">Curated Tours</div></div>
+                <div><div class="text-4xl font-serif font-bold text-golden">100%</div><div class="text-sm uppercase tracking-wider mt-2">Satisfaction</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section id="contact" class="py-20 bg-stone">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <span class="text-golden font-bold tracking-wider text-sm">READY TO EXPLORE?</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-forest mt-4 mb-5">Let's Create Your African Story</h2>
+            <p class="text-warm/70 max-w-2xl mx-auto mb-10">Contact us today to start planning your perfect Zanzibar getaway, safari adventure, or to browse our gift collection.</p>
+            <div class="flex flex-wrap justify-center gap-5">
+                <a href="#" class="bg-forest hover:bg-green-800 text-white font-bold px-8 py-4 rounded-full shadow-lg transition transform hover:scale-105">Plan My Trip</a>
+                <a href="#" class="border-2 border-forest text-forest hover:bg-forest/5 font-semibold px-8 py-4 rounded-full transition">Visit Gift Shop</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+<!-- Optional: smooth reveal (simple) -->
+ <script src="script.js"></script>
 </body>
 </html>

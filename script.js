@@ -618,6 +618,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initGallery();
 });
 
+
+
 /* ============================================
    BLOG PAGE - JavaScript
    Functions: Blog posts data, modal management, reveal animations
@@ -786,6 +788,9 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
+
+
+
 /* ============================================
    CONTACT PAGE - JavaScript
    Functions: Reveal animations for form
@@ -912,109 +917,9 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 3000);
 }
 
-/* ============================================
-   ZANZIBAR SERVICES PAGE - JavaScript
-   Functions: Services/activities, category management, booking
-   ============================================ */
 
-// --- SERVICES DATA ---
-const accentColors = [
-    { bg: "bg-golden", hover: "hover:bg-amber-500", text: "text-white" },
-    { bg: "bg-turquoise", hover: "hover:bg-cyan-600", text: "text-white" },
-    { bg: "bg-forest", hover: "hover:bg-green-700", text: "text-white" },
-    { bg: "bg-warm", hover: "hover:bg-amber-800", text: "text-white" },
-    { bg: "bg-choco", hover: "hover:bg-orange-800", text: "text-white" }
-];
 
-const servicesData = [
-    {
-        id: "water-sports",
-        title: "Water Sports",
-        image: "IMG/1 (1).jpg",
-        desc: "Dive into excitement with our thrilling water sports experiences in Zanzibar.",
-        activities: [
-            { title: "Clear Kayak Photoshoot", price: "$65", unit: "per person", image: "IMG/1 (1).jpg", description: "Experience crystal-clear waters like never before.", included: ["Transparent Kayak Rental", "Professional Guide", "Directed Photoshoot", "Life Jackets"], excluded: ["Hotel Transfer", "Meals & Drinks"], itinerary: ["Arrival & Safety Briefing", "Guided Kayak Session", "Drone/Camera Shoot", "Media File Delivery"] },
-            { title: "Jet Ski Adventure", price: "$100", unit: "per 30 mins", image: "IMG/1 (1).jpg", description: "Feel the adrenaline as you ride across the Indian Ocean.", included: ["High-speed Jet Ski", "Instructor Guide", "Safety Equipment"], excluded: ["Photos", "Hotel Transfer"], itinerary: ["Tutorial & Fitting", "Guided Escort to Zone", "30 Min Free Ride", "Return to Shore"] }
-        ]
-    },
-    {
-        id: "ocean-experiences",
-        title: "Ocean Experiences",
-        image: "IMG/1 (1).jpg",
-        desc: "Explore the beauty of Zanzibar's crystal-clear waters with unforgettable ocean experiences.",
-        activities: [
-            { title: "Nakupenda Sandbank", price: "$45", unit: "per person", image: "IMG/1 (1).jpg", description: "Relax on a stunning white sandbank.", included: ["Boat Ride", "Seafood BBQ Lunch", "Fresh Fruits", "Snorkeling Equipment"], excluded: ["Towels", "Alcoholic Drinks"], itinerary: ["Stone Town Departure", "Bawe Snorkeling", "Sandbank Arrival", "Lunch & Beach Time"] }
-        ]
-    }
-];
 
-function renderCategories() {
-    const categoriesView = document.getElementById('categories-view');
-    if(!categoriesView) return;
-    
-    categoriesView.innerHTML = servicesData.map((service, idx) => {
-        const color = accentColors[idx % accentColors.length];
-        return `
-            <div onclick="openService('${service.id}')" class="group cursor-pointer bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col h-full reveal category-card">
-                <div class="aspect-[4/3] w-full overflow-hidden relative shrink-0">
-                    <img src="${service.image}" alt="${service.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="absolute bottom-6 left-6 right-6">
-                        <h3 class="text-2xl font-serif font-bold text-white mb-2 group-hover:text-golden transition-colors">${service.title}</h3>
-                    </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow bg-white">
-                    <p class="text-warm/70 text-sm line-clamp-3 font-light leading-relaxed mb-6">${service.desc}</p>
-                    <div class="mt-auto flex items-center justify-between ${color.bg} ${color.hover} -mx-6 -mb-6 px-6 py-4 text-white transition-all duration-300">
-                        <span class="text-xs font-bold uppercase tracking-widest">Explore Activities</span>
-                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:bg-white group-hover:text-dark transition-colors">
-                            <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join('');
-    
-    // Reveal animations
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => observer.observe(r));
-}
-
-function openService(id) {
-    const service = servicesData.find(s => s.id === id);
-    const serviceTitleEl = document.getElementById('service-title');
-    const serviceDescEl = document.getElementById('service-desc');
-    
-    if(serviceTitleEl) serviceTitleEl.textContent = service.title;
-    if(serviceDescEl) serviceDescEl.textContent = service.desc;
-    
-    document.getElementById('hero-section').classList.add('hidden');
-    document.getElementById('explore-heading').classList.add('hidden');
-    document.getElementById('categories-view').classList.add('hidden');
-    document.getElementById('activities-view').classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function showCategories() {
-    document.getElementById('hero-section').classList.remove('hidden');
-    document.getElementById('explore-heading').classList.remove('hidden');
-    document.getElementById('activities-view').classList.add('hidden');
-    document.getElementById('categories-view').classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function addToBooking(name, price) { 
-    alert(name + " (" + price + ") added to your booking list!"); 
-}
 
 /* ============================================
    BLOG PAGE MODAL EVENTS
@@ -1037,3 +942,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initGiftShop();
     renderCategories();
 });
+
+
+//tanza safari database//
