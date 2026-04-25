@@ -160,29 +160,258 @@
         </div>
     </section>
 
-    <div id="kimondo-footer"></div>
 
-    <div id="modal" class="fixed inset-0 z-[100] flex items-center justify-center p-0 md:p-6 hidden transition-all duration-300 opacity-0">
-        <div class="absolute inset-0 modal-overlay" id="modal-backdrop"></div>
+
+<div id="modal" class="fixed inset-0 z-[100] flex items-center justify-center p-0 hidden transition-all duration-300 opacity-0">
         
-        <div class="relative bg-white md:rounded-3xl shadow-2xl w-full h-full md:h-auto md:max-h-[90vh] max-w-5xl flex flex-col transform scale-95 transition-transform duration-300" id="modal-container">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md" id="modal-backdrop"></div>
+        
+        <div class="relative w-full h-full overflow-y-auto transform scale-95 transition-transform duration-300 flex flex-col" id="modal-container">
             
-            <button id="close-modal" class="absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 bg-white/80 backdrop-blur-md text-dark rounded-full flex items-center justify-center text-xl hover:bg-golden hover:text-white transition-all shadow-lg z-50 border border-warm/10">
+            <button id="close-modal" class="fixed top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center text-xl hover:bg-golden hover:text-dark transition-all shadow-lg z-50 border border-white/20">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <div class="modal-content flex-grow w-full relative">
-                <div id="modal-hero" class="w-full h-[40vh] min-h-[300px] relative">
+            <div id="modal-hero" class="w-full h-[50vh] min-h-[400px] relative shrink-0">
                 </div>
-                
-                <div class="p-6 md:p-12 lg:px-20 max-w-4xl mx-auto bg-white relative -mt-10 rounded-t-3xl">
+            
+            <div class="w-full bg-white relative -mt-12 rounded-t-[3rem] pb-24">
+                <div class="p-8 md:p-12 lg:px-20 max-w-4xl mx-auto">
+                    
                     <div id="modal-content-body" class="prose-custom">
+                        </div>
+
+                    <div class="mt-16 pt-8 border-t border-warm/10 text-center">
+                        <button onclick="closeBlogModal()" class="inline-flex items-center gap-3 font-bold px-8 py-4 rounded-full border-2 border-forest text-forest hover:bg-forest hover:text-white transition-all group shadow-sm">
+                            <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-2 transition-transform"></i> Close Article & Go Back
+                        </button>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        // 1. Comprehensive Blog Data
+        const blogPosts = [
+            {
+                id: 1,
+                category: "Travel Guides",
+                title: "The Ultimate 7-Day Zanzibar Itinerary",
+                date: "October 12, 2025",
+                readTime: "8 min read",
+                image: "IMG/1 (7).jpg", // Fallback to your existing image if needed
+                excerpt: "From the winding alleys of Stone Town to the pristine shores of Nungwi, discover how to spend the perfect week on the Spice Island.",
+                content: `
+                    <div class="mb-8">
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm">Travel Guides</span>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-forest mt-3 mb-6">The Ultimate 7-Day Zanzibar Itinerary</h2>
+                        <div class="flex items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> October 12, 2025</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 8 min read</span>
+                            <span><i class="fa-solid fa-pen-nib mr-2"></i> Kimondo Editorial</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed text-warm mb-6">Zanzibar is more than just a beach destination; it is a cultural crossroads where Africa, Arabia, and the Indian Ocean meet. Whether you are a history buff, a water sports enthusiast, or simply looking to unwind, planning your days carefully ensures you experience the true magic of the Spice Island.</p>
+                    
+                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">Days 1-2: The Magic of Stone Town</h3>
+                    <p class="text-lg leading-relaxed text-warm mb-6">Start your journey in the UNESCO World Heritage site of Stone Town. Lose yourself in the labyrinthine alleys, admire the intricately carved wooden doors, and visit the Old Fort. As evening falls, head to the Forodhani Gardens for the famous night market to sample Zanzibar pizzas and fresh sugarcane juice.</p>
+                    <div class="bg-forest/5 p-6 rounded-2xl border-l-4 border-golden mb-6">
+                        <strong class="text-forest block mb-2">Pro Tip:</strong> Hire a local guide for your first morning. The history of the slave trade and the Omani sultans adds crucial context to the architecture you see.
+                    </div>
+
+                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">Day 3: The Spice Tour & Prison Island</h3>
+                    <p class="text-lg leading-relaxed text-warm mb-6">No trip to Zanzibar is complete without a Spice Tour. Visit a local farm to see how cloves, nutmeg, cinnamon, and black pepper are grown. In the afternoon, take a quick boat ride to Changuu (Prison) Island to meet the giant Aldabra tortoises, some of which are over 100 years old.</p>
+
+                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">Days 4-7: Northern Beaches & Safari Blue</h3>
+                    <p class="text-lg leading-relaxed text-warm mb-6">Head north to Nungwi or Kendwa for the remainder of your trip. These beaches are unique as they are not as heavily affected by the dramatic tidal shifts found on the east coast, allowing for all-day swimming. Dedicate one full day to the 'Safari Blue' excursion—a full-day dhow cruise featuring snorkeling, sandbank lounging, and a massive seafood barbecue.</p>
+                    
+                    <button class="mt-10 bg-forest text-white font-bold px-8 py-4 rounded-full hover:bg-dark transition-colors w-full sm:w-auto">
+                        Book This Itinerary
+                    </button>
+                `
+            },
+            {
+                id: 2,
+                category: "Safari",
+                title: "Serengeti vs. Ngorongoro: Choosing Your Safari",
+                date: "September 28, 2025",
+                readTime: "6 min read",
+                image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80",
+                excerpt: "Both offer world-class wildlife viewing, but which iconic Tanzanian destination is right for your bucket-list adventure?",
+                content: `
+                    <div class="mb-8">
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm">Safari</span>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-forest mt-3 mb-6">Serengeti vs. Ngorongoro: Choosing Your Safari</h2>
+                        <div class="flex items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> September 28, 2025</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 6 min read</span>
+                            <span><i class="fa-solid fa-pen-nib mr-2"></i> Kimondo Editorial</span>
+                        </div>
+                    </div>
+                    <p class="text-lg leading-relaxed text-warm mb-6">When planning a safari in Northern Tanzania, the two heavyweights are the Serengeti National Park and the Ngorongoro Crater. While many of our clients visit both, if you are pressed for time, understanding their differences is key to choosing your perfect adventure.</p>
+                    
+                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">The Serengeti: The Endless Plains</h3>
+                    <p class="text-lg leading-relaxed text-warm mb-6">The word 'Serengeti' translates to 'endless plains' in the Maasai language, and it delivers exactly that. It is massive—roughly the size of Northern Ireland. It is the stage for the Great Migration, where millions of wildebeest and zebras chase the rains.</p>
+                    <ul class="list-disc list-inside text-lg text-warm space-y-2 mb-6 ml-4">
+                        <li><strong>Best for:</strong> The classic, vast African landscape and witnessing the Great Migration (if timed correctly).</li>
+                        <li><strong>Vibe:</strong> Wild, remote, and expansive. You might drive for hours seeing nothing, then suddenly stumble upon a pride of lions.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">Ngorongoro Crater: The Wildlife Bowl</h3>
+                    <p class="text-lg leading-relaxed text-warm mb-6">The Crater is the world's largest inactive, intact volcanic caldera. Because the walls act as a natural enclosure, it has one of the highest densities of wildlife in Africa. It is almost a guaranteed 'Big Five' sighting in a single day.</p>
+                    <ul class="list-disc list-inside text-lg text-warm space-y-2 mb-6 ml-4">
+                        <li><strong>Best for:</strong> Dense wildlife viewing in a short amount of time, including the endangered black rhino.</li>
+                        <li><strong>Vibe:</strong> Like a natural zoo. It is breathtakingly beautiful, but it can get crowded with safari vehicles during peak season.</li>
+                    </ul>
+                `
+            },
+            {
+                id: 3,
+                category: "Tips & Advice",
+                title: "What to Pack for a Mount Kilimanjaro Trek",
+                date: "August 15, 2025",
+                readTime: "10 min read",
+                image: "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&q=80",
+                excerpt: "Conquering the Roof of Africa requires the right gear. Here is our comprehensive checklist to keep you warm, dry, and moving.",
+                content: `
+                    <div class="mb-8">
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm">Tips & Advice</span>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-forest mt-3 mb-6">What to Pack for a Mount Kilimanjaro Trek</h2>
+                        <div class="flex items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> August 15, 2025</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 10 min read</span>
+                            <span><i class="fa-solid fa-pen-nib mr-2"></i> Kimondo Editorial</span>
+                        </div>
+                    </div>
+                    <p class="text-lg leading-relaxed text-warm mb-6">Climbing Mount Kilimanjaro is a journey through five distinct climate zones. You start in a hot, humid rainforest and end in an arctic, glaciated summit. Therefore, the secret to packing is <strong>layering</strong>. Here is the ultimate gear list curated by our expert mountain guides.</p>
+                    
+                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">1. Clothing: The Layering System</h3>
+                    <p class="text-lg leading-relaxed text-warm mb-4">Avoid cotton at all costs; it retains moisture and makes you cold. Stick to moisture-wicking synthetics and merino wool.</p>
+                    <ul class="list-disc list-inside text-lg text-warm space-y-2 mb-6 ml-4">
+                        <li><strong>Base Layers:</strong> 3-4 moisture-wicking long-sleeve shirts and thermal underwear bottoms.</li>
+                        <li><strong>Mid Layers:</strong> 1-2 fleece jackets or thick wool sweaters.</li>
+                        <li><strong>Outer Layers:</strong> A high-quality, windproof, and waterproof hard-shell jacket and pants (Gore-Tex recommended).</li>
+                        <li><strong>Summit Jacket:</strong> A heavy, insulated down jacket. It gets to -20°C at the peak.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">2. Footwear</h3>
+                    <p class="text-lg leading-relaxed text-warm mb-6">Your boots are your most important asset. They must be waterproof, warm, and <strong>broken in</strong> before you arrive. Pair them with 4-5 pairs of thick trekking socks (merino wool is best) and bring a pair of camp shoes (like sneakers or sturdy sandals) to let your feet breathe in the evenings.</p>
+
+                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">3. Essential Gear</h3>
+                    <p class="text-lg leading-relaxed text-warm mb-6">While Kimondo Adventures provides tents and sleeping mats, you must bring a four-season sleeping bag (rated to -15°C or lower). Do not forget a high-lumen headlamp with extra batteries, polarized sunglasses (snow blindness is real), and trekking poles to save your knees on the descent.</p>
+                `
+            }
+        ];
+
+        // 2. Render the Blog Cards
+        function renderBlogPosts() {
+            const grid = document.getElementById('blog-grid');
+            if (!grid) return;
+
+            let html = '';
+            blogPosts.forEach(post => {
+                // Determine if we should use a default image or the one provided
+                const imgSrc = post.image || 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80';
+                
+                html += `
+                    <article class="group bg-white rounded-[2rem] p-4 sm:p-6 shadow-sm hover:shadow-xl border border-warm/5 transition-all duration-500 flex flex-col md:flex-row gap-6 lg:gap-10 items-center">
+                        <div class="w-full md:w-2/5 aspect-[4/3] md:aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden relative shrink-0">
+                            <img src="${imgSrc}" alt="${post.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-forest uppercase tracking-widest">
+                                ${post.category}
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-3/5 flex flex-col justify-center py-2">
+                            <div class="flex items-center gap-4 text-sm text-warm/50 font-medium mb-4">
+                                <span class="flex items-center gap-1"><i class="fa-regular fa-calendar text-golden"></i> ${post.date}</span>
+                                <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-golden"></i> ${post.readTime}</span>
+                            </div>
+                            
+                            <h3 class="text-2xl sm:text-3xl font-serif font-bold text-forest mb-4 group-hover:text-golden transition-colors leading-tight">
+                                ${post.title}
+                            </h3>
+                            
+                            <p class="text-warm/80 font-light leading-relaxed mb-8 line-clamp-3">
+                                ${post.excerpt}
+                            </p>
+                            
+                            <button onclick="openBlogModal(${post.id})" class="inline-flex items-center gap-3 text-forest font-bold hover:text-golden transition-colors w-max uppercase tracking-widest text-sm">
+                                Read Full Article <i class="fa-solid fa-arrow-right transform group-hover:translate-x-2 transition-transform"></i>
+                            </button>
+                        </div>
+                    </article>
+                `;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        // 3. Modal Logic
+        const modal = document.getElementById('modal');
+        const modalHero = document.getElementById('modal-hero');
+        const modalBody = document.getElementById('modal-content-body');
+        const closeBtn = document.getElementById('close-modal');
+        const backdrop = document.getElementById('modal-backdrop');
+
+        function openBlogModal(id) {
+            const post = blogPosts.find(p => p.id === id);
+            if (!post) return;
+
+            // Set Hero Image
+            const imgSrc = post.image || 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80';
+            modalHero.innerHTML = `
+                <img src="${imgSrc}" alt="${post.title}" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            `;
+
+            // Set Content
+            modalBody.innerHTML = post.content;
+
+            // Show Modal (Disable body scroll)
+            document.body.style.overflow = 'hidden';
+            modal.classList.remove('hidden');
+            
+            // Small delay to allow CSS transition to work
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                document.getElementById('modal-container').classList.remove('scale-95');
+                document.getElementById('modal-container').classList.add('scale-100');
+            }, 10);
+            
+            // Scroll modal to top
+            document.querySelector('.modal-content').scrollTop = 0;
+        }
+
+        function closeBlogModal() {
+            document.body.style.overflow = '';
+            modal.classList.add('opacity-0');
+            document.getElementById('modal-container').classList.remove('scale-100');
+            document.getElementById('modal-container').classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Matches the CSS duration-300
+        }
+
+        // Event Listeners for closing
+        if (closeBtn) closeBtn.addEventListener('click', closeBlogModal);
+        if (backdrop) backdrop.addEventListener('click', closeBlogModal);
+        
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeBlogModal();
+            }
+        });
+
+        // Initialize Page
+        document.addEventListener('DOMContentLoaded', renderBlogPosts);
+    </script>
+        <div id="kimondo-footer"></div>
     <script src="script.js"></script>
 </body>
 </html>
