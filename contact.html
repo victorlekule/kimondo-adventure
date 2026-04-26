@@ -5,38 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Contact Us | Kimondo Adventures</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    },
-                    colors: {
-                        forest: '#2E7D32',
-                        golden: '#F5A623',
-                        choco: '#6D3A1F',
-                        turquoise: '#00BCD4',
-                        warm: '#5D4037',
-                        light: '#fcfbf9',
-                        dark: '#0a0f0d',
-                    }
-                }
-            }
-        }
-    </script>
+
     
     <style>
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #fcfbf9; }
-        ::-webkit-scrollbar-thumb { background: #2E7D32; border-radius: 10px; }
-
+        
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -97,7 +74,7 @@
                     <h3 class="text-3xl font-serif font-bold text-forest mb-6">Contact Information</h3>
                     
                     <div class="space-y-4">
-                        <a href="https://wa.me/255658840425" target="_blank" class="flex items-start gap-5 p-6 bg-white rounded-3xl border border-warm/10 shadow-sm hover:shadow-lg transition-all group relative overflow-hidden">
+                        <a href="https://wa.me/255658840425" target="_blank" rel="noopener" class="flex items-start gap-5 p-6 bg-white rounded-3xl border border-warm/10 shadow-sm hover:shadow-lg transition-all group relative overflow-hidden">
                             <div class="absolute top-0 right-0 bg-golden text-dark text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-bl-xl z-10">Recommended</div>
                             <div class="w-14 h-14 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] text-2xl shrink-0 group-hover:scale-110 transition-transform">
                                 <i class="fa-brands fa-whatsapp"></i>
@@ -182,9 +159,9 @@
                         </div>
 
                         <div class="space-y-2">
-                            <label class="text-sm font-bold text-forest ml-1">Interested In</label>
+                            <label for="interested-in" class="text-sm font-bold text-forest ml-1">Interested In</label>
                             <div class="relative">
-                                <select required class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl appearance-none cursor-pointer">
+                                <select id="interested-in" required class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl appearance-none cursor-pointer">
                                     <option value="" disabled selected>Select a Service...</option>
                                     <option value="Tours">Tours</option>
                                     <option value="Safaris">Safaris</option>
@@ -232,29 +209,9 @@
         </div>
     </section>
 
-    <section class="py-24 bg-forest relative overflow-hidden reveal">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-golden/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
-        
-        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <h2 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight">
-                Ready to experience <br> <span class="text-golden italic font-light">Zanzibar?</span>
-            </h2>
-            <p class="text-white/80 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto">
-                Your dream journey is just one message away. Reach out to us and let’s start planning today.
-            </p>
-            <div class="flex flex-wrap justify-center gap-5">
-                <a href="https://wa.me/255658840425" target="_blank" class="bg-golden hover:bg-amber-400 text-dark font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_0_20px_rgba(245,166,35,0.4)] transform hover:-translate-y-1">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> Book Now on WhatsApp
-                </a>
-                <a href="mailto:info@kimondoadventures.com" class="bg-white/10 hover:bg-white/20 px-8 py-4 rounded-full transition-all duration-300 text-white flex items-center gap-3 backdrop-blur-md border border-white/20 transform hover:-translate-y-1">
-                    <i class="fa-regular fa-envelope text-xl"></i> Send Your Inquiry Today
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <div id="kimondo-footer"></div>
+
+    <div id="footer-container"></div>
 
     <script src="script.js"></script>
 </body>

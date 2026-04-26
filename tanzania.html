@@ -10,99 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    
-    <style>
-        /* Custom color palette */
-        :root {
-            --forest: #2E7D32;
-            --golden: #F5A623;
-            --choco: #6D3A1F;
-            --turquoise: #00BCD4;
-            --warm: #5D4037;
-            --brand-dark: #0B0C0E;
-            --brand-blue: #0D8ABC;
-            --brand-yellow: #FCEE21;
-            --light-stone: #F7F5F0;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #1E1E1E;
-            background-color: #fff;
-        }
-        h1, h2, h3, h4, .serif {
-            font-family: 'Playfair Display', serif;
-        }
-        /* Custom utility classes */
-        .bg-forest { background-color: var(--forest); }
-        .text-forest { color: var(--forest); }
-        .bg-golden { background-color: var(--golden); }
-        .text-golden { color: var(--golden); }
-        .border-golden { border-color: var(--golden); }
-        .bg-choco { background-color: var(--choco); }
-        .text-choco { color: var(--choco); }
-        .bg-turquoise { background-color: var(--turquoise); }
-        .text-turquoise { color: var(--turquoise); }
-        .bg-warm { background-color: var(--warm); }
-        .text-warm { color: var(--warm); }
-        .bg-brand-dark { background-color: var(--brand-dark); }
-        .bg-brand-blue { background-color: var(--brand-blue); }
-        .text-brand-blue { color: var(--brand-blue); }
-        .bg-brand-yellow { background-color: var(--brand-yellow); }
-        .bg-stone { background-color: var(--light-stone); }
-        
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 30px -12px rgba(0,0,0,0.15);
-        }
-        
-        .category-nav {
-            backdrop-filter: blur(8px);
-            background-color: rgba(255,255,255,0.92);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(145deg, rgba(11,12,14,0.75) 0%, rgba(46,125,50,0.4) 100%);
-        }
-        
-        html { scroll-padding-top: 100px; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: 10000;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(6px);
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-        .modal.active { display: flex; }
-        .modal-content {
-            max-width: 1000px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            background: white;
-            border-radius: 24px;
-            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
-        }
-        .modal-content::-webkit-scrollbar { width: 6px; }
-        .modal-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
-    </style>
 </head>
 <body class="antialiased">
     <div id="kimondo-header"></div>
-
-<!-- ===== STICKY HEADER ===== -->
-
 
 <main class="pt-20">
     <!-- ===== HERO SECTION ===== -->
@@ -123,10 +33,10 @@
                 From the endless plains of the Serengeti to the crater floor of Ngorongoro — hand‑crafted safaris, expert guides, and memories that last a lifetime.
             </p>
             <div class="flex flex-wrap gap-4 justify-center">
-                <a href="#safaris" class="bg-golden hover:bg-amber-500 text-brand-dark font-bold px-8 py-4 rounded-full shadow-lg transition transform hover:scale-105">
+                <a href="#safaris" class="bg-golden hover:bg-amber-500 text-brand-dark font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-lg transition transform hover:scale-105 text-sm sm:text-base">
                     Explore All Packages <i class="fas fa-arrow-right ml-2"></i>
                 </a>
-                <a href="#contact" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-8 py-4 rounded-full border border-white/40 transition">
+                <a href="#contact" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full border border-white/40 transition text-sm sm:text-base">
                     Customize My Safari
                 </a>
             </div>
@@ -191,10 +101,10 @@
             <h2 class="text-3xl md:text-4xl font-bold serif text-forest mt-3 mb-5">Let's Build Your Dream Safari</h2>
             <p class="text-gray-600 mb-8 max-w-2xl mx-auto">All itineraries are fully customizable. Tell us your dates, budget, and wish list — we build the rest.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="mailto:info@kimondoadventures.com" class="bg-forest text-white px-8 py-4 rounded-full font-semibold shadow-md hover:bg-green-800 transition flex items-center gap-2">
+                <a href="mailto:info@kimondoadventures.com" class="bg-forest text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold shadow-md hover:bg-green-800 transition flex items-center gap-2 text-sm sm:text-base">
                     <i class="far fa-envelope"></i> info@kimondoadventures.com
                 </a>
-                <a href="tel:+255658840425" class="border-2 border-forest text-forest hover:bg-forest/5 px-8 py-4 rounded-full font-semibold flex items-center gap-2">
+                <a href="tel:+255658840425" class="border-2 border-forest text-forest hover:bg-forest/5 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold flex items-center gap-2 text-sm sm:text-base">
                     <i class="fas fa-phone-alt"></i> +255 65 884 0425
                 </a>
             </div>
@@ -212,12 +122,11 @@
     </div>
 </div>
 
-
 <script>
     (function(){
         "use strict";
 
-        // ---------- COMPLETE SAFARI DATABASE (fully detailed) ----------
+        // ---------- COMPLETE SAFARI DATABASE ----------
         const safariPackages = [
             // ========== GAME SAFARIS ==========
             { id: 1, name: "3-Day Taste of Tanzania Safari — Midrange", category: "game", duration: "3 days", price: "$1,500", location: "Lake Manyara · Ngorongoro · Tarangire", shortDesc: "Three iconic parks in three unforgettable days. Zanzibar ↔ Zanzibar.", image: "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -386,10 +295,10 @@
                             <p class="text-gray-500 text-sm mb-2"><i class="fas fa-map-marker-alt mr-1 text-golden"></i>${pkg.location}</p>
                             <p class="text-gray-600 text-sm mb-4 line-clamp-2">${pkg.shortDesc}</p>
                             <div class="mt-auto flex gap-2">
-                                <button onclick="openModal(${pkg.id})" class="flex-1 bg-forest hover:bg-green-800 text-white font-semibold py-2.5 rounded-lg text-sm transition">
+                                <button onclick="openModal(${pkg.id})" class="flex-1 bg-forest hover:bg-green-800 text-white font-semibold py-2 rounded-lg text-xs sm:text-sm transition">
                                     View Details
                                 </button>
-                                <button onclick="addToBooking('${pkg.name}')" class="border border-forest text-forest hover:bg-forest/5 px-4 py-2.5 rounded-lg text-sm">
+                                <button onclick="addToBooking('${pkg.name}')" class="border border-forest text-forest hover:bg-forest/5 px-4 py-2 rounded-lg text-sm">
                                     <i class="fas fa-cart-plus"></i>
                                 </button>
                             </div>
@@ -434,7 +343,7 @@
                     </div>
                     <div class="flex justify-end gap-3 pt-4 border-t">
                         <button onclick="closeModal()" class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Close</button>
-                        <button onclick="addToBooking('${pkg.name}'); closeModal()" class="bg-golden hover:bg-amber-500 text-brand-dark font-bold px-8 py-2 rounded-lg shadow">Add to Enquiry</button>
+                        <button onclick="addToBooking('${pkg.name}'); closeModal()" class="bg-golden hover:bg-amber-500 text-brand-dark font-bold px-6 py-2.5 rounded-lg shadow text-sm">Add to Enquiry</button>
                     </div>
                 </div>
             `;
@@ -482,8 +391,39 @@
     })();
 </script>
 
-
 <style>
+    /* ---------- Modal Essential Styles ---------- */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(3px);
+        transition: opacity 0.3s ease;
+    }
+    .modal.active {
+        display: flex;
+    }
+    .modal-content {
+        background: white;
+        border-radius: 1rem;
+        max-width: 700px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        animation: modalFadeIn 0.3s ease;
+    }
+    @keyframes modalFadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Existing helpers */
     .line-clamp-2 {
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -491,13 +431,12 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
-    .trust-badge { background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); }
+    .trust-badge { background: rgba(255,255,255,0.15); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 </style>
 
 <div id="footer-container"></div>
 
 <script src="script.js"></script>
-
 
 </body>
 </html>
