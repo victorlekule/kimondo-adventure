@@ -1,5 +1,3 @@
-
-
 // 1. Inject Google Fonts (Montserrat & Playfair Display)
 const fontLink = document.createElement('link');
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap';
@@ -36,125 +34,78 @@ window.tailwind.config = {
     }
 };
 
-// 4. Translation Dictionary & Language Config
+// 4. Translation Dictionary (English only – no language switcher)
 const translations = {
     en: {
-        location: "Dar es Salaam, Tanzania",
+        location: "Zanzibar, Tanzania",
         tagline: "Tech & Branding Authority",
         navHome: "Home",
-        navAbout: "About Us",
-        navWhy: "Why Us",
         navZanzibar: "Zanzibar Tours",
         navSafari: "Tanzania Safaris",
+        navTrekking: "Trekking",
         navShop: "Gift Shop",
         navGallery: "Gallery",
-        navBlog: "Blog",
         navContact: "Contact",
-        navBooking: "Booking"
-    },
-    fr: {
-        location: "Dar es Salaam, Tanzanie",
-        tagline: "Autorité Tech & Branding",
-        navHome: "Accueil",
-        navAbout: "À Propos",
-        navWhy: "Pourquoi Nous",
-        navZanzibar: "Excursions Zanzibar",
-        navSafari: "Safaris Tanzanie",
-        navShop: "Boutique",
-        navGallery: "Galerie",
+        navMyBooking: "My Booking",
+        navAbout: "About Us",
+        navWhy: "Why Choose Us",
+        navGetInvolved: "Get Involved",
         navBlog: "Blog",
-        navContact: "Contact",
-        navBooking: "Réservation"
-    },
-    de: {
-        location: "Dar es Salaam, Tansania",
-        tagline: "Tech & Branding Autorität",
-        navHome: "Startseite",
-        navAbout: "Über Uns",
-        navWhy: "Warum Wir",
-        navZanzibar: "Sansibar Touren",
-        navSafari: "Tansania Safaris",
-        navShop: "Geschenkeladen",
-        navGallery: "Galerie",
-        navBlog: "Blog",
-        navContact: "Kontakt",
-        navBooking: "Buchung"
-    },
-    zh: {
-        location: "坦桑尼亚达累斯萨拉姆",
-        tagline: "科技与品牌权威",
-        navHome: "首页",
-        navAbout: "关于我们",
-        navWhy: "为什么选择我们",
-        navZanzibar: "桑给巴尔之旅",
-        navSafari: "坦桑尼亚野生动物园",
-        navShop: "礼品店",
-        navGallery: "画廊",
-        navBlog: "博客",
-        navContact: "联系",
-        navBooking: "预订"
-    },
-    ar: {
-        location: "دار السلام، تنزانيا",
-        tagline: "سلطة التكنولوجيا والعلامات التجارية",
-        navHome: "الرئيسية",
-        navAbout: "معلومات عنا",
-        navWhy: "لماذا نحن",
-        navZanzibar: "جولات زنجبار",
-        navSafari: "رحلات السفاري تنزانيا",
-        navShop: "متجر الهدايا",
-        navGallery: "معرض الصور",
-        navBlog: "مدونة",
-        navContact: "اتصل",
-        navBooking: "حجز"
+        navPrivacy: "Privacy",
+        navFaqs: "FAQs",
+        navTerms: "Terms"
     }
 };
 
-const languageConfig = {
-    en: { name: 'English', flag: 'https://flagcdn.com/w40/gb.png' },
-    fr: { name: 'Français', flag: 'https://flagcdn.com/w40/fr.png' },
-    de: { name: 'Deutsch', flag: 'https://flagcdn.com/w40/de.png' },
-    zh: { name: '中文', flag: 'https://flagcdn.com/w40/cn.png' },
-    ar: { name: 'العربية', flag: 'https://flagcdn.com/w40/sa.png' }
-};
-
-// 5. Navigation Links Definition (adjust URLs as needed)
-const navLinks = [
+// 5. Navigation Links (main header – excludes My Booking because it's a button)
+const navLinksMain = [
     { name: 'Home', url: 'index.html', i18n: 'navHome' },
-    { name: 'About Us', url: 'about us.html', i18n: 'navAbout' },
-    { name: 'Why Us', url: 'why choose.html', i18n: 'navWhy' },
     { name: 'Zanzibar Tours', url: 'zanzibar.html', i18n: 'navZanzibar' },
     { name: 'Tanzania Safaris', url: 'tanzania.html', i18n: 'navSafari' },
-    { name: 'Gift Shop', url: 'gift shop.html', i18n: 'navShop' },
+    { name: 'Trekking', url: 'trekking.html', i18n: 'navTrekking' },
+    { name: 'Gift Shop', url: 'gift-shop.html', i18n: 'navShop' },
     { name: 'Gallery', url: 'gallery.html', i18n: 'navGallery' },
-    { name: 'Blog', url: 'blog.html', i18n: 'navBlog' },
     { name: 'Contact', url: 'contact.html', i18n: 'navContact' }
 ];
 
-const bookingLink = { name: 'Booking', url: 'booking.html', i18n: 'navBooking' };
+const bookingLink = { name: 'My Booking', url: 'booking.html', i18n: 'navMyBooking' };
 
-// 6. Build Header HTML (to be injected on DOMContentLoaded)
-// 6. Build Header HTML (to be injected on DOMContentLoaded)
-function buildHeaderHTML(currentLang = 'en') {
-    const t = translations[currentLang];
+// 6. Info header right-side links
+const infoLinks = [
+    { name: 'About Us', url: 'about us.html', i18n: 'navAbout' },
+    { name: 'Why Choose Us', url: 'why choose.html', i18n: 'navWhy' },
+    { name: 'Get Involved', url: 'involve.html', i18n: 'navGetInvolved' },
+    { name: 'Blog', url: 'blog.html', i18n: 'navBlog' },
+    { name: 'FAQs', url: 'faqs.html', i18n: 'navFaqs' },
+    { name: 'Privacy', url: 'privacy.html', i18n: 'navPrivacy' },
+    { name: 'Terms', url: 'terms.html', i18n: 'navTerms' }
+];
 
-    // Desktop navigation links
-    const desktopLinksHTML = navLinks.map(link => {
+// 7. Build Header HTML
+function buildHeaderHTML() {
+    const t = translations.en;
+
+    const desktopLinksHTML = navLinksMain.map(link => {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const isActive = decodeURIComponent(currentPage) === decodeURIComponent(link.url);
-        
-        // FIX: Re-added whitespace-nowrap. Shrunk base text size and padding so it fits on 13"/14" Macs.
-        // It will only scale up to text-base and px-3 on massive 2xl screens (1536px+)
         const baseClasses = "transition-colors duration-300 text-[13px] xl:text-sm 2xl:text-base tracking-wide whitespace-nowrap px-1.5 xl:px-2 2xl:px-3";
-        
         const stateClasses = isActive
             ? "text-forest font-bold underline underline-offset-4 decoration-2"
             : "text-warm font-medium hover:text-forest";
         return `<a href="${link.url}" class="${baseClasses} ${stateClasses}" data-i18n="${link.i18n}">${t[link.i18n]}</a>`;
     }).join('');
 
-    // Mobile navigation links
-    const mobileLinksHTML = navLinks.map(link => {
+    // Mobile navigation links – My Booking as a golden button
+    const mobileNavLinks = [...navLinksMain, bookingLink];
+    const mobileLinksHTML = mobileNavLinks.map(link => {
+        // My Booking button styling
+        if (link === bookingLink) {
+            return `
+            <a href="${link.url}" class="block mx-4 my-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-md font-semibold tracking-wider shadow-sm transition-colors duration-300 text-center whitespace-nowrap" data-i18n="${link.i18n}">
+                ${t[link.i18n]}
+            </a>`;
+        }
+        // Regular links
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const isActive = decodeURIComponent(currentPage) === decodeURIComponent(link.url);
         const baseClasses = "block px-6 py-3 transition-colors duration-300 border-b border-gray-100 whitespace-nowrap";
@@ -164,31 +115,26 @@ function buildHeaderHTML(currentLang = 'en') {
         return `<a href="${link.url}" class="${baseClasses} ${stateClasses}" data-i18n="${link.i18n}">${t[link.i18n]}</a>`;
     }).join('');
 
-    // Language options for dropdown
-    const langOptionsHTML = Object.entries(languageConfig).map(([code, lang]) => `
-        <div class="lang-option flex items-center gap-3 px-5 py-3 hover:bg-forest/5 cursor-pointer text-warm font-medium text-sm border-b border-gray-100 last:border-0" data-lang="${code}">
-            <img src="${lang.flag}" class="w-6 h-4 object-cover rounded-sm shadow-sm"> ${lang.name}
-        </div>
-    `).join('');
+    const infoRightHTML = infoLinks.map(link => {
+        const baseClasses = "text-xs font-medium tracking-wide text-white/90 hover:text-golden transition-colors whitespace-nowrap";
+        return `<a href="${link.url}" class="${baseClasses}">${t[link.i18n]}</a>`;
+    }).join(' <span class="text-white/40">|</span> ');
 
     return `
     <header class="bg-white shadow-md fixed w-full top-0 z-[9999]">
         
+        <!-- ===== INFO HEADER (centered on mobile, between on desktop) ===== -->
         <div class="bg-gradient-to-r from-warm to-choco text-white py-2 md:py-3">
-            <div class="w-full px-2 lg:px-4 flex flex-row items-center justify-between flex-nowrap">
-                <div class="hidden xl:flex items-center text-xs font-medium tracking-wider text-golden/80 uppercase ">
-                    <i class="fas fa-globe mr-1"></i> <span data-i18n="tagline">Find your peace, one destination at a time</span>
-                </div>
-                
+            <div class="w-full px-2 lg:px-4 flex flex-row items-center justify-center lg:justify-between flex-nowrap">
                 <div class="flex flex-row items-center gap-3 md:gap-6 text-[13px] font-medium whitespace-nowrap overflow-x-auto hide-scrollbar">
                     <a href="https://maps.google.com/?q=Dar+es+Salaam" target="_blank" class="flex items-center gap-2 hover:text-golden transition-colors group">
                         <i class="fa-solid fa-location-dot text-golden text-base group-hover:scale-110 transition-transform"></i>
-                        <span class="hidden sm:inline" data-i18n="location">${t.location}</span>
-                        <span class="sm:hidden">Dar es Salaam</span>
+                        <span class="hidden sm:inline">${t.location}</span>
+                        <span class="sm:hidden">Zanzibar Tanzania</span>
                     </a>
                     <a href="https://wa.me/255123456789" target="_blank" class="flex items-center gap-2 hover:text-golden transition-colors group">
                         <i class="fa-brands fa-whatsapp text-green-400 text-[18px] group-hover:scale-110 transition-transform"></i>
-                        <span class="hidden sm:inline">+255 123 456 789</span>
+                        <span class="inline">+255 123 456 789</span>
                     </a>
                     <a href="mailto:hello@kimondoadventures.com" class="hidden md:flex items-center gap-2 hover:text-golden transition-colors group">
                         <i class="fa-solid fa-envelope text-golden text-base group-hover:scale-110 transition-transform"></i>
@@ -196,20 +142,14 @@ function buildHeaderHTML(currentLang = 'en') {
                     </a>
                 </div>
                 
-                <div class="relative flex-shrink-0 ml-2">
-                    <button id="lang-btn" class="bg-white/10 hover:bg-white/20 rounded px-3 md:px-4 py-1.5 md:py-2 flex items-center gap-2 border border-white/30 transition-all shadow-sm focus:outline-none whitespace-nowrap">
-                        <img id="current-flag-img" src="${languageConfig[currentLang].flag}" alt="${languageConfig[currentLang].name}" class="w-5 h-3.5 md:h-4 object-cover rounded-sm shadow-sm">
-                        <span id="current-lang-text" class="font-semibold text-xs md:text-sm tracking-wide">${languageConfig[currentLang].name}</span>
-                        <i class="fa-solid fa-caret-down text-white text-[10px] md:text-xs ml-1 transition-transform duration-200" id="lang-arrow"></i>
-                    </button>
-                    <div id="lang-menu" class="hidden absolute top-full right-0 mt-2 w-48 bg-white rounded-md shadow-2xl border border-gray-100 overflow-hidden z-50">
-                        ${langOptionsHTML}
-                    </div>
+                <div class="hidden lg:flex items-center gap-3 lg:gap-5 flex-shrink-0 ml-4">
+                    ${infoRightHTML}
                 </div>
             </div>
         </div>
 
-        <div class="w-full px-2 lg:px-4 flex items-center justify-between py-2 md:py-3">
+        <!-- ===== MAIN HEADER ===== -->
+        <div class="w-full px-2 lg:px-4 flex items-center justify-between py-3 md:py-5">
             
             <div class="flex-shrink-0">
                 <a href="index.html" class="text-2xl md:text-2xl lg:text-3xl font-serif font-bold text-forest flex items-center gap-2 whitespace-nowrap">
@@ -221,11 +161,14 @@ function buildHeaderHTML(currentLang = 'en') {
                 ${desktopLinksHTML}
             </nav>
 
-            <div class="flex-shrink-0 flex items-center gap-2">
-                <a href="${bookingLink.url}" class="hidden xl:inline-block bg-golden hover:bg-yellow-500 text-white px-5 xl:px-6 py-2 xl:py-3 rounded-md font-semibold tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 text-sm xl:text-base whitespace-nowrap" data-i18n="${bookingLink.i18n}">
+            <div class="hidden xl:flex items-center flex-shrink-0">
+                <a href="${bookingLink.url}" class="bg-golden hover:bg-yellow-500 text-white px-5 xl:px-6 py-2 xl:py-3 rounded-md font-semibold tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 text-sm xl:text-base whitespace-nowrap" data-i18n="${bookingLink.i18n}">
                     ${t[bookingLink.i18n]}
                 </a>
-                <button id="mobile-menu-btn" class="xl:hidden text-forest hover:text-golden focus:outline-none p-2">
+            </div>
+
+            <div class="xl:hidden flex-shrink-0">
+                <button id="mobile-menu-btn" class="text-forest hover:text-golden focus:outline-none p-2">
                     <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -233,31 +176,22 @@ function buildHeaderHTML(currentLang = 'en') {
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden xl:hidden bg-white border-r border-b border-t border-gray-100 shadow-xl absolute font-sans top-full left-0 w-full sm:w-max rounded-br-2xl overflow-hidden">
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-r border-b border-t border-gray-100 shadow-xl absolute font-sans top-full left-0 w-max rounded-br-2xl overflow-hidden">
             <div class="flex flex-col py-2">
                 ${mobileLinksHTML}
-                <div class="px-4 py-4">
-                    <a href="${bookingLink.url}" class="block text-center bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-md font-semibold tracking-wider shadow-sm transition-colors duration-300 whitespace-nowrap" data-i18n="${bookingLink.i18n}">
-                        ${t[bookingLink.i18n]}
-                    </a>
-                </div>
             </div>
         </div>
     </header>
     `;
 }
 
-// 7. Initialization on DOM Ready
+// 8. Initialization on DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
     const headerContainer = document.getElementById('kimondo-header');
     if (!headerContainer) return;
 
-    let currentLang = localStorage.getItem('site_lang') || 'en';
-    if (!translations[currentLang]) currentLang = 'en';
+    headerContainer.innerHTML = buildHeaderHTML();
 
-    headerContainer.innerHTML = buildHeaderHTML(currentLang);
-
-    // Mobile menu toggle
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -274,69 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Language switcher
-    const langBtn = document.getElementById('lang-btn');
-    const langMenu = document.getElementById('lang-menu');
-    const langArrow = document.getElementById('lang-arrow');
-
-    if (langBtn && langMenu) {
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langMenu.classList.toggle('hidden');
-            if (langArrow) langArrow.classList.toggle('rotate-180');
-        });
-
-        document.addEventListener('click', () => {
-            langMenu.classList.add('hidden');
-            if (langArrow) langArrow.classList.remove('rotate-180');
-        });
-
-        document.querySelectorAll('.lang-option').forEach(opt => {
-            opt.addEventListener('click', (e) => {
-                const lang = e.currentTarget.getAttribute('data-lang');
-                if (lang && translations[lang]) {
-                    localStorage.setItem('site_lang', lang);
-                    headerContainer.innerHTML = buildHeaderHTML(lang);
-                    setTimeout(() => {
-                        const newLangBtn = document.getElementById('lang-btn');
-                        const newLangMenu = document.getElementById('lang-menu');
-                        const newLangArrow = document.getElementById('lang-arrow');
-                        if (newLangBtn && newLangMenu) {
-                            newLangBtn.addEventListener('click', (e) => {
-                                e.stopPropagation();
-                                newLangMenu.classList.toggle('hidden');
-                                if (newLangArrow) newLangArrow.classList.toggle('rotate-180');
-                            });
-                        }
-                        const newMobileBtn = document.getElementById('mobile-menu-btn');
-                        const newMobileMenu = document.getElementById('mobile-menu');
-                        const newMenuIcon = document.getElementById('menu-icon');
-                        if (newMobileBtn && newMobileMenu) {
-                            newMobileBtn.addEventListener('click', () => {
-                                newMobileMenu.classList.toggle('hidden');
-                                if (newMenuIcon) {
-                                    newMenuIcon.setAttribute('d', newMobileMenu.classList.contains('hidden') 
-                                        ? 'M4 6h16M4 12h16M4 18h16' 
-                                        : 'M6 18L18 6M6 6l12 12');
-                                }
-                            });
-                        }
-                        document.querySelectorAll('.lang-option').forEach(opt2 => {
-                            opt2.addEventListener('click', (e2) => {
-                                const lang2 = e2.currentTarget.getAttribute('data-lang');
-                                if (lang2 && translations[lang2]) {
-                                    localStorage.setItem('site_lang', lang2);
-                                    headerContainer.innerHTML = buildHeaderHTML(lang2);
-                                }
-                            });
-                        });
-                    }, 50);
-                }
-            });
-        });
-    }
-
-    // Hide scrollbar utility
     const style = document.createElement('style');
     style.textContent = `
         .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -363,7 +234,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-  
 // --- GALLERY DATA ---
 const galleryData = [
     {
@@ -456,12 +326,12 @@ function initGallery() {
     if (!filterContainer || !galleryGrid) {
         return;
     }
-    
+
     // Pre-calculate the flattened 'all' array
     galleryData.forEach(cat => allImagesFlattened = allImagesFlattened.concat(cat.images));
-    
+
     renderFilterBtn('all', 'All Experiences', true);
-    galleryData.forEach(cat => renderFilterBtn(cat.id, cat.title.split(' ')[0] + ' ' + cat.title.split(' ')[1])); 
+    galleryData.forEach(cat => renderFilterBtn(cat.id, cat.title.split(' ')[0] + ' ' + cat.title.split(' ')[1]));
     renderImages('all');
 }
 
@@ -484,41 +354,41 @@ function renderFilterBtn(id, label, isActive = false) {
 
 // --- RENDER IMAGES ---
 function renderImages(categoryId) {
-    galleryGrid.innerHTML = ''; 
-    galleryGrid.classList.remove('fade-in'); 
+    galleryGrid.innerHTML = '';
+    galleryGrid.classList.remove('fade-in');
     loadMoreBtnContainer.classList.add('hidden'); // Hide button initially
-    
+
     let imagesToRender = [];
 
     if (categoryId === 'all') {
         catTitle.innerText = "All Experiences";
         catDesc.innerText = "Discover the beauty, thrill, and culture of Zanzibar and Tanzania.";
         imagesToRender = allImagesFlattened;
-        
+
         // Determine initial count based on screen size
         const screenWidth = window.innerWidth;
         let limit = 15; // Large screens
-        
+
         if (screenWidth < 640) {
             limit = 6; // Mobile
         } else if (screenWidth < 1024) {
             limit = 8; // Tablet
         }
-        
+
         currentlyDisplayedCount = Math.min(limit, imagesToRender.length);
-        
+
         // If there are more images than the initial limit, show the "Load More" button
         if (imagesToRender.length > currentlyDisplayedCount) {
             loadMoreBtnContainer.classList.remove('hidden');
         }
-        
+
     } else {
         // If it's a specific category, just show them all
         const category = galleryData.find(c => c.id === categoryId);
         catTitle.innerText = category.title;
         catDesc.innerText = category.desc;
         imagesToRender = category.images;
-        currentlyDisplayedCount = imagesToRender.length; 
+        currentlyDisplayedCount = imagesToRender.length;
     }
 
     currentLightboxImages = imagesToRender;
@@ -529,8 +399,8 @@ function renderImages(categoryId) {
 function appendImageBlocks(imagesArray) {
     imagesArray.forEach((imgSrc) => {
         // Ensure index matches global array for Lightbox navigation
-        const globalIndex = currentLightboxImages.indexOf(imgSrc); 
-        
+        const globalIndex = currentLightboxImages.indexOf(imgSrc);
+
         const imgBlock = `
             <div class="relative overflow-hidden group cursor-pointer bg-warm/5 aspect-square rounded-2xl" onclick="openLightbox(${globalIndex})">
                 <img src="${imgSrc}" loading="lazy" alt="Gallery Image" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
@@ -552,7 +422,7 @@ function loadMoreImages() {
     // Append the rest of the array
     const remainingImages = currentLightboxImages.slice(currentlyDisplayedCount);
     appendImageBlocks(remainingImages);
-    
+
     // Hide the button once all are shown
     loadMoreBtnContainer.classList.add('hidden');
     currentlyDisplayedCount = currentLightboxImages.length;
@@ -563,17 +433,17 @@ function openLightbox(index) {
     if (!hasLightbox) return;
     currentImageIndex = index;
     lightboxImg.src = currentLightboxImages[currentImageIndex];
-    
+
     lightbox.classList.remove('hidden');
     lightbox.classList.add('flex');
-    
+
     setTimeout(() => {
         lightbox.classList.remove('opacity-0');
         lightboxImg.classList.remove('scale-95');
         lightboxImg.classList.add('scale-100');
     }, 10);
-    
-    document.body.style.overflow = 'hidden'; 
+
+    document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox(event) {
@@ -582,26 +452,26 @@ function closeLightbox(event) {
     lightbox.classList.add('opacity-0');
     lightboxImg.classList.remove('scale-100');
     lightboxImg.classList.add('scale-95');
-    
+
     setTimeout(() => {
         lightbox.classList.add('hidden');
         lightbox.classList.remove('flex');
     }, 300);
-    
-    document.body.style.overflow = 'auto'; 
+
+    document.body.style.overflow = 'auto';
 }
 
 function navigateLightbox(direction, event) {
     if (!hasLightbox) return;
     event.stopPropagation();
     currentImageIndex = currentImageIndex + direction;
-    
+
     if (currentImageIndex >= currentLightboxImages.length) {
-        currentImageIndex = 0; 
+        currentImageIndex = 0;
     } else if (currentImageIndex < 0) {
-        currentImageIndex = currentLightboxImages.length - 1; 
+        currentImageIndex = currentLightboxImages.length - 1;
     }
-    
+
     lightboxImg.classList.add('opacity-0');
     setTimeout(() => {
         lightboxImg.src = currentLightboxImages[currentImageIndex];
@@ -619,6 +489,13 @@ if (hasLightbox) {
         }
     });
 }
+
+
+
+//home page//
+
+
+
 
 
 // --- GALLERY PAGE INITIALIZATION ---
@@ -704,8 +581,8 @@ let cartCount = 0;
 
 function initGiftShop() {
     const grid = document.getElementById('collections-grid');
-    if(!grid) return;
-    
+    if (!grid) return;
+
     grid.innerHTML = collections.map(col => `
         <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md border border-warm/5 flex flex-col h-full">
             <div class="h-56 overflow-hidden">
@@ -724,7 +601,7 @@ function initGiftShop() {
             </div>
         </div>
     `).join('');
-    
+
     // Reveal animations
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -741,14 +618,14 @@ function initGiftShop() {
 function addToCart(itemName, price) {
     cartCount++;
     const cartCountSpan = document.getElementById('cart-count');
-    if(cartCountSpan) cartCountSpan.innerText = cartCount;
+    if (cartCountSpan) cartCountSpan.innerText = cartCount;
     showToast(`✨ ${itemName} added to cart! (${price})`);
 }
 
 function showToast(message) {
     const container = document.getElementById('toast-container');
-    if(!container) return;
-    
+    if (!container) return;
+
     const toast = document.createElement('div');
     toast.className = 'bg-dark text-white px-5 py-2 rounded-full shadow-lg text-sm toast';
     toast.innerText = message;
@@ -769,13 +646,13 @@ function showToast(message) {
 
 //footer 2//
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const footerContainer = document.getElementById('footer-container');
 
     // Wait until the DOM is loaded. If it still can't find it, log an error.
     if (!footerContainer) {
         console.error('Footer generation failed: <div id="footer-container"></div> is missing from the HTML.');
-        return; 
+        return;
     }
 
     // -------------------------------------------
@@ -915,7 +792,7 @@ document.addEventListener('DOMContentLoaded', function() {
     footerContainer.innerHTML = footerHTML;
 
     // 4. Initialize Interactive Logic
-    
+
     // Dynamic Year
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
