@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Gift Shop | Kimondo Adventures</title>
-    
+    <meta name="description"
+        content="Take Africa home — handcrafted Makonde sculptures, ebony carvings, and authentic Tanzanian art. Direct from artisans, shipped worldwide.">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    
+    <!-- Add this CDN in the <head> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css">
+
     <script>
         tailwind.config = {
             theme: {
@@ -21,168 +27,976 @@
                     colors: {
                         forest: '#2E7D32',
                         golden: '#F5A623',
-                        choco: '#6D3A1F',
-                        turquoise: '#00BCD4',
                         warm: '#5D4037',
                         light: '#fcfbf9',
                         dark: '#0a0f0d',
-                    }
+                    },
+                    animation: {
+                        'pulse-soft': 'pulseSoft 2.5s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shimmer': 'shimmer 2.5s infinite',
+                    },
+                    keyframes: {
+                        pulseSoft: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.5' } },
+                        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
+                        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+                    },
                 }
             }
         }
     </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar-link.active {
+            color: #F5A623;
+            background-color: rgba(245, 166, 35, 0.08);
+            border-left: 3px solid #F5A623;
+        }
+
+        .policy-section {
+            border-left: 4px solid #F5A623;
+            transition: all 0.25s ease;
+        }
+
+        .policy-section:hover {
+            box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .number-badge {
+            background-color: #F5A623;
+            color: #0a0f0d;
+            font-weight: 700;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
+        }
+
+        /* Accordion animation for mobile */
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                display: none;
+            }
+
+            .collapsible-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .collapsible-content.open {
+                max-height: 2000px;
+                /* large enough for any content */
+            }
+
+            .toggle-arrow {
+                transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .toggle-arrow.open {
+                transform: rotate(180deg);
+            }
+        }
+    </style>
 </head>
-<body class="bg-light text-warm font-sans antialiased overflow-x-hidden flex flex-col min-h-screen pt-24">
+
+<body class="bg-light text-warm font-sans antialiased">
 
     <div id="kimondo-header"></div>
 
-    <!-- Hero (unchanged) -->
-    <section class="relative min-h-[60vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden w-full pt-24 pb-20">
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO SECTION — MODERN PARALLAX STYLE -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden w-full">
+        <!-- Background layers unchanged -->
         <div class="absolute inset-0 z-0">
-            <img src="IMG/1 (9).jpg" class="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out" alt="Zanzibar Gift Shop">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-forest/90"></div>
-        </div>
-        <div class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10 reveal active">
-            <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
-                <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
-                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Zanzibar Treasures</span>
+            <img src="IMG/1 (9).jpg" alt="Handcrafted African art"
+                class="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-[25s] ease-out">
+            <div class="absolute inset-0 bg-black/55"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-dark/80 via-forest/40 to-dark/90"></div>
+            <div
+                class="absolute top-0 right-0 w-[500px] h-[500px] bg-golden/8 rounded-full blur-[120px] -translate-y-1/3 translate-x-1/4">
             </div>
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1]">
-                Authentic <br class="hidden sm:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">Local Crafts</span>
-            </h1>
-            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed mb-12 drop-shadow-md">
-                Discover unique souvenirs and genuine artisan products directly from Zanzibar. Take home a piece of the island.
-            </p>
+            <div
+                class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-forest/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4">
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-light to-transparent"></div>
         </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block z-10">
-            <div class="w-8 h-12 rounded-full border-2 border-white/30 flex items-center justify-center p-2 backdrop-blur-sm">
-                <div class="w-1 h-3 bg-golden rounded-full"></div>
+        <div
+            class="relative z-10 text-center w-full max-w-4xl mx-auto px-4 sm:px-6 py-20 md:py-32 flex flex-col items-center">
+            <div class="inline-flex items-center gap-3 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full glass-card mb-8 md:mb-10 shadow-2xl reveal-in"
+                style="animation-delay: 0.1s;">
+                <span class="w-2.5 h-2.5 rounded-full bg-golden animate-pulse-soft"></span>
+                <span class="text-xs sm:text-sm uppercase tracking-[0.25em] text-white font-bold">Artisan
+                    Collection</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-extrabold text-white mb-6 md:mb-8 tracking-tight drop-shadow-2xl leading-[1.08] reveal-in"
+                style="animation-delay: 0.2s;">
+                Take Africa <br class="hidden sm:block">
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-golden via-amber-300 to-golden italic font-light">Home</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed mb-8 md:mb-12 drop-shadow-md reveal-in"
+                style="animation-delay: 0.35s;">
+                Hand‑carved by master Tanzanian artisans. Not mass‑produced. Not imported from a factory. Every piece
+                brings genuine African craftsmanship into your home — and directly supports the hands that made it.
+            </p>
+            <!-- BUTTONS: now forced into a single row on all screens -->
+            <div class="flex flex-nowrap justify-center gap-3 sm:gap-5 reveal-in" style="animation-delay: 0.5s;">
+                <a href="#featured"
+                    class="ripple-container bg-golden hover:bg-amber-400 text-dark font-bold px-5 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full transition-all duration-300 flex items-center gap-2 sm:gap-3 shadow-[0_0_25px_rgba(245,166,35,0.4)] md:shadow-[0_0_35px_rgba(245,166,35,0.5)] transform hover:-translate-y-1 active:scale-95 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                    <i class="fa-solid fa-star text-base sm:text-lg md:text-xl"></i> Shop Featured
+                </a>
+                <a href="#shop-categories"
+                    class="ripple-container bg-white/10 hover:bg-white/25 backdrop-blur-md text-white border-2 border-white/30 font-bold px-5 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full transition-all duration-300 flex items-center gap-2 sm:gap-3 transform hover:-translate-y-1 active:scale-95 text-xs sm:text-sm md:text-base whitespace-nowrap">
+                    <i class="fa-solid fa-grid-2 text-base sm:text-lg md:text-xl"></i> Browse Categories
+                </a>
+            </div>
+        </div>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10 hidden md:block">
+            <div
+                class="w-9 h-14 rounded-full border-2 border-white/30 flex items-center justify-center p-2 backdrop-blur-sm">
+                <div class="w-1.5 h-4 bg-golden rounded-full"></div>
             </div>
         </div>
     </section>
 
-    <!-- Collections Grid -->
-    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-20">
-        <div class="flex items-center justify-between mb-12 pb-6 border-b-2 border-warm/10 reveal">
-            <div>
-                <h2 class="text-3xl md:text-5xl font-serif font-bold text-forest mb-2">Our Collections</h2>
-                <p class="text-warm/70 font-light">Handpicked items from local artisans</p>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TRUST LINE — MODERN SCROLLING BADGE -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-6 bg-forest relative z-20 overflow-hidden">
+        <div
+            class="flex items-center justify-center gap-8 md:gap-12 text-white text-xs md:text-sm font-medium tracking-wide flex-wrap px-4">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-golden"></i> 500+ Local
+                Artisans</div>
+            <div class="hidden sm:block text-white/30">|</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-globe text-golden"></i> Shipping to 20+ Countries
             </div>
-            <div class="hidden md:flex items-center gap-2 text-forest">
-                <i class="fa-solid fa-shopping-cart text-2xl"></i>
-                <span id="cart-count" class="text-2xl font-bold">0</span>
+            <div class="hidden sm:block text-white/30">|</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-hand-sparkles text-golden"></i> 100% Handcrafted
             </div>
         </div>
+    </section>
 
-        <!-- Grid: Populated by JavaScript -->
-        <div id="collections-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
-        </div>
-    </main>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- WHY SHOP WITH US — MODERN GRID WITH ICONS -->
+    <!-- ═══════════════════════════════════════════ -->
 
-    <!-- Why Shop With Us (unchanged) -->
-    <section class="bg-warm/5 py-16 pt-20 relative z-10" id="how">
+    <section class="py-20 md:py-28 bg-white relative z-20 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-golden text-sm uppercase tracking-wider">Why Choose Us</span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mt-2">Shop With Purpose</h2>
+            <!-- Two-column layout: Image left, Content right (desktop) -->
+            <div class="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-14">
+
+                <!-- LEFT: Image -->
+                <!-- LEFT: Image (hidden on mobile, visible on desktop) -->
+                <div class="w-full lg:w-2/5 shrink-0 reveal-in hidden lg:block">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl sticky top-28">
+                        <img src="https://images.unsplash.com/photo-1590736969955-71cc949e5c73?auto=format&fit=crop&w=800&q=80"
+                            alt="Tanzanian artisan hand-carving ebony wood"
+                            class="w-full h-auto object-cover aspect-[3/4] lg:aspect-[4/5] hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+
+                <!-- RIGHT: Heading + Cards -->
+                <div class="w-full lg:w-3/5">
+                    <!-- Heading block -->
+                    <div class="mb-10 reveal-in">
+                        <span class="text-xs md:text-sm uppercase tracking-[0.3em] text-golden font-bold mb-4 block">Why
+                            Shop With Kimondo</span>
+                        <h2
+                            class="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold text-forest mb-5 leading-tight">
+                            Not a Souvenir Shop.<br>A Direct Line to Real Artisans.
+                        </h2>
+                        <p class="text-warm/60 font-light leading-relaxed text-base md:text-lg max-w-xl text-justify">
+                            Most "African art" passes through several middlemen — inflating the price while the artisan
+                            sees little. We work directly with Makonde and Tanzanian craftsmen, so more of what you pay
+                            reaches the hands that carved your piece.
+                        </p>
+                    </div>
+
+                    <!-- DESKTOP CARDS (grid layout) -->
+                    <div class="hidden lg:grid grid-cols-2 gap-5">
+                        <!-- Card 1 -->
+                        <div
+                            class="group bg-light rounded-3xl p-6 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in relative overflow-hidden">
+                            <div
+                                class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-golden group-hover:text-dark transition-all">
+                                <i
+                                    class="fa-solid fa-hand text-xl text-golden group-hover:text-dark transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-forest text-lg mb-2">Genuinely Handcrafted</h3>
+                            <p class="text-warm/55 text-sm leading-relaxed">Shaped, sanded, and polished entirely by
+                                hand — often over days — using techniques passed through generations.</p>
+                            <span
+                                class="absolute -bottom-2 -right-2 text-6xl font-serif font-extrabold text-warm/5 group-hover:text-golden/10 transition-colors">01</span>
+                        </div>
+                        <!-- Card 2 -->
+                        <div
+                            class="group bg-light rounded-3xl p-6 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in relative overflow-hidden">
+                            <div
+                                class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-golden group-hover:text-dark transition-all">
+                                <i
+                                    class="fa-solid fa-people-arrows text-xl text-golden group-hover:text-dark transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-forest text-lg mb-2">Direct-From-Artisan</h3>
+                            <p class="text-warm/55 text-sm leading-relaxed">We source directly from local carvers — not
+                                importers — so your purchase creates real, measurable impact.</p>
+                            <span
+                                class="absolute -bottom-2 -right-2 text-6xl font-serif font-extrabold text-warm/5 group-hover:text-golden/10 transition-colors">02</span>
+                        </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="group bg-light rounded-3xl p-6 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in relative overflow-hidden">
+                            <div
+                                class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-golden group-hover:text-dark transition-all">
+                                <i
+                                    class="fa-solid fa-box-open text-xl text-golden group-hover:text-dark transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-forest text-lg mb-2">Worldwide Shipping</h3>
+                            <p class="text-warm/55 text-sm leading-relaxed">Professionally packaged with tracking — your
+                                piece arrives safely, anywhere in the world.</p>
+                            <span
+                                class="absolute -bottom-2 -right-2 text-6xl font-serif font-extrabold text-warm/5 group-hover:text-golden/10 transition-colors">03</span>
+                        </div>
+                        <!-- Card 4 -->
+                        <div
+                            class="group bg-light rounded-3xl p-6 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in relative overflow-hidden">
+                            <div
+                                class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-golden group-hover:text-dark transition-all">
+                                <i
+                                    class="fa-solid fa-book-open text-xl text-golden group-hover:text-dark transition-colors"></i>
+                            </div>
+                            <h3 class="font-bold text-forest text-lg mb-2">A Piece With a Story</h3>
+                            <p class="text-warm/55 text-sm leading-relaxed">Every listing shares the tradition and
+                                meaning behind it — cultural significance, not just decoration.</p>
+                            <span
+                                class="absolute -bottom-2 -right-2 text-6xl font-serif font-extrabold text-warm/5 group-hover:text-golden/10 transition-colors">04</span>
+                        </div>
+                    </div>
+
+                    <!-- MOBILE CAROUSEL (slides from right, infinite loop) -->
+                    <div class="lg:hidden mt-6">
+                        <div class="carousel-container relative overflow-hidden rounded-2xl">
+                            <div class="carousel-track flex transition-transform duration-500 ease-out"
+                                id="carouselTrack">
+                                <!-- Generated by JS -->
+                            </div>
+                        </div>
+                        <div class="flex justify-center gap-2 mt-4" id="carouselDots"></div>
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-check-circle text-2xl text-golden"></i>
-                    </div>
-                    <h3 class="font-bold text-forest text-lg">Authentic Products</h3>
-                    <p class="text-warm/70 text-sm mt-2">All items are handmade or locally sourced.</p>
+        </div>
+    </section>
+
+    <script>
+            (function () {
+                // Mobile carousel only on screens <= 1023px
+                if (window.innerWidth > 1023) return;
+
+                const track = document.getElementById('carouselTrack');
+                const dotsContainer = document.getElementById('carouselDots');
+                if (!track || !dotsContainer) return;
+
+                // Card data (same as desktop)
+                const cards = [
+                    { icon: 'fa-hand', title: 'Genuinely Handcrafted', text: 'Shaped, sanded, and polished entirely by hand — often over days — using techniques passed through generations.', num: '01' },
+                    { icon: 'fa-people-arrows', title: 'Direct-From-Artisan', text: 'We source directly from local carvers — not importers — so your purchase creates real, measurable impact.', num: '02' },
+                    { icon: 'fa-box-open', title: 'Worldwide Shipping', text: 'Professionally packaged with tracking — your piece arrives safely, anywhere in the world.', num: '03' },
+                    { icon: 'fa-book-open', title: 'A Piece With a Story', text: 'Every listing shares the tradition and meaning behind it — cultural significance, not just decoration.', num: '04' }
+                ];
+
+                let currentIndex = 0;           // visible card index (0..cards.length)
+                let autoAdvanceTimer = null;
+                const ADVANCE_INTERVAL = 3500;  // time between auto‑slides
+
+                // Build track: 4 original cards + clone of the first card (needed for seamless loop)
+                const allCards = [...cards, cards[0]];
+                track.innerHTML = allCards.map((c, idx) => `
+        <div class="carousel-card w-full shrink-0 px-2">
+            <div class="bg-light rounded-3xl p-6 border border-warm/5 shadow-sm h-full relative overflow-hidden">
+                <div class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-4">
+                    <i class="fa-solid ${c.icon} text-xl text-golden"></i>
                 </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-hands-helping text-2xl text-golden"></i>
+                <h3 class="font-bold text-forest text-lg mb-2">${c.title}</h3>
+                <p class="text-warm/55 text-sm leading-relaxed">${c.text}</p>
+                <span class="absolute -bottom-2 -right-2 text-6xl font-serif font-extrabold text-warm/5">${c.num}</span>
+            </div>
+        </div>
+    `).join('');
+
+                // Create dots (4 real cards)
+                dotsContainer.innerHTML = cards.map((_, i) =>
+                    `<span class="dot w-3 h-3 rounded-full cursor-pointer transition-colors duration-300 ${i === 0 ? 'bg-golden' : 'bg-warm/20'}" data-index="${i}"></span>`
+                ).join('');
+
+                const dots = dotsContainer.querySelectorAll('.dot');
+
+                function goToSlide(index, withTransition = true) {
+                    if (!withTransition) {
+                        track.style.transition = 'none';
+                    } else {
+                        track.style.transition = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
+                    }
+                    // translateX: each card is 100% width of the carousel container
+                    track.style.transform = `translateX(-${index * 100}%)`;
+
+                    // Update dots (only for real indices 0..3)
+                    const realIndex = index % cards.length;
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('bg-golden', i === realIndex);
+                        dot.classList.toggle('bg-warm/20', i !== realIndex);
+                    });
+                }
+
+                function nextSlide() {
+                    currentIndex++;
+                    goToSlide(currentIndex, true);
+
+                    // When we reach the clone (index === cards.length), jump back to real start
+                    if (currentIndex === cards.length) {
+                        setTimeout(() => {
+                            currentIndex = 0;
+                            goToSlide(0, false); // no transition – instant jump
+                        }, 600); // after the transition ends
+                    }
+                }
+
+                function startAutoAdvance() {
+                    stopAutoAdvance();
+                    autoAdvanceTimer = setInterval(nextSlide, ADVANCE_INTERVAL);
+                }
+
+                function stopAutoAdvance() {
+                    if (autoAdvanceTimer) {
+                        clearInterval(autoAdvanceTimer);
+                        autoAdvanceTimer = null;
+                    }
+                }
+
+                // Dot click – jump to that slide
+                dots.forEach(dot => {
+                    dot.addEventListener('click', () => {
+                        const targetIndex = parseInt(dot.getAttribute('data-index'), 10);
+                        if (targetIndex === currentIndex % cards.length) return;
+                        stopAutoAdvance();
+                        currentIndex = targetIndex;
+                        goToSlide(currentIndex, true);
+                        startAutoAdvance();
+                    });
+                });
+
+                // Pause on hover (optional)
+                track.addEventListener('mouseenter', stopAutoAdvance);
+                track.addEventListener('mouseleave', startAutoAdvance);
+
+                // Initialize
+                goToSlide(0, false);
+                startAutoAdvance();
+            })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SHOP BY CATEGORY — MODERN INTERACTIVE TILES -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="shop-categories" class="py-20 md:py-28 bg-forest relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal-in">
+                <span class="text-xs md:text-sm uppercase tracking-[0.3em] text-golden font-bold mb-5 block">Shop by
+                    Category</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-extrabold text-white">Find Your Perfect Piece</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+                <a href="#"
+                    class="category-card bg-white rounded-3xl p-6 text-center border border-warm/8 shadow-sm group cursor-pointer">
+                    <i class="fa-solid fa-tree text-4xl text-golden mb-4 block"></i>
+                    <h3 class="font-bold text-forest text-sm">Makonde<br>Sculptures</h3>
+                </a>
+                <a href="#"
+                    class="category-card bg-white rounded-3xl p-6 text-center border border-warm/8 shadow-sm group cursor-pointer">
+                    <i class="ri-elephant-fill text-4xl text-golden mb-4 block"></i>
+                    <h3 class="font-bold text-forest text-sm">Ebony Wildlife<br>Carvings</h3>
+                </a>
+                <a href="#"
+                    class="category-card bg-white rounded-3xl p-6 text-center border border-warm/8 shadow-sm group cursor-pointer">
+                    <i class="fa-solid fa-person-military-rifle text-4xl text-golden mb-4 block"></i>
+                    <h3 class="font-bold text-forest text-sm">Maasai Art<br>& Statues</h3>
+                </a>
+                <a href="#"
+                    class="category-card bg-white rounded-3xl p-6 text-center border border-warm/8 shadow-sm group cursor-pointer">
+                    <i class="fa-solid fa-mask text-4xl text-golden mb-4 block"></i>
+                    <h3 class="font-bold text-forest text-sm">Wall Masks<br>& Traditional</h3>
+                </a>
+                <a href="#"
+                    class="category-card bg-white rounded-3xl p-6 text-center border border-warm/8 shadow-sm group cursor-pointer">
+                    <i class="fa-solid fa-gem text-4xl text-golden mb-4 block"></i>
+                    <h3 class="font-bold text-forest text-sm">Jewelry &<br>Small Goods</h3>
+                </a>
+                <a href="#"
+                    class="category-card bg-white rounded-3xl p-6 text-center border border-warm/8 shadow-sm group cursor-pointer">
+                    <i class="fa-solid fa-gift text-4xl text-golden mb-4 block"></i>
+                    <h3 class="font-bold text-forest text-sm">Gift Sets<br>& Bundles</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- FEATURED PIECES — MODERN PRODUCT CARDS -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="featured" class="py-20 md:py-28 bg-white relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-in">
+                <span class="text-xs md:text-sm uppercase tracking-[0.3em] text-golden font-bold mb-5 block">Featured
+                    Pieces</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-extrabold text-forest">Handpicked by Our Team</h2>
+            </div>
+
+            <!-- DESKTOP GRID (hidden on mobile) -->
+            <div class="hidden lg:grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-light rounded-3xl shadow-md border border-warm/5 overflow-hidden group reveal-in"
+                    style="animation-delay: 0.1s;">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?auto=format&fit=crop&w=600&q=80"
+                            alt="Makonde sculpture" class="product-img w-full h-full object-cover">
+                        <div
+                            class="absolute top-4 left-4 price-badge text-dark font-bold text-xs px-4 py-2 rounded-full">
+                            Best Seller</div>
                     </div>
-                    <h3 class="font-bold text-forest text-lg">Support Local Artisans</h3>
-                    <p class="text-warm/70 text-sm mt-2">Your purchase helps the local community thrive.</p>
-                </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-star text-2xl text-golden"></i>
+                    <div class="p-7">
+                        <h3 class="font-bold text-forest text-xl mb-2">Family Tree Sculpture</h3>
+                        <span class="text-xs text-golden font-semibold uppercase tracking-wider mb-3 block">Makonde
+                            Art</span>
+                        <p class="text-warm/55 text-sm mb-6 leading-relaxed">Carved from African blackwood (Mpingo). A
+                            symbol of lineage and unity — a centerpiece for any collector.</p>
+                        <a href="#"
+                            class="inline-flex items-center gap-2 bg-forest text-white font-bold px-6 py-3 rounded-full hover:bg-dark transition-all text-sm uppercase tracking-wider w-full justify-center group-hover:bg-golden group-hover:text-dark">
+                            Shop Now <i
+                                class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
                     </div>
-                    <h3 class="font-bold text-forest text-lg">Curated Quality</h3>
-                    <p class="text-warm/70 text-sm mt-2">Every product is carefully selected for quality and uniqueness.</p>
                 </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                    <div class="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-gift text-2xl text-golden"></i>
+                <!-- Product 2 -->
+                <div class="product-card bg-light rounded-3xl shadow-md border border-warm/5 overflow-hidden group reveal-in"
+                    style="animation-delay: 0.2s;">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=600&q=80"
+                            alt="Ebony elephant" class="product-img w-full h-full object-cover">
+                        <div
+                            class="absolute top-4 left-4 price-badge text-dark font-bold text-xs px-4 py-2 rounded-full">
+                            Most Requested</div>
                     </div>
-                    <h3 class="font-bold text-forest text-lg">Perfect for Gifting</h3>
-                    <p class="text-warm/70 text-sm mt-2">Unique, beautiful, and meaningful gifts.</p>
+                    <div class="p-7">
+                        <h3 class="font-bold text-forest text-xl mb-2">Ebony Elephant Figure</h3>
+                        <span class="text-xs text-golden font-semibold uppercase tracking-wider mb-3 block">Wildlife
+                            Carving</span>
+                        <p class="text-warm/55 text-sm mb-6 leading-relaxed">Hand‑polished tribute to strength and
+                            wisdom. Sustainably sourced, finished by master carvers.</p>
+                        <a href="#"
+                            class="inline-flex items-center gap-2 bg-forest text-white font-bold px-6 py-3 rounded-full hover:bg-dark transition-all text-sm uppercase tracking-wider w-full justify-center group-hover:bg-golden group-hover:text-dark">
+                            Shop Now <i
+                                class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
                 </div>
+                <!-- Product 3 -->
+                <div class="product-card bg-light rounded-3xl shadow-md border border-warm/5 overflow-hidden group reveal-in"
+                    style="animation-delay: 0.3s;">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1549366021-9f761d7f1e75?auto=format&fit=crop&w=600&q=80"
+                            alt="Wall mask" class="product-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-7">
+                        <h3 class="font-bold text-forest text-xl mb-2">Hand‑Carved Wall Mask</h3>
+                        <span
+                            class="text-xs text-golden font-semibold uppercase tracking-wider mb-3 block">Traditional</span>
+                        <p class="text-warm/55 text-sm mb-6 leading-relaxed">Mahogany mask honoring ancestral heritage.
+                            A striking statement piece and genuine conversation starter.</p>
+                        <a href="#"
+                            class="inline-flex items-center gap-2 bg-forest text-white font-bold px-6 py-3 rounded-full hover:bg-dark transition-all text-sm uppercase tracking-wider w-full justify-center group-hover:bg-golden group-hover:text-dark">
+                            Shop Now <i
+                                class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card bg-light rounded-3xl shadow-md border border-warm/5 overflow-hidden group reveal-in"
+                    style="animation-delay: 0.4s;">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590736969955-71cc949e5c73?auto=format&fit=crop&w=600&q=80"
+                            alt="Maasai warrior statue" class="product-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-7">
+                        <h3 class="font-bold text-forest text-xl mb-2">Maasai Warrior Statue</h3>
+                        <span
+                            class="text-xs text-golden font-semibold uppercase tracking-wider mb-3 block">Authentic</span>
+                        <p class="text-warm/55 text-sm mb-6 leading-relaxed">Capturing the spirit of Maasai culture in
+                            polished ebony. Bold, elegant, and precisely detailed.</p>
+                        <a href="#"
+                            class="inline-flex items-center gap-2 bg-forest text-white font-bold px-6 py-3 rounded-full hover:bg-dark transition-all text-sm uppercase tracking-wider w-full justify-center group-hover:bg-golden group-hover:text-dark">
+                            Shop Now <i
+                                class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOBILE CAROUSEL (visible only on small screens) -->
+            <div class="lg:hidden mt-6">
+                <div class="carousel-container relative overflow-hidden rounded-2xl">
+                    <div class="carousel-track flex transition-transform duration-500 ease-out"
+                        id="featuredCarouselTrack">
+                        <!-- Cards generated by JS -->
+                    </div>
+                </div>
+                <div class="flex justify-center gap-2 mt-4" id="featuredCarouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            // Only activate on mobile (<= 1023px)
+            if (window.innerWidth > 1023) return;
+
+            const track = document.getElementById('featuredCarouselTrack');
+            const dotsContainer = document.getElementById('featuredCarouselDots');
+            if (!track || !dotsContainer) return;
+
+            // Product data (same as desktop cards)
+            const products = [
+                {
+                    img: 'https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?auto=format&fit=crop&w=600&q=80',
+                    badge: 'Best Seller',
+                    title: 'Family Tree Sculpture',
+                    category: 'Makonde Art',
+                    desc: 'Carved from African blackwood (Mpingo). A symbol of lineage and unity — a centerpiece for any collector.',
+                },
+                {
+                    img: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=600&q=80',
+                    badge: 'Most Requested',
+                    title: 'Ebony Elephant Figure',
+                    category: 'Wildlife Carving',
+                    desc: 'Hand‑polished tribute to strength and wisdom. Sustainably sourced, finished by master carvers.',
+                },
+                {
+                    img: 'https://images.unsplash.com/photo-1549366021-9f761d7f1e75?auto=format&fit=crop&w=600&q=80',
+                    badge: null,
+                    title: 'Hand‑Carved Wall Mask',
+                    category: 'Traditional',
+                    desc: 'Mahogany mask honoring ancestral heritage. A striking statement piece and genuine conversation starter.',
+                },
+                {
+                    img: 'https://images.unsplash.com/photo-1590736969955-71cc949e5c73?auto=format&fit=crop&w=600&q=80',
+                    badge: null,
+                    title: 'Maasai Warrior Statue',
+                    category: 'Authentic',
+                    desc: 'Capturing the spirit of Maasai culture in polished ebony. Bold, elegant, and precisely detailed.',
+                }
+            ];
+
+            // Clone the first product for seamless loop
+            const slides = [...products, products[0]];
+            let currentIndex = 0;
+            let autoTimer = null;
+            const INTERVAL = 3500;
+
+            // Build track HTML
+            track.innerHTML = slides.map((p, idx) => `
+        <div class="carousel-slide w-full shrink-0 px-2">
+            <div class="product-card bg-light rounded-3xl shadow-md border border-warm/5 overflow-hidden group h-full">
+                <div class="relative h-64 overflow-hidden">
+                    <img src="${p.img}" alt="${p.title}" class="product-img w-full h-full object-cover">
+                    ${p.badge ? `<div class="absolute top-4 left-4 price-badge text-dark font-bold text-xs px-4 py-2 rounded-full">${p.badge}</div>` : ''}
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-forest text-xl mb-2">${p.title}</h3>
+                    <span class="text-xs text-golden font-semibold uppercase tracking-wider mb-3 block">${p.category}</span>
+                    <p class="text-warm/55 text-sm mb-6 leading-relaxed">${p.desc}</p>
+                    <a href="#" class="inline-flex items-center gap-2 bg-forest text-white font-bold px-6 py-3 rounded-full hover:bg-dark transition-all text-sm uppercase tracking-wider w-full justify-center">
+                        Shop Now <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+            // Create dots
+            dotsContainer.innerHTML = products.map((_, i) =>
+                `<span class="dot w-3 h-3 rounded-full cursor-pointer transition-colors duration-300 ${i === 0 ? 'bg-golden' : 'bg-warm/20'}" data-index="${i}"></span>`
+            ).join('');
+
+            const dots = dotsContainer.querySelectorAll('.dot');
+
+            function goToSlide(index, withTransition = true) {
+                track.style.transition = withTransition ? 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
+                track.style.transform = `translateX(-${index * 100}%)`;
+
+                const realIndex = index % products.length;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-golden', i === realIndex);
+                    dot.classList.toggle('bg-warm/20', i !== realIndex);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex++;
+                goToSlide(currentIndex, true);
+                if (currentIndex === products.length) {
+                    setTimeout(() => {
+                        currentIndex = 0;
+                        goToSlide(0, false);
+                    }, 600);
+                }
+            }
+
+            function startAuto() {
+                stopAuto();
+                autoTimer = setInterval(nextSlide, INTERVAL);
+            }
+
+            function stopAuto() {
+                if (autoTimer) {
+                    clearInterval(autoTimer);
+                    autoTimer = null;
+                }
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const target = parseInt(dot.getAttribute('data-index'), 10);
+                    if (target === currentIndex % products.length) return;
+                    stopAuto();
+                    currentIndex = target;
+                    goToSlide(currentIndex, true);
+                    startAuto();
+                });
+            });
+
+            track.addEventListener('mouseenter', stopAuto);
+            track.addEventListener('mouseleave', startAuto);
+
+            // Initialize
+            goToSlide(0, false);
+            startAuto();
+        })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- MEET THE ARTISANS — IMMERSIVE STORY SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-20 md:py-28 bg-forest relative z-20 overflow-hidden">
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 40px 40px;">
+        </div>
+        <div
+            class="absolute top-0 right-0 w-[400px] h-[400px] bg-golden/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3">
+        </div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10 reveal-in">
+            <span class="text-xs md:text-sm uppercase tracking-[0.3em] text-golden font-bold mb-5 block">The Hands
+                Behind the Craft</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-extrabold text-white mb-6 leading-tight">Every Piece Has a
+                Maker —<br class="hidden sm:block">Here's Who They Are</h2>
+            <p
+                class="text-white/70 font-light max-w-2xl mx-auto leading-relaxed text-base md:text-lg mb-10 text-justify">
+                Our
+                artisans are Makonde and Tanzanian craftsmen whose carving traditions span generations, centered on
+                themes of family, ancestry, and community (Ujamaa). When you buy from Kimondo, your payment goes
+                directly toward supporting these craftsmen and preserving a tradition that deserves to be seen — and
+                owned — by the world.</p>
+            <a href="#"
+                class="ripple-container inline-flex bg-golden hover:bg-amber-400 text-dark font-bold px-10 py-5 rounded-full transition-all duration-300 items-center gap-3 shadow-[0_0_30px_rgba(245,166,35,0.4)] transform hover:-translate-y-1.5 active:scale-95">
+                <i class="fa-solid fa-newspaper text-lg"></i> Read Their Stories on Our Blog
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SHIPPING & DELIVERY — CLEAN MODERN CARDS -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-20 md:py-28 bg-white relative z-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-in">
+                <span class="text-xs md:text-sm uppercase tracking-[0.3em] text-golden font-bold mb-5 block">Worldwide
+                    Shipping</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-extrabold text-forest">Delivered Safely,<br
+                        class="hidden sm:block">Wherever You Are</h2>
+            </div>
+
+            <!-- DESKTOP GRID (hidden on mobile) -->
+            <div class="hidden lg:grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="flex items-start gap-5 p-8 bg-light rounded-3xl border border-warm/5 shadow-sm hover:shadow-lg transition reveal-in"
+                    style="animation-delay: 0.1s;">
+                    <div class="w-14 h-14 bg-golden/10 rounded-2xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-globe text-2xl text-golden"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-forest text-xl mb-2">Global Shipping</h3>
+                        <p class="text-warm/55 text-sm leading-relaxed">20+ countries with secure, trackable delivery
+                            for every order.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="flex items-start gap-5 p-8 bg-light rounded-3xl border border-warm/5 shadow-sm hover:shadow-lg transition reveal-in"
+                    style="animation-delay: 0.2s;">
+                    <div class="w-14 h-14 bg-golden/10 rounded-2xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-box text-2xl text-golden"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-forest text-xl mb-2">Careful Packaging</h3>
+                        <p class="text-warm/55 text-sm leading-relaxed">Professionally packed to withstand international
+                            transit — protecting detailed carvings.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="flex items-start gap-5 p-8 bg-light rounded-3xl border border-warm/5 shadow-sm hover:shadow-lg transition reveal-in"
+                    style="animation-delay: 0.3s;">
+                    <div class="w-14 h-14 bg-golden/10 rounded-2xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-plane-departure text-2xl text-golden"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-forest text-xl mb-2">Estimated Delivery</h3>
+                        <p class="text-warm/55 text-sm leading-relaxed">Typically 10–21 business days depending on
+                            destination, with tracking throughout.</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="flex items-start gap-5 p-8 bg-light rounded-3xl border border-warm/5 shadow-sm hover:shadow-lg transition reveal-in"
+                    style="animation-delay: 0.4s;">
+                    <div class="w-14 h-14 bg-golden/10 rounded-2xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-file-invoice text-2xl text-golden"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-forest text-xl mb-2">Customs & Duties</h3>
+                        <p class="text-warm/55 text-sm leading-relaxed">International orders may be subject to customs
+                            fees; these are the buyer's responsibility.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOBILE CAROUSEL (visible only on small screens) -->
+            <div class="lg:hidden mt-6">
+                <div class="carousel-container relative overflow-hidden rounded-2xl">
+                    <div class="carousel-track flex transition-transform duration-500 ease-out"
+                        id="shippingCarouselTrack">
+                        <!-- Cards injected by JS -->
+                    </div>
+                </div>
+                <div class="flex justify-center gap-2 mt-4" id="shippingCarouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            if (window.innerWidth > 1023) return; // only on mobile
+
+            const track = document.getElementById('shippingCarouselTrack');
+            const dotsContainer = document.getElementById('shippingCarouselDots');
+            if (!track || !dotsContainer) return;
+
+            const cards = [
+                { icon: 'fa-globe', title: 'Global Shipping', text: '20+ countries with secure, trackable delivery for every order.' },
+                { icon: 'fa-box', title: 'Careful Packaging', text: 'Professionally packed to withstand international transit — protecting detailed carvings.' },
+                { icon: 'fa-plane-departure', title: 'Estimated Delivery', text: 'Typically 10–21 business days depending on destination, with tracking throughout.' },
+                { icon: 'fa-file-invoice', title: 'Customs & Duties', text: 'International orders may be subject to customs fees; these are the buyer\'s responsibility.' }
+            ];
+
+            const slides = [...cards, cards[0]]; // clone first for seamless loop
+            let currentIndex = 0;
+            let autoTimer = null;
+            const INTERVAL = 3500;
+
+            track.innerHTML = slides.map((c, idx) => `
+        <div class="carousel-slide w-full shrink-0 px-2">
+            <div class="flex items-start gap-5 p-6 bg-light rounded-3xl border border-warm/5 shadow-sm h-full">
+                <div class="w-14 h-14 bg-golden/10 rounded-2xl flex items-center justify-center shrink-0">
+                    <i class="fa-solid ${c.icon} text-2xl text-golden"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-forest text-xl mb-2">${c.title}</h3>
+                    <p class="text-warm/55 text-sm leading-relaxed">${c.text}</p>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+            dotsContainer.innerHTML = cards.map((_, i) =>
+                `<span class="dot w-3 h-3 rounded-full cursor-pointer transition-colors duration-300 ${i === 0 ? 'bg-golden' : 'bg-warm/20'}" data-index="${i}"></span>`
+            ).join('');
+
+            const dots = dotsContainer.querySelectorAll('.dot');
+
+            function goToSlide(index, withTransition = true) {
+                track.style.transition = withTransition ? 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
+                track.style.transform = `translateX(-${index * 100}%)`;
+
+                const realIndex = index % cards.length;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-golden', i === realIndex);
+                    dot.classList.toggle('bg-warm/20', i !== realIndex);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex++;
+                goToSlide(currentIndex, true);
+                if (currentIndex === cards.length) {
+                    setTimeout(() => {
+                        currentIndex = 0;
+                        goToSlide(0, false);
+                    }, 600);
+                }
+            }
+
+            function startAuto() {
+                stopAuto();
+                autoTimer = setInterval(nextSlide, INTERVAL);
+            }
+
+            function stopAuto() {
+                if (autoTimer) {
+                    clearInterval(autoTimer);
+                    autoTimer = null;
+                }
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const target = parseInt(dot.getAttribute('data-index'), 10);
+                    if (target === currentIndex % cards.length) return;
+                    stopAuto();
+                    currentIndex = target;
+                    goToSlide(currentIndex, true);
+                    startAuto();
+                });
+            });
+
+            track.addEventListener('mouseenter', stopAuto);
+            track.addEventListener('mouseleave', startAuto);
+
+            // Kick off
+            goToSlide(0, false);
+            startAuto();
+        })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PAYMENT & SECURITY — MINIMAL TRUST SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-16 md:py-24 bg-forest relative z-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center reveal-in">
+            <div class="w-20 h-20 bg-white rounded-3xl shadow-lg flex items-center justify-center mx-auto mb-8">
+                <i class="fa-solid fa-lock text-3xl text-forest"></i>
+            </div>
+            <span class="text-xs md:text-sm uppercase tracking-[0.3em] text-golden font-bold mb-4 block">Secure
+                Checkout</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-extrabold text-white mb-6">Shop With Confidence</h2>
+            <p class="text-white/70 font-light max-w-xl mx-auto leading-relaxed text-base">All purchases are processed
+                securely through <strong class="text-golden">Tab (Tab.travel)</strong> — PCI‑DSS compliant. Your payment
+                details are never stored by Kimondo directly.</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- FINAL CTA — BOLD & POWERFUL -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-24 md:py-36 bg-white relative flex items-center min-h-[450px] overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-golden/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-forest/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4">
+        </div>
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10 w-full reveal-in">
+            <h2 class="text-3xl sm:text-4xl md:text-6xl font-serif font-extrabold text-forest mb-8 leading-tight">
+                Bring Home More<br class="hidden sm:block"> Than a Souvenir
+            </h2>
+            <p class="text-warm/60 text-base md:text-xl font-light mb-12 max-w-xl mx-auto leading-relaxed">
+                Every piece supports a real artisan and carries Tanzanian tradition into your home — wherever in the
+                world that may be.
+            </p>
+            <div class="flex flex-wrap justify-center gap-5">
+                <a href="#"
+                    class="ripple-container inline-flex bg-golden hover:bg-amber-400 text-dark font-extrabold px-10 md:px-12 py-5 rounded-full transition-all duration-300 items-center gap-3 shadow-[0_0_40px_rgba(245,166,35,0.5)] transform hover:-translate-y-2 active:scale-95 text-sm md:text-base">
+                    <i class="fa-solid fa-store text-lg"></i> Browse the Full Collection
+                </a>
             </div>
         </div>
     </section>
 
     <div id="footer-container"></div>
 
-
-
-    <!-- ========== GIFT SHOP PRODUCTS & CART LOGIC ========== -->
     <script>
-        (function(){
-            // ---------- PRODUCT DATABASE ----------
-            const products = [
-                { id: 1, name: "Handwoven Kente Cloth", price: "$45", image: "https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Vibrant handwoven fabric, perfect for decor or clothing." },
-                { id: 2, name: "Maasai Beaded Necklace", price: "$35", image: "https://images.pexels.com/photos/2041540/pexels-photo-2041540.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Authentic beaded jewelry made by Maasai women." },
-                { id: 3, name: "Zanzibar Spice Set", price: "$22", image: "https://images.pexels.com/photos/4198038/pexels-photo-4198038.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Aromatic cloves, cinnamon & vanilla from the Spice Island." },
-                { id: 4, name: "Ebony Wood Carving", price: "$60", image: "https://images.pexels.com/photos/2079438/pexels-photo-2079438.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Intricately carved ebony figurine – symbol of African art." },
-                { id: 5, name: "Traditional Tinga Tinga Painting", price: "$80", image: "https://images.pexels.com/photos/1266808/pexels-photo-1266808.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Colorful Tanzanian art on canvas, signed by the artist." },
-                { id: 6, name: "Handmade Leather Sandals", price: "$28", image: "https://images.pexels.com/photos/1474137/pexels-photo-1474137.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Soft leather sandals crafted by coastal artisans." },
-                { id: 7, name: "Coconut Shell Bowl Set", price: "$18", image: "https://images.pexels.com/photos/5944259/pexels-photo-5944259.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Eco-friendly bowls made from recycled coconut shells." },
-                { id: 8, name: "African Print Tote Bag", price: "$25", image: "https://images.pexels.com/photos/3731256/pexels-photo-3731256.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Spacious cotton tote with vibrant traditional patterns." },
-                { id: 9, name: "Batik Wall Hanging", price: "$55", image: "https://images.pexels.com/photos/1485630/pexels-photo-1485630.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Stunning batik art piece to brighten any room." }
-            ];
-
-            let cartCount = 0;
-
-            // Render all products
-            function renderProducts() {
-                const grid = document.getElementById('collections-grid');
-                let html = '';
-                products.forEach(p => {
-                    html += `
-                        <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden transition hover:shadow-xl hover:-translate-y-1 flex flex-col">
-                            <div class="h-56 overflow-hidden">
-                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover">
-                            </div>
-                            <div class="p-5 flex flex-col flex-1">
-                                <h3 class="text-lg font-bold text-forest mb-1">${p.name}</h3>
-                                <p class="text-golden font-semibold text-xl mb-2">${p.price}</p>
-                                <p class="text-warm/70 text-sm mb-4 flex-1">${p.desc}</p>
-                                <button onclick="addToCart('${p.name}')" class="mt-auto w-full bg-forest hover:bg-green-800 text-white py-2.5 rounded-lg font-semibold text-sm transition">
-                                    <i class="fas fa-cart-plus mr-2"></i> Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    `;
+        (function () {
+            function attachRipple(btn) {
+                if (!btn || btn.dataset.rippleBound) return;
+                btn.dataset.rippleBound = 'true';
+                btn.addEventListener('click', function (e) {
+                    const rect = btn.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-wave';
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                    btn.appendChild(ripple);
+                    ripple.addEventListener('animationend', () => ripple.remove());
                 });
-                grid.innerHTML = html;
             }
-
-            // Simple cart increment + feedback
-            window.addToCart = function(name) {
-                cartCount++;
-                document.getElementById('cart-count').textContent = cartCount;
-                // Quick feedback without alert
-                const feedback = document.createElement('div');
-                feedback.className = 'fixed bottom-6 right-6 bg-forest text-white px-6 py-3 rounded-full shadow-xl z-50 animate-bounce';
-                feedback.innerHTML = `<i class="fas fa-check-circle mr-2"></i> "${name}" added to cart!`;
-                document.body.appendChild(feedback);
-                setTimeout(() => feedback.remove(), 2500);
-            };
-
-            // Initial render on page load
-            renderProducts();
+            function attachRippleToAll(sel) { document.querySelectorAll(sel).forEach(attachRipple); }
+            function observeRevealElements() {
+                const revealElements = document.querySelectorAll('.reveal-in');
+                if (!('IntersectionObserver' in window)) {
+                    revealElements.forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+                    return;
+                }
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationPlayState = 'running';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealElements.forEach(el => {
+                    el.style.animationPlayState = 'paused';
+                    observer.observe(el);
+                });
+                setTimeout(() => {
+                    revealElements.forEach(el => {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top < window.innerHeight && rect.bottom > 0) {
+                            el.style.animationPlayState = 'running';
+                            observer.unobserve(el);
+                        }
+                    });
+                }, 150);
+            }
+            function init() {
+                attachRippleToAll('.ripple-container');
+                observeRevealElements();
+            }
+            if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
         })();
     </script>
-
     <script src="script.js"></script>
 </body>
+
 </html>

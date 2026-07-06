@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Kimondo Adventures | Frequently Asked Questions</title>
+
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        forest: '#2E7D32',
+                        golden: '#F5A623',
+                        choco: '#6D3A1F',
+                        turquoise: '#00BCD4',
+                        warm: '#5D4037',
+                        light: '#fcfbf9',
+                        dark: '#0a0f0d',
+                    },
+                    animation: {
+                        'pulse-soft': 'pulseSoft 2.5s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseSoft: {
+                            '0%, 100%': {
+                                opacity: '1'
+                            },
+                            '50%': {
+                                opacity: '0.5'
+                            },
+                        },
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0px)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar-link.active {
+            color: #F5A623;
+            background-color: rgba(245, 166, 35, 0.08);
+            border-left: 3px solid #F5A623;
+        }
+
+        .policy-section {
+            border-left: 4px solid #F5A623;
+            transition: all 0.25s ease;
+        }
+
+        .policy-section:hover {
+            box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .number-badge {
+            background-color: #F5A623;
+            color: #0a0f0d;
+            font-weight: 700;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
+        }
+
+        /* Accordion animation for mobile */
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                display: none;
+            }
+
+            .collapsible-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .collapsible-content.open {
+                max-height: 2000px;
+                /* large enough for any content */
+            }
+
+            .toggle-arrow {
+                transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .toggle-arrow.open {
+                transform: rotate(180deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light text-warm font-sans antialiased flex flex-col min-h-screen pt-0">
+
+
+    <!-- Header placeholder -->
+    <div id="kimondo-header"></div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section
+        class="relative min-h-[55vh] md:min-h-[65vh] flex items-center justify-center overflow-hidden w-full pt-32 mt-24 pb-16">
+
+        <!-- Background image with gradient overlays -->
+        <div class="absolute inset-0 z-0">
+            <img src="IMG/1 (7).jpg" alt="Tanzania background" class="w-full h-full object-cover">
+            <!-- Dark overlay for text contrast -->
+            <div class="absolute inset-0 bg-black/50"></div>
+            <!-- Forest-tinted gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br from-forest/70 via-dark/50 to-forest/80"></div>
+            <!-- Subtle gold accent at the top right -->
+            <div
+                class="absolute top-0 right-0 w-80 h-80 bg-golden/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4">
+            </div>
+            <!-- Bottom fade to next section -->
+            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-light to-transparent"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center w-full max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center">
+            <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl reveal-in"
+                style="animation-delay: 0.1s;">
+                <span class="w-2 h-2 rounded-full bg-golden animate-pulse-soft"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Honest Answers, No
+                    Fluff</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.15] reveal-in"
+                style="animation-delay: 0.2s;">
+                Questions Before You Book? <br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">
+                    We've Got Honest Answers.
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-white/85 max-w-2xl mx-auto font-light leading-relaxed mb-10 drop-shadow-md reveal-in"
+                style="animation-delay: 0.35s;">
+                No vague marketing answers here — just clear, direct information from the same local team that will be
+                planning and guiding your trip. If you don't see your question below, reach out directly; we respond
+                fast.
+            </p>
+            <div class="flex justify-center gap-4 reveal-in" style="animation-delay: 0.45s;">
+                <a href="#faq-content"
+                    class="ripple-container bg-golden hover:bg-amber-400 text-dark font-bold px-10 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_0_28px_rgba(245,166,35,0.45)] transform hover:-translate-y-1 active:scale-95">
+                    <i class="fa-solid fa-arrow-down text-lg"></i> Browse FAQs
+                </a>
+                <a href="#still-have-questions"
+                    class="ripple-container bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 font-bold px-10 py-4 rounded-full transition-all duration-300 flex items-center gap-3 transform hover:-translate-y-1 active:scale-95">
+                    <i class="fa-regular fa-message text-lg"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- FAQ CONTENT -->
+    <!-- ═══════════════════════════════════════════ -->
+    <main id="faq-content" class="flex-grow max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-20">
+
+        <!-- ── GENERAL & BOOKING ── -->
+        <div class="mb-16 reveal-in" style="animation-delay: 0.1s;">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-3 h-3 rounded-full bg-golden category-dot shrink-0"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold">General &
+                    Booking</span>
+            </div>
+            <div class="space-y-4">
+                <!-- Q1 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            How far in advance should I book my trip?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">For safaris and Kilimanjaro
+                                treks
+                                during peak season (June–October and December–March), we recommend booking <strong
+                                    class="text-forest font-semibold">2–3 months in advance</strong> to secure guides,
+                                vehicles, and accommodation availability. Zanzibar tours and shorter experiences can
+                                often
+                                be arranged with less notice.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Can you build a fully custom itinerary, or do I have to choose a package?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Every Kimondo itinerary is
+                                <strong class="text-forest font-semibold">tailor-made</strong>. Our listed packages are
+                                starting points, not fixed templates — tell us your dates, interests, and budget, and
+                                we'll
+                                build a plan around you.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            What's included in the price I'm quoted?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Quotes typically include
+                                guiding,
+                                transport, park fees where applicable, and specified accommodation or meals — but this
+                                varies by trip. We break down <strong class="text-forest font-semibold">exactly what's
+                                    included and excluded</strong> before you commit, so there are no surprises later.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Do you only work with international travelers, or can locals book too?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Both. We work with
+                                international
+                                travelers seeking full East African journeys as well as <strong
+                                    class="text-forest font-semibold">local and regional clients</strong> booking
+                                individual experiences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── SAFARIS ── -->
+        <div class="mb-16 reveal-in" style="animation-delay: 0.2s;">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-3 h-3 rounded-full bg-golden category-dot shrink-0"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold">Safaris</span>
+            </div>
+            <div class="space-y-4">
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            What's the best time of year for a safari?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">It depends on your priority.
+                                <strong class="text-forest font-semibold">December–March</strong> is calving season in
+                                the
+                                southern Serengeti; <strong class="text-forest font-semibold">July–October</strong>
+                                offers
+                                dramatic Mara River crossings. We advise based on your specific travel dates rather than
+                                a
+                                generic "best time" answer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Is a safari safe for children or older travelers?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Yes, with the right planning.
+                                We
+                                adjust pace, vehicle choice, and daily schedules based on who's traveling — <strong
+                                    class="text-forest font-semibold">families and older travelers</strong> are common
+                                on
+                                our safaris.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            How many people will be in my safari vehicle?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">This depends on the package.
+                                <strong class="text-forest font-semibold">Private safaris</strong> mean your vehicle
+                                only,
+                                while joined/group safaris may include other travelers to reduce cost. We'll clarify
+                                which
+                                applies before you book.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── ZANZIBAR & ISLAND TOURS ── -->
+        <div class="mb-16 reveal-in" style="animation-delay: 0.3s;">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-3 h-3 rounded-full bg-golden category-dot shrink-0"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold">Zanzibar & Island
+                    Tours</span>
+            </div>
+            <div class="space-y-4">
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Do I need travel insurance to enter Zanzibar?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Yes. All visitors are required
+                                to
+                                hold <strong class="text-forest font-semibold">ZIC (Zanzibar Insurance
+                                    Corporation)</strong>
+                                travel insurance, currently priced at <strong class="text-forest font-semibold">$44 per
+                                    person</strong>, separate from any personal
+                                travel insurance you already have. We help guests handle this smoothly on arrival.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Is clear kayaking suitable for beginners?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Yes. It requires <strong
+                                    class="text-forest font-semibold">no prior kayaking or diving experience</strong>
+                                and
+                                takes place in calm, shallow lagoon waters under guide supervision — suitable for most
+                                ages
+                                and skill levels.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Can you combine Zanzibar with a Tanzania mainland safari?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Yes — this is one of our most
+                                requested combinations. Since we handle both under one team, transitions between the
+                                island
+                                and mainland are <strong class="text-forest font-semibold">coordinated
+                                    seamlessly</strong>
+                                within a single itinerary.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── KILIMANJARO & TREKKING ── -->
+        <div class="mb-16 reveal-in" style="animation-delay: 0.4s;">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-3 h-3 rounded-full bg-golden category-dot shrink-0"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold">Kilimanjaro &
+                    Trekking</span>
+            </div>
+            <div class="space-y-4">
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Do I need prior climbing experience to summit Kilimanjaro?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">No technical climbing skill is
+                                required — Kilimanjaro is a <strong class="text-forest font-semibold">trek, not a
+                                    technical
+                                    climb</strong>. Physical fitness and proper acclimatization matter far more than
+                                prior
+                                experience.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Which route has the highest success rate?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Routes with more
+                                acclimatization
+                                days, such as <strong class="text-forest font-semibold">Machame or Lemosho</strong>,
+                                generally have higher summit success rates than shorter routes like Marangu, regardless
+                                of a
+                                climber's fitness level.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            What happens if I get altitude sickness during the climb?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Our certified guides
+                                continuously
+                                monitor climbers for altitude sickness symptoms and carry <strong
+                                    class="text-forest font-semibold">supplemental oxygen and monitoring
+                                    equipment</strong>. Guide judgment on pacing — or turning back if necessary — always
+                                takes priority over reaching the summit on a fixed schedule.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── PAYMENTS & CANCELLATIONS ── -->
+        <div class="mb-16 reveal-in" style="animation-delay: 0.5s;">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-3 h-3 rounded-full bg-golden category-dot shrink-0"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold">Payments &
+                    Cancellations</span>
+            </div>
+            <div class="space-y-4">
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            What payment methods do you accept?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">We accept <strong
+                                    class="text-forest font-semibold">bank transfers, credit cards, and mobile
+                                    money</strong>. Specific options will be discussed during the booking process based
+                                on
+                                your location and preference.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Is a deposit required to confirm my booking?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Yes, a <strong
+                                    class="text-forest font-semibold">deposit is required</strong> to secure your
+                                booking.
+                                The percentage and balance due date vary by trip type — full details are provided in
+                                your
+                                quote and booking agreement before any payment is made.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            What is your cancellation policy?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Cancellation and refund terms
+                                depend on the specific trip, timing, and services booked. We provide <strong
+                                    class="text-forest font-semibold">clear cancellation terms</strong> in writing
+                                before
+                                you confirm — international travelers specifically look for this before booking
+                                high-value
+                                trips, and we believe in full transparency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── VOLUNTEERING & INTERNSHIPS ── -->
+        <div class="mb-8 reveal-in" style="animation-delay: 0.6s;">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-3 h-3 rounded-full bg-golden category-dot shrink-0"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold">Volunteering &
+                    Internships</span>
+            </div>
+            <div class="space-y-4">
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Do I need prior experience to volunteer or intern with Kimondo?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">No prior experience is required
+                                for most volunteer placements. Internships may have <strong
+                                    class="text-forest font-semibold">specific skill or field requirements</strong>
+                                depending on the placement — we'll match you accordingly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            Is accommodation included in the program fee?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Program fees cover <strong
+                                    class="text-forest font-semibold">accommodation guidance and arrangements</strong>;
+                                specific inclusions vary by program length and type. Full details are provided during
+                                the
+                                application process.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-warm/8 overflow-hidden cursor-pointer group"
+                    onclick="toggleFaq(this)">
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 sm:py-6 hover:bg-forest/[0.02] transition-colors">
+                        <h3
+                            class="text-base sm:text-lg font-semibold text-forest pr-6 faq-question-text leading-relaxed">
+                            How long can I volunteer or intern for?</h3>
+                        <div
+                            class="faq-icon w-8 h-8 rounded-full bg-forest/5 text-forest flex items-center justify-center shrink-0 group-hover:bg-golden group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-plus text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner px-6 sm:px-8 pb-5 sm:pb-6">
+                            <p class="text-warm/75 leading-relaxed text-sm sm:text-base">Placements range from <strong
+                                    class="text-forest font-semibold">as short as one week to several months</strong>,
+                                depending on the program. See our Get Involved page for full program options and
+                                durations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STILL HAVE QUESTIONS? -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="still-have-questions"
+        class="py-24 md:py-32 bg-gradient-to-b from-light to-forest/5 relative flex items-center min-h-[400px]">
+        <div
+            class="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-golden/5 rounded-full blur-3xl -translate-y-1/2">
+        </div>
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10 w-full reveal-in">
+            <span class="text-sm font-bold uppercase tracking-[0.3em] text-golden mb-4 block">Still Have
+                Questions?</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-forest mb-6 leading-tight">
+                Can't Find Your Answer Here?
+            </h2>
+            <p class="text-warm/75 text-base md:text-lg font-light mb-10 max-w-xl mx-auto leading-relaxed">
+                Every trip is different, and some questions are best answered directly by our team. Reach out — we
+                typically respond <strong class="text-forest font-semibold">within 24 hours</strong>.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#"
+                    class="ripple-container inline-flex bg-golden hover:bg-amber-400 text-dark font-bold px-8 md:px-10 py-4 rounded-full transition-all duration-300 items-center gap-3 shadow-lg transform hover:-translate-y-1 active:scale-95">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Contact Us
+                </a>
+                <a href="#"
+                    class="ripple-container inline-flex bg-white hover:bg-forest/5 text-forest font-bold px-8 md:px-10 py-4 rounded-full transition-all duration-300 items-center gap-3 border-2 border-forest/20 hover:border-forest shadow-sm transform hover:-translate-y-1 active:scale-95">
+                    <i class="fa-regular fa-envelope text-lg"></i> Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCRIPTS -->
+    <!-- ═══════════════════════════════════════════ -->
+    <script>
+            (function () {
+                // ── ACCORDION LOGIC ──
+                function toggleFaq(item) {
+                    const answer = item.querySelector('.faq-answer');
+                    const isOpen = item.classList.contains('open');
+
+                    // Close all other open items
+                    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                        if (openItem !== item) {
+                            openItem.classList.remove('open');
+                            const openAnswer = openItem.querySelector('.faq-answer');
+                            if (openAnswer) openAnswer.classList.remove('open');
+                        }
+                    });
+
+                    // Toggle current item
+                    if (isOpen) {
+                        item.classList.remove('open');
+                        if (answer) answer.classList.remove('open');
+                    } else {
+                        item.classList.add('open');
+                        if (answer) answer.classList.add('open');
+                    }
+                }
+
+                // Expose to global scope for inline onclick
+                window.toggleFaq = toggleFaq;
+
+                // ── RIPPLE EFFECT ──
+                function attachRipple(btn) {
+                    if (!btn || btn.dataset.rippleBound) return;
+                    btn.dataset.rippleBound = 'true';
+                    btn.addEventListener('click', function (e) {
+                        const rect = btn.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        const ripple = document.createElement('span');
+                        ripple.className = 'ripple-wave';
+                        ripple.style.width = ripple.style.height = size + 'px';
+                        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                        btn.appendChild(ripple);
+                        ripple.addEventListener('animationend', () => ripple.remove());
+                    });
+                }
+
+                function attachRippleToAll(selector) {
+                    document.querySelectorAll(selector).forEach(attachRipple);
+                }
+
+                // ── INTERSECTION OBSERVER FOR REVEAL ANIMATIONS ──
+                function observeRevealElements() {
+                    const revealElements = document.querySelectorAll('.reveal-in');
+                    if (!('IntersectionObserver' in window)) {
+                        revealElements.forEach(el => {
+                            el.style.opacity = '1';
+                            el.style.transform = 'translateY(0)';
+                        });
+                        return;
+                    }
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.style.animationPlayState = 'running';
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        threshold: 0.15,
+                        rootMargin: '0px 0px -30px 0px'
+                    });
+
+                    revealElements.forEach(el => {
+                        el.style.animationPlayState = 'paused';
+                        observer.observe(el);
+                    });
+
+                    // Immediately reveal elements already in view
+                    setTimeout(() => {
+                        revealElements.forEach(el => {
+                            const rect = el.getBoundingClientRect();
+                            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                                el.style.animationPlayState = 'running';
+                                observer.unobserve(el);
+                            }
+                        });
+                    }, 150);
+                }
+
+                // ── INIT ──
+                function init() {
+                    attachRippleToAll('.ripple-container');
+                    observeRevealElements();
+                }
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', init);
+                } else {
+                    init();
+                }
+            })();
+    </script>
+
+    <!-- Placeholder Footer -->
+    <div id="footer-container"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

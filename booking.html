@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>My Booking · Kimondo Adventures</title>
+    <meta name="description" content="Review and confirm your adventure booking with Kimondo.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        forest: '#2E7D32', golden: '#F5A623', warm: '#5D4037', light: '#fcfbf9', dark: '#0a0f0d',
+                    },
+                    animation: {
+                        'pulse-soft': 'pulseSoft 2.5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseSoft: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.5' } },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fcfbf9;
+        }
+
+        .cart-item {
+            transition: all 0.3s ease;
+        }
+
+        .cart-item:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-input {
+            border: 1px solid #e0d7c6;
+            border-radius: 1rem;
+            padding: 0.75rem 1rem;
+            transition: border 0.2s;
+            background: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #F5A623;
+            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+        }
+
+        .btn-primary {
+            background: #F5A623;
+            color: #0a0f0d;
+            font-weight: 700;
+            border-radius: 9999px;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #e5941a;
+            transform: translateY(-2px);
+        }
+
+        .payment-tab.active {
+            border-color: #F5A623;
+            background: rgba(245, 166, 35, 0.1);
+            color: #2E7D32;
+        }
+
+        .toast-notification {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #2E7D32;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 9999px;
+            z-index: 9999;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            animation: slideInUp 0.3s ease-out;
+            pointer-events: none;
+            max-width: min(90vw, 480px);
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased text-warm font-sans">
+
+    <!-- ===== HEADER ===== -->
+    <div id="kimondo-header"></div>
+
+    <!-- ===== POWERFUL HERO ===== -->
+    <section class="relative h-[65vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=2000"
+                alt="Booking background"
+                class="w-full h-full object-cover scale-110 transition-transform duration-[25s] ease-out">
+            <div class="absolute inset-0 bg-black/65"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-dark/80 via-forest/40 to-dark/90"></div>
+        </div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-6 flex flex-col items-center ">
+            <div
+                class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6 shadow-xl mt-36">
+                <span class="w-2 h-2 rounded-full bg-golden animate-pulse-soft"></span>
+                <span class="text-xs uppercase tracking-[0.25em] text-white font-bold ">Secure & Instant
+                    Confirmation</span>
+            </div>
+            <h1
+                class="text-4xl sm:text-5xl md:text-7xl font-serif font-extrabold text-white mb-5 tracking-tight drop-shadow-2xl leading-[1.1]">
+                Your Adventure Awaits<br class="hidden sm:block">
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-golden via-amber-300 to-golden italic font-light">Complete
+                    Your Booking</span>
+            </h1>
+            <p
+                class="text-base md:text-lg text-white/80 max-w-2xl mx-auto font-light leading-relaxed mb-8 drop-shadow-md">
+                Review your selected experiences, choose your dates and group size, and secure your journey with just a
+                few clicks.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" onclick="scrollToCart()" class="btn-primary text-lg px-10 py-4">Review My Cart</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-12 gap-8"
+        id="main-booking-area">
+        <!-- LEFT SIDEBAR -->
+        <aside class="lg:col-span-4 flex flex-col gap-6 order-2 lg:order-1">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-warm/10">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-brands fa-whatsapp text-2xl text-green-600"></i>
+                </div>
+                <h2 class="font-serif text-xl font-bold text-forest mb-2">Fast Track Booking</h2>
+                <p class="text-warm/60 text-sm mb-4">Chat with our team for instant booking and priority support.</p>
+                <a href="https://wa.me/255658840425" target="_blank"
+                    class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center gap-2 transition shadow-md">
+                    <i class="fa-brands fa-whatsapp"></i> +255 65 884 0425
+                </a>
+            </div>
+            <div class="bg-forest/5 p-6 rounded-2xl border border-forest/10">
+                <h3 class="font-serif text-lg font-bold text-forest mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-golden"></i> Booking Policies
+                </h3>
+                <ul class="text-sm text-warm/70 space-y-3">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-golden mt-1"></i>
+                        <span><strong>50% Deposit</strong> to confirm your dates.</span>
+                    </li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-golden mt-1"></i>
+                        <span><strong>Free cancellation</strong> up to 7 days prior.</span>
+                    </li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-golden mt-1"></i>
+                        <span><strong>Full payment</strong> due 48 hours before start.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-forest text-white p-6 rounded-2xl shadow-lg">
+                <h3 class="font-serif text-xl font-bold mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane text-golden"></i> Custom Packages
+                </h3>
+                <p class="text-sm text-white/70 mb-4">Don't see exactly what you need? Tell us your dream trip and we'll
+                    design a personalized itinerary.</p>
+                <a href="mailto:hello@kimondoadventures.com"
+                    class="w-full border-2 border-golden text-golden hover:bg-golden hover:text-dark font-semibold py-3 px-6 rounded-full flex items-center justify-center gap-2 transition">
+                    <i class="fa-regular fa-envelope"></i> Email Request
+                </a>
+            </div>
+        </aside>
+
+        <!-- RIGHT: Cart & Form -->
+        <main class="lg:col-span-8 order-1 lg:order-2">
+            <!-- Cart Section -->
+            <div id="booking-cart" class="bg-white p-6 md:p-10 rounded-3xl shadow-xl border border-warm/10 mb-8">
+                <div class="mb-8 border-b border-warm/10 pb-6">
+                    <h1 class="font-serif text-3xl md:text-4xl font-bold text-forest mb-2">Your Booking Cart</h1>
+                    <p class="text-warm/60">Review and adjust your selected experiences</p>
+                </div>
+                <div id="cart-items" class="space-y-4 mb-8"></div>
+                <div id="cart-total"
+                    class="bg-forest rounded-2xl p-6 flex justify-between items-center shadow-lg text-white mb-6">
+                    <div>
+                        <span class="block text-xs text-golden font-bold tracking-widest uppercase mb-1">Total
+                            Amount</span>
+                        <span class="text-sm text-white/70" id="total-items">0 items</span>
+                    </div>
+                    <div class="font-serif text-3xl font-bold" id="total-price">$0.00</div>
+                </div>
+                <div class="text-center">
+                    <button id="proceed-to-payment"
+                        class="btn-primary text-lg px-10 py-4 w-full md:w-auto hidden">Proceed to Payment</button>
+                </div>
+            </div>
+
+            <!-- Form & Payment Section (hidden initially) -->
+            <div id="booking-form" class="bg-white p-6 md:p-10 rounded-3xl shadow-xl border border-warm/10"
+                style="display: none;">
+                <div
+                    class="mb-10 border-b border-warm/10 pb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold text-forest mb-2">Secure Reservation</h2>
+                        <p class="text-warm/60">Kimondo Adventures Booking Engine</p>
+                    </div>
+                    <button type="button" onclick="editMyBooking()"
+                        class="shrink-0 bg-golden hover:bg-amber-400 text-dark font-semibold px-6 py-2.5 rounded-full text-sm flex items-center gap-2 transition shadow-md">
+                        <i class="fa-solid fa-edit"></i> Edit My Booking
+                    </button>
+                </div>
+                <form id="reservationForm" class="space-y-8" onsubmit="event.preventDefault();">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div><label class="block text-sm font-semibold text-warm mb-2">First Name</label><input
+                                type="text" class="form-input w-full" required></div>
+                        <div><label class="block text-sm font-semibold text-warm mb-2">Last Name</label><input
+                                type="text" class="form-input w-full" required></div>
+                        <div><label class="block text-sm font-semibold text-warm mb-2">Email</label><input type="email"
+                                class="form-input w-full" required></div>
+                        <div><label class="block text-sm font-semibold text-warm mb-2">Phone (WhatsApp)</label><input
+                                type="tel" class="form-input w-full" required></div>
+                    </div>
+                    <div class="border-t border-warm/10 pt-6">
+                        <label class="block text-sm font-semibold text-warm mb-3">Payment Schedule</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <label
+                                class="cursor-pointer border border-warm/20 bg-light rounded-xl p-5 flex items-center gap-4">
+                                <input type="radio" name="paymentType" value="1" class="w-5 h-5 accent-golden" checked>
+                                Full Payment
+                            </label>
+                            <label
+                                class="cursor-pointer border border-warm/20 bg-light rounded-xl p-5 flex items-center gap-4">
+                                <input type="radio" name="paymentType" value="0.5" class="w-5 h-5 accent-golden"> 50%
+                                Deposit
+                            </label>
+                        </div>
+                    </div>
+                    <div class="bg-forest rounded-2xl p-6 flex justify-between items-center shadow-lg text-white">
+                        <div><span class="text-xs text-golden font-bold uppercase">Amount Due Today</span><span
+                                class="text-sm text-white/70 ml-2" id="calculationDetails">Total × 100%</span></div>
+                        <div class="font-serif text-3xl font-bold" id="amountDisplay">$0.00</div>
+                    </div>
+                    <div id="proceedBtnContainer">
+                        <button type="button" id="proceedBtn" class="btn-primary w-full text-lg py-5">Proceed to Secure
+                            Checkout</button>
+                    </div>
+                    <div id="paymentSection" style="display: none;"
+                        class="bg-white rounded-2xl p-6 border-2 border-forest/10 shadow-2xl">
+                        <h3 class="font-serif text-2xl font-bold text-forest mb-4"><i
+                                class="fa-solid fa-lock text-golden mr-2"></i> Payment Method</h3>
+                        <div class="hidden md:flex gap-4 mb-6">
+                            <button type="button" id="tabCard"
+                                class="payment-tab active flex-1 border-2 border-warm/20 py-4 rounded-xl">Card</button>
+                            <button type="button" id="tabMobile"
+                                class="payment-tab flex-1 border-2 border-warm/20 py-4 rounded-xl">Mobile Money</button>
+                        </div>
+                        <div class="md:hidden mb-6">
+                            <select id="mobilePaymentMethod" class="form-input w-full">
+                                <option value="card">Credit / Debit Card</option>
+                                <option value="mobile">Mobile Money</option>
+                            </select>
+                        </div>
+                        <div id="cardProviders" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                            <button type="button" class="card-type-btn active border-2 py-4 rounded-xl"><i
+                                    class="fa-brands fa-cc-visa"></i> Visa</button>
+                            <button type="button" class="card-type-btn border-2 py-4 rounded-xl"><i
+                                    class="fa-brands fa-cc-mastercard"></i> MasterCard</button>
+                            <button type="button" class="card-type-btn border-2 py-4 rounded-xl"><i
+                                    class="fa-solid fa-credit-card"></i> Prepaid</button>
+                            <button type="button" class="card-type-btn border-2 py-4 rounded-xl"><i
+                                    class="fa-brands fa-cc-paypal"></i> PayPal</button>
+                        </div>
+                        <div id="ccFields" class="space-y-4">
+                            <input type="text" placeholder="Card Number" class="form-input w-full">
+                            <div class="flex gap-4"><input type="text" placeholder="MM/YY"
+                                    class="form-input w-1/2"><input type="text" placeholder="CVC"
+                                    class="form-input w-1/2"></div>
+                        </div>
+                        <div id="paypalFields" class="hidden bg-light p-6 rounded-xl text-center"><i
+                                class="fa-brands fa-cc-paypal text-4xl text-blue-800 mb-2"></i>
+                            <p>Redirect to PayPal</p>
+                        </div>
+                        <div id="mobileFields" class="hidden space-y-4">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <button class="mobile-type-btn active border-2 py-3 rounded-xl">Vodacom</button>
+                                <button class="mobile-type-btn border-2 py-3 rounded-xl">Airtel</button>
+                                <button class="mobile-type-btn border-2 py-3 rounded-xl">Tigo</button>
+                                <button class="mobile-type-btn border-2 py-3 rounded-xl">Halotel</button>
+                            </div>
+                            <input type="tel" placeholder="07XX XXX XXX" class="form-input w-full">
+                        </div>
+                        <button type="submit" class="btn-primary w-full mt-6 text-lg py-4">Authorize <span
+                                id="btnAmount">$0.00</span></button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div id="footer-container"></div>
+
+    <script>
+            (function () {
+                // Global addToBooking (used by other pages)
+                window.addToBooking = function (name, price, type = 'activity', options = {}) {
+                    let items = JSON.parse(localStorage.getItem('kimondoBookingItems')) || [];
+                    let basePrice = parseFloat(String(price).replace(/[^0-9.-]+/g, "")) || 0;
+                    const normalizedName = String(name || '').toLowerCase();
+                    const isClearKayak = normalizedName.includes('clear kayak');
+                    const isJetski = normalizedName.includes('jetski adventure');
+                    const isJetCar = normalizedName.includes('jetcar experience');
+                    const defaultAdults = isClearKayak || isJetski ? 2 : isJetCar ? 4 : 1;
+                    if (items.find(i => i.name === name && i.type === type)) {
+                        showToast('This activity already exists in your cart.', 'warning');
+                        return;
+                    }
+                    items.push({
+                        name, price, basePrice, type, options,
+                        date: '', adults: defaultAdults, children: 0, bookingType: 'guest',
+                        vehicle: '1 - 4 Pax = Noah / Alphard', tripType: 'one-way'
+                    });
+                    localStorage.setItem('kimondoBookingItems', JSON.stringify(items));
+                    renderCart();
+                    showToast(name + ' added to your cart', 'success');
+                };
+
+                function showToast(msg, type = 'success') {
+                    const existing = document.querySelector('.toast-notification');
+                    if (existing) existing.remove();
+
+                    const t = document.createElement('div');
+                    t.className = 'toast-notification';
+                    t.style.backgroundColor = type === 'success' ? '#2E7D32' : '#DC2626';
+                    t.innerHTML = `<div class="flex items-center gap-2"><i class="fa-solid ${type === 'success' ? 'fa-check-circle' : 'fa-triangle-exclamation'}"></i><span>${msg}</span></div>`;
+                    document.body.appendChild(t);
+                    setTimeout(() => t.remove(), 3000);
+                }
+
+                // Cart DOM elements
+                const cartContainer = document.getElementById('cart-items');
+                const totalPriceEl = document.getElementById('total-price');
+                const totalItemsEl = document.getElementById('total-items');
+                const proceedBtn = document.getElementById('proceed-to-payment');
+                const formContainer = document.getElementById('booking-form');
+                const cartSection = document.getElementById('booking-cart');
+                const amountDisplay = document.getElementById('amountDisplay');
+                const calculationDetails = document.getElementById('calculationDetails');
+                const btnAmount = document.getElementById('btnAmount');
+                const proceedBtnContainer = document.getElementById('proceedBtnContainer');
+                const paymentSection = document.getElementById('paymentSection');
+
+                let bookingItems = [];
+
+                function getOccupancyConfig(item) {
+                    const name = String(item.name || '').toLowerCase();
+                    if (name.includes('clear kayak') || name.includes('jetski adventure')) {
+                        return {
+                            options: [
+                                { value: '1', label: '1 Guest' },
+                                { value: '2', label: '2 Guests (1x price)' },
+                                { value: '4', label: '3-4 Guests (2x price)' },
+                                { value: '6', label: '5-6 Guests (3x price)' }
+                            ],
+                            getMultiplier: (count) => count <= 2 ? 1 : count <= 4 ? 2 : 3
+                        };
+                    }
+                    if (name.includes('jetcar experience')) {
+                        return {
+                            options: [
+                                { value: '4', label: '1-4 Guests (1x price)' },
+                                { value: '8', label: '5-8 Guests (2x price)' }
+                            ],
+                            getMultiplier: (count) => count <= 4 ? 1 : 2
+                        };
+                    }
+                    return null;
+                }
+
+                function getSelectedOccupancyValue(item, adults) {
+                    const config = getOccupancyConfig(item);
+                    if (!config) return '1';
+                    const count = Number(adults || 1);
+                    const name = String(item.name || '').toLowerCase();
+                    if (name.includes('clear kayak') || name.includes('jetski adventure')) {
+                        if (count <= 1) return '1';
+                        if (count <= 2) return '2';
+                        if (count <= 4) return '4';
+                        return '6';
+                    }
+                    return count <= 4 ? '4' : '8';
+                }
+
+                function renderCart() {
+                    bookingItems = JSON.parse(localStorage.getItem('kimondoBookingItems')) || [];
+                    cartContainer.innerHTML = '';
+                    let total = 0;
+
+                    if (bookingItems.length === 0) {
+                        cartContainer.innerHTML = '<p class="text-center text-warm/50 py-10">Your cart is empty.</p>';
+                        totalPriceEl.textContent = '$0.00';
+                        totalItemsEl.textContent = '0 items';
+                        proceedBtn.classList.add('hidden');
+                        updatePricing();
+                        return;
+                    }
+
+                    bookingItems.forEach((item, index) => {
+                        let basePrice = item.basePrice || 0;
+                        let adults = item.adults || 1;
+                        let children = item.children || 0;
+                        let bookingType = item.bookingType || 'guest';
+                        let itemTotal = 0;
+                        const occupancyConfig = getOccupancyConfig(item);
+
+                        if (occupancyConfig) {
+                            itemTotal = basePrice * occupancyConfig.getMultiplier(adults);
+                        } else if (item.type === 'transfer') {
+                            itemTotal = basePrice;
+                        } else {
+                            itemTotal = (basePrice * adults) + (basePrice * 0.5 * children);
+                        }
+
+                        // Special cases for transfers (flat rate, no per-person logic)
+                        if (item.type === 'transfer') {
+                            let vMultiplier = 1;
+                            if (item.vehicle?.includes('12 Pax')) vMultiplier = 1.4;
+                            else if (item.vehicle?.includes('24 Pax')) vMultiplier = 1.96;
+                            let tMultiplier = item.tripType === 'return' ? 1.9 : 1;
+                            itemTotal = basePrice * vMultiplier * tMultiplier;
+                        }
+
+                        total += itemTotal;
+
+                        // Build controls
+                        let controls = '';
+
+                        if (item.type === 'transfer') {
+                            controls = `
+                        <div class="flex flex-col sm:flex-row gap-4 mt-4 pt-4 border-t border-warm/10">
+                            <div class="flex-1">
+                                <label class="text-sm font-semibold">Vehicle</label>
+                                <select onchange="updateVehicle(${index}, this.value)" class="form-input w-full">
+                                    <option value="1 - 4 Pax = Noah / Alphard" ${item.vehicle === '1 - 4 Pax = Noah / Alphard' ? 'selected' : ''}>1-4 Pax (Noah)</option>
+                                    <option value="1 - 12 Pax = Mini Bus" ${item.vehicle === '1 - 12 Pax = Mini Bus' ? 'selected' : ''}>1-12 Pax (Minibus)</option>
+                                    <option value="1 - 24 Pax = Bus" ${item.vehicle === '1 - 24 Pax = Bus' ? 'selected' : ''}>1-24 Pax (Coaster)</option>
+                                </select>
+                            </div>
+                            <div class="flex-1">
+                                <label class="text-sm font-semibold">Trip</label>
+                                <select onchange="updateTripType(${index}, this.value)" class="form-input w-full">
+                                    <option value="one-way" ${item.tripType === 'one-way' ? 'selected' : ''}>One Way</option>
+                                    <option value="return" ${item.tripType === 'return' ? 'selected' : ''}>Return</option>
+                                </select>
+                            </div>
+                        </div>`;
+                        } else if (occupancyConfig) {
+                            controls = `
+                        <div class="flex flex-col sm:flex-row gap-4 mt-4 pt-4 border-t border-warm/10">
+                            <div class="flex-1">
+                                <label class="text-sm font-semibold">Guests</label>
+                                <select onchange="updateOccupancy(${index}, this.value)" class="form-input w-full">
+                                    ${occupancyConfig.options.map(option => `<option value="${option.value}" ${getSelectedOccupancyValue(item, adults) === option.value ? 'selected' : ''}>${option.label}</option>`).join('')}
+                                </select>
+                            </div>
+                        </div>`;
+                        } else {
+                            controls = `
+                        <div class="flex flex-col sm:flex-row gap-4 mt-4 pt-4 border-t border-warm/10">
+                            <div class="flex-1">
+                                <label class="text-sm font-semibold">Adults</label>
+                                <div class="flex items-center gap-3 mt-2">
+                                    <button onclick="updateAdults(${index}, -1)" class="w-8 h-8 bg-forest text-white rounded-full">−</button>
+                                    <span class="w-8 text-center font-bold">${adults}</span>
+                                    <button onclick="updateAdults(${index}, 1)" class="w-8 h-8 bg-forest text-white rounded-full">+</button>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <label class="text-sm font-semibold">Children</label>
+                                <div class="flex items-center gap-3 mt-2">
+                                    <button onclick="updateChildren(${index}, -1)" class="w-8 h-8 bg-forest text-white rounded-full">−</button>
+                                    <span class="w-8 text-center font-bold">${children}</span>
+                                    <button onclick="updateChildren(${index}, 1)" class="w-8 h-8 bg-forest text-white rounded-full">+</button>
+                                </div>
+                                <p class="text-xs text-forest mt-2 font-semibold">Children pay 50% of the adult price.</p>
+                            </div>
+                        </div>`;
+                        }
+
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'cart-item bg-light p-5 rounded-xl border border-warm/10';
+                        itemDiv.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-forest text-lg">${item.name}</h4>
+                            <p class="text-golden font-black text-xl">$${itemTotal.toFixed(2)}</p>
+                        </div>
+                        <button onclick="removeItem(${index})" class="text-warm/40 hover:text-red-500 p-2"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                    ${controls}
+                `;
+                        cartContainer.appendChild(itemDiv);
+                    });
+
+                    totalPriceEl.textContent = `$${total.toFixed(2)}`;
+                    totalItemsEl.textContent = `${bookingItems.length} item${bookingItems.length > 1 ? 's' : ''}`;
+                    proceedBtn.classList.remove('hidden');
+                    updatePricing();
+                }
+
+                // Update functions
+                window.updateAdults = (idx, delta) => {
+                    let cur = bookingItems[idx].adults || 1;
+                    bookingItems[idx].adults = Math.max(1, cur + delta);
+                    saveAndRender();
+                };
+                window.updateChildren = (idx, delta) => {
+                    let cur = bookingItems[idx].children || 0;
+                    bookingItems[idx].children = Math.max(0, cur + delta);
+                    saveAndRender();
+                };
+                window.updateOccupancy = (idx, val) => {
+                    bookingItems[idx].adults = Math.max(1, parseInt(val, 10) || 1);
+                    saveAndRender();
+                };
+                window.updateBookingType = (idx, type) => {
+                    bookingItems[idx].bookingType = type;
+                    saveAndRender();
+                };
+                window.updateVehicle = (idx, val) => { bookingItems[idx].vehicle = val; saveAndRender(); };
+                window.updateTripType = (idx, val) => { bookingItems[idx].tripType = val; saveAndRender(); };
+                window.removeItem = (idx) => { bookingItems.splice(idx, 1); localStorage.setItem('kimondoBookingItems', JSON.stringify(bookingItems)); renderCart(); };
+
+                function saveAndRender() {
+                    localStorage.setItem('kimondoBookingItems', JSON.stringify(bookingItems));
+                    renderCart();
+                }
+
+                function updatePricing() {
+                    let cartTotal = parseFloat(totalPriceEl.textContent.replace('$', '')) || 0;
+                    let mult = 1, text = '100%';
+                    document.querySelectorAll('input[name="paymentType"]').forEach(r => { if (r.checked) { mult = parseFloat(r.value); if (mult === 0.5) text = '50% Deposit'; } });
+                    let due = cartTotal * mult;
+                    amountDisplay.textContent = `$${due.toFixed(2)}`;
+                    btnAmount.textContent = `$${due.toFixed(2)}`;
+                    calculationDetails.textContent = `Total × ${text}`;
+                }
+                document.querySelectorAll('input[name="paymentType"]').forEach(r => r.addEventListener('change', updatePricing));
+
+                // Proceed to payment flow
+                proceedBtn.addEventListener('click', () => {
+                    cartSection.style.display = 'none';
+                    formContainer.style.display = 'block';
+                    proceedBtnContainer.style.display = 'block';
+                    paymentSection.style.display = 'none';
+                    updatePricing();
+                    formContainer.scrollIntoView({ behavior: 'smooth' });
+                });
+
+                window.editMyBooking = () => {
+                    cartSection.style.display = 'block';
+                    formContainer.style.display = 'none';
+                    proceedBtnContainer.style.display = 'block';
+                    paymentSection.style.display = 'none';
+                    cartSection.scrollIntoView({ behavior: 'smooth' });
+                };
+
+                document.getElementById('proceedBtn').addEventListener('click', () => {
+                    if (document.getElementById('reservationForm').checkValidity()) {
+                        proceedBtnContainer.style.display = 'none';
+                        paymentSection.style.display = 'block';
+                        paymentSection.scrollIntoView({ behavior: 'smooth' });
+                    } else document.getElementById('reservationForm').reportValidity();
+                });
+
+                // Payment tab logic (simplified)
+                const tabCard = document.getElementById('tabCard'), tabMobile = document.getElementById('tabMobile');
+                const cardProviders = document.getElementById('cardProviders'), ccFields = document.getElementById('ccFields');
+                const paypalFields = document.getElementById('paypalFields'), mobileFields = document.getElementById('mobileFields');
+                const mobilePaymentMethod = document.getElementById('mobilePaymentMethod');
+
+                function switchToCard() {
+                    cardProviders.style.display = 'grid'; ccFields.style.display = 'block'; paypalFields.style.display = 'none'; mobileFields.style.display = 'none';
+                    tabCard?.classList.add('active'); tabMobile?.classList.remove('active');
+                }
+                function switchToMobile() {
+                    cardProviders.style.display = 'none'; ccFields.style.display = 'none'; paypalFields.style.display = 'none'; mobileFields.style.display = 'block';
+                    tabMobile?.classList.add('active'); tabCard?.classList.remove('active');
+                }
+                tabCard?.addEventListener('click', switchToCard);
+                tabMobile?.addEventListener('click', switchToMobile);
+                mobilePaymentMethod?.addEventListener('change', function () { this.value === 'card' ? switchToCard() : switchToMobile(); });
+
+                window.renderCart = renderCart;
+                window.showToast = showToast;
+                renderCart();
+
+                // Scroll to cart helper
+                window.scrollToCart = () => document.getElementById('booking-cart').scrollIntoView({ behavior: 'smooth' });
+            })();
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

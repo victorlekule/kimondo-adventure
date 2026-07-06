@@ -1,423 +1,908 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Kimondo Adventures | Travel Stories & Inspiration</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap" rel="stylesheet">
+    <title>Kimondo Adventures | Stories, Guides & Insider Knowledge</title>
+
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    },
-                    colors: {
-                        forest: '#2E7D32',
-                        golden: '#F5A623',
-                        choco: '#6D3A1F',
-                        turquoise: '#00BCD4',
-                        warm: '#5D4037',
-                        light: '#fcfbf9',
-                        dark: '#0a0f0d',
-                    }
-                }
+
+
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar-link.active {
+            color: #F5A623;
+            background-color: rgba(245, 166, 35, 0.08);
+            border-left: 3px solid #F5A623;
+        }
+
+        .policy-section {
+            border-left: 4px solid #F5A623;
+            transition: all 0.25s ease;
+        }
+
+        .policy-section:hover {
+            box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .number-badge {
+            background-color: #F5A623;
+            color: #0a0f0d;
+            font-weight: 700;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
+        }
+
+        /* Accordion animation for mobile */
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                display: none;
+            }
+
+            .collapsible-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .collapsible-content.open {
+                max-height: 2000px;
+                /* large enough for any content */
+            }
+
+            .toggle-arrow {
+                transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .toggle-arrow.open {
+                transform: rotate(180deg);
             }
         }
-    </script>
+    </style>
+
 </head>
-<body class="bg-light text-warm font-sans antialiased overflow-x-hidden flex flex-col min-h-screen pt-24">
+
+<body class="bg-light text-warm font-sans antialiased flex flex-col min-h-screen">
 
     <div id="kimondo-header"></div>
 
-    <section class="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden w-full pt-24 pb-20">
-        
-        <div class="absolute inset-0 z-0 bg-black">
-            <img src="IMG/1 (7).jpg" alt="Zanzibar Background" class="w-full h-full object-cover opacity-60 transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out">
+    <!-- HERO SECTION (updated copy) -->
+    <section
+        class="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden w-full pb-20">
+        <div class="absolute inset-0 z-0 bg-black overflow-hidden">
+            <img src="IMG/1 (7).jpg" alt="Zanzibar Background"
+                class="w-full h-full object-cover opacity-60 transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out">
             <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-forest/90"></div>
         </div>
-
-        <div class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10 reveal active">
-            
-            <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
-                <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
-                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">The Kimondo Journal</span>
+        <div class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10">
+            <div
+                class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
+                <span class="w-2 h-2 rounded-full bg-golden animate-pulse-soft"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Real insight, not
+                    guesswork</span>
             </div>
-            
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1]">
-                Travel Stories, <br class="hidden sm:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">Tips & Inspiration</span>
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.15]">
+                Stories, Guides & Insider Knowledge <br class="hidden sm:block">
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">From
+                    the People Who Live This</span>
             </h1>
-            
-            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed mb-12 drop-shadow-md">
-                Discover Zanzibar and Tanzania through expert insights, curated guides, and real traveler experiences. We help you plan smarter and experience more.
+            <p
+                class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed mb-12 drop-shadow-md">
+                This isn't recycled travel-blog content written by someone who's never set foot in Tanzania. Every
+                article
+                here comes from the same local team planning your safari, your Zanzibar escape, and your Kilimanjaro
+                climb.
             </p>
-
             <div class="flex justify-center gap-4">
-                <button onclick="document.getElementById('latest-stories').scrollIntoView({behavior: 'smooth'})" class="bg-golden hover:bg-amber-400 text-dark font-bold px-10 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_0_20px_rgba(245,166,35,0.4)] transform hover:-translate-y-1">
+                <button onclick="document.getElementById('latest-stories').scrollIntoView({behavior: 'smooth'})"
+                    class="ripple-container bg-golden hover:bg-amber-400 text-dark font-bold px-10 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-[0_0_28px_rgba(245,166,35,0.45)] transform hover:-translate-y-1 active:scale-95">
                     <i class="fa-solid fa-arrow-down text-lg"></i> Read Latest
                 </button>
             </div>
-            
         </div>
-
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block z-10">
-            <div class="w-8 h-12 rounded-full border-2 border-white/30 flex items-center justify-center p-2 backdrop-blur-sm">
+            <div
+                class="w-8 h-12 rounded-full border-2 border-white/30 flex items-center justify-center p-2 backdrop-blur-sm">
                 <div class="w-1 h-3 bg-golden rounded-full"></div>
             </div>
         </div>
-
         <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-light to-transparent z-0"></div>
     </section>
 
-    <main id="latest-stories" class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-20">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            
-            <div class="lg:col-span-8">
-                <div class="flex items-end justify-between mb-10 pb-4 border-b border-warm/10 reveal">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest">Latest Stories</h2>
-                    <span class="text-sm font-medium text-warm/50 uppercase tracking-widest hidden sm:block">Explore Our World</span>
-                </div>
+    <!-- WHY OUR CONTENT IS DIFFERENT (Trust Section) -->
+    <section class="py-16 md:py-20 bg-light relative z-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-sm font-bold uppercase tracking-[0.3em] text-golden mb-4 block">Why Our Content Is
+                Different</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mb-6">Written by the Team That Actually
+                Does
+                This — Not Content Farms</h2>
+            <p class="text-lg text-warm/80 leading-relaxed max-w-3xl mx-auto">Every article on this blog is written or
+                reviewed by someone on our ground team — a guide, a planner, a local specialist. That means the advice
+                you're reading reflects what's actually happening on the trails, reefs, and routes right now, not
+                outdated
+                information copied from another travel site.</p>
+        </div>
+    </section>
 
-                <div id="blog-grid" class="flex flex-col gap-10">
+    <!-- MAIN CONTENT: BLOG GRID + SIDEBAR -->
+    <main id="latest-stories"
+        class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative z-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            <!-- Blog Posts Column -->
+            <div class="lg:col-span-8">
+                <div class="flex items-end justify-between mb-10 pb-4 border-b border-warm/10">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest">Latest Stories</h2>
+                    <span class="text-sm font-medium text-warm/50 uppercase tracking-widest hidden sm:block">Explore
+                        by category below</span>
                 </div>
-                
-                <div class="mt-14 text-center reveal">
-                    <button class="inline-flex items-center gap-3 font-bold px-8 py-4 rounded-full border border-warm/20 text-forest hover:border-golden hover:text-golden transition-all group shadow-sm hover:shadow-md">
-                        Load More Articles 
-                        <i class="fa-solid fa-arrow-down-long transform group-hover:translate-y-1 transition-transform"></i>
+                <!-- Dynamic Blog Grid (includes featured article) -->
+                <div id="blog-grid" class="flex flex-col gap-10"></div>
+                <div class="mt-14 text-center">
+                    <button id="load-more-btn"
+                        class="ripple-container inline-flex items-center gap-3 font-bold px-8 py-4 rounded-full border border-warm/20 text-forest hover:border-golden hover:text-golden transition-all group shadow-sm hover:shadow-md active:scale-95">
+                        Load More Stories
+                        <i
+                            class="fa-solid fa-arrow-down-long transform group-hover:translate-y-1 transition-transform"></i>
                     </button>
                 </div>
             </div>
 
+            <!-- Sidebar -->
             <aside class="lg:col-span-4 space-y-10">
-                
                 <div class="sticky top-28 space-y-10">
-                    
-                    <div class="bg-white rounded-3xl p-2 shadow-sm border border-warm/5 flex reveal">
-                        <input type="text" placeholder="Search stories..." class="flex-grow bg-transparent px-4 py-3 outline-none text-warm font-light placeholder-warm/40">
-                        <button class="w-12 h-12 bg-forest/5 text-forest rounded-full flex items-center justify-center hover:bg-forest hover:text-white transition-colors shrink-0">
+                    <!-- Search -->
+                    <div class="bg-white rounded-3xl p-2 shadow-sm border border-warm/5 flex">
+                        <input type="text" placeholder="Search stories..."
+                            class="flex-grow bg-transparent px-4 py-3 outline-none text-warm font-light placeholder-warm/40">
+                        <button
+                            class="ripple-container w-12 h-12 bg-forest/5 text-forest rounded-full flex items-center justify-center hover:bg-forest hover:text-white transition-colors shrink-0">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
-
-                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-warm/5 reveal">
+                    <!-- Categories (updated) -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-warm/5">
                         <h3 class="font-serif font-bold text-xl text-forest mb-6 flex items-center gap-3">
-                            <i class="fa-solid fa-tags text-golden text-sm"></i> Topics
+                            <i class="fa-solid fa-tags text-golden text-sm"></i> Explore by Category
                         </h3>
                         <div class="flex flex-wrap gap-2">
-                            <a href="#" class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Travel Guides</a>
-                            <a href="#" class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Tips & Advice</a>
-                            <a href="#" class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Culture</a>
-                            <a href="#" class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Safari</a>
-                            <a href="#" class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Beaches</a>
+                            <a href="#" onclick="filterByCategory('Safari Guides')"
+                                class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Safari
+                                Guides</a>
+                            <a href="#" onclick="filterByCategory('Zanzibar & Island Life')"
+                                class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Zanzibar
+                                & Island</a>
+                            <a href="#" onclick="filterByCategory('Kilimanjaro & Trekking')"
+                                class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Kilimanjaro</a>
+                            <a href="#" onclick="filterByCategory('Culture & Community')"
+                                class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Culture</a>
+                            <a href="#" onclick="filterByCategory('Travel Tips')"
+                                class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Travel
+                                Tips</a>
+                            <a href="#" onclick="filterByCategory('Conservation & Giving Back')"
+                                class="px-5 py-2 rounded-full border border-warm/10 text-sm font-medium text-warm/70 hover:border-golden hover:text-golden hover:bg-golden/5 transition-all">Conservation</a>
                         </div>
                     </div>
-
-                    <div id="newsletter" class="bg-dark text-white rounded-3xl p-8 shadow-xl relative overflow-hidden reveal group">
-                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-golden rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+                    <!-- Newsletter (updated copy) -->
+                    <div id="newsletter"
+                        class="bg-dark text-white rounded-3xl p-8 shadow-xl relative overflow-hidden group">
+                        <div
+                            class="absolute -top-10 -right-10 w-32 h-32 bg-golden rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700">
+                        </div>
                         <div class="relative z-10">
-                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6 text-golden backdrop-blur-sm">
+                            <div
+                                class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6 text-golden backdrop-blur-sm">
                                 <i class="fa-regular fa-envelope-open text-xl"></i>
                             </div>
-                            <h3 class="font-serif font-bold text-2xl mb-3">Join the Club</h3>
+                            <h3 class="font-serif font-bold text-2xl mb-3">Stay Connected</h3>
                             <p class="text-white/60 text-sm font-light mb-8 leading-relaxed">
-                                Get exclusive travel tips, hidden gems, and special offers delivered straight to your inbox.
+                                Get insider travel tips before everyone else. Join our list for seasonal safari updates,
+                                Zanzibar travel tips, and early access to limited availability.
                             </p>
-                            <form class="flex flex-col gap-3">
-                                <input type="email" placeholder="Your email address" class="w-full bg-white/10 border border-white/10 text-white placeholder-white/40 px-5 py-3.5 rounded-xl focus:outline-none focus:border-golden transition-colors" required>
-                                <button type="submit" class="w-full bg-golden hover:bg-amber-400 text-dark font-bold py-3.5 rounded-xl transition-colors uppercase tracking-widest text-xs">
-                                    Subscribe Now
+                            <form class="flex flex-col gap-3" onsubmit="handleNewsletterSubmit(event)">
+                                <input type="email" placeholder="Your email address"
+                                    class="w-full bg-white/10 border border-white/10 text-white placeholder-white/40 px-5 py-3.5 rounded-xl focus:outline-none focus:border-golden transition-colors"
+                                    required>
+                                <button type="submit"
+                                    class="ripple-container w-full bg-golden hover:bg-amber-400 text-dark font-bold py-3.5 rounded-xl transition-colors uppercase tracking-widest text-xs active:scale-95">
+                                    Subscribe
                                 </button>
                             </form>
-                            <p class="text-[10px] text-white/40 mt-4 text-center uppercase tracking-wider">No spam. Unsubscribe anytime.</p>
+                            <p class="text-[10px] text-white/40 mt-4 text-center uppercase tracking-wider">Hakuna spam —
+                                mtaarifu tu wa msimu wa migration, matoleo maalum, na makala mpya.</p>
                         </div>
                     </div>
-
                 </div>
             </aside>
-
         </div>
     </main>
 
-<section class="py-28 md:py-32 bg-forest relative reveal flex items-center min-h-[350px]">
-    <!-- subtle decorative element (still fine) -->
-    <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-    
-    <div class="max-w-4xl mx-auto px-4 text-center relative z-10 w-full">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
-            Inspired to <span class="text-golden italic font-light">Travel?</span>
-        </h2>
-        <p class="text-white/80 text-base md:text-xl font-light mb-10 max-w-2xl mx-auto">
-            Let us turn these stories into your reality. Start planning your custom Zanzibar and Tanzania experience today.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#" class="inline-flex bg-golden hover:bg-amber-400 text-[#0a0f0d] font-bold px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 items-center gap-2 shadow-lg transform hover:-translate-y-1 text-sm md:text-base">
-                <i class="fa-brands fa-whatsapp text-lg"></i> Plan Your Trip
-            </a>
+    <!-- CTA SECTION (updated copy) -->
+    <section class="py-28 md:py-32 bg-forest relative flex items-center min-h-[350px]">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
         </div>
-    </div>
-</section>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10 w-full">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+                Enjoyed What You Read? <br class="hidden sm:block"><span class="text-golden italic font-light">Let's
+                    Turn
+                    It Into Your Trip.</span>
+            </h2>
+            <p class="text-white/80 text-base md:text-xl font-light mb-10 max-w-2xl mx-auto">
+                Every article on this blog is a small piece of the journey we can plan for you in full. Tell us what
+                caught
+                your interest — we'll build the rest.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#"
+                    class="ripple-container inline-flex bg-golden hover:bg-amber-400 text-[#0a0f0d] font-bold px-6 md:px-8 py-3 md:py-4 rounded-full transition-all duration-300 items-center gap-2 shadow-lg transform hover:-translate-y-1 active:scale-95 text-sm md:text-base">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Start Planning My Trip
+                </a>
+            </div>
+        </div>
+    </section>
 
-
-<div id="modal" class="fixed inset-0 z-[100] flex items-center justify-center p-0 hidden transition-all duration-300 opacity-0">
-        
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-md" id="modal-backdrop"></div>
-        
-        <div class="relative w-full h-full overflow-y-auto transform scale-95 transition-transform duration-300 flex flex-col" id="modal-container">
-            
-            <button id="close-modal" class="fixed top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center text-xl hover:bg-golden hover:text-dark transition-all shadow-lg z-50 border border-white/20">
+    <!-- PREMIUM MODAL (unchanged from previous, scrollable, progress bar, etc.) -->
+    <div id="blog-modal" class="fixed inset-0 z-[200] flex items-end md:items-center justify-center invisible opacity-0"
+        aria-hidden="true">
+        <div id="modal-backdrop"
+            class="absolute inset-0 bg-gradient-to-br from-black/90 via-dark/95 to-black/90 backdrop-blur-2xl cursor-pointer"
+            aria-hidden="true"></div>
+        <div id="reading-progress" class="fixed top-0 left-0 h-[3.5px] z-[210] w-0 rounded-r-full"
+            style="background: linear-gradient(90deg, #F5A623, #fbbf24, #f59e0b); box-shadow: 0 0 18px rgba(245,166,35,0.7);">
+        </div>
+        <button id="scroll-to-top-btn"
+            class="hidden-btn fixed bottom-8 right-6 md:right-10 z-[220] w-11 h-11 bg-white/95 backdrop-blur-md text-forest rounded-full flex items-center justify-center shadow-xl hover:bg-golden hover:text-white transition-all border border-warm/10 active:scale-90"
+            aria-label="Scroll to top" title="Back to top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        <div id="modal-panel"
+            class="relative w-full max-w-4xl mx-auto bg-white rounded-t-[2.5rem] md:rounded-[2.5rem] shadow-2xl flex flex-col overflow-hidden transform translate-y-8 scale-95 opacity-0"
+            style="max-height: 94vh;">
+            <button id="close-modal"
+                class="absolute top-5 right-5 z-[230] w-11 h-11 bg-white/95 backdrop-blur-md text-warm rounded-full flex items-center justify-center text-lg hover:bg-golden hover:text-white hover:rotate-90 transition-all duration-300 shadow-lg border border-warm/10 active:scale-90"
+                aria-label="Close article">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-
-            <div id="modal-hero" class="w-full h-[50vh] min-h-[400px] relative shrink-0">
-                </div>
-            
-            <div class="w-full bg-white relative -mt-12 rounded-t-[3rem] pb-24">
-                <div class="p-8 md:p-12 lg:px-20 max-w-4xl mx-auto">
-                    
-                    <div id="modal-content-body" class="prose-custom">
-                        </div>
-
-                    <div class="mt-16 pt-8 border-t border-warm/10 text-center">
-                        <button onclick="closeBlogModal()" class="inline-flex items-center gap-3 font-bold px-8 py-4 rounded-full border-2 border-forest text-forest hover:bg-forest hover:text-white transition-all group shadow-sm">
-                            <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-2 transition-transform"></i> Close Article & Go Back
-                        </button>
+            <div id="modal-hero" class="w-full h-[35vh] min-h-[260px] max-h-[420px] relative overflow-hidden shrink-0">
+                <img id="modal-hero-img" src="" alt=""
+                    class="w-full h-full object-cover transition-transform duration-700 ease-out"
+                    style="transform: translateY(0);">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+                <span id="modal-hero-category"
+                    class="absolute bottom-5 left-5 bg-white/95 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold text-forest uppercase tracking-widest shadow-lg"></span>
+            </div>
+            <div id="modal-scroll-area"
+                class="flex-1 overflow-y-auto overscroll-contain custom-scrollbar bg-white px-5 sm:px-10 md:px-14 lg:px-20 py-8 md:py-12"
+                style="scroll-behavior: smooth;">
+                <div id="modal-content-body" class="prose-custom max-w-none"></div>
+                <div
+                    class="mt-14 pt-8 border-t border-warm/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-warm/50 font-medium uppercase tracking-widest">Share:</span>
+                        <button onclick="shareArticle('whatsapp')"
+                            class="w-10 h-10 rounded-full bg-green-50 text-green-600 hover:bg-green-600 hover:text-white transition-all flex items-center justify-center active:scale-90"
+                            title="Share on WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+                        <button onclick="shareArticle('twitter')"
+                            class="w-10 h-10 rounded-full bg-sky-50 text-sky-500 hover:bg-sky-500 hover:text-white transition-all flex items-center justify-center active:scale-90"
+                            title="Share on Twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                        <button onclick="shareArticle('copy')"
+                            class="w-10 h-10 rounded-full bg-warm/5 text-warm hover:bg-warm hover:text-white transition-all flex items-center justify-center active:scale-90"
+                            title="Copy link"><i class="fa-solid fa-link"></i></button>
                     </div>
-
+                    <button onclick="closeBlogModal()"
+                        class="inline-flex items-center gap-3 font-bold px-7 py-3.5 rounded-full border-2 border-forest text-forest hover:bg-forest hover:text-white transition-all group shadow-sm active:scale-95">
+                        <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-2 transition-transform"></i>
+                        Close Article
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // 1. Comprehensive Blog Data
-        const blogPosts = [
-            {
-                id: 1,
-                category: "Travel Guides",
-                title: "The Ultimate 7-Day Zanzibar Itinerary",
-                date: "October 12, 2025",
-                readTime: "8 min read",
-                image: "IMG/1 (7).jpg", // Fallback to your existing image if needed
-                excerpt: "From the winding alleys of Stone Town to the pristine shores of Nungwi, discover how to spend the perfect week on the Spice Island.",
-                content: `
-                    <div class="mb-8">
-                        <span class="text-golden font-bold uppercase tracking-widest text-sm">Travel Guides</span>
-                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-forest mt-3 mb-6">The Ultimate 7-Day Zanzibar Itinerary</h2>
-                        <div class="flex items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6">
-                            <span><i class="fa-regular fa-calendar mr-2"></i> October 12, 2025</span>
-                            <span><i class="fa-regular fa-clock mr-2"></i> 8 min read</span>
+        (function () {
+            // Updated blog data with all new articles and the featured one
+            const blogPosts = [
+                // Featured article (id 0)
+                {
+                    id: 0,
+                    featured: true,
+                    category: "Featured",
+                    title: "Why Kimondo Adventures Is East Africa's Most Complete Travel Experience",
+                    date: "January 22, 2025",
+                    readTime: "7 min read",
+                    image: "https://images.unsplash.com/photo-1508766915865-76d11b6f1f73?auto=format&fit=crop&q=80",
+                    excerpt: "Most travelers piece together their East African trip from four different companies. Here's why that's a mistake — and what changes when one local team handles the whole journey.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Featured</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Why Kimondo Adventures Is East Africa's Most Complete Travel Experience</h2>
+                        <div class="flex flex-wrap items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6 mb-8 reveal-in" style="animation-delay: 0.15s;">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> January 22, 2025</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 7 min read</span>
                             <span><i class="fa-solid fa-pen-nib mr-2"></i> Kimondo Editorial</span>
                         </div>
-                    </div>
-                    
-                    <p class="text-lg leading-relaxed text-warm mb-6">Zanzibar is more than just a beach destination; it is a cultural crossroads where Africa, Arabia, and the Indian Ocean meet. Whether you are a history buff, a water sports enthusiast, or simply looking to unwind, planning your days carefully ensures you experience the true magic of the Spice Island.</p>
-                    
-                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">Days 1-2: The Magic of Stone Town</h3>
-                    <p class="text-lg leading-relaxed text-warm mb-6">Start your journey in the UNESCO World Heritage site of Stone Town. Lose yourself in the labyrinthine alleys, admire the intricately carved wooden doors, and visit the Old Fort. As evening falls, head to the Forodhani Gardens for the famous night market to sample Zanzibar pizzas and fresh sugarcane juice.</p>
-                    <div class="bg-forest/5 p-6 rounded-2xl border-l-4 border-golden mb-6">
-                        <strong class="text-forest block mb-2">Pro Tip:</strong> Hire a local guide for your first morning. The history of the slave trade and the Omani sultans adds crucial context to the architecture you see.
-                    </div>
-
-                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">Day 3: The Spice Tour & Prison Island</h3>
-                    <p class="text-lg leading-relaxed text-warm mb-6">No trip to Zanzibar is complete without a Spice Tour. Visit a local farm to see how cloves, nutmeg, cinnamon, and black pepper are grown. In the afternoon, take a quick boat ride to Changuu (Prison) Island to meet the giant Aldabra tortoises, some of which are over 100 years old.</p>
-
-                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">Days 4-7: Northern Beaches & Safari Blue</h3>
-                    <p class="text-lg leading-relaxed text-warm mb-6">Head north to Nungwi or Kendwa for the remainder of your trip. These beaches are unique as they are not as heavily affected by the dramatic tidal shifts found on the east coast, allowing for all-day swimming. Dedicate one full day to the 'Safari Blue' excursion—a full-day dhow cruise featuring snorkeling, sandbank lounging, and a massive seafood barbecue.</p>
-                    
-                    <button class="mt-10 bg-forest text-white font-bold px-8 py-4 rounded-full hover:bg-dark transition-colors w-full sm:w-auto">
-                        Book This Itinerary
-                    </button>
-                `
-            },
-            {
-                id: 2,
-                category: "Safari",
-                title: "Serengeti vs. Ngorongoro: Choosing Your Safari",
-                date: "September 28, 2025",
-                readTime: "6 min read",
-                image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80",
-                excerpt: "Both offer world-class wildlife viewing, but which iconic Tanzanian destination is right for your bucket-list adventure?",
-                content: `
-                    <div class="mb-8">
-                        <span class="text-golden font-bold uppercase tracking-widest text-sm">Safari</span>
-                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-forest mt-3 mb-6">Serengeti vs. Ngorongoro: Choosing Your Safari</h2>
-                        <div class="flex items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6">
-                            <span><i class="fa-regular fa-calendar mr-2"></i> September 28, 2025</span>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">When most travelers plan a trip to Tanzania and Zanzibar, they end up booking through several different companies — a safari operator here, an island tour agency there, a separate outfitter for Kilimanjaro, and a gift shop somewhere else entirely. Each with its own contract, its own point of contact, and its own risk of miscommunication. Kimondo Adventures exists because we believed there was a better way.</p>
+                        <h3 class="reveal-in" style="animation-delay: 0.25s;">Born From the Land We Guide You Through</h3>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">Kimondo wasn't built by a booking platform or a foreign agency working off a spreadsheet. Our team is Tanzanian and Zanzibari — guides, planners, and drivers who grew up in these landscapes and have spent years turning that local knowledge into world-class travel experiences. <em>[Read our full story on the About page →]</em></p>
+                        <h3 class="reveal-in" style="animation-delay: 0.35s;">One Team, Every Experience</h3>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">Whether you're tracking the Big Five across the Serengeti, kayaking over Zanzibar's crystal-clear lagoons, summiting Kilimanjaro, or bringing home a hand-carved piece from a local artisan, it's all coordinated by the same trusted team — not four separate bookings with four separate risks. <em>[See everything we offer on the Home page →]</em></p>
+                        <h3 class="reveal-in" style="animation-delay: 0.45s;">What Actually Sets Us Apart</h3>
+                        <p class="reveal-in" style="animation-delay: 0.5s;">It's not just about offering more services. It's about how those services are delivered — tailor-made itineraries instead of recycled templates, transparent pricing instead of reseller markups, and 24/7 support that doesn't disappear the moment your payment clears. <em>[See the full comparison on our Why Choose Us page →]</em></p>
+                        <h3 class="reveal-in" style="animation-delay: 0.55s;">A Journey That Gives Back</h3>
+                        <p class="reveal-in" style="animation-delay: 0.6s;">For travelers who want their trip to mean something beyond the photos, Kimondo also runs community and conservation volunteering programs, along with tourism and hospitality internships — real, vetted placements built in partnership with local communities, not performative tourism. <em>[Explore our Get Involved programs →]</em></p>
+                        <h3 class="reveal-in" style="animation-delay: 0.65s;">The Bottom Line</h3>
+                        <p class="reveal-in" style="animation-delay: 0.7s;">Whether you're planning a two-week safari and island combination or a single Kilimanjaro climb, working with one local, accountable team — rather than a patchwork of separate operators — is the difference between a good trip and a seamless one. That's the entire reason Kimondo exists.</p>
+                        <p class="reveal-in" style="animation-delay: 0.75s;"><em>Ready to start planning your East African journey? <strong>[Contact our team]</strong> — we'll build it around you, from the first email to the final airport transfer.</em></p>
+                    `
+                },
+                // Safari Guides
+                {
+                    id: 1,
+                    category: "Safari Guides",
+                    title: "When Is the Best Time to See the Great Migration? A Local Guide's Honest Answer",
+                    date: "January 15, 2025",
+                    readTime: "5 min read",
+                    image: "https://images.unsplash.com/photo-1535081214470-05d48e8c3c48?auto=format&fit=crop&q=80",
+                    excerpt: "The Great Migration doesn't run on a fixed calendar — it follows the rain. Here's what a local guide wants you to know before planning your trip.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Safari Guides</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">When Is the Best Time to See the Great Migration? A Local Guide's Honest Answer</h2>
+                        <div class="flex flex-wrap items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6 mb-8 reveal-in" style="animation-delay: 0.15s;">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> January 15, 2025</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 5 min read</span>
+                            <span><i class="fa-solid fa-pen-nib mr-2"></i> Kimondo Guide Team</span>
+                        </div>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">The Great Migration doesn't run on a fixed calendar — it follows the rain. Broadly, the herds move through the southern Serengeti (calving season) from December to March, push into the central and western corridors around April to June, and reach the northern Serengeti and Mara River crossings from July through October. But exact timing shifts year to year based on rainfall patterns.</p>
+                        <p class="reveal-in" style="animation-delay: 0.25s;">This is where a local guide matters more than a generic packing list. Our guides track real-time herd movement through daily communication with rangers and other operators on the ground, so your safari is planned around where the migration actually is — not where a blog post from three years ago says it should be.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">If witnessing the migration is the centerpiece of your trip, tell us your travel dates early. We'll advise honestly on what you're likely to see, rather than overpromising a dramatic river crossing that may not align with your visit.</p>
+                        <p class="reveal-in" style="animation-delay: 0.35s;"><em>[Explore our Tanzania Safari packages →]</em></p>
+                    `
+                },
+                {
+                    id: 2,
+                    category: "Safari Guides",
+                    title: "Serengeti vs. Ngorongoro: Which Should Your First Safari Include?",
+                    date: "January 10, 2025",
+                    readTime: "6 min read",
+                    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80",
+                    excerpt: "Both are iconic, but they offer genuinely different experiences. Understand the difference before you book.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Safari Guides</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Serengeti vs. Ngorongoro: Which Should Your First Safari Include?</h2>
+                        <div class="flex flex-wrap items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6 mb-8 reveal-in" style="animation-delay: 0.15s;">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> January 10, 2025</span>
                             <span><i class="fa-regular fa-clock mr-2"></i> 6 min read</span>
-                            <span><i class="fa-solid fa-pen-nib mr-2"></i> Kimondo Editorial</span>
                         </div>
-                    </div>
-                    <p class="text-lg leading-relaxed text-warm mb-6">When planning a safari in Northern Tanzania, the two heavyweights are the Serengeti National Park and the Ngorongoro Crater. While many of our clients visit both, if you are pressed for time, understanding their differences is key to choosing your perfect adventure.</p>
-                    
-                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">The Serengeti: The Endless Plains</h3>
-                    <p class="text-lg leading-relaxed text-warm mb-6">The word 'Serengeti' translates to 'endless plains' in the Maasai language, and it delivers exactly that. It is massive—roughly the size of Northern Ireland. It is the stage for the Great Migration, where millions of wildebeest and zebras chase the rains.</p>
-                    <ul class="list-disc list-inside text-lg text-warm space-y-2 mb-6 ml-4">
-                        <li><strong>Best for:</strong> The classic, vast African landscape and witnessing the Great Migration (if timed correctly).</li>
-                        <li><strong>Vibe:</strong> Wild, remote, and expansive. You might drive for hours seeing nothing, then suddenly stumble upon a pride of lions.</li>
-                    </ul>
-
-                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">Ngorongoro Crater: The Wildlife Bowl</h3>
-                    <p class="text-lg leading-relaxed text-warm mb-6">The Crater is the world's largest inactive, intact volcanic caldera. Because the walls act as a natural enclosure, it has one of the highest densities of wildlife in Africa. It is almost a guaranteed 'Big Five' sighting in a single day.</p>
-                    <ul class="list-disc list-inside text-lg text-warm space-y-2 mb-6 ml-4">
-                        <li><strong>Best for:</strong> Dense wildlife viewing in a short amount of time, including the endangered black rhino.</li>
-                        <li><strong>Vibe:</strong> Like a natural zoo. It is breathtakingly beautiful, but it can get crowded with safari vehicles during peak season.</li>
-                    </ul>
-                `
-            },
-            {
-                id: 3,
-                category: "Tips & Advice",
-                title: "What to Pack for a Mount Kilimanjaro Trek",
-                date: "August 15, 2025",
-                readTime: "10 min read",
-                image: "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&q=80",
-                excerpt: "Conquering the Roof of Africa requires the right gear. Here is our comprehensive checklist to keep you warm, dry, and moving.",
-                content: `
-                    <div class="mb-8">
-                        <span class="text-golden font-bold uppercase tracking-widest text-sm">Tips & Advice</span>
-                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-forest mt-3 mb-6">What to Pack for a Mount Kilimanjaro Trek</h2>
-                        <div class="flex items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6">
-                            <span><i class="fa-regular fa-calendar mr-2"></i> August 15, 2025</span>
-                            <span><i class="fa-regular fa-clock mr-2"></i> 10 min read</span>
-                            <span><i class="fa-solid fa-pen-nib mr-2"></i> Kimondo Editorial</span>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Both are icons of Tanzania safari travel, but they offer genuinely different experiences — and for first-time visitors, understanding the difference helps set the right expectations.</p>
+                        <p class="reveal-in" style="animation-delay: 0.25s;"><strong>Serengeti</strong> is vast, open plains stretching to the horizon — home to the Great Migration and classic big-cat sightings, best suited for travelers who want that sweeping, endless-savanna feeling.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;"><strong>Ngorongoro Crater</strong> is a self-contained ecosystem inside a collapsed volcanic caldera — a dense concentration of wildlife, including one of the best chances in Africa to spot black rhino, all within a smaller, more accessible area.</p>
+                        <p class="reveal-in" style="animation-delay: 0.35s;">For most first-time travelers, we recommend combining both: Ngorongoro for guaranteed, concentrated wildlife viewing, and the Serengeti for scale and the possibility of migration sightings. It's a pairing we build into most of our tailor-made itineraries.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;"><em>[See how we combine both on our Tanzania Safaris page →]</em></p>
+                    `
+                },
+                {
+                    id: 3,
+                    category: "Safari Guides",
+                    title: "5 Things No One Tells You Before Your First African Safari",
+                    date: "December 28, 2024",
+                    readTime: "4 min read",
+                    image: "https://images.unsplash.com/photo-1549366021-9f761d7f1e75?auto=format&fit=crop&q=80",
+                    excerpt: "Game drives start early, dust is everywhere, and cash still matters. Read this before you go.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Safari Guides</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">5 Things No One Tells You Before Your First African Safari</h2>
+                        <div class="flex flex-wrap items-center gap-4 text-warm/60 text-sm font-medium border-b border-warm/10 pb-6 mb-8 reveal-in" style="animation-delay: 0.15s;">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> December 28, 2024</span>
                         </div>
-                    </div>
-                    <p class="text-lg leading-relaxed text-warm mb-6">Climbing Mount Kilimanjaro is a journey through five distinct climate zones. You start in a hot, humid rainforest and end in an arctic, glaciated summit. Therefore, the secret to packing is <strong>layering</strong>. Here is the ultimate gear list curated by our expert mountain guides.</p>
-                    
-                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">1. Clothing: The Layering System</h3>
-                    <p class="text-lg leading-relaxed text-warm mb-4">Avoid cotton at all costs; it retains moisture and makes you cold. Stick to moisture-wicking synthetics and merino wool.</p>
-                    <ul class="list-disc list-inside text-lg text-warm space-y-2 mb-6 ml-4">
-                        <li><strong>Base Layers:</strong> 3-4 moisture-wicking long-sleeve shirts and thermal underwear bottoms.</li>
-                        <li><strong>Mid Layers:</strong> 1-2 fleece jackets or thick wool sweaters.</li>
-                        <li><strong>Outer Layers:</strong> A high-quality, windproof, and waterproof hard-shell jacket and pants (Gore-Tex recommended).</li>
-                        <li><strong>Summit Jacket:</strong> A heavy, insulated down jacket. It gets to -20°C at the peak.</li>
-                    </ul>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Knowing these details before you land means less time adjusting and more time actually experiencing the safari you came for.</p>
+                        <ul class="reveal-in" style="animation-delay: 0.25s;">
+                            <li><strong>1. Game drives start early</strong> — often before sunrise, when wildlife is most active. Pack layers; mornings are colder than you'd expect.</li>
+                            <li><strong>2. Dust is part of the experience</strong> — open-sided safari vehicles mean dust on unpaved roads. A light scarf or buff goes further than you'd think.</li>
+                            <li><strong>3. Binoculars matter more than a zoom lens</strong> — many sightings are at a respectful distance, and binoculars let everyone see clearly.</li>
+                            <li><strong>4. Cash still matters</strong> — tipping guides and staff is customary, and small local purchases are easier with cash.</li>
+                            <li><strong>5. The best sightings aren't guaranteed on a schedule</strong> — wildlife doesn't perform on demand. Patience, and a guide who knows the terrain, matter more than luck.</li>
+                        </ul>
+                    `
+                },
+                // Zanzibar & Island Life
+                {
+                    id: 4,
+                    category: "Zanzibar & Island Life",
+                    title: "Stone Town in a Day: A Local's Walking Route Through 500 Years of History",
+                    date: "December 20, 2024",
+                    readTime: "5 min read",
+                    image: "https://images.unsplash.com/photo-1586861633315-d19a4b3e6c77?auto=format&fit=crop&q=80",
+                    excerpt: "Stone Town, a UNESCO World Heritage Site, rewards travelers who explore it on foot. Here's the route we recommend.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Zanzibar & Island Life</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Stone Town in a Day: A Local's Walking Route Through 500 Years of History</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Stone Town, a UNESCO World Heritage Site, rewards travelers who explore it on foot rather than rushing through on a guided bus tour. A well-paced day starts early at the old Fish Market before the heat sets in, moves through the narrow alleyways past centuries-old carved wooden doors, and pauses at the House of Wonders and the Old Fort.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">Midday is best spent at a local café away from the main tourist strip, followed by a slower afternoon walk through the Darajani Market, where the scents of spices define the neighborhood. As evening approaches, the Forodhani Gardens night food market comes alive — grilled seafood, Zanzibari pizza, and sugarcane juice, all best experienced with someone who knows which stalls locals actually eat at.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">Done right, Stone Town isn't a checklist of monuments — it's a walk through five centuries of Swahili, Arab, and colonial history layered into a single square mile.</p>
+                        <p class="reveal-in" style="animation-delay: 0.45s;"><em>[Add Stone Town to your Zanzibar itinerary →]</em></p>
+                    `
+                },
+                {
+                    id: 5,
+                    category: "Zanzibar & Island Life",
+                    title: "Beyond the Beach: 4 Zanzibar Experiences Most Tourists Never Find",
+                    date: "December 12, 2024",
+                    readTime: "5 min read",
+                    image: "https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?auto=format&fit=crop&q=80",
+                    excerpt: "Zanzibar's beaches earn their reputation, but travelers who never leave the resort miss the island's most memorable moments.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Zanzibar & Island Life</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Beyond the Beach: 4 Zanzibar Experiences Most Tourists Never Find</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Zanzibar's beaches earn their reputation, but travelers who never leave the resort miss the island's most memorable moments.</p>
+                        <ul class="reveal-in" style="animation-delay: 0.25s;">
+                            <li><strong>Clear Kayaking Over Coral Lagoons</strong> — Paddling in a transparent kayak over shallow reef systems, watching marine life move beneath you in real time.</li>
+                            <li><strong>A Spice Farm Tour With a Local Farmer</strong> — Not a staged tourist stop, but a working farm where you taste, smell, and learn the origins of cloves, cinnamon, and vanilla.</li>
+                            <li><strong>Sunset Dhow Sailing</strong> — Traditional wooden sailboats gliding along the coast as the sky turns orange — a centuries-old way of experiencing the water.</li>
+                            <li><strong>A Village Visit With Genuine Community Connection</strong> — Respectful, arranged visits that support local families directly, rather than performative "cultural tourism."</li>
+                        </ul>
+                        <p class="reveal-in" style="animation-delay: 0.3s;"><em>[See our full Zanzibar Tours lineup →]</em></p>
+                    `
+                },
+                {
+                    id: 6,
+                    category: "Zanzibar & Island Life",
+                    title: "Clear Kayaking in Zanzibar: What to Expect (And Why It's Not Just for Experts)",
+                    date: "December 5, 2024",
+                    readTime: "3 min read",
+                    image: "https://images.unsplash.com/photo-1596436889106-be35e70ed4fc?auto=format&fit=crop&q=80",
+                    excerpt: "Clear kayaking is beginner-friendly, guided, and paced around calm, shallow waters. Here's everything you need to know.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Zanzibar & Island Life</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Clear Kayaking in Zanzibar: What to Expect</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Clear kayaking is one of the most requested experiences on our Zanzibar tours — and one of the most misunderstood. Many travelers assume it requires strong swimming ability or prior kayaking experience. In reality, it's beginner-friendly, guided, and paced around calm, shallow waters.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">The experience itself is simple: a transparent-bottomed kayak lets you paddle directly over turquoise waters, making it ideal for travelers who want a water sport activity without technical skill requirements — including families with older children. Sessions typically run 15–30 minutes.</p>
+                        <p class="reveal-in" style="animation-delay: 0.35s;">If you've hesitated to try it because it "sounds advanced" — it isn't. It's one of the most accessible ways to experience Zanzibar's water sport.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;"><em>[Book Clear Kayak Zanzibar →]</em></p>
+                    `
+                },
+                // Kilimanjaro & Trekking
+                {
+                    id: 7,
+                    category: "Kilimanjaro & Trekking",
+                    title: "Machame vs. Marangu Route: Which Kilimanjaro Trek Is Right for You?",
+                    date: "November 28, 2024",
+                    readTime: "6 min read",
+                    image: "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&q=80",
+                    excerpt: "Both routes summit Africa's tallest peak, but they suit different travelers. Learn the key differences.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Kilimanjaro & Trekking</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Machame vs. Marangu Route: Which Kilimanjaro Trek Is Right for You?</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Both routes summit Africa's tallest peak, but they suit different travelers. <strong>Marangu Route</strong> is the only route with hut-style accommodation instead of tents, making it appealing to trekkers who prefer a bed over a sleeping bag. However, its shorter duration means less time acclimatizing — which can actually increase altitude-related difficulty.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;"><strong>Machame Route</strong>, nicknamed the "Whiskey Route," is longer and more scenic, passing through varied terrain and ecosystems. Its extra days built in for acclimatization generally give trekkers a higher summit success rate, even though the daily hiking is more demanding.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">For most first-time Kilimanjaro climbers without high-altitude experience, we recommend Machame specifically for its acclimatization advantage.</p>
+                        <p class="reveal-in" style="animation-delay: 0.45s;"><em>[See our full Kilimanjaro Trekking routes →]</em></p>
+                    `
+                },
+                {
+                    id: 8,
+                    category: "Kilimanjaro & Trekking",
+                    title: "How We Train Our Guides to Get You to the Summit Safely",
+                    date: "November 20, 2024",
+                    readTime: "4 min read",
+                    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80",
+                    excerpt: "Summit success depends on guide judgment — pacing, altitude monitoring, and knowing when to turn back.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Kilimanjaro & Trekking</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">How We Train Our Guides to Get You to the Summit Safely</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Kilimanjaro's summit success rate depends less on a climber's fitness level than most people assume — it depends heavily on guide judgment. Every Kimondo mountain guide is certified and undergoes ongoing training in altitude sickness recognition, emergency response, and route-specific pacing strategy.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">Our teams carry supplemental oxygen and monitoring equipment on every climb, and guides are trained to prioritize a climber's safety over an arbitrary summit deadline. This is why we build extra acclimatization days into our itineraries.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">Your summit photo matters. Getting there safely matters more.</p>
+                    `
+                },
+                {
+                    id: 9,
+                    category: "Kilimanjaro & Trekking",
+                    title: "What to Pack for Kilimanjaro: A Guide From People Who've Climbed It Dozens of Times",
+                    date: "November 12, 2024",
+                    readTime: "7 min read",
+                    image: "https://images.unsplash.com/photo-1508873535684-277a3cb6f48e?auto=format&fit=crop&q=80",
+                    excerpt: "From a down jacket to trekking poles, here's what actually matters — and what you can leave behind.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Kilimanjaro & Trekking</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">What to Pack for Kilimanjaro: A Guide From People Who've Climbed It Dozens of Times</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Kilimanjaro moves through five climate zones on the way to the summit — from rainforest heat to arctic cold — so packing in layers isn't optional, it's essential.</p>
+                        <ul class="reveal-in" style="animation-delay: 0.25s;">
+                            <li><strong>Down jacket</strong> rated for sub-zero temperatures (summit night regularly drops below -10°C).</li>
+                            <li><strong>Moisture-wicking base layers</strong> (cotton retains sweat and increases cold risk).</li>
+                            <li><strong>Waterproof, broken-in hiking boots</strong> — never new boots on the mountain.</li>
+                            <li><strong>4-season sleeping bag</strong>, even on routes with hut accommodation.</li>
+                            <li><strong>Headlamp with spare batteries</strong> (summit pushes happen at night).</li>
+                            <li><strong>Trekking poles</strong> — they matter more than most first-time climbers expect, especially on the descent.</li>
+                        </ul>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">Overpacking is common and unnecessary. We provide a detailed packing list tailored to your specific route and season when you book.</p>
+                    `
+                },
+                // Culture & Community
+                {
+                    id: 10,
+                    category: "Culture & Community",
+                    title: "Meet the Makonde Artisans Behind Our Gift Shop Collection",
+                    date: "November 5, 2024",
+                    readTime: "4 min read",
+                    image: "https://images.unsplash.com/photo-1590736969955-71cc949e5c73?auto=format&fit=crop&q=80",
+                    excerpt: "Every carving in our Artisan Collection comes from Makonde craftsmen — traditions passed down through generations.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Culture & Community</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Meet the Makonde Artisans Behind Our Gift Shop Collection</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Every carving in our Artisan Collection comes from Makonde craftsmen — an ethnic group renowned across East Africa for intricate wood carving traditions passed down through generations, often centered on themes of family, ancestry, and community (Ujamaa).</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">Working primarily in African blackwood (Mpingo) and ebony, Makonde artisans spend days, sometimes weeks, on a single piece — carving, sanding, and polishing entirely by hand. There is no mass production here; no two pieces are ever fully identical.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">When you purchase from our collection, your payment goes directly toward supporting these artisans and their craft — not to a middleman importer or a factory reproduction operation overseas.</p>
+                        <p class="reveal-in" style="animation-delay: 0.45s;"><em>[Browse the Artisan Collection →]</em></p>
+                    `
+                },
+                {
+                    id: 11,
+                    category: "Culture & Community",
+                    title: "A Day in the Life of a Kimondo Local Guide",
+                    date: "October 28, 2024",
+                    readTime: "5 min read",
+                    image: "https://images.unsplash.com/photo-1559715541-5daf7a72e8b9?auto=format&fit=crop&q=80",
+                    excerpt: "Most travelers never see what happens before a safari vehicle picks them up at 6 a.m. Here's a look behind the scenes.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Culture & Community</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">A Day in the Life of a Kimondo Local Guide</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Most travelers never see what happens before a safari vehicle picks them up at 6 a.m. A guide's day often starts hours earlier — checking overnight reports from rangers on wildlife movement, confirming vehicle and route conditions, and mentally mapping the day's plan around where sightings are most likely.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">Once on safari, a guide is simultaneously a naturalist, a safety officer, a translator of the landscape, and often an informal cultural ambassador — fielding questions about everything from animal behavior to Tanzanian history over the crackle of a two-way radio coordinating with other vehicles nearby.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">The day doesn't end when guests return to camp. Guides debrief, log sightings, and prepare for the next day — often repeating this rhythm for weeks during peak season. It's demanding work, built on genuine passion for the land, not a scripted tour job.</p>
+                        <p class="reveal-in" style="animation-delay: 0.45s;"><em>[Meet the team on our About Us page →]</em></p>
+                    `
+                },
+                // Conservation & Giving Back
+                {
+                    id: 12,
+                    category: "Conservation & Giving Back",
+                    title: "How Your Trip Helps Fund Local Conservation — The Numbers Behind It",
+                    date: "October 20, 2024",
+                    readTime: "4 min read",
+                    image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&q=80",
+                    excerpt: "A share of every Kimondo booking is directed toward local conservation and community initiatives.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Conservation & Giving Back</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">How Your Trip Helps Fund Local Conservation — The Numbers Behind It</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Tourism, done responsibly, is one of the most direct ways travelers can support conservation and community development in East Africa — but only when a portion of that spending is actually structured to reach the ground level.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">A share of every Kimondo booking is directed toward local conservation and community initiatives — supporting everything from wildlife protection efforts to education and infrastructure projects in the communities our guides call home. Unlike large-scale donations routed through international organizations with significant overhead, this contribution moves through a local, accountable structure with direct visibility into where it goes.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">Choosing an operator isn't just a logistics decision — it's a decision about where your travel spending actually ends up. With Kimondo, it stays close to the land and people you came to experience.</p>
+                    `
+                },
+                {
+                    id: 13,
+                    category: "Conservation & Giving Back",
+                    title: "Inside Our Volunteer Programs: What Real Community Impact Looks Like",
+                    date: "October 12, 2024",
+                    readTime: "5 min read",
+                    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&q=80",
+                    excerpt: "Not all 'volunteer travel' creates real impact. Kimondo's placements are built differently — designed in direct partnership with communities.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Conservation & Giving Back</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Inside Our Volunteer Programs: What Real Community Impact Looks Like</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Not all "volunteer travel" creates real impact — some programs exist primarily to sell a feel-good photo rather than address an actual community need. Kimondo's volunteer placements are built differently: designed in direct partnership with the communities and conservation projects involved, based on what they've identified as genuinely needed.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">Placements range from environmental and wildlife conservation support to education programs and community infrastructure work, with durations from one week to several months. Every volunteer receives safety orientation, vetted accommodation guidance, and ongoing local support — the same standard of care that backs our safari and tour guests.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">The result is a program that benefits the traveler and the community in equal measure, not one dressed up to look that way for social media.</p>
+                        <p class="reveal-in" style="animation-delay: 0.45s;"><em>[Explore our Get Involved programs →]</em></p>
+                    `
+                },
+                // Travel Tips
+                {
+                    id: 14,
+                    category: "Travel Tips",
+                    title: "Tanzania Visa & Entry Requirements: An Up-to-Date Guide for International Travelers",
+                    date: "October 5, 2024",
+                    readTime: "5 min read",
+                    image: "https://images.unsplash.com/photo-1436491865332-7a61a109bb05?auto=format&fit=crop&q=80",
+                    excerpt: "Most international visitors require a visa to enter Tanzania, available as an eVisa or on arrival. Get the latest details.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Travel Tips</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Tanzania Visa & Entry Requirements: An Up-to-Date Guide</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Most international visitors require a visa to enter Tanzania, available either as an eVisa applied for in advance online, or as a visa on arrival at major entry points, including Zanzibar's Abeid Amani Karume International Airport. Processing times and exact fees vary by nationality, so applying for an eVisa a few weeks before travel is generally the safer option to avoid arrival delays.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">Beyond the visa itself, travelers should also confirm passport validity requirements (typically at least six months beyond your travel dates) and any required vaccination documentation, such as yellow fever certification if arriving from an affected country.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">Requirements are set by government authorities and can change, so we always recommend confirming current rules against official sources close to your travel date — and reaching out to us if you'd like help interpreting what applies to your specific nationality.</p>
+                    `
+                },
+                {
+                    id: 15,
+                    category: "Travel Tips",
+                    title: "What to Know Before Booking Your First Trip to East Africa",
+                    date: "September 28, 2024",
+                    readTime: "6 min read",
+                    image: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&q=80",
+                    excerpt: "Book through one accountable operator, budget realistically, and build in buffer days. Start here.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Travel Tips</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">What to Know Before Booking Your First Trip to East Africa</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">First-time visitors to Tanzania and Zanzibar often make the trip harder than it needs to be by over-researching fragmented information across dozens of sites. A few fundamentals simplify the process significantly:</p>
+                        <ul class="reveal-in" style="animation-delay: 0.25s;">
+                            <li><strong>Book through one accountable operator</strong> rather than stitching together separate safari, island, and trekking bookings — it removes coordination risk entirely.</li>
+                            <li><strong>Budget realistically</strong> — safaris and Kilimanjaro treks are premium experiences; the cheapest quoted price is often cheapest for a reason.</li>
+                            <li><strong>Build in buffer days</strong> — flight connections into Kilimanjaro or Zanzibar airports can be limited; a buffer day before key activities reduces stress if travel is delayed.</li>
+                            <li><strong>Ask about what's actually included</strong> — park fees, meals, transfers, and guide fees vary significantly between quotes that look similar on the surface.</li>
+                        </ul>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">A good operator answers these questions clearly before you book, not after.</p>
+                    `
+                },
+                {
+                    id: 16,
+                    category: "Travel Tips",
+                    title: "Zanzibar Travel Insurance (ZIC): What You Need to Know",
+                    date: "September 20, 2024",
+                    readTime: "3 min read",
+                    image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80",
+                    excerpt: "Every visitor to Zanzibar is required to hold travel insurance through ZIC — here's exactly what that means.",
+                    content: `
+                        <span class="text-golden font-bold uppercase tracking-widest text-sm reveal-in" style="animation-delay: 0.05s;">Travel Tips</span>
+                        <h2 class="reveal-in" style="animation-delay: 0.1s;">Zanzibar Travel Insurance (ZIC): What You Need to Know</h2>
+                        <p class="reveal-in" style="animation-delay: 0.2s;">Every visitor entering Zanzibar is required to hold travel insurance issued through the Zanzibar Insurance Corporation (ZIC), currently priced at <strong>$44 per person</strong>. This is separate from any personal travel insurance you already hold and does not replace it.</p>
+                        <p class="reveal-in" style="animation-delay: 0.3s;">ZIC insurance can be purchased on arrival at the airport or in advance online, and covers emergency medical expenses during your stay. Visitors without proof of coverage may need to purchase it on the spot before being permitted entry, which can add time at immigration.</p>
+                        <p class="reveal-in" style="animation-delay: 0.4s;">As part of our airport transfer and arrival support, Kimondo helps guests handle this requirement smoothly — one less thing to navigate in an unfamiliar airport.</p>
+                    `
+                }
+            ];
 
-                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">2. Footwear</h3>
-                    <p class="text-lg leading-relaxed text-warm mb-6">Your boots are your most important asset. They must be waterproof, warm, and <strong>broken in</strong> before you arrive. Pair them with 4-5 pairs of thick trekking socks (merino wool is best) and bring a pair of camp shoes (like sneakers or sturdy sandals) to let your feet breathe in the evenings.</p>
+            const blogGrid = document.getElementById('blog-grid');
+            let activeFilter = null;
 
-                    <h3 class="text-2xl font-serif font-bold text-forest mt-10 mb-4">3. Essential Gear</h3>
-                    <p class="text-lg leading-relaxed text-warm mb-6">While Kimondo Adventures provides tents and sleeping mats, you must bring a four-season sleeping bag (rated to -15°C or lower). Do not forget a high-lumen headlamp with extra batteries, polarized sunglasses (snow blindness is real), and trekking poles to save your knees on the descent.</p>
-                `
+            function renderBlogPosts(posts) {
+                if (!blogGrid) return;
+                let html = '';
+                posts.forEach((post, index) => {
+                    const imgSrc = post.image ||
+                        'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80';
+                    const isFeatured = post.featured ? 'featured-card' : '';
+                    const delay = index * 0.08;
+                    html += `
+                        <article class="blog-card group bg-white rounded-[2rem] p-4 sm:p-6 shadow-md border border-warm/5 flex flex-col md:flex-row gap-6 lg:gap-10 items-center cursor-pointer ${isFeatured}"
+                                 onclick="openBlogModal(${post.id})"
+                                 style="animation: fadeInUp 0.5s ${delay}s both;"
+                                 role="button" tabindex="0"
+                                 aria-label="Read: ${post.title}">
+                            <div class="w-full md:w-2/5 aspect-[4/3] md:aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden relative shrink-0">
+                                <img src="${imgSrc}" alt="${post.title}" class="card-img w-full h-full object-cover">
+                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-forest uppercase tracking-widest shadow-md">
+                                    ${post.featured ? '★ Featured' : post.category}
+                                </div>
+                            </div>
+                            <div class="w-full md:w-3/5 flex flex-col justify-center py-2">
+                                <div class="flex items-center gap-4 text-sm text-warm/50 font-medium mb-4">
+                                    <span><i class="fa-regular fa-calendar text-golden mr-1"></i>${post.date}</span>
+                                    <span><i class="fa-regular fa-clock text-golden mr-1"></i>${post.readTime}</span>
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-serif font-bold text-forest mb-4 group-hover:text-golden transition-colors duration-300 leading-tight">
+                                    ${post.title}
+                                </h3>
+                                <p class="text-warm/80 font-light leading-relaxed mb-8 line-clamp-3">${post.excerpt}</p>
+                                <span class="inline-flex items-center gap-3 text-forest font-bold group-hover:text-golden transition-colors w-max uppercase tracking-widest text-sm">
+                                    Read Full Article <i class="fa-solid fa-arrow-right read-btn-arrow"></i>
+                                </span>
+                            </div>
+                        </article>
+                    `;
+                });
+                blogGrid.innerHTML = html;
             }
-        ];
 
-        // 2. Render the Blog Cards
-        function renderBlogPosts() {
-            const grid = document.getElementById('blog-grid');
-            if (!grid) return;
+            // Filter function
+            window.filterByCategory = function (cat) {
+                activeFilter = cat;
+                const filtered = blogPosts.filter(p => p.category === cat);
+                renderBlogPosts(filtered.length ? filtered : blogPosts);
+                document.getElementById('latest-stories').scrollIntoView({ behavior: 'smooth' });
+            };
 
-            let html = '';
-            blogPosts.forEach(post => {
-                // Determine if we should use a default image or the one provided
-                const imgSrc = post.image || 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80';
-                
-                html += `
-                    <article class="group bg-white rounded-[2rem] p-4 sm:p-6 shadow-sm hover:shadow-xl border border-warm/5 transition-all duration-500 flex flex-col md:flex-row gap-6 lg:gap-10 items-center">
-                        <div class="w-full md:w-2/5 aspect-[4/3] md:aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden relative shrink-0">
-                            <img src="${imgSrc}" alt="${post.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-forest uppercase tracking-widest">
-                                ${post.category}
-                            </div>
-                        </div>
-                        
-                        <div class="w-full md:w-3/5 flex flex-col justify-center py-2">
-                            <div class="flex items-center gap-4 text-sm text-warm/50 font-medium mb-4">
-                                <span class="flex items-center gap-1"><i class="fa-regular fa-calendar text-golden"></i> ${post.date}</span>
-                                <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-golden"></i> ${post.readTime}</span>
-                            </div>
-                            
-                            <h3 class="text-2xl sm:text-3xl font-serif font-bold text-forest mb-4 group-hover:text-golden transition-colors leading-tight">
-                                ${post.title}
-                            </h3>
-                            
-                            <p class="text-warm/80 font-light leading-relaxed mb-8 line-clamp-3">
-                                ${post.excerpt}
-                            </p>
-                            
-                            <button onclick="openBlogModal(${post.id})" class="inline-flex items-center gap-3 text-forest font-bold hover:text-golden transition-colors w-max uppercase tracking-widest text-sm">
-                                Read Full Article <i class="fa-solid fa-arrow-right transform group-hover:translate-x-2 transition-transform"></i>
-                            </button>
-                        </div>
-                    </article>
-                `;
+            // Modal logic (unchanged core)
+            const modal = document.getElementById('blog-modal');
+            const modalHeroImg = document.getElementById('modal-hero-img');
+            const modalHeroCategory = document.getElementById('modal-hero-category');
+            const modalBody = document.getElementById('modal-content-body');
+            const modalScrollArea = document.getElementById('modal-scroll-area');
+            const closeBtn = document.getElementById('close-modal');
+            const backdrop = document.getElementById('modal-backdrop');
+            const progressBar = document.getElementById('reading-progress');
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+            let currentPostId = null;
+            let modalScrollListener = null;
+
+            function openBlogModal(id) {
+                const post = blogPosts.find(p => p.id === id);
+                if (!post) return;
+                currentPostId = id;
+                const imgSrc = post.image ||
+                    'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80';
+                modalHeroImg.src = imgSrc;
+                modalHeroImg.alt = post.title;
+                modalHeroImg.style.transform = 'translateY(0)';
+                modalHeroCategory.textContent = post.featured ? 'Featured' : post.category;
+                modalBody.innerHTML = post.content;
+                setTimeout(() => attachRippleToAll('.prose-custom .ripple-container'), 80);
+                const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+                document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
+                document.body.classList.add('modal-open');
+                if (modalScrollArea) modalScrollArea.scrollTop = 0;
+                if (progressBar) progressBar.style.width = '0%';
+                if (scrollToTopBtn) {
+                    scrollToTopBtn.classList.add('hidden-btn');
+                    scrollToTopBtn.classList.remove('visible');
+                }
+                modal.classList.remove('closing');
+                modal.classList.add('active');
+                modal.setAttribute('aria-hidden', 'false');
+                setTimeout(() => { if (closeBtn) closeBtn.focus(); }, 200);
+                if (modalScrollListener && modalScrollArea) modalScrollArea.removeEventListener('scroll',
+                    modalScrollListener);
+                modalScrollListener = () => {
+                    if (!modalScrollArea) return;
+                    const scrollTop = modalScrollArea.scrollTop;
+                    const scrollHeight = modalScrollArea.scrollHeight - modalScrollArea.clientHeight;
+                    const progress = scrollHeight > 0 ? Math.min((scrollTop / scrollHeight) * 100, 100) : 0;
+                    if (progressBar) progressBar.style.width = progress + '%';
+                    if (modalHeroImg) {
+                        const parallax = Math.min(scrollTop * 0.15, 60);
+                        modalHeroImg.style.transform = `translateY(${parallax}px)`;
+                    }
+                    if (scrollToTopBtn) {
+                        if (scrollTop > 400) {
+                            scrollToTopBtn.classList.add('visible');
+                            scrollToTopBtn.classList.remove('hidden-btn');
+                        } else {
+                            scrollToTopBtn.classList.add(
+                                'hidden-btn');
+                            scrollToTopBtn.classList.remove('visible');
+                        }
+                    }
+                };
+                if (modalScrollArea) modalScrollArea.addEventListener('scroll', modalScrollListener, { passive: true });
+            }
+
+            function closeBlogModal() {
+                if (!modal.classList.contains('active')) return;
+                modal.classList.add('closing');
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('modal-open');
+                currentPostId = null;
+                if (progressBar) progressBar.style.width = '0%';
+                if (scrollToTopBtn) {
+                    scrollToTopBtn.classList.add('hidden-btn');
+                    scrollToTopBtn.classList.remove('visible');
+                }
+                if (modalScrollListener && modalScrollArea) modalScrollArea.removeEventListener('scroll',
+                    modalScrollListener);
+                if (modalHeroImg) modalHeroImg.style.transform = 'translateY(0)';
+            }
+
+            if (scrollToTopBtn) scrollToTopBtn.addEventListener('click', () => {
+                if (modalScrollArea) modalScrollArea
+                    .scrollTo({ top: 0, behavior: 'smooth' });
             });
+            if (closeBtn) closeBtn.addEventListener('click', closeBlogModal);
+            if (backdrop) backdrop.addEventListener('click', closeBlogModal);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active'))
+                    closeBlogModal();
+            });
+            window.openBlogModal = openBlogModal;
+            window.closeBlogModal = closeBlogModal;
 
-            grid.innerHTML = html;
-        }
+            // Share, toast, ripple, newsletter (same as before)
+            window.shareArticle = function (platform) {
+                const url = window.location.href;
+                const post = currentPostId ? blogPosts.find(p => p.id === currentPostId) : null;
+                const text = post ? `Check out this article: ${post.title}` :
+                    'Check out Kimondo Adventures!';
+                if (platform === 'whatsapp') window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`,
+                    '_blank');
+                else if (platform === 'twitter') window.open(
+                    `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
+                    '_blank');
+                else if (platform === 'copy') navigator.clipboard.writeText(url).then(() => showToast(
+                    'Link copied! 📋')).catch(() => showToast('Copy failed.'));
+            };
 
-        // 3. Modal Logic
-        const modal = document.getElementById('modal');
-        const modalHero = document.getElementById('modal-hero');
-        const modalBody = document.getElementById('modal-content-body');
-        const closeBtn = document.getElementById('close-modal');
-        const backdrop = document.getElementById('modal-backdrop');
-
-        function openBlogModal(id) {
-            const post = blogPosts.find(p => p.id === id);
-            if (!post) return;
-
-            // Set Hero Image
-            const imgSrc = post.image || 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80';
-            modalHero.innerHTML = `
-                <img src="${imgSrc}" alt="${post.title}" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            `;
-
-            // Set Content
-            modalBody.innerHTML = post.content;
-
-            // Show Modal (Disable body scroll)
-            document.body.style.overflow = 'hidden';
-            modal.classList.remove('hidden');
-            
-            // Small delay to allow CSS transition to work
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                document.getElementById('modal-container').classList.remove('scale-95');
-                document.getElementById('modal-container').classList.add('scale-100');
-            }, 10);
-            
-            // Scroll modal to top
-            document.querySelector('.modal-content').scrollTop = 0;
-        }
-
-        function closeBlogModal() {
-            document.body.style.overflow = '';
-            modal.classList.add('opacity-0');
-            document.getElementById('modal-container').classList.remove('scale-100');
-            document.getElementById('modal-container').classList.add('scale-95');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300); // Matches the CSS duration-300
-        }
-
-        // Event Listeners for closing
-        if (closeBtn) closeBtn.addEventListener('click', closeBlogModal);
-        if (backdrop) backdrop.addEventListener('click', closeBlogModal);
-        
-        // Escape key to close
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeBlogModal();
+            function showToast(msg) {
+                const existing = document.querySelector('.kimondo-toast');
+                if (existing) existing.remove();
+                const toast = document.createElement('div');
+                toast.className =
+                    'kimondo-toast fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-dark text-white px-6 py-3.5 rounded-full shadow-2xl text-sm font-medium z-[300] flex items-center gap-2';
+                toast.innerHTML = `<i class="fa-solid fa-check-circle text-golden"></i> ${msg}`;
+                toast.style.animation = 'fadeInUp 0.4s ease forwards';
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.animation = 'fadeOutDown 0.35s ease forwards';
+                    setTimeout(() => toast.remove(), 350);
+                }, 2200);
             }
-        });
 
-        // Initialize Page
-        document.addEventListener('DOMContentLoaded', renderBlogPosts);
+            function attachRipple(btn) {
+                if (!btn || btn.dataset.rippleBound) return;
+                btn.dataset.rippleBound = 'true';
+                btn.addEventListener('click', function (e) {
+                    const rect = btn.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-wave';
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                    btn.appendChild(ripple);
+                    ripple.addEventListener('animationend', () => ripple.remove());
+                });
+            }
+
+            function attachRippleToAll(sel) { document.querySelectorAll(sel).forEach(attachRipple); }
+            window.handleNewsletterSubmit = function (e) {
+                e.preventDefault();
+                const btn = e.target.querySelector('button[type="submit"]');
+                btn.textContent = 'Subscribed! ✓';
+                btn.classList.add('bg-green-500', 'text-white');
+                btn.classList.remove('bg-golden', 'hover:bg-amber-400', 'text-dark');
+                btn.disabled = true;
+                showToast('Welcome to the Kimondo Club! 🎉');
+                setTimeout(() => {
+                    btn.textContent = 'Subscribe';
+                    btn.classList.remove('bg-green-500', 'text-white');
+                    btn.classList.add('bg-golden', 'hover:bg-amber-400', 'text-dark');
+                    btn.disabled = false;
+                }, 3000);
+            };
+
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function () {
+                    this.textContent = 'Loading...';
+                    this.disabled = true;
+                    setTimeout(() => {
+                        showToast('You\'re all caught up! More stories coming soon. 🌍');
+                        this.innerHTML =
+                            'Load More Stories <i class="fa-solid fa-arrow-down-long transform group-hover:translate-y-1 transition-transform"></i>';
+                        this.disabled = false;
+                    }, 800);
+                });
+            }
+
+            function init() {
+                renderBlogPosts(blogPosts);
+                attachRippleToAll('.ripple-container');
+                if (!document.getElementById('kimondo-keyframes')) {
+                    const s = document.createElement('style');
+                    s.id = 'kimondo-keyframes';
+                    s.textContent =
+                        `@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeOutDown{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(16px)}}`;
+                    document.head.appendChild(s);
+                }
+            }
+            document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
+        })();
     </script>
 
-<div id="footer-container"></div>
+    <div id="footer-container"></div>
     <script src="script.js"></script>
 </body>
+
 </html>

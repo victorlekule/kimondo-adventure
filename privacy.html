@@ -1,318 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy – Kimondo Adventure</title>
-    <meta name="description" content="Kimondo Adventure Privacy Policy explains how we collect, use, and protect your personal data.">
+    <title>Privacy Policy | Kimondo Adventures</title>
+    <meta name="description"
+        content="How we collect, use, and protect your personal data when you book safaris, Zanzibar tours, Kilimanjaro treks, or volunteer with Kimondo Adventures.">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind + Kimondo config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        warm: '#5D4037',    // earthy brown – the new card colour
-                        forest: '#2E7D32',   // green accent
-                        brand: { DEFAULT: '#1645aa', light: '#1e5acf' },
-                        gold: '#facc15',
-                        dark: '#0f172a',
+                        forest: '#2E7D32',
                         golden: '#F5A623',
-                        choco: '#6D3A1F',
-                        turquoise: '#00BCD4',
-                        'brand-dark': '#0B0C0E',
-                        'brand-blue': '#0D8ABC',
-                        'brand-yellow': '#FCEE21'
+                        warm: '#5D4037',
+                        light: '#fcfbf9',
+                        dark: '#0a0f0d',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
                     },
                 }
             }
         }
     </script>
-    <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        html { scroll-behavior: smooth; }
-        .nav-link.active { color: #F5A623;border-bottom: 2px solid #F5A623;}
-        /* Section accent bar using the same warm colour */
-        .section-accent { border-left: 4px solid #F5A623;}
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar-link.active {
+            color: #F5A623;
+            background-color: rgba(245, 166, 35, 0.08);
+            border-left: 3px solid #F5A623;
+        }
+
+        .policy-section {
+            border-left: 4px solid #F5A623;
+            transition: all 0.25s ease;
+        }
+
+        .policy-section:hover {
+            box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .number-badge {
+            background-color: #F5A623;
+            color: #0a0f0d;
+            font-weight: 700;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
+        }
+
+        /* Accordion animation for mobile */
         @media (max-width: 768px) {
-            .sidebar-nav { display: none; }
+            .sidebar-nav {
+                display: none;
+            }
+
+            .collapsible-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .collapsible-content.open {
+                max-height: 2000px;
+                /* large enough for any content */
+            }
+
+            .toggle-arrow {
+                transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .toggle-arrow.open {
+                transform: rotate(180deg);
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
 
-<div id="kimondo-header"></div>
+<body class="bg-light text-warm antialiased">
 
-    <!-- ====== HERO ====== -->
-    <div class="bg-white border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
-            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-warm/10 mb-6">
-                <ion-icon name="lock-closed-outline" class="text-warm text-4xl"></ion-icon>
+    <!-- Kimondo header placeholder -->
+    <div id="kimondo-header"></div>
+
+    <!-- HERO (Kimondo style) -->
+    <section class="relative min-h-[55vh] md:min-h-[65vh] flex items-center justify-center overflow-hidden w-full">
+        <!-- Background image with overlays -->
+        <div class="absolute inset-0 z-0">
+            <img src="IMG/1 (7).jpg" alt="Tanzania landscape" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-forest/70 via-dark/50 to-forest/80"></div>
+            <div
+                class="absolute top-0 right-0 w-80 h-80 bg-golden/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4">
             </div>
-            <span class="inline-block bg-warm/5 text-warm text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide">DATA PROTECTION</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Privacy Policy</h1>
-            <p class="text-gray-500 max-w-xl mx-auto text-lg">
-                How we collect, use, and safeguard your personal information when you travel with us.
+            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-light to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 md:py-28 text-center">
+            <div
+                class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
+                <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Data Protection</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
+                Your Privacy, <br class="hidden sm:block"><span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">Our
+                    Responsibility</span>
+            </h1>
+            <p class="text-lg md:text-xl text-white/85 max-w-2xl mx-auto font-light leading-relaxed mb-6">
+                How we collect, use, and safeguard your personal information when you travel with Kimondo Adventures.
             </p>
-            <p class="text-xs text-gray-400 mt-6">Effective Date: January 1, 2026</p>
+            <p class="text-sm text-white/50">Effective Date: [Insert Date] &nbsp;|&nbsp; Last Updated: [Insert Date]</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT WITH SIDEBAR -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-20">
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- SIDEBAR NAVIGATION (desktop only) -->
+            <aside class="hidden lg:block w-64 shrink-0">
+                <div class="sticky top-28 space-y-1 sidebar-nav">
+                    <p class="text-xs font-semibold text-warm/50 uppercase tracking-wider mb-4 px-2">On this page</p>
+                    <a href="#who-we-are"
+                        class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="who-we-are">1. Who We Are</a>
+                    <a href="#information"
+                        class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="information">2. Information We Collect</a>
+                    <a href="#usage" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="usage">3. How We Use Your Data</a>
+                    <a href="#payment" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="payment">4. Payment Processing</a>
+                    <a href="#cookies" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="cookies">5. Cookies & Tracking</a>
+                    <a href="#sharing" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="sharing">6. How We Share Data</a>
+                    <a href="#international"
+                        class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="international">7. International Visitors</a>
+                    <a href="#retention" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="retention">8. Data Retention</a>
+                    <a href="#security" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="security">9. Data Security</a>
+                    <a href="#rights" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="rights">10. Your Rights</a>
+                    <a href="#children" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="children">11. Children's Privacy</a>
+                    <a href="#changes" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="changes">12. Changes to Policy</a>
+                    <a href="#governing-law"
+                        class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="governing-law">13. Governing Law</a>
+                    <a href="#contact" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="contact">14. Contact Us</a>
+                </div>
+            </aside>
+
+            <!-- POLICY SECTIONS (accordion on mobile) -->
+            <div class="flex-1 space-y-12" id="policy-accordion-container">
+
+                <!-- 1. Who We Are -->
+                <section id="who-we-are"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">1</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Who We Are</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">Kimondo Adventures is a locally‑owned tourism
+                                    and travel experience company based in Zanzibar, Tanzania, offering safaris, island
+                                    tours, mountain trekking, volunteering/internship programs, and artisan products to
+                                    travelers worldwide.</p>
+                                <div class="mt-4 text-sm text-warm/60 space-y-1">
+                                    <p><strong class="text-warm">Business Address:</strong> Paje, Zanzibar, Tanzania</p>
+                                    <p><strong class="text-warm">Contact Email:</strong> hello@kimondoadventures.com</p>
+                                    <p><strong class="text-warm">Contact Phone/WhatsApp:</strong> +255 65 884 0425</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Information We Collect -->
+                <section id="information"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">2</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Information We
+                                    Collect</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <ul class="space-y-4 text-warm/80">
+                                    <li class="flex gap-3"><i
+                                            class="fa-solid fa-user text-golden mt-1"></i><span><strong
+                                                class="text-forest">Identity & Contact Information</strong> – Full name,
+                                            email address, phone/WhatsApp number, nationality, and country of
+                                            residence.</span></li>
+                                    <li class="flex gap-3"><i
+                                            class="fa-solid fa-suitcase text-golden mt-1"></i><span><strong
+                                                class="text-forest">Booking & Travel Details</strong> – Travel dates,
+                                            group size, accommodation preferences, dietary or medical needs relevant to
+                                            your safari, trek, or tour, and passport details where required for park
+                                            permits or travel documentation.</span></li>
+                                    <li class="flex gap-3"><i
+                                            class="fa-solid fa-credit-card text-golden mt-1"></i><span><strong
+                                                class="text-forest">Payment Information</strong> – When you make a
+                                            booking, payment details are collected and processed securely by our payment
+                                            and booking platform provider. Kimondo does not store full card numbers on
+                                            its own systems.</span></li>
+                                    <li class="flex gap-3"><i
+                                            class="fa-solid fa-globe text-golden mt-1"></i><span><strong
+                                                class="text-forest">Automatically Collected Information</strong> – IP
+                                            address, browser type, device information, and browsing behavior on our
+                                            website, collected through cookies and similar technologies.</span></li>
+                                    <li class="flex gap-3"><i
+                                            class="fa-solid fa-message text-golden mt-1"></i><span><strong
+                                                class="text-forest">Communication Records</strong> – Messages sent via
+                                            our website contact form, WhatsApp, email, or through our booking
+                                            platform.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. How We Use Your Information -->
+                <section id="usage"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">3</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">How We Use Your
+                                    Information</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <ul class="space-y-3 text-warm/80">
+                                    <li class="flex gap-2"><i class="fa-solid fa-check-circle text-golden mt-1"></i>
+                                        Process and confirm bookings for safaris, tours, treks, volunteering programs,
+                                        and shop purchases.</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check-circle text-golden mt-1"></i>
+                                        Verify identity and prevent fraud in connection with bookings and payments.</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check-circle text-golden mt-1"></i>
+                                        Communicate with you before, during, and after your trip.</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check-circle text-golden mt-1"></i>
+                                        Arrange necessary travel documentation and entry requirements (e.g., ZIC travel
+                                        insurance, park permits).</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check-circle text-golden mt-1"></i>
+                                        Improve our website, services, and customer experience.</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check-circle text-golden mt-1"></i>
+                                        Send marketing communications – only if you've opted in (travel tips or
+                                        promotional offers).</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check-circle text-golden mt-1"></i>
+                                        Comply with legal, tax, and regulatory obligations in Tanzania and Zanzibar.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Payment Processing & Booking Platform Partner -->
+                <section id="payment"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">4</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Payment Processing &
+                                    Our Booking Platform Partner</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">To securely process bookings and payments,
+                                    Kimondo Adventures uses <strong class="text-forest">Tab (Tab.travel)</strong>, a
+                                    third‑party booking and payment platform built for tourism businesses. When you make
+                                    a booking or payment through our website, your relevant identity, contact, and
+                                    payment information is shared with Tab solely to complete and secure your
+                                    transaction.</p>
+                                <p class="text-warm/80 leading-relaxed mt-4">Tab is independently responsible for the
+                                    security of payment data under applicable card industry standards (PCI‑DSS) and
+                                    maintains its own privacy policy governing how it handles your payment information,
+                                    available at tab.travel. Kimondo does not have access to, and does not store, your
+                                    full card details.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Cookies & Website Tracking -->
+                <section id="cookies"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">5</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Cookies & Website
+                                    Tracking</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">Our website may use cookies and similar tracking
+                                    technologies to understand how visitors use our site and to improve your browsing
+                                    experience. You can control or disable cookies through your browser settings; note
+                                    that some site features, including booking functionality, may not function properly
+                                    if cookies are disabled.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. How We Share Your Information -->
+                <section id="sharing"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">6</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">How We Share Your
+                                    Information</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 mb-3">We do not sell your personal information. We may share
+                                    limited information with:</p>
+                                <ul class="space-y-3 text-warm/80">
+                                    <li class="flex gap-2"><i class="fa-solid fa-building-columns text-golden mt-1"></i>
+                                        <strong class="text-forest">Tab (Tab.travel) – Our Booking & Payment Platform
+                                            Provider</strong> – To process and secure your booking and payment (see
+                                        Section 4).
+                                    </li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-handshake text-golden mt-1"></i>
+                                        <strong class="text-forest">Service Partners</strong> – Accommodation providers,
+                                        transport partners, park authorities, and licensed guides directly involved in
+                                        delivering your booked experience.
+                                    </li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-scale-balanced text-golden mt-1"></i>
+                                        <strong class="text-forest">Legal & Regulatory Authorities</strong> – Where
+                                        required by Tanzanian or Zanzibari law, such as immigration or park permit
+                                        requirements.
+                                    </li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-gear text-golden mt-1"></i> <strong
+                                            class="text-forest">Service Providers</strong> – Trusted vendors who support
+                                        our website, email, or booking systems, bound by confidentiality obligations.
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-warm/60 mt-4">We do not share your information with third parties
+                                    for their own independent marketing purposes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. International Visitors & Data Transfers -->
+                <section id="international"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">7</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">International
+                                    Visitors & Data Transfers</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">As we serve travelers from around the world,
+                                    your information may be processed and stored in Tanzania, or in the countries where
+                                    Tab (our booking and payment platform provider) or other service providers operate.
+                                    Where data is transferred internationally, we and Tab take steps to ensure it is
+                                    protected to a standard consistent with applicable data protection law, including
+                                    the EU General Data Protection Regulation (GDPR) where relevant. By booking with us,
+                                    you consent to this transfer and processing, which is necessary to deliver your
+                                    travel arrangements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. Data Retention -->
+                <section id="retention"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">8</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Data Retention</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">We retain personal information only for as long
+                                    as necessary to fulfill the purposes outlined in this policy – including completing
+                                    your booking, providing customer support, complying with legal and tax obligations,
+                                    resolving disputes, and preventing fraud. Booking and transaction records are
+                                    typically retained for a minimum of 5–7 years to meet financial and legal
+                                    record‑keeping requirements in Tanzania.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9. Data Security -->
+                <section id="security"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">9</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Data Security</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">We take reasonable technical and organizational
+                                    measures to protect your personal information from unauthorized access, loss, or
+                                    misuse, and we rely on Tab's PCI‑DSS‑compliant payment processing for all payment
+                                    card data. However, no method of transmission over the internet is 100% secure, and
+                                    we cannot guarantee absolute security.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. Your Rights -->
+                <section id="rights"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">10</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Your Rights</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 mb-4">Depending on your country of residence, you may have rights
+                                    regarding your personal information, including:</p>
+                                <ul class="space-y-2 text-warm/80">
+                                    <li class="flex gap-2"><i class="fa-solid fa-arrow-right text-golden mt-1"></i>
+                                        Access the personal information we hold about you.</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-arrow-right text-golden mt-1"></i>
+                                        Request correction of inaccurate information.</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-arrow-right text-golden mt-1"></i>
+                                        Request deletion of your information, subject to legal, tax, or contractual
+                                        retention requirements.</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-arrow-right text-golden mt-1"></i>
+                                        Withdraw consent for marketing communications at any time.</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-arrow-right text-golden mt-1"></i>
+                                        Object to certain uses of your data.</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-arrow-right text-golden mt-1"></i>
+                                        Lodge a complaint with a relevant data protection authority in your country of
+                                        residence.</li>
+                                </ul>
+                                <p class="mt-4 text-sm text-warm/60">To exercise any of these rights, contact us using
+                                    the details in Section 14.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 11. Children's Privacy -->
+                <section id="children"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">11</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Children's Privacy
+                                </h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">Our services are not directed at children under
+                                    18 browsing or booking independently. Where minors are included in a family booking,
+                                    their information is provided and managed by a parent or guardian.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 12. Changes to This Policy -->
+                <section id="changes"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">12</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Changes to This
+                                    Policy</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">We may update this Privacy Policy from time to
+                                    time to reflect changes in our practices, our booking/payment platform arrangements,
+                                    or legal requirements. The "Last Updated" date at the top of this page will reflect
+                                    the most recent revision. Continued use of our website or services after changes
+                                    take effect constitutes acceptance of the updated policy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 13. Governing Law -->
+                <section id="governing-law"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">13</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Governing Law</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">This Privacy Policy is governed by the laws of
+                                    Tanzania and Zanzibar. Any disputes arising from this policy will be subject to the
+                                    jurisdiction of the courts of Zanzibar, Tanzania.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 14. Contact Us -->
+                <section id="contact"
+                    class="policy-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">14</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Contact Us</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 mb-4">If you have questions about this Privacy Policy or how your
+                                    information is handled, please contact us:</p>
+                                <div class="space-y-2 text-warm/80 text-sm">
+                                    <p><strong class="text-forest">Email:</strong> hello@kimondoadventures.com</p>
+                                    <p><strong class="text-forest">WhatsApp/Phone:</strong> +255 65 884 0425</p>
+                                    <p><strong class="text-forest">Address:</strong> Paje, Zanzibar, Tanzania</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer contact banner -->
+                <div class="bg-forest text-white rounded-2xl p-8 text-center">
+                    <i class="fa-solid fa-shield-halved text-golden text-5xl mb-4"></i>
+                    <h2 class="text-2xl font-serif font-bold mb-3">Still have privacy questions?</h2>
+                    <p class="text-white/70 mb-6 max-w-xl mx-auto">Our team is ready to help – typically responding
+                        within 24 hours.</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm">
+                        <a href="mailto:hello@kimondoadventures.com"
+                            class="flex items-center gap-2 hover:text-golden transition">
+                            <i class="fa-regular fa-envelope"></i> hello@kimondoadventures.com
+                        </a>
+                        <a href="https://wa.me/255658840425"
+                            class="flex items-center gap-2 hover:text-golden transition">
+                            <i class="fa-brands fa-whatsapp"></i> +255 65 884 0425
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ====== MAIN CONTENT WITH SIDEBAR ====== -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 flex flex-col lg:flex-row gap-10">
+    <!-- Footer placeholder -->
+    <div id="footer-container"></div>
 
-        <!-- STICKY SIDEBAR NAVIGATION -->
-        <aside class="hidden lg:block w-64 shrink-0">
-            <div class="sticky top-28 space-y-1">
-                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 px-2">On this page</p>
-                <a href="#commitment" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="commitment">1. Our Commitment</a>
-                <a href="#information" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="information">2. Information We Collect</a>
-                <a href="#usage" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="usage">3. How We Use Data</a>
-                <a href="#sharing" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="sharing">4. Data Sharing</a>
-                <a href="#security" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="security">5. Data Security</a>
-                <a href="#cookies" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="cookies">6. Cookies</a>
-                <a href="#retention" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="retention">7. Data Retention</a>
-                <a href="#rights" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="rights">8. Your Rights</a>
-                <a href="#children" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="children">9. Children's Privacy</a>
-                <a href="#transfers" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="transfers">10. International Transfers</a>
-                <a href="#changes" class="block px-2 py-1.5 text-sm text-gray-600 hover:text-warm hover:bg-warm/5 rounded-md nav-link" data-target="changes">11. Policy Changes</a>
-            </div>
-        </aside>
-
-        <!-- PRIVACY POLICY SECTIONS (warm backgrounds) -->
-        <div class="flex-1 space-y-12">
-
-            <!-- 1. Commitment -->
-            <section id="commitment" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-brand-yellow text-white flex items-center justify-center font-bold shrink-0">1</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">Our Commitment to Your Privacy</h2>
-                        <p class="text-white/80 leading-relaxed">
-                            At <strong>Kimondo Adventure</strong>, we deeply respect your right to privacy. We are committed to protecting the personal data you share with us when you browse our website, make a booking, or communicate with our team. This Privacy Policy outlines our practices concerning the collection, use, disclosure, and protection of your information in accordance with applicable data protection laws. By using our services, you consent to the practices described here.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 2. Information We Collect -->
-            <section id="information" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">2</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">Information We Collect</h2>
-                        <ul class="space-y-4 text-white/80">
-                            <li class="flex gap-3">
-                                <ion-icon name="person-outline" class="text-forest mt-1 shrink-0"></ion-icon>
-                                <span><strong>Identity & Contact:</strong> Full name, passport number, nationality, date of birth, email, phone, address.</span>
-                            </li>
-                            <li class="flex gap-3">
-                                <ion-icon name="medkit-outline" class="text-forest mt-1 shrink-0"></ion-icon>
-                                <span><strong>Travel & Health:</strong> Dietary requirements, medical conditions, allergies, travel insurance, emergency contacts.</span>
-                            </li>
-                            <li class="flex gap-3">
-                                <ion-icon name="card-outline" class="text-forest mt-1 shrink-0"></ion-icon>
-                                <span><strong>Payment Data:</strong> Card numbers, bank references, billing addresses (we never store full card details).</span>
-                            </li>
-                            <li class="flex gap-3">
-                                <ion-icon name="desktop-outline" class="text-forest mt-1 shrink-0"></ion-icon>
-                                <span><strong>Technical & Usage:</strong> IP address, browser type, pages visited, referring URLs (via cookies).</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 3. How We Use Your Data -->
-            <section id="usage" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">3</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">How We Use Your Information</h2>
-                        <ul class="space-y-3 text-white/80">
-                            <li class="flex gap-2 items-center"><ion-icon name="checkmark-circle-outline" class="text-forest"></ion-icon> Process & confirm your tour/safari/trek bookings.</li>
-                            <li class="flex gap-2 items-center"><ion-icon name="checkmark-circle-outline" class="text-forest"></ion-icon> Communicate itinerary changes, pre‑departure info.</li>
-                            <li class="flex gap-2 items-center"><ion-icon name="checkmark-circle-outline" class="text-forest"></ion-icon> Arrange permits, flights, accommodations via third parties.</li>
-                            <li class="flex gap-2 items-center"><ion-icon name="checkmark-circle-outline" class="text-forest"></ion-icon> Customer support, complaints, and emergency assistance.</li>
-                            <li class="flex gap-2 items-center"><ion-icon name="checkmark-circle-outline" class="text-forest"></ion-icon> Anonymous analytics to improve our services.</li>
-                            <li class="flex gap-2 items-center"><ion-icon name="checkmark-circle-outline" class="text-forest"></ion-icon> Marketing emails – only with your explicit consent (unsubscribe anytime).</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 4. Data Sharing -->
-            <section id="sharing" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">4</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">Data Sharing & Third Parties</h2>
-                        <p class="text-white/80 mb-3">We <strong>never</strong> sell your data. We share only what’s necessary with trusted partners:</p>
-                        <ul class="space-y-2 text-white/80">
-                            <li class="flex gap-2"><ion-icon name="business-outline" class="text-forest"></ion-icon> Hotels, lodges, airlines – to secure reservations.</li>
-                            <li class="flex gap-2"><ion-icon name="people-outline" class="text-forest"></ion-icon> Local guides, ground operators – smooth tour execution.</li>
-                            <li class="flex gap-2"><ion-icon name="wallet-outline" class="text-forest"></ion-icon> Payment processors, banks – to handle transactions.</li>
-                            <li class="flex gap-2"><ion-icon name="document-text-outline" class="text-forest"></ion-icon> Authorities when required by law.</li>
-                        </ul>
-                        <p class="text-sm text-white/60 mt-3">All parties are contractually bound to protect your data.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 5. Security -->
-            <section id="security" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">5</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">How We Protect Your Data</h2>
-                        <p class="text-white/80">
-                            We use SSL encryption, secure servers, access controls, and regular security audits. While no system is 100% foolproof, we diligently protect your information from unauthorized access, alteration, or disclosure.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 6. Cookies -->
-            <section id="cookies" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">6</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">Cookies & Tracking Technologies</h2>
-                        <p class="text-white/80">
-                            Our website uses cookies to enhance your experience, analyze traffic, and remember preferences. You can disable cookies via your browser, though some features may not work properly. We use anonymized Google Analytics data; no personal identifiers are stored in cookies.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 7. Retention -->
-            <section id="retention" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">7</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">Data Retention</h2>
-                        <p class="text-white/80">
-                            We retain your personal data only as long as necessary to fulfill the purposes outlined here, or as required by law (typically 7 years for financial records). After that, data is securely deleted or anonymized.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 8. Your Rights -->
-            <section id="rights" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">8</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">Your Data Rights</h2>
-                        <ul class="space-y-2 text-white/80">
-                            <li class="flex gap-2"><ion-icon name="arrow-redo-outline" class="text-forest"></ion-icon> <strong>Access</strong> – request a copy of your data.</li>
-                            <li class="flex gap-2"><ion-icon name="arrow-redo-outline" class="text-forest"></ion-icon> <strong>Rectification</strong> – correct inaccurate info.</li>
-                            <li class="flex gap-2"><ion-icon name="arrow-redo-outline" class="text-forest"></ion-icon> <strong>Erasure</strong> – deletion when no longer needed.</li>
-                            <li class="flex gap-2"><ion-icon name="arrow-redo-outline" class="text-forest"></ion-icon> <strong>Restrict processing</strong> – limit usage.</li>
-                            <li class="flex gap-2"><ion-icon name="arrow-redo-outline" class="text-forest"></ion-icon> <strong>Portability</strong> – receive data in common format.</li>
-                            <li class="flex gap-2"><ion-icon name="arrow-redo-outline" class="text-forest"></ion-icon> <strong>Objection</strong> – object to processing for marketing.</li>
-                        </ul>
-                        <p class="text-sm text-white/60 mt-3">
-                            Email <a href="mailto:privacy@kimondoadventure.com" class="text-forest underline">privacy@kimondoadventure.com</a> – we’ll respond within 30 days.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 9. Children -->
-            <section id="children" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">9</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">Children's Privacy</h2>
-                        <p class="text-white/80">
-                            Our services are not directed at minors under 18 without a guardian. We do not knowingly collect data from children. If you believe a child has provided personal information, contact us for immediate deletion.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 10. International Transfers -->
-            <section id="transfers" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">10</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">International Data Transfers</h2>
-                        <p class="text-white/80">
-                            Your data may be processed outside your home country (e.g., Tanzania). We ensure adequate safeguards (standard contractual clauses) to protect your privacy.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 11. Changes -->
-            <section id="changes" class="section-accent pl-6 transition-all duration-300 hover:shadow-lg rounded-r-lg bg-forest text-white p-6">
-                <div class="flex items-start gap-4">
-                    <span class="w-10 h-10 rounded-full bg-[#3E2723] text-white flex items-center justify-center font-bold shrink-0">11</span>
-                    <div>
-                        <h2 class="text-2xl font-bold mb-3">Changes to This Policy</h2>
-                        <p class="text-white/80">
-                            We may update this policy periodically. Changes will be posted here with a new effective date. Continued use of our services after revisions constitutes acceptance.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CONTACT BANNER (warm + forest accents) -->
-            <div class="bg-warm text-white rounded-2xl p-8 text-center">
-                <ion-icon name="chatbubble-ellipses-outline" class="text-forest text-5xl mx-auto mb-4"></ion-icon>
-                <h2 class="text-2xl font-bold mb-3">Still have privacy questions?</h2>
-                <p class="text-white/80 mb-6 max-w-xl mx-auto">
-                    Our Data Protection Officer is ready to help.
-                </p>
-                <div class="flex flex-wrap justify-center gap-6 text-sm">
-                    <a href="mailto:privacy@kimondoadventure.com" class="flex items-center gap-2 hover:text-forest transition">
-                        <ion-icon name="mail-outline"></ion-icon> privacy@kimondoadventure.com
-                    </a>
-                    <span class="flex items-center gap-2">
-                        <ion-icon name="call-outline" class="text-forest"></ion-icon> +255 XXX XXX XXX
-                    </span>
-                </div>
-            </div>
-
-         </div>
-    </div>
-
-    <!-- SMALL JS -->
+    <!-- Sidebar active state + mobile accordion script -->
     <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+            (function () {
+                // Desktop sidebar active state
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.sidebar-link');
+                window.addEventListener('scroll', () => {
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop - 120;
+                        if (window.scrollY >= sectionTop) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('data-target') === current) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
 
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('data-target') === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
+                // Mobile accordion toggle
+                window.toggleSection = function (headerElement) {
+                    // Only run on mobile (<= 768px)
+                    if (window.innerWidth > 768) return;
+
+                    const section = headerElement.closest('section');
+                    const content = section.querySelector('.collapsible-content');
+                    const arrow = headerElement.querySelector('.toggle-arrow');
+
+                    // Close all other open sections in the policy container
+                    const allSections = document.querySelectorAll('#policy-accordion-container .policy-section');
+                    allSections.forEach(sec => {
+                        if (sec !== section) {
+                            const otherContent = sec.querySelector('.collapsible-content');
+                            const otherArrow = sec.querySelector('.toggle-arrow');
+                            if (otherContent && otherContent.classList.contains('open')) {
+                                otherContent.classList.remove('open');
+                                if (otherArrow) otherArrow.classList.remove('open');
+                            }
+                        }
+                    });
+
+                    // Toggle current section
+                    if (content && arrow) {
+                        content.classList.toggle('open');
+                        arrow.classList.toggle('open');
+                    }
+                };
+            })();
     </script>
 
-<div id="footer-container"></div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
+
 </html>

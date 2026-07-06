@@ -62,8 +62,8 @@ const navLinksMain = [
     { name: 'Home', url: 'index.html', i18n: 'navHome' },
     { name: 'Zanzibar Tours', url: 'zanzibar.html', i18n: 'navZanzibar' },
     { name: 'Tanzania Safaris', url: 'tanzania.html', i18n: 'navSafari' },
-    { name: 'Trekking', url: 'trekking.html', i18n: 'navTrekking' },
-    { name: 'Gift Shop', url: 'gift-shop.html', i18n: 'navShop' },
+    { name: 'Trekking', url: 'trecking.html', i18n: 'navTrekking' },
+    { name: 'Gift Shop', url: 'gift shop.html', i18n: 'navShop' },
     { name: 'Gallery', url: 'gallery.html', i18n: 'navGallery' },
     { name: 'Contact', url: 'contact.html', i18n: 'navContact' }
 ];
@@ -76,7 +76,7 @@ const infoLinks = [
     { name: 'Why Choose Us', url: 'why choose.html', i18n: 'navWhy' },
     { name: 'Get Involved', url: 'involve.html', i18n: 'navGetInvolved' },
     { name: 'Blog', url: 'blog.html', i18n: 'navBlog' },
-    { name: 'FAQs', url: 'faqs.html', i18n: 'navFaqs' },
+    { name: 'FAQs', url: 'fqs.html', i18n: 'navFaqs' },
     { name: 'Privacy', url: 'privacy.html', i18n: 'navPrivacy' },
     { name: 'Terms', url: 'terms.html', i18n: 'navTerms' }
 ];
@@ -101,8 +101,9 @@ function buildHeaderHTML() {
         // My Booking button styling
         if (link === bookingLink) {
             return `
-            <a href="${link.url}" class="block mx-4 my-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-md font-semibold tracking-wider shadow-sm transition-colors duration-300 text-center whitespace-nowrap" data-i18n="${link.i18n}">
-                ${t[link.i18n]}
+            <a href="${link.url}" class="relative block mx-4 my-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-md font-semibold tracking-wider shadow-sm transition-colors duration-300 text-center whitespace-nowrap" data-i18n="${link.i18n}">
+                <span>${t[link.i18n]}</span>
+                <span data-booking-count class="hidden absolute -top-2 -right-2 min-w-[1.2rem] h-6 rounded-full bg-forest text-[10px] font-bold text-white flex items-center justify-center px-1.5">0</span>
             </a>`;
         }
         // Regular links
@@ -132,9 +133,9 @@ function buildHeaderHTML() {
                         <span class="hidden sm:inline">${t.location}</span>
                         <span class="sm:hidden">Zanzibar Tanzania</span>
                     </a>
-                    <a href="https://wa.me/255123456789" target="_blank" class="flex items-center gap-2 hover:text-golden transition-colors group">
+                    <a href="https://wa.me/255658840425" target="_blank" class="flex items-center gap-2 hover:text-golden transition-colors group">
                         <i class="fa-brands fa-whatsapp text-green-400 text-[18px] group-hover:scale-110 transition-transform"></i>
-                        <span class="inline">+255 123 456 789</span>
+                        <span class="inline">+255 65 884 0425</span>
                     </a>
                     <a href="mailto:hello@kimondoadventures.com" class="hidden md:flex items-center gap-2 hover:text-golden transition-colors group">
                         <i class="fa-solid fa-envelope text-golden text-base group-hover:scale-110 transition-transform"></i>
@@ -162,8 +163,9 @@ function buildHeaderHTML() {
             </nav>
 
             <div class="hidden xl:flex items-center flex-shrink-0">
-                <a href="${bookingLink.url}" class="bg-golden hover:bg-yellow-500 text-white px-5 xl:px-6 py-2 xl:py-3 rounded-md font-semibold tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 text-sm xl:text-base whitespace-nowrap" data-i18n="${bookingLink.i18n}">
-                    ${t[bookingLink.i18n]}
+                <a href="${bookingLink.url}" class="relative bg-golden hover:bg-yellow-500 text-white px-5 xl:px-6 py-2 xl:py-3 rounded-md font-semibold tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 text-sm xl:text-base whitespace-nowrap" data-i18n="${bookingLink.i18n}">
+                    <span>${t[bookingLink.i18n]}</span>
+                    <span data-booking-count class="hidden absolute -top-2 -right-2 min-w-[1.2rem] h-6 rounded-full bg-forest text-[10px] font-bold text-white flex items-center justify-center px-1.5">0</span>
                 </a>
             </div>
 
@@ -492,8 +494,6 @@ if (hasLightbox) {
 
 
 
-//home page//
-
 
 
 
@@ -635,11 +635,250 @@ function showToast(message) {
 
 
 
+//booking cart management//
+
+const bookingStorageKey = 'kimondoBookingItems';
+let bookingCart = [];
+let bookingToastTimer = null;
+
+function normalizePrice(value) {
+    if (typeof value === 'number') return value;
+    if (typeof value !== 'string') return 0;
+    const parsed = parseFloat(value.replace(/[^0-9.]/g, ''));
+    return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function loadBookingCart() {
+    try {
+        const stored = localStorage.getItem(bookingStorageKey);
+        if (!stored) return [];
+        const parsed = JSON.parse(stored);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+        console.warn('Error loading booking cart:', error);
+        return [];
+    }
+}
+
+function saveBookingCart(cart) {
+    try {
+        const items = Array.isArray(cart) ? cart : [];
+        localStorage.setItem(bookingStorageKey, JSON.stringify(items));
+        bookingCart = items;
+        updateBookingIndicator();
+    } catch (error) {
+        console.warn('Error saving booking cart:', error);
+    }
+}
+
+function updateBookingIndicator() {
+    const count = bookingCart.reduce((sum, item) => sum + (item.quantity || item.adults || 1), 0);
+    const badges = document.querySelectorAll('[data-booking-count]');
+    badges.forEach(badge => {
+        badge.textContent = count;
+        if (count > 0) {
+            badge.classList.remove('hidden');
+        } else {
+            badge.classList.add('hidden');
+        }
+    });
+}
+
+function ensureToastContainer() {
+    let container = document.getElementById('kimondo-booking-toast-container');
+    if (container) return container;
+
+    container = document.createElement('div');
+    container.id = 'kimondo-booking-toast-container';
+    container.style.position = 'fixed';
+    container.style.right = '20px';
+    container.style.bottom = '20px';
+    container.style.display = 'flex';
+    container.style.flexDirection = 'column';
+    container.style.alignItems = 'flex-end';
+    container.style.gap = '0.75rem';
+    container.style.zIndex = '99999';
+    container.style.pointerEvents = 'none';
+    container.style.maxWidth = 'min(92vw, 400px)';
+    document.body.appendChild(container);
+    return container;
+}
+
+function showBookingToast(message, type = 'success') {
+    const container = ensureToastContainer();
+    container.querySelectorAll('.booking-toast').forEach(toast => toast.remove());
+
+    if (bookingToastTimer) {
+        clearTimeout(bookingToastTimer);
+        bookingToastTimer = null;
+    }
+
+    const isWarning = type === 'warning';
+    const toast = document.createElement('div');
+    toast.className = 'booking-toast';
+    toast.style.cssText = [
+        'display:flex',
+        'align-items:center',
+        'gap:0.65rem',
+        'padding:0.85rem 1.15rem',
+        'border-radius:9999px',
+        'font-weight:700',
+        'font-size:0.95rem',
+        'line-height:1.4',
+        'box-shadow:0 10px 24px rgba(0, 0, 0, 0.2)',
+        'border:1px solid ' + (isWarning ? '#B91C1C' : '#1B5E20'),
+        'background:' + (isWarning ? '#DC2626' : '#2E7D32'),
+        'color:#ffffff',
+        'pointer-events:none',
+        'opacity:1',
+        'transform:translateY(0)',
+        'transition:opacity 0.25s ease, transform 0.25s ease'
+    ].join(';') + ';';
+    toast.innerHTML = `<div class="flex items-center gap-2"><i class="fa-solid ${isWarning ? 'fa-triangle-exclamation' : 'fa-check-circle'}"></i><span>${message}</span></div>`;
+    container.appendChild(toast);
+
+    bookingToastTimer = setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(8px)';
+        setTimeout(() => toast.remove(), 250);
+    }, 2800);
+}
+
+window.showBookingToast = showBookingToast;
+window.showToast = showBookingToast;
+
+function addToBooking(item) {
+    if (!item || !item.name) return false;
+
+    const normalized = {
+        id: item.id ? String(item.id) : String(item.name).toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/gi, ''),
+        name: String(item.name),
+        description: item.description ? String(item.description) : '',
+        image: item.image ? String(item.image) : '',
+        img: item.img ? String(item.img) : '',
+        type: item.type ? String(item.type) : 'activity',
+        price: String(item.price ?? ''),
+        basePrice: normalizePrice(item.price),
+        options: item.options || {},
+        date: '',
+        adults: 1,
+        bookingType: 'guest',
+        vehicle: '1 - 4 Pax = Noah / Alphard',
+        tripType: 'one-way',
+        quantity: Number.isInteger(item.quantity) && item.quantity > 0 ? item.quantity : 1
+    };
+
+    const currentItems = loadBookingCart();
+    const existing = currentItems.find(existingItem => {
+        const sameId = Boolean(normalized.id && existingItem.id && existingItem.id === normalized.id);
+        const sameNameType = existingItem.name === normalized.name && existingItem.type === normalized.type;
+        return sameId || sameNameType;
+    });
+
+    if (existing) {
+        showBookingToast('This activity already exists in your cart.', 'warning');
+        return false;
+    }
+
+    currentItems.push(normalized);
+    saveBookingCart(currentItems);
+    showBookingToast(`${normalized.name} added to your cart.`, 'success');
+    if (typeof window.renderCart === 'function') {
+        window.renderCart();
+    } else {
+        renderBookingPageCart();
+    }
+    return true;
+}
+
+window.addToBooking = addToBooking;
+window.addToBookingItem = function (id, name, description, price, img, type) {
+    addToBooking({ id, name, description, image: img, img, price, type });
+};
+
+function renderBookingPageCart() {
+    const container = document.getElementById('booking-items-container');
+    if (!container) return;
+
+    let html = '';
+    let subtotal = 0;
+
+    if (bookingCart.length === 0) {
+        html = `
+            <div class="rounded-3xl border border-dashed border-warm/30 bg-warm/5 p-8 text-center text-warm/70">
+                Your booking cart is empty. Browse safaris and experiences to add them here.
+            </div>`;
+    } else {
+        bookingCart.forEach((item) => {
+            const itemTotal = normalizePrice(item.price) * (item.quantity || 1);
+            subtotal += itemTotal;
+            const imgSrc = item.image || item.img || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=240&q=80';
+            html += `
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 p-4 bg-light rounded-xl border border-warm/5" data-item-id="${item.id}">
+                    <img src="${imgSrc}" alt="${item.name}" class="w-20 h-20 rounded-xl object-cover shrink-0">
+                    <div class="flex-1">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start">
+                            <div>
+                                <h4 class="font-semibold text-forest">${item.name}</h4>
+                                <p class="text-xs text-warm/50">${item.description || item.type}</p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-2 sm:mt-0">
+                                <div class="flex items-center border border-warm/20 rounded-full">
+                                    <button class="px-2.5 py-1 text-warm/50 hover:text-warm" onclick="updateBookingQuantity('${item.id}', -1)">−</button>
+                                    <span class="px-2 text-sm font-semibold">${item.quantity || 1}</span>
+                                    <button class="px-2.5 py-1 text-warm/50 hover:text-warm" onclick="updateBookingQuantity('${item.id}', 1)">+</button>
+                                </div>
+                                <span class="font-bold text-forest min-w-[60px] text-right">$${itemTotal.toLocaleString()}</span>
+                                <button class="text-warm/30 hover:text-red-500 remove-item" onclick="removeBookingItem('${item.id}')"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+        });
+    }
+
+    container.innerHTML = html;
+    const subtotalEl = document.getElementById('subtotal');
+    const summarySubtotalEl = document.getElementById('summary-subtotal');
+    const totalEl = document.getElementById('summary-total');
+    const total = subtotal + 180;
+
+    if (subtotalEl) subtotalEl.textContent = `$${subtotal.toLocaleString()}`;
+    if (summarySubtotalEl) summarySubtotalEl.textContent = `$${subtotal.toLocaleString()}`;
+    if (totalEl) totalEl.textContent = `$${total.toLocaleString()}`;
+}
+
+window.updateBookingQuantity = function (itemId, change) {
+    const item = bookingCart.find(i => i.id === itemId);
+    if (!item) return;
+    item.quantity = Math.max(1, (item.quantity || 1) + change);
+    saveBookingCart(bookingCart);
+    renderBookingPageCart();
+};
+
+window.removeBookingItem = function (itemId) {
+    const index = bookingCart.findIndex(i => i.id === itemId);
+    if (index === -1) return;
+    bookingCart.splice(index, 1);
+    saveBookingCart(bookingCart);
+    renderBookingPageCart();
+};
+
+function initBookingCart() {
+    bookingCart = loadBookingCart();
+    updateBookingIndicator();
+    renderBookingPageCart();
+    if (!document.getElementById('toast-container')) {
+        const toastContainer = document.createElement('div');
+        toastContainer.id = 'toast-container';
+        toastContainer.className = 'fixed inset-x-0 bottom-5 z-[9999] flex flex-col items-center gap-3 px-4 pointer-events-none';
+        document.body.appendChild(toastContainer);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', initBookingCart);
 
 
-
-
-//tanza safari database//
 
 
 
@@ -649,7 +888,6 @@ function showToast(message) {
 document.addEventListener('DOMContentLoaded', function () {
     const footerContainer = document.getElementById('footer-container');
 
-    // Wait until the DOM is loaded. If it still can't find it, log an error.
     if (!footerContainer) {
         console.error('Footer generation failed: <div id="footer-container"></div> is missing from the HTML.');
         return;
@@ -671,17 +909,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // -------------------------------------------
-    // ADD FLAT ICON CDN (flaticon uicons) if not already present
+    // ADD FLAT ICON CDN (flaticon uicons)
     // -------------------------------------------
     function loadFlatIconCDN() {
-        // regular-rounded set (used for map-marker, envelope)
         if (!document.querySelector('link[href*="uicons-regular-rounded"]')) {
             const linkRR = document.createElement('link');
             linkRR.rel = 'stylesheet';
             linkRR.href = 'https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css';
             document.head.appendChild(linkRR);
         }
-        // brands set (used for WhatsApp contact & social media)
         if (!document.querySelector('link[href*="uicons-brands"]')) {
             const linkBrands = document.createElement('link');
             linkBrands.rel = 'stylesheet';
@@ -692,98 +928,116 @@ document.addEventListener('DOMContentLoaded', function () {
     loadFlatIconCDN();
 
     // -------------------------------------------
-    // 2. The Complete Footer HTML Template
+    // NEW FOOTER HTML (deep forest background, 6 columns)
     // -------------------------------------------
     const footerHTML = `
-        <footer class="bg-[#0f172a] text-slate-300 pt-16 pb-8 border-t-4 border-[#1645aa] relative mt-24 overflow-hidden w-full">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-[#1645aa] rounded-full mix-blend-multiply filter blur-[100px] opacity-20 pointer-events-none"></div>
+        <footer class="bg-[#0f2a24] text-slate-300 pt-16 pb-8 border-t-4 border-[#d4a853] relative mt-24 overflow-hidden w-full">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-[#d4a853] rounded-full mix-blend-multiply filter blur-[100px] opacity-10 pointer-events-none"></div>
 
             <div class="w-full px-6 sm:px-12 lg:px-20 2xl:px-32 relative z-10">
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 xl:gap-20 mb-12 border-b border-slate-800 pb-12">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-10 xl:gap-8 mb-12 border-b border-white/10 pb-12">
                     
+                    <!-- Col 1: About Kimondo -->
                     <div class="space-y-6">
-                        <div class="text-2xl font-black text-white flex items-center gap-2 uppercase tracking-tight">
-                            <ion-icon name="compass-outline" class="text-[#facc15] text-3xl"></ion-icon>
-                            Kimondo <span class="text-[#facc15]">Adventure</span>
-                        </div>
-                        <p class="text-sm leading-relaxed text-slate-400">
+                    <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">About Kimondo</h3>
+                       
+                        <p class="text-sm leading-relaxed text-white/60">
                             Crafting unforgettable safaris, mountain treks, and beach holidays across Tanzania. Experience the wild heart of Africa with our expert guides and tailored itineraries.
                         </p>
                     </div>
 
+                    <!-- Col 2: Quick Links -->
                     <div>
-                        <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Adventures</h3>
+                        <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Quick Links</h3>
                         <ul class="space-y-3">
-                            <li><a href="#" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> Serengeti Safaris</a></li>
-                            <li><a href="#" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> Mt. Kilimanjaro Treks</a></li>
-                            <li><a href="#" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> Zanzibar Beach Tours</a></li>
-                            <li><a href="#" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> Day Trips & Excursions</a></li>
-                            <li><a href="#" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> Custom Itineraries</a></li>
+                            <li><a href="index.html" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Home</a></li>
+                            <li><a href="about us.html" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> About Us</a></li>
+                            <li><a href="involve.html" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Get Involved</a></li>
+                            <li><a href="blog.html" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Blog</a></li>
+                            <li><a href="contact.html" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Contact Us</a></li>
                         </ul>
                     </div>
 
+                    <!-- Col 3: Zanzibar Tours -->
                     <div>
-                        <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Information</h3>
+                        <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Zanzibar Tours</h3>
                         <ul class="space-y-3">
-                            <li><a href="#" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> About Us</a></li>
-                            <li><a href="#" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> Booking Terms</a></li>
-                            <li><a href="privacy.html" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> Privacy Policy</a></li>
-                            <li><a href="#" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> FAQs</a></li>
-                            <li><a href="#" class="text-sm hover:text-[#facc15] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#1645aa]"></ion-icon> Contact Us</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Water Sports</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Safari Blue Cruise</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Ocean Encounters</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Cultural Gems</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Luxury Moments</a></li>
                         </ul>
                     </div>
 
+                    <!-- Col 4: Tanzania Safaris -->
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Tanzania Safaris</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Serengeti</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Ngorongoro</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Tarangire</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Lake Manyara</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Mikumi</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 5: Trekking -->
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Trekking</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Machame Route</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Marangu Route</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Lemosho Route</a></li>
+                            <li><a href="#" class="text-sm hover:text-[#d4a853] transition-colors flex items-center gap-2"><ion-icon name="chevron-forward" class="text-[#d4a853]"></ion-icon> Mount Meru</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 6: Stay Connected -->
                     <div class="flex flex-col justify-between">
                         <div>
                             <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Stay Connected</h3>
-                            
-                            <div class="space-y-4 text-sm text-slate-400 mb-8">
-                                <p class="flex items-center gap-3"><i class="fi fi-rr-map-marker text-[#facc15] text-xl"></i> Tanzania, East Africa</p>
-                                <p class="flex items-center gap-3"><i class="fi fi-rr-envelope text-[#facc15] text-xl"></i> booking@kimondoadventure.com</p>
-                                <p class="flex items-center gap-3"><i class="fi fi-brands-whatsapp text-[#facc15] text-xl"></i> +255 XXX XXX XXX</p>
+                            <div class="space-y-4 text-sm text-white/60 mb-8">
+                                <p class="flex items-center gap-3"><i class="fi fi-rr-map-marker text-[#d4a853] text-xl"></i> Tanzania, East Africa</p>
+                                <p class="flex items-center gap-3"><i class="fi fi-rr-envelope text-[#d4a853] text-xl"></i> hello@kimondoadventures.com</p>
+                                <p class="flex items-center gap-3"><i class="fi fi-brands-whatsapp text-[#d4a853] text-xl"></i> +255 65 884 0425</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4 mt-auto">
-                            <a href="#" class="group relative w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-[#1645aa] hover:text-[#facc15] transition-all duration-300 shadow-lg">
-                                <i class="fi fi-brands-instagram text-2xl pointer-events-none leading-none"></i>
-                                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-[#0f172a] text-xs font-bold px-2.5 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md z-50">@KimondoAdventure</span>
+                            <a href="#" class="group relative w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#d4a853] hover:text-[#0f2a24] transition-all duration-300">
+                                <i class="fi fi-brands-instagram text-lg pointer-events-none leading-none"></i>
                             </a>
-                            
-                            <a href="#" class="group relative w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-[#1645aa] hover:text-[#facc15] transition-all duration-300 shadow-lg">
-                                <i class="fi fi-brands-tik-tok text-2xl pointer-events-none leading-none"></i>
-                                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-[#0f172a] text-xs font-bold px-2.5 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md z-50">@Kimondo_Safaris</span>
+                            <a href="#" class="group relative w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#d4a853] hover:text-[#0f2a24] transition-all duration-300">
+                                <i class="fi fi-brands-tik-tok text-lg pointer-events-none leading-none"></i>
                             </a>
-                            
-                            <a href="#" class="group relative w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-[#1645aa] hover:text-[#facc15] transition-all duration-300 shadow-lg">
-                                <i class="fi fi-brands-facebook text-2xl pointer-events-none leading-none"></i>
-                                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-[#0f172a] text-xs font-bold px-2.5 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md z-50">Kimondo Adventure Ltd</span>
+                            <a href="#" class="group relative w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#d4a853] hover:text-[#0f2a24] transition-all duration-300">
+                                <i class="fi fi-brands-facebook text-lg pointer-events-none leading-none"></i>
                             </a>
-                            
-                            <a href="#" class="group relative w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-[#1645aa] hover:text-[#facc15] transition-all duration-300 shadow-lg">
-                                <i class="fi fi-brands-whatsapp text-2xl pointer-events-none leading-none"></i>
-                                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-[#0f172a] text-xs font-bold px-2.5 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-md z-50">Chat with Us</span>
+                            <a href="https://wa.me/255658840425" class="group relative w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#d4a853] hover:text-[#0f2a24] transition-all duration-300">
+                                <i class="fi fi-brands-whatsapp text-lg pointer-events-none leading-none"></i>
                             </a>
                         </div>
                     </div>
 
                 </div>
 
-                <div class="flex flex-col md:flex-row items-center justify-between text-xs text-white gap-4">
+                <!-- Bottom bar -->
+                <div class="flex flex-col md:flex-row items-center justify-between text-xs text-white/70 gap-4">
                     <p>&copy; <span id="current-year"></span> Kimondo Adventure. All rights reserved.</p>
                     
                     <div class="flex gap-4">
-                        <a href="privacy.html" class="hover:text-[#facc15] text-white transition-colors">Privacy Policy</a>
-                        <a href="terms.html" class="hover:text-[#facc15] text-white transition-colors">Terms &amp; Conditions</a>
+                        <a href="privacy.html" class="hover:text-[#d4a853] transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-[#d4a853] transition-colors">Terms &amp; Conditions</a>
                     </div>
                     
-                    <p>Powered by <a href="#" class="text-[#facc15] hover:text-white transition-colors font-semibold tracking-wide">Africana Tech</a></p>
+                    <p>Powered by <a href="#" class="text-[#d4a853] hover:text-white transition-colors font-semibold tracking-wide">Africana Tech</a></p>
                 </div>
             </div>
         </footer>
 
-        <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-[#facc15] text-[#0f172a] rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(250,204,21,0.4)] opacity-0 invisible translate-y-4 transition-all duration-300 z-50 hover:bg-white hover:scale-110">
+        <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-[#d4a853] text-[#0f2a24] rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(212,168,83,0.4)] opacity-0 invisible translate-y-4 transition-all duration-300 z-50 hover:bg-white hover:scale-110">
             <ion-icon name="arrow-up-outline" class="text-2xl font-bold"></ion-icon>
         </button>
     `;

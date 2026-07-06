@@ -1,723 +1,1601 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Zanzibar Tours & Experiences | Kimondo Adventures</title>
-    
-    <!-- Tailwind + Custom Fonts & Colors -->
+    <meta name="description" content="Zanzibar tours – water sports, ocean experiences, nature, culture & luxury.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['"Playfair Display"', 'serif'] },
+                    colors: { forest: '#2E7D32', golden: '#F5A623', warm: '#5D4037', light: '#fcfbf9', dark: '#0a0f0d' },
+                    animation: { 'pulse-soft': 'pulseSoft 2.5s ease-in-out infinite' },
+                    keyframes: { pulseSoft: { '0%,100%': { opacity: '1' }, '50%': { opacity: '0.5' } } },
+                }
+            }
+        }
+    </script>
     <style>
-        /* === UPDATED COLOR PALETTE === */
-        :root {
-            --forest: #2E7D32;
-            --golden: #F5A623;
-            --choco: #6D3A1F;
-            --turquoise: #00BCD4;
-            --warm: #5D4037;
-            --brand-dark: #0B0C0E;
-            --brand-blue: #0D8ABC;
-            --brand-yellow: #FCEE21;
-            --light-stone: #F7F5F0;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #1E1E1E;
-            background-color: #fff;
-        }
-        h1, h2, h3, .serif {
-            font-family: 'Playfair Display', serif;
-        }
-        /* Utility classes for new palette */
-        .bg-forest { background-color: var(--forest); }
-        .text-forest { color: var(--forest); }
-        .bg-golden { background-color: var(--golden); }
-        .text-golden { color: var(--golden); }
-        .border-golden { border-color: var(--golden); }
-        .bg-choco { background-color: var(--choco); }
-        .text-choco { color: var(--choco); }
-        .bg-turquoise { background-color: var(--turquoise); }
-        .text-turquoise { color: var(--turquoise); }
-        .bg-warm { background-color: var(--warm); }
-        .text-warm { color: var(--warm); }
-        .bg-brand-dark { background-color: var(--brand-dark); }
-        .bg-brand-blue { background-color: var(--brand-blue); }
-        .text-brand-blue { color: var(--brand-blue); }
-        .bg-brand-yellow { background-color: var(--brand-yellow); }
-        .bg-stone { background-color: var(--light-stone); }
-        
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 30px -12px rgba(0,0,0,0.15);
-        }
-        
-        .carousel-slide {
-            transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
-        }
-        
-        .category-nav {
-            backdrop-filter: blur(8px);
-            background-color: rgba(255,255,255,0.9);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(145deg, rgba(11,12,14,0.75) 0%, rgba(46,125,50,0.4) 100%);
-        }
-        
         html {
-            scroll-padding-top: 100px;
+            scroll-behavior: smooth;
         }
-        
-        .trust-badge {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(4px);
+
+        body {
+            font-family: 'Inter', sans-serif;
         }
-        
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        #categoryDetailView.hidden, #categoriesView.hidden { display: none !important; }
+
+        .sidebar-link.active {
+            color: #F5A623;
+            background-color: rgba(245, 166, 35, 0.08);
+            border-left: 3px solid #F5A623;
+        }
+
+        .policy-section {
+            border-left: 4px solid #F5A623;
+            transition: all 0.25s ease;
+        }
+
+        .policy-section:hover {
+            box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .number-badge {
+            background-color: #F5A623;
+            color: #0a0f0d;
+            font-weight: 700;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                display: none;
+            }
+
+            .collapsible-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .collapsible-content.open {
+                max-height: 2000px;
+            }
+
+            .toggle-arrow {
+                transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .toggle-arrow.open {
+                transform: rotate(180deg);
+            }
+        }
+
+        /* ✅ TOAST - BOTTOM RIGHT, DEEP FOREST */
+        .toast-container {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.75rem;
+            z-index: 99999;
+            pointer-events: none;
+            max-width: min(92vw, 400px);
+        }
+
+        .toast-box {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.2rem;
+            border-radius: 9999px;
+            background: #2E7D32;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+            animation: toastSlideIn 0.3s ease-out;
+            pointer-events: auto;
+        }
+
+        .toast-box.warning {
+            background: #DC2626;
+        }
+
+        .toast-box.removing {
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.25s ease;
+        }
+
+        @keyframes toastSlideIn {
+            from {
+                transform: translateY(12px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ✅ RIPPLE FIX – prevent button enlargement */
+        .ripple-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple-wave {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
-<body class="antialiased">
 
- <div id="kimondo-header"></div>
+<body class="bg-light text-warm font-sans antialiased">
 
-<main class="pt-20 mt-12">
-    <!-- ===== HERO SECTION ===== -->
-    <section class="relative h-[60vh] min-h-[480px] flex items-center justify-center overflow-hidden">
-        <img src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1600" 
-             alt="Zanzibar beach" 
-             class="absolute inset-0 w-full h-full object-cover scale-105">
-        <div class="absolute inset-0 hero-gradient"></div>
-        
-        <div class="relative z-10 text-center text-white max-w-5xl px-6">
-            <span class="inline-block bg-golden/90 text-brand-dark text-sm font-bold px-5 py-2 rounded-full mb-6 tracking-wider">
-                🌊 ZANZIBAR TOURS & EXPERIENCES
-            </span>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold serif leading-tight mb-6">
-                Discover the <span class="text-golden">Magic</span> of Zanzibar
-            </h1>
-            <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
-                Experience the beauty, culture, and adventure of Zanzibar through our carefully curated tours.
-                From crystal‑clear waters to rich cultural heritage, every experience is designed to create unforgettable memories.
-            </p>
-            <div class="flex flex-wrap gap-4 justify-center">
-                <a href="#categories" class="bg-golden hover:bg-amber-500 text-brand-dark font-bold px-8 py-4 rounded-full shadow-lg transition transform hover:scale-105">
-                    Explore All Tours <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-                <a href="#packages" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-8 py-4 rounded-full border border-white/40 transition">
-                    View Packages
-                </a>
+    <div id="kimondo-header"></div>
+
+    <div id="main-content">
+
+        <!-- HERO SECTION (Compact mobile, buttons in one line) -->
+        <section class="relative min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=2000"
+                    alt="Zanzibar"
+                    class="w-full h-full object-cover scale-110 transition-transform duration-[25s] ease-out">
+                <div class="absolute inset-0 bg-black/65"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-dark/80 via-forest/40 to-dark/90"></div>
+                <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-light to-transparent"></div>
             </div>
-            
-            <div class="flex flex-wrap justify-center gap-6 mt-12">
-                <div class="trust-badge flex items-center gap-2 px-5 py-2 rounded-full text-white">
-                    <i class="fas fa-star text-golden"></i>
-                    <span>4.9 · 1,200+ reviews</span>
+            <div class="relative z-10 text-center max-w-5xl mx-auto px-6 py-12 md:py-0 flex flex-col items-center">
+                <!-- Badge -->
+                <div
+                    class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6 shadow-xl reveal-in mt-16">
+                    <span class="w-2 h-2 rounded-full bg-golden animate-pulse-soft"></span>
+                    <span class="text-xs uppercase tracking-[0.25em] text-white font-bold">6 Experience Categories · One
+                        Local Team</span>
                 </div>
-                <div class="trust-badge flex items-center gap-2 px-5 py-2 rounded-full text-white">
-                    <i class="fas fa-shield-alt text-golden"></i>
-                    <span>Free cancellation</span>
-                </div>
-                <div class="trust-badge flex items-center gap-2 px-5 py-2 rounded-full text-white">
-                    <i class="fas fa-clock text-golden"></i>
-                    <span>Instant confirmation</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ===== STICKY CATEGORY NAVIGATION ===== -->
-    <div id="stickyCategoryNav" class="category-nav sticky top-[72px] z-40 border-b border-gray-200 py-3 px-4 hidden">
-        <div class="max-w-7xl mx-auto flex overflow-x-auto gap-2 md:gap-6 justify-start md:justify-center hide-scrollbar" id="categoryNavPills">
-            <!-- Dynamically filled by JS -->
-        </div>
-    </div>
+                <!-- Heading -->
+                <h1
+                    class="text-3xl sm:text-5xl md:text-7xl font-serif font-extrabold text-white mb-5 tracking-tight drop-shadow-2xl leading-[1.1] reveal-in">
+                    Zanzibar, Beyond the Postcard<br class="hidden sm:block">
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-golden via-amber-300 to-golden italic font-light">More
+                        Than a Beach Backdrop</span>
+                </h1>
 
-    <!-- ========== VIEW 1: CATEGORY CARDS ========== -->
-    <div id="categoriesView" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 md:mb-16">
-                <span class="text-golden font-bold tracking-widest uppercase text-sm">Curated Experiences</span>
-                <h2 class="text-4xl md:text-5xl font-bold serif text-forest mt-2 mb-4">Choose Your Adventure</h2>
-                <div class="w-20 h-1 bg-golden mx-auto rounded-full"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-5 text-lg">
-                    Whether you're seeking relaxation, adventure, or something unique — we have the perfect tour for you.
+                <!-- Subtitle -->
+                <p
+                    class="text-sm md:text-lg text-white/80 max-w-2xl mx-auto font-light leading-relaxed mb-8 drop-shadow-md reveal-in">
+                    Turquoise water, spice-scented forests, and centuries of history — Kimondo curates the island's best
+                    water sports, ocean encounters, nature trails, and cultural experiences into one seamless local-led
+                    journey.
                 </p>
+
+                <!-- Buttons always in one horizontal line -->
+                <div class="flex flex-row items-center justify-center gap-3 reveal-in w-full flex-nowrap">
+                    <a href="#water-sports-section"
+                        class="ripple-container inline-flex items-center justify-center gap-2 bg-golden hover:bg-amber-400 text-dark font-bold px-5 py-3 md:px-7 md:py-3.5 rounded-full transition-all shadow-[0_0_25px_rgba(245,166,35,0.45)] active:scale-95 text-xs md:text-sm whitespace-nowrap">
+                        <i class="fa-solid fa-water text-xs md:text-sm"></i> Explore Water Sports
+                    </a>
+                    <a href="#final-cta"
+                        class="ripple-container inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/25 backdrop-blur-md text-white border-2 border-white/30 font-bold px-5 py-3 md:px-7 md:py-3.5 rounded-full transition-all active:scale-95 text-xs md:text-sm whitespace-nowrap">
+                        <i class="fa-solid fa-paper-plane text-xs md:text-sm"></i> Start Planning
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- WATER SPORTS -->
+        <section id="water-sports-section" class="py-20 md:py-28 bg-[#fafaf8] relative z-20 overflow-hidden">
+            <!-- Flat icon background decoration -->
+            <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                <i class="fa-solid fa-water absolute top-10 left-10 text-[12rem] text-[#1a3c34]/[0.04] rotate-12"></i>
+                <i
+                    class="fa-solid fa-fish-fins absolute top-20 right-16 text-[10rem] text-[#1a3c34]/[0.05] -rotate-12"></i>
+                <i
+                    class="fa-solid fa-anchor absolute bottom-10 left-20 text-[9rem] text-[#1a3c34]/[0.04] rotate-45"></i>
+                <i
+                    class="fa-solid fa-sailboat absolute bottom-16 right-10 text-[11rem] text-[#1a3c34]/[0.05] -rotate-6"></i>
+                <i
+                    class="fa-solid fa-person-swimming absolute top-1/3 left-5 text-[8rem] text-[#1a3c34]/[0.04] rotate-90"></i>
+                <i
+                    class="fa-solid fa-life-ring absolute top-2/3 right-5 text-[9rem] text-[#1a3c34]/[0.04] -rotate-15"></i>
+                <i
+                    class="fa-solid fa-water absolute top-1/2 left-1/3 text-[10rem] text-[#1a3c34]/[0.03] rotate-180 opacity-30"></i>
+                <i
+                    class="fa-solid fa-fish absolute bottom-1/3 right-1/4 text-[7rem] text-[#1a3c34]/[0.04] rotate-12"></i>
             </div>
 
-            <!-- Category Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="categoryGrid">
-                <!-- Categories will be injected via JS -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <!-- === POWERFUL HEADING BLOCK === -->
+                <div class="text-center mb-16 md:mb-20 reveal-in">
+                    <div class="inline-flex items-center gap-5 mb-5">
+                        <span
+                            class="hidden sm:block h-[1px] w-10 md:w-16 bg-gradient-to-r from-transparent to-[#1a3c34]/60"></span>
+                        <span class="text-xs md:text-sm uppercase tracking-[0.35em] text-[#1a3c34] font-bold">
+                            Dive Into Adventure
+                        </span>
+                        <span
+                            class="hidden sm:block h-[1px] w-10 md:w-16 bg-gradient-to-l from-transparent to-[#1a3c34]/60"></span>
+                    </div>
+                    <h2
+                        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold text-forest leading-[1.05] max-w-4xl mx-auto">
+                        Where the <span class="relative  text-golden inline-block">Ocean<span
+                                class="absolute -bottom-2 left-0 w-full h-[4px] md:h-[6px] bg-forest rounded-full"></span></span>
+                        Becomes<br class="hidden sm:block">Your <span class="italic text-golden">Playground</span>
+                    </h2>
+                    <p class="mt-6 text-base md:text-lg text-[#1a3c34]/65 max-w-2xl mx-auto font-light leading-relaxed">
+                        From transparent kayaks gliding over coral gardens to jet-powered adventures across turquoise
+                        waters — your unforgettable Zanzibar water story starts here.
+                    </p>
+                </div>
+
+                <!-- === CARDS GRID === -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
+
+                    <!-- Card 1: Clear Kayak -->
+                    <div
+                        class="group relative bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg shadow-[#1a3c34]/5 hover:shadow-2xl hover:shadow-[#1a3c34]/10 hover:-translate-y-2 transition-all duration-500 flex flex-col border border-[#1a3c34]/5 reveal-in">
+                        <div class="relative h-52 md:h-56 overflow-hidden">
+                            <img src="pic/kayk.jpg" alt="Clear Kayak Experience"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/70 via-[#1a3c34]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#1a3c34] text-[11px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                                <i class="fa-solid fa-award text-[#1a3c34] text-xs"></i> Bestseller
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-[#1a3c34]/85 backdrop-blur-sm text-white text-[11px] md:text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">
+                                30 min
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <div class="flex items-start gap-3 mb-3">
+                                <span class="text-[#1a3c34] text-2xl mt-0.5 shrink-0">
+                                    <i class="fa-solid fa-water"></i>
+                                </span>
+                                <div>
+                                    <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34]">Clear Kayak</h3>
+                                    <p
+                                        class="text-[#1a3c34]/70 text-xs md:text-sm font-semibold uppercase tracking-[0.2em]">
+                                        Photos Included</p>
+                                </div>
+                            </div>
+                            <p class="text-[#1a3c34]/60 text-sm leading-relaxed mb-5 flex-1">
+                                Paddle a transparent‑bottom kayak over vibrant coral — a one-of-a-kind guided photo
+                                experience on crystal-clear waters.
+                            </p>
+                            <button onclick="openZanzibarActivity('clear-kayak')"
+                                class="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-3.5 rounded-full text-sm flex items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:shadow-[#2E7D32]/25 active:scale-[0.97] group/btn">
+                                <span>Explore Details</span>
+                                <i
+                                    class="fa-solid fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Jetski -->
+                    <div
+                        class="group relative bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg shadow-[#1a3c34]/5 hover:shadow-2xl hover:shadow-[#1a3c34]/10 hover:-translate-y-2 transition-all duration-500 flex flex-col border border-[#1a3c34]/5 reveal-in">
+                        <div class="relative h-52 md:h-56 overflow-hidden">
+                            <img src="pic/jesk2.jpg" alt="Jetski Adventure"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/70 via-[#1a3c34]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#1a3c34] text-[11px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                                <i class="fa-solid fa-bolt text-[#1a3c34] text-xs"></i> Adrenaline
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-[#1a3c34]/85 backdrop-blur-sm text-white text-[11px] md:text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">
+                                30 min
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <div class="flex items-start gap-3 mb-3">
+                                <span class="text-[#1a3c34] text-2xl mt-0.5 shrink-0">
+                                    <i class="fa-solid fa-bolt"></i>
+                                </span>
+                                <div>
+                                    <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34]">Jetski Adventure
+                                    </h3>
+                                    <p
+                                        class="text-[#1a3c34]/70 text-xs md:text-sm font-semibold uppercase tracking-[0.2em]">
+                                        Guided Tour</p>
+                                </div>
+                            </div>
+                            <p class="text-[#1a3c34]/60 text-sm leading-relaxed mb-5 flex-1">
+                                Race across turquoise open water on a high‑speed guided jetski tour — pure adrenaline
+                                with breathtaking coastal views.
+                            </p>
+                            <button onclick="openZanzibarActivity('jetski')"
+                                class="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-3.5 rounded-full text-sm flex items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:shadow-[#2E7D32]/25 active:scale-[0.97] group/btn">
+                                <span>Explore Details</span>
+                                <i
+                                    class="fa-solid fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: JetCar -->
+                    <div
+                        class="group relative bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg shadow-[#1a3c34]/5 hover:shadow-2xl hover:shadow-[#1a3c34]/10 hover:-translate-y-2 transition-all duration-500 flex flex-col border border-[#1a3c34]/5 reveal-in">
+                        <div class="relative h-52 md:h-56 overflow-hidden">
+                            <img src="pic/jetcar.jpg" alt="JetCar Experience"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/70 via-[#1a3c34]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#1a3c34] text-[11px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                                <i class="fa-solid fa-star text-[#1a3c34] text-xs"></i> Unique
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-[#1a3c34]/85 backdrop-blur-sm text-white text-[11px] md:text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">
+                                15 min
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <div class="flex items-start gap-3 mb-3">
+                                <span class="text-[#1a3c34] text-2xl mt-0.5 shrink-0">
+                                    <i class="fa-solid fa-car-side"></i>
+                                </span>
+                                <div>
+                                    <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34]">JetCar
+                                        Experience</h3>
+                                    <p
+                                        class="text-[#1a3c34]/70 text-xs md:text-sm font-semibold uppercase tracking-[0.2em]">
+                                        One of a Kind</p>
+                                </div>
+                            </div>
+                            <p class="text-[#1a3c34]/60 text-sm leading-relaxed mb-5 flex-1">
+                                A hybrid jetski‑go‑kart — cruise the Indian Ocean in one of Zanzibar's most distinctive
+                                and thrilling water rides.
+                            </p>
+                            <button onclick="openZanzibarActivity('jetcar')"
+                                class="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-3.5 rounded-full text-sm flex items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:shadow-[#2E7D32]/25 active:scale-[0.97] group/btn">
+                                <span>Explore Details</span>
+                                <i
+                                    class="fa-solid fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Snorkelling -->
+                    <div
+                        class="group relative bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg shadow-[#1a3c34]/5 hover:shadow-2xl hover:shadow-[#1a3c34]/10 hover:-translate-y-2 transition-all duration-500 flex flex-col border border-[#1a3c34]/5 reveal-in">
+                        <div class="relative h-52 md:h-56 overflow-hidden">
+                            <img src="pic/snokiling.jpg" alt="Snorkelling Trips"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/70 via-[#1a3c34]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#1a3c34] text-[11px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                                <i class="fa-solid fa-fish-fins text-[#1a3c34] text-xs"></i> Reef Life
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-[#1a3c34]/85 backdrop-blur-sm text-white text-[11px] md:text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">
+                                Half-day
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <div class="flex items-start gap-3 mb-3">
+                                <span class="text-[#1a3c34] text-2xl mt-0.5 shrink-0">
+                                    <i class="fa-solid fa-fish-fins"></i>
+                                </span>
+                                <div>
+                                    <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34]">Snorkelling
+                                        Trips</h3>
+                                    <p
+                                        class="text-[#1a3c34]/70 text-xs md:text-sm font-semibold uppercase tracking-[0.2em]">
+                                        All Gear Included</p>
+                                </div>
+                            </div>
+                            <p class="text-[#1a3c34]/60 text-sm leading-relaxed mb-5 flex-1">
+                                Explore vibrant coral reefs with expert instructors who know the most spectacular hidden
+                                spots beneath the surface.
+                            </p>
+                            <button onclick="openZanzibarActivity('snorkelling')"
+                                class="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-3.5 rounded-full text-sm flex items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:shadow-[#2E7D32]/25 active:scale-[0.97] group/btn">
+                                <span>Explore Details</span>
+                                <i
+                                    class="fa-solid fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Parasailing -->
+                    <div
+                        class="group relative bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg shadow-[#1a3c34]/5 hover:shadow-2xl hover:shadow-[#1a3c34]/10 hover:-translate-y-2 transition-all duration-500 flex flex-col border border-[#1a3c34]/5 reveal-in">
+                        <div class="relative h-52 md:h-56 overflow-hidden">
+                            <img src="pic/parrelising.jpg" alt="Parasailing"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/70 via-[#1a3c34]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#1a3c34] text-[11px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                                <i class="fa-solid fa-parachute-box text-[#1a3c34] text-xs"></i> Bucket-List
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-[#1a3c34]/85 backdrop-blur-sm text-white text-[11px] md:text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">
+                                Aerial
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <div class="flex items-start gap-3 mb-3">
+                                <span class="text-[#1a3c34] text-2xl mt-0.5 shrink-0">
+                                    <i class="fa-solid fa-parachute-box"></i>
+                                </span>
+                                <div>
+                                    <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34]">Parasailing</h3>
+                                    <p
+                                        class="text-[#1a3c34]/70 text-xs md:text-sm font-semibold uppercase tracking-[0.2em]">
+                                        Sweeping Aerial Views</p>
+                                </div>
+                            </div>
+                            <p class="text-[#1a3c34]/60 text-sm leading-relaxed mb-5 flex-1">
+                                Soar high above the coastline for breathtaking panoramic views of coral reefs, white
+                                beaches, and endless ocean.
+                            </p>
+                            <button onclick="openZanzibarActivity('parasailing')"
+                                class="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-3.5 rounded-full text-sm flex items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:shadow-[#2E7D32]/25 active:scale-[0.97] group/btn">
+                                <span>Explore Details</span>
+                                <i
+                                    class="fa-solid fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Drone -->
+                    <div
+                        class="group relative bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg shadow-[#1a3c34]/5 hover:shadow-2xl hover:shadow-[#1a3c34]/10 hover:-translate-y-2 transition-all duration-500 flex flex-col border border-[#1a3c34]/5 reveal-in">
+                        <div class="relative h-52 md:h-56 overflow-hidden">
+                            <img src="pic/drone.jpg" alt="Drone Aerial Content"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/70 via-[#1a3c34]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#1a3c34] text-[11px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+                                <i class="fa-solid fa-video text-[#1a3c34] text-xs"></i> Cinematic
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-[#1a3c34]/85 backdrop-blur-sm text-white text-[11px] md:text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">
+                                Pro Footage
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <div class="flex items-start gap-3 mb-3">
+                                <span class="text-[#1a3c34] text-2xl mt-0.5 shrink-0">
+                                    <i class="fa-solid fa-drone"></i>
+                                </span>
+                                <div>
+                                    <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34]">Drone Aerial
+                                        Content</h3>
+                                    <p
+                                        class="text-[#1a3c34]/70 text-xs md:text-sm font-semibold uppercase tracking-[0.2em]">
+                                        Professional Footage</p>
+                                </div>
+                            </div>
+                            <p class="text-[#1a3c34]/60 text-sm leading-relaxed mb-5 flex-1">
+                                Cinematic drone photography and videography — capture your adventure from breathtaking
+                                aerial perspectives.
+                            </p>
+                            <button onclick="openZanzibarActivity('drone')"
+                                class="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-3.5 rounded-full text-sm flex items-center justify-center gap-2.5 transition-all duration-300 hover:shadow-lg hover:shadow-[#2E7D32]/25 active:scale-[0.97] group/btn">
+                                <span>Explore Details</span>
+                                <i
+                                    class="fa-solid fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MORE EXPERIENCES (rest of the sections) -->
+
+        <section id="curated-experiences-section" class="py-20 md:py-28 bg-[#f2f7f4] relative z-20 overflow-hidden">
+            <!-- Background flat icons -->
+            <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                <i
+                    class="fa-solid fa-compass absolute top-16 right-12 text-[14rem] text-[#1a3c34]/[0.03] rotate-12"></i>
+                <i
+                    class="fa-solid fa-map-location-dot absolute bottom-12 left-8 text-[13rem] text-[#1a3c34]/[0.03] -rotate-6"></i>
+                <i class="fa-solid fa-star absolute top-1/3 left-1/2 text-[9rem] text-[#1a3c34]/[0.04] rotate-45"></i>
+                <i
+                    class="fa-solid fa-umbrella-beach absolute bottom-1/4 right-20 text-[11rem] text-[#1a3c34]/[0.03] -rotate-12"></i>
             </div>
 
-            <!-- Packages CTA -->
-            <div id="packages" class="text-center mt-16">
-                <a href="#" class="inline-flex items-center gap-3 bg-forest hover:bg-green-800 text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition">
-                    <i class="fas fa-box-open"></i> View All‑Inclusive Packages
-                    <i class="fas fa-arrow-right"></i>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <!-- Heading with green & golden accents -->
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-14 md:mb-20 reveal-in">
+                    <div>
+                        <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-[#d4a853] font-bold mb-3 block">
+                            <i class="fa-solid fa-circle text-[6px] align-middle mr-2 text-[#d4a853]"></i> Curated for
+                            you
+                        </span>
+                        <h2
+                            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold text-forest leading-none">
+                            Every side of<br class="hidden sm:block"><span class="text-golden">Zanzibar</span>
+                        </h2>
+                    </div>
+                    <p class="mt-4 md:mt-0 text-base md:text-lg text-[#1a3c34]/60 max-w-md font-light">
+                        Handpicked experiences that go beyond the ordinary — crafted for the curious traveler.
+                    </p>
+                </div>
+
+                <!-- ASYMMETRIC LAYOUT: Animated left panel + readable right cards -->
+                <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
+
+                    <!-- LEFT COLUMN: Rotating feature slideshow (6 slides, each with paragraph) -->
+                    <div class="lg:w-7/12 flex flex-col">
+                        <div class="relative bg-white rounded-3xl overflow-hidden shadow-lg group reveal-in"
+                            style="min-height: 420px;">
+                            <!-- Slide 1: Water Sports Bundle -->
+                            <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100"
+                                data-slide="1">
+                                <div class="relative h-full w-full">
+                                    <img src="https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                                        alt="Water Sports Bundle" class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
+                                    </div>
+                                    <button onclick="openZanzibarActivity('water-sports-package')"
+                                        class="absolute bottom-4 right-4 bg-white hover:bg-gray-100 text-[#1a3c34] font-bold py-2 px-4 rounded-full text-xs flex items-center gap-1.5 shadow-lg transition-all z-20">
+                                        Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                    <div class="absolute bottom-6 left-6 text-white w-full max-w-xs">
+                                        <span
+                                            class="bg-[#2E7D32] text-[10px] font-bold uppercase px-3 py-1 rounded-full inline-block mb-2 tracking-wider">Most
+                                            Popular</span>
+                                        <h3 class="font-serif font-bold text-xl md:text-2xl text-white leading-tight">
+                                            Water Sports Bundle</h3>
+                                        <p class="text-white/80 text-xs mt-1 max-w-[250px]">All six iconic activities in
+                                            one seamless package — the ultimate Zanzibar adventure.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2: Safari Blue -->
+                            <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
+                                data-slide="2">
+                                <div class="relative h-full w-full">
+                                    <img src="https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                                        alt="Safari Blue" class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
+                                    </div>
+                                    <button onclick="openZanzibarCategory('safari-blue')"
+                                        class="absolute bottom-4 right-4 bg-white hover:bg-gray-100 text-[#1a3c34] font-bold py-2 px-4 rounded-full text-xs flex items-center gap-1.5 shadow-lg transition-all z-20">
+                                        Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                    <div class="absolute bottom-6 left-6 text-white w-full max-w-xs">
+                                        <span
+                                            class="bg-[#2E7D32] text-[10px] font-bold uppercase px-3 py-1 rounded-full inline-block mb-2 tracking-wider">Full‑Day
+                                            Cruise</span>
+                                        <h3 class="font-serif font-bold text-xl md:text-2xl text-white leading-tight">
+                                            Safari Blue</h3>
+                                        <p class="text-white/80 text-xs mt-1 max-w-[250px]">Dhow sailing, snorkeling,
+                                            and a seafood barbecue on a pristine sandbank.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3: Ocean Encounters -->
+                            <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
+                                data-slide="3">
+                                <div class="relative h-full w-full">
+                                    <img src="https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                                        alt="Ocean Encounters" class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
+                                    </div>
+                                    <button onclick="openZanzibarCategory('ocean-experiences')"
+                                        class="absolute bottom-4 right-4 bg-white hover:bg-gray-100 text-[#1a3c34] font-bold py-2 px-4 rounded-full text-xs flex items-center gap-1.5 shadow-lg transition-all z-20">
+                                        Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                    <div class="absolute bottom-6 left-6 text-white w-full max-w-xs">
+                                        <span
+                                            class="bg-[#2E7D32] text-[10px] font-bold uppercase px-3 py-1 rounded-full inline-block mb-2 tracking-wider">Marine
+                                            Life</span>
+                                        <h3 class="font-serif font-bold text-xl md:text-2xl text-white leading-tight">
+                                            Ocean Encounters</h3>
+                                        <p class="text-white/80 text-xs mt-1 max-w-[250px]">Swim with wild dolphins,
+                                            snorkel with turtles, or unwind on a sunset dhow.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 4: Nature Trails -->
+                            <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
+                                data-slide="4">
+                                <div class="relative h-full w-full">
+                                    <img src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                                        alt="Nature Trails" class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
+                                    </div>
+                                    <button onclick="openZanzibarCategory('nature-experiences')"
+                                        class="absolute bottom-4 right-4 bg-white hover:bg-gray-100 text-[#1a3c34] font-bold py-2 px-4 rounded-full text-xs flex items-center gap-1.5 shadow-lg transition-all z-20">
+                                        Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                    <div class="absolute bottom-6 left-6 text-white w-full max-w-xs">
+                                        <span
+                                            class="bg-[#2E7D32] text-[10px] font-bold uppercase px-3 py-1 rounded-full inline-block mb-2 tracking-wider">Nature</span>
+                                        <h3 class="font-serif font-bold text-xl md:text-2xl text-white leading-tight">
+                                            Nature Trails</h3>
+                                        <p class="text-white/80 text-xs mt-1 max-w-[250px]">Spice plantations, red
+                                            colobus monkeys, and hidden caves – Zanzibar's green heart.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 5: Cultural Gems -->
+                            <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
+                                data-slide="5">
+                                <div class="relative h-full w-full">
+                                    <img src="https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                                        alt="Cultural Gems" class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
+                                    </div>
+                                    <button onclick="openZanzibarCategory('cultural-experiences')"
+                                        class="absolute bottom-4 right-4 bg-white hover:bg-gray-100 text-[#1a3c34] font-bold py-2 px-4 rounded-full text-xs flex items-center gap-1.5 shadow-lg transition-all z-20">
+                                        Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                    <div class="absolute bottom-6 left-6 text-white w-full max-w-xs">
+                                        <span
+                                            class="bg-[#2E7D32] text-[10px] font-bold uppercase px-3 py-1 rounded-full inline-block mb-2 tracking-wider">Culture</span>
+                                        <h3 class="font-serif font-bold text-xl md:text-2xl text-white leading-tight">
+                                            Cultural Gems</h3>
+                                        <p class="text-white/80 text-xs mt-1 max-w-[250px]">Stone Town history, giant
+                                            tortoises, and vibrant spice markets.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 6: Luxury Moments -->
+                            <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
+                                data-slide="6">
+                                <div class="relative h-full w-full">
+                                    <img src="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                                        alt="Luxury Moments" class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
+                                    </div>
+                                    <button onclick="openZanzibarCategory('luxury-experiences')"
+                                        class="absolute bottom-4 right-4 bg-white hover:bg-gray-100 text-[#1a3c34] font-bold py-2 px-4 rounded-full text-xs flex items-center gap-1.5 shadow-lg transition-all z-20">
+                                        Explore <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                    <div class="absolute bottom-6 left-6 text-white w-full max-w-xs">
+                                        <span
+                                            class="bg-[#2E7D32] text-[10px] font-bold uppercase px-3 py-1 rounded-full inline-block mb-2 tracking-wider">Exclusive</span>
+                                        <h3 class="font-serif font-bold text-xl md:text-2xl text-white leading-tight">
+                                            Luxury Moments</h3>
+                                        <p class="text-white/80 text-xs mt-1 max-w-[250px]">Private dhow cruise,
+                                            flying‑dress photoshoot, or a surprise proposal setup.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation arrows & dots (6 dots) -->
+                        <div class="flex items-center justify-center gap-5 mt-5">
+                            <button id="prev-slide"
+                                class="w-10 h-10 rounded-full bg-white hover:bg-[#2E7D32] text-[#1a3c34] hover:text-white flex items-center justify-center shadow-md transition-all duration-300 border border-[#1a3c34]/10">
+                                <i class="fa-solid fa-chevron-left text-sm"></i>
+                            </button>
+                            <div class="flex gap-2">
+                                <button
+                                    class="slide-dot w-3 h-3 rounded-full bg-[#1a3c34]/30 hover:bg-[#2E7D32] transition-all duration-300"
+                                    data-slide="1"></button>
+                                <button
+                                    class="slide-dot w-3 h-3 rounded-full bg-[#1a3c34]/30 hover:bg-[#2E7D32] transition-all duration-300"
+                                    data-slide="2"></button>
+                                <button
+                                    class="slide-dot w-3 h-3 rounded-full bg-[#1a3c34]/30 hover:bg-[#2E7D32] transition-all duration-300"
+                                    data-slide="3"></button>
+                                <button
+                                    class="slide-dot w-3 h-3 rounded-full bg-[#1a3c34]/30 hover:bg-[#2E7D32] transition-all duration-300"
+                                    data-slide="4"></button>
+                                <button
+                                    class="slide-dot w-3 h-3 rounded-full bg-[#1a3c34]/30 hover:bg-[#2E7D32] transition-all duration-300"
+                                    data-slide="5"></button>
+                                <button
+                                    class="slide-dot w-3 h-3 rounded-full bg-[#1a3c34]/30 hover:bg-[#2E7D32] transition-all duration-300"
+                                    data-slide="6"></button>
+                            </div>
+                            <button id="next-slide"
+                                class="w-10 h-10 rounded-full bg-white hover:bg-[#2E7D32] text-[#1a3c34] hover:text-white flex items-center justify-center shadow-md transition-all duration-300 border border-[#1a3c34]/10">
+                                <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: 6 cards (first 4 visible, last 2 hidden) -->
+                    <div class="lg:w-5/12">
+                        <div class="grid grid-cols-2 gap-4 md:gap-5" id="cards-container">
+                            <!-- Water Sports Package -->
+                            <div
+                                class="card-item group bg-white rounded-3xl p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-500 border-l-4 border-transparent hover:border-[#2E7D32] flex flex-col justify-between reveal-in">
+                                <div>
+                                    <i class="fa-solid fa-water text-3xl text-[#1a3c34] mb-3 block"></i>
+                                    <h3 class="font-serif font-bold text-lg md:text-xl text-[#1a3c34]">Water Sports</h3>
+                                    <p class="text-[#1a3c34]/50 text-xs uppercase font-semibold tracking-wide mt-1">All
+                                        6 Activities</p>
+                                    <p class="text-[#1a3c34]/60 text-xs mt-2 line-clamp-3">Clear Kayak, Jetski, JetCar,
+                                        Snorkelling, Parasailing & Drone — the ultimate bundle.</p>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-sm font-bold text-[#1a3c34]">$299</span>
+                                    <button onclick="openZanzibarActivity('water-sports-package')"
+                                        class="text-[#2E7D32] hover:text-[#1B5E20] font-bold text-xs flex items-center gap-1 transition-colors">
+                                        Book <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Safari Blue -->
+                            <div
+                                class="card-item group bg-white rounded-3xl p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-500 border-l-4 border-transparent hover:border-[#2E7D32] flex flex-col justify-between reveal-in">
+                                <div>
+                                    <i class="fa-solid fa-sailboat text-3xl text-[#1a3c34] mb-3 block"></i>
+                                    <h3 class="font-serif font-bold text-lg md:text-xl text-[#1a3c34]">Safari Blue</h3>
+                                    <p class="text-[#1a3c34]/50 text-xs uppercase font-semibold tracking-wide mt-1">
+                                        Full‑Day Cruise</p>
+                                    <p class="text-[#1a3c34]/60 text-xs mt-2 line-clamp-3">Dhow sailing, snorkeling,
+                                        sandbank seafood lunch.</p>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-sm font-bold text-[#1a3c34]">From $95</span>
+                                    <button onclick="openZanzibarCategory('safari-blue')"
+                                        class="text-[#2E7D32] hover:text-[#1B5E20] font-bold text-xs flex items-center gap-1 transition-colors">
+                                        Book <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Ocean Experiences -->
+                            <div
+                                class="card-item group bg-white rounded-3xl p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-500 border-l-4 border-transparent hover:border-[#2E7D32] flex flex-col justify-between reveal-in">
+                                <div>
+                                    <i class="fa-solid fa-fish-fins text-3xl text-[#1a3c34] mb-3 block"></i>
+                                    <h3 class="font-serif font-bold text-lg md:text-xl text-[#1a3c34]">Ocean Encounters
+                                    </h3>
+                                    <p class="text-[#1a3c34]/50 text-xs uppercase font-semibold tracking-wide mt-1">
+                                        Dolphins & Turtles</p>
+                                    <p class="text-[#1a3c34]/60 text-xs mt-2 line-clamp-3">Swim with wild dolphins,
+                                        snorkel with turtles, sunset dhow.</p>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-sm font-bold text-[#1a3c34]">From $40</span>
+                                    <button onclick="openZanzibarCategory('ocean-experiences')"
+                                        class="text-[#2E7D32] hover:text-[#1B5E20] font-bold text-xs flex items-center gap-1 transition-colors">
+                                        Book <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Nature Experiences -->
+                            <div
+                                class="card-item group bg-white rounded-3xl p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-500 border-l-4 border-transparent hover:border-[#2E7D32] flex flex-col justify-between reveal-in">
+                                <div>
+                                    <i class="fa-solid fa-leaf text-3xl text-[#1a3c34] mb-3 block"></i>
+                                    <h3 class="font-serif font-bold text-lg md:text-xl text-[#1a3c34]">Nature Trails
+                                    </h3>
+                                    <p class="text-[#1a3c34]/50 text-xs uppercase font-semibold tracking-wide mt-1">
+                                        Spice Farms & Forest</p>
+                                    <p class="text-[#1a3c34]/60 text-xs mt-2 line-clamp-3">Spice plantations, Jozani
+                                        monkeys, hidden caves.</p>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <span class="text-sm font-bold text-[#1a3c34]">From $25</span>
+                                    <button onclick="openZanzibarCategory('nature-experiences')"
+                                        class="text-[#2E7D32] hover:text-[#1B5E20] font-bold text-xs flex items-center gap-1 transition-colors">
+                                        Book <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Hidden cards: Cultural & Luxury -->
+                            <div class="hidden-cards hidden col-span-2 grid grid-cols-2 gap-4 md:gap-5">
+                                <!-- Cultural Experiences -->
+                                <div
+                                    class="group bg-white rounded-3xl p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-500 border-l-4 border-transparent hover:border-[#2E7D32] flex flex-col justify-between reveal-in">
+                                    <div>
+                                        <i class="fa-solid fa-landmark text-3xl text-[#1a3c34] mb-3 block"></i>
+                                        <h3 class="font-serif font-bold text-lg md:text-xl text-[#1a3c34]">Cultural Gems
+                                        </h3>
+                                        <p class="text-[#1a3c34]/50 text-xs uppercase font-semibold tracking-wide mt-1">
+                                            Stone Town & Prison Island</p>
+                                        <p class="text-[#1a3c34]/60 text-xs mt-2 line-clamp-3">History, giant tortoises,
+                                            local spice markets.</p>
+                                    </div>
+                                    <div class="mt-4 flex items-center justify-between">
+                                        <span class="text-sm font-bold text-[#1a3c34]">From $25</span>
+                                        <button onclick="openZanzibarCategory('cultural-experiences')"
+                                            class="text-[#2E7D32] hover:text-[#1B5E20] font-bold text-xs flex items-center gap-1 transition-colors">
+                                            Book <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Luxury Experiences -->
+                                <div
+                                    class="group bg-white rounded-3xl p-5 md:p-6 shadow-md hover:shadow-xl transition-all duration-500 border-l-4 border-transparent hover:border-[#2E7D32] flex flex-col justify-between reveal-in">
+                                    <div>
+                                        <i class="fa-solid fa-crown text-3xl text-[#1a3c34] mb-3 block"></i>
+                                        <h3 class="font-serif font-bold text-lg md:text-xl text-[#1a3c34]">Luxury
+                                            Moments</h3>
+                                        <p class="text-[#1a3c34]/50 text-xs uppercase font-semibold tracking-wide mt-1">
+                                            Private Dhow & Photoshoot</p>
+                                        <p class="text-[#1a3c34]/60 text-xs mt-2 line-clamp-3">Private cruise,
+                                            flying‑dress photoshoot, or a surprise proposal setup.</p>
+                                    </div>
+                                    <div class="mt-4 flex items-center justify-between">
+                                        <span class="text-sm font-bold text-[#1a3c34]">From $160</span>
+                                        <button onclick="openZanzibarCategory('luxury-experiences')"
+                                            class="text-[#2E7D32] hover:text-[#1B5E20] font-bold text-xs flex items-center gap-1 transition-colors">
+                                            Book <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Show More / Show Less button -->
+                        <div class="flex justify-center mt-5" id="toggle-container">
+                            <button id="toggle-more-cards"
+                                class="w-12 h-12 rounded-full bg-white hover:bg-[#2E7D32] text-[#1a3c34] hover:text-white flex items-center justify-center shadow-md transition-all duration-300 border border-[#1a3c34]/10">
+                                <i class="fa-solid fa-chevron-down text-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slideshow Script (6 slides) + Toggle Script for cards -->
+            <script>
+                    (function () {
+                        const section = document.getElementById('curated-experiences-section');
+                        if (!section) return;
+                        const slides = section.querySelectorAll('.slide');
+                        const dots = section.querySelectorAll('.slide-dot');
+                        const prevBtn = section.querySelector('#prev-slide');
+                        const nextBtn = section.querySelector('#next-slide');
+                        let currentSlide = 0;
+                        let slideInterval;
+
+                        function showSlide(index) {
+                            slides.forEach((slide, i) => {
+                                slide.style.opacity = i === index ? '1' : '0';
+                            });
+                            dots.forEach((dot, i) => {
+                                dot.style.backgroundColor = i === index ? '#2E7D32' : '#1a3c34';
+                                dot.style.opacity = i === index ? '1' : '0.3';
+                            });
+                        }
+
+                        function nextSlide() {
+                            currentSlide = (currentSlide + 1) % slides.length;
+                            showSlide(currentSlide);
+                        }
+
+                        function prevSlide() {
+                            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                            showSlide(currentSlide);
+                        }
+
+                        function startAuto() {
+                            stopAuto();
+                            slideInterval = setInterval(nextSlide, 4000);
+                        }
+
+                        function stopAuto() {
+                            if (slideInterval) clearInterval(slideInterval);
+                        }
+
+                        dots.forEach(dot => {
+                            dot.addEventListener('click', () => {
+                                const index = parseInt(dot.getAttribute('data-slide')) - 1;
+                                currentSlide = index;
+                                showSlide(currentSlide);
+                                startAuto();
+                            });
+                        });
+
+                        if (prevBtn) {
+                            prevBtn.addEventListener('click', () => {
+                                prevSlide();
+                                startAuto();
+                            });
+                        }
+                        if (nextBtn) {
+                            nextBtn.addEventListener('click', () => {
+                                nextSlide();
+                                startAuto();
+                            });
+                        }
+
+                        showSlide(0);
+                        startAuto();
+
+                        // Show More / Show Less for right cards
+                        const toggleBtn = section.querySelector('#toggle-more-cards');
+                        const hiddenCards = section.querySelector('.hidden-cards');
+                        if (toggleBtn && hiddenCards) {
+                            toggleBtn.addEventListener('click', () => {
+                                const isHidden = hiddenCards.classList.contains('hidden');
+                                if (isHidden) {
+                                    hiddenCards.classList.remove('hidden');
+                                    toggleBtn.querySelector('i').classList.remove('fa-chevron-down');
+                                    toggleBtn.querySelector('i').classList.add('fa-chevron-up');
+                                } else {
+                                    hiddenCards.classList.add('hidden');
+                                    toggleBtn.querySelector('i').classList.remove('fa-chevron-up');
+                                    toggleBtn.querySelector('i').classList.add('fa-chevron-down');
+                                }
+                            });
+                        }
+                    })();
+            </script>
+        </section>
+
+        <!-- WHY KIMONDO -->
+        <section class="py-16 md:py-24 bg-white relative z-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14 reveal-in">
+                    <span class="text-xs md:text-sm uppercase tracking-[0.3em] text-golden font-bold mb-4 block">Why
+                        Kimondo</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest">One Local Team, Every Side of
+                        the Island</h2>
+                </div>
+
+                <!-- Desktop grid (hidden on mobile) -->
+                <div class="hidden lg:grid grid-cols-4 gap-5">
+                    <div
+                        class="group bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in">
+                        <div class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5"><i
+                                class="fa-solid fa-shield-halved text-xl text-golden"></i></div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Consistent Quality</h3>
+                        <p class="text-warm/55 text-sm">Every activity carries the same standard of safety and
+                            authenticity.</p>
+                    </div>
+                    <div
+                        class="group bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in">
+                        <div class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5"><i
+                                class="fa-solid fa-hand-holding-dollar text-xl text-golden"></i></div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Fair Local Pricing</h3>
+                        <p class="text-warm/55 text-sm">No inflated tourist rates — just transparent, fair pricing.</p>
+                    </div>
+                    <div
+                        class="group bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in">
+                        <div class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5"><i
+                                class="fa-solid fa-calendar-check text-xl text-golden"></i></div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Seamless Coordination</h3>
+                        <p class="text-warm/55 text-sm">One team handles everything — water sports, ocean, nature,
+                            culture.</p>
+                    </div>
+                    <div
+                        class="group bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in">
+                        <div class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5"><i
+                                class="fa-solid fa-user-check text-xl text-golden"></i></div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Accountability</h3>
+                        <p class="text-warm/55 text-sm">One point of contact — not a string of disconnected vendors.</p>
+                    </div>
+                </div>
+
+                <!-- Mobile carousel (visible only below lg) -->
+                <div class="lg:hidden relative">
+                    <div class="overflow-hidden" id="why-kimondo-carousel">
+                        <div class="flex transition-transform duration-500 ease-out" id="kimondo-track">
+                            <!-- Clone of last card (for infinite loop) -->
+                            <div class="w-full flex-shrink-0 px-2">
+                                <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm h-full">
+                                    <div
+                                        class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5">
+                                        <i class="fa-solid fa-user-check text-xl text-golden"></i>
+                                    </div>
+                                    <h3 class="font-bold text-forest text-lg mb-2">Accountability</h3>
+                                    <p class="text-warm/55 text-sm">One point of contact — not a string of disconnected
+                                        vendors.</p>
+                                </div>
+                            </div>
+
+                            <!-- Real cards -->
+                            <div class="w-full flex-shrink-0 px-2">
+                                <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm h-full">
+                                    <div
+                                        class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5">
+                                        <i class="fa-solid fa-shield-halved text-xl text-golden"></i>
+                                    </div>
+                                    <h3 class="font-bold text-forest text-lg mb-2">Consistent Quality</h3>
+                                    <p class="text-warm/55 text-sm">Every activity carries the same standard of safety
+                                        and authenticity.</p>
+                                </div>
+                            </div>
+                            <div class="w-full flex-shrink-0 px-2">
+                                <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm h-full">
+                                    <div
+                                        class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5">
+                                        <i class="fa-solid fa-hand-holding-dollar text-xl text-golden"></i>
+                                    </div>
+                                    <h3 class="font-bold text-forest text-lg mb-2">Fair Local Pricing</h3>
+                                    <p class="text-warm/55 text-sm">No inflated tourist rates — just transparent, fair
+                                        pricing.</p>
+                                </div>
+                            </div>
+                            <div class="w-full flex-shrink-0 px-2">
+                                <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm h-full">
+                                    <div
+                                        class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5">
+                                        <i class="fa-solid fa-calendar-check text-xl text-golden"></i>
+                                    </div>
+                                    <h3 class="font-bold text-forest text-lg mb-2">Seamless Coordination</h3>
+                                    <p class="text-warm/55 text-sm">One team handles everything — water sports, ocean,
+                                        nature, culture.</p>
+                                </div>
+                            </div>
+                            <div class="w-full flex-shrink-0 px-2">
+                                <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm h-full">
+                                    <div
+                                        class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5">
+                                        <i class="fa-solid fa-user-check text-xl text-golden"></i>
+                                    </div>
+                                    <h3 class="font-bold text-forest text-lg mb-2">Accountability</h3>
+                                    <p class="text-warm/55 text-sm">One point of contact — not a string of disconnected
+                                        vendors.</p>
+                                </div>
+                            </div>
+
+                            <!-- Clone of first card (for infinite loop) -->
+                            <div class="w-full flex-shrink-0 px-2">
+                                <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm h-full">
+                                    <div
+                                        class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5">
+                                        <i class="fa-solid fa-shield-halved text-xl text-golden"></i>
+                                    </div>
+                                    <h3 class="font-bold text-forest text-lg mb-2">Consistent Quality</h3>
+                                    <p class="text-warm/55 text-sm">Every activity carries the same standard of safety
+                                        and authenticity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dots -->
+                    <div class="flex justify-center gap-2 mt-6">
+                        <button class="kimondo-dot w-3 h-3 rounded-full bg-golden/40 transition-all duration-300"
+                            data-index="0"></button>
+                        <button class="kimondo-dot w-3 h-3 rounded-full bg-golden/40 transition-all duration-300"
+                            data-index="1"></button>
+                        <button class="kimondo-dot w-3 h-3 rounded-full bg-golden/40 transition-all duration-300"
+                            data-index="2"></button>
+                        <button class="kimondo-dot w-3 h-3 rounded-full bg-golden/40 transition-all duration-300"
+                            data-index="3"></button>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                /* Dot active state */
+                .kimondo-dot.active {
+                    background-color: #D4A853 !important;
+                    opacity: 1 !important;
+                }
+            </style>
+
+            <script>
+                (function () {
+                    const track = document.getElementById('kimondo-track');
+                    if (!track) return;
+                    const slides = track.children;
+                    const totalSlides = slides.length; // includes clones
+                    const realStart = 1; // index of first real slide (after clone of last)
+                    const realEnd = totalSlides - 2; // index of last real slide (before clone of first)
+                    let currentIndex = realStart; // start at first real slide
+                    const dotButtons = document.querySelectorAll('.kimondo-dot');
+                    let autoInterval;
+                    let isTransitioning = false; // prevent overlapping transitions
+
+                    function setSlide(index, animate = true) {
+                        if (isTransitioning) return;
+                        isTransitioning = true;
+                        track.style.transition = animate ? 'transform 0.5s ease-out' : 'none';
+                        track.style.transform = `translateX(-${index * 100}%)`;
+
+                        if (animate) {
+                            // After transition, handle infinite loop reset
+                            setTimeout(() => {
+                                if (index === totalSlides - 1) {
+                                    // We reached the clone of first card, reset to real first without animation
+                                    track.style.transition = 'none';
+                                    track.style.transform = `translateX(-${realStart * 100}%)`;
+                                    currentIndex = realStart;
+                                } else if (index === 0) {
+                                    // We reached the clone of last card (going backwards), reset to real last
+                                    track.style.transition = 'none';
+                                    track.style.transform = `translateX(-${realEnd * 100}%)`;
+                                    currentIndex = realEnd;
+                                } else {
+                                    currentIndex = index;
+                                }
+                                updateDots();
+                                isTransitioning = false;
+                            }, 500);
+                        } else {
+                            currentIndex = index;
+                            updateDots();
+                            isTransitioning = false;
+                        }
+                    }
+
+                    function goToNext() {
+                        setSlide(currentIndex + 1, true);
+                    }
+
+                    function goToPrev() {
+                        setSlide(currentIndex - 1, true);
+                    }
+
+                    function updateDots() {
+                        const realIndex = currentIndex - realStart;
+                        dotButtons.forEach((dot, i) => {
+                            dot.classList.toggle('active', i === realIndex);
+                        });
+                    }
+
+                    function startAuto() {
+                        stopAuto();
+                        autoInterval = setInterval(goToNext, 4000);
+                    }
+
+                    function stopAuto() {
+                        if (autoInterval) clearInterval(autoInterval);
+                    }
+
+                    // Initialize position and dots
+                    setSlide(realStart, false);
+                    startAuto();
+
+                    // Dot click navigation
+                    dotButtons.forEach(dot => {
+                        dot.addEventListener('click', () => {
+                            const dotIndex = parseInt(dot.getAttribute('data-index'));
+                            const targetSlideIndex = realStart + dotIndex; // real slide index in track
+                            setSlide(targetSlideIndex, true);
+                            startAuto();
+                        });
+                    });
+
+                    // Optional: touch/swipe support could be added here
+                })();
+            </script>
+        </section>
+
+
+        <!--what included-->
+
+        <section class="py-16 md:py-24 bg-forest/5 relative z-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14 reveal-in"><span
+                        class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4 block">What's
+                        Included</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest">Transparent Pricing, No
+                        Surprises</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-6 border border-warm/10 shadow-sm">
+                        <h3 class="font-bold text-forest text-xl mb-4"><i
+                                class="fa-solid fa-check-circle text-green-500 mr-2"></i>Included</h3>
+                        <ul class="space-y-3 text-sm text-warm/70">
+                            <li class="flex gap-2"><i class="fa-solid fa-check text-golden mt-0.5"></i>Licensed local
+                                guides</li>
+                            <li class="flex gap-2"><i class="fa-solid fa-check text-golden mt-0.5"></i>Safety equipment
+                            </li>
+                            <li class="flex gap-2"><i class="fa-solid fa-check text-golden mt-0.5"></i>Hotel
+                                pickup/drop-off</li>
+                            <li class="flex gap-2"><i class="fa-solid fa-check text-golden mt-0.5"></i>Entrance & permit
+                                fees</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-warm/10 shadow-sm">
+                        <h3 class="font-bold text-forest text-xl mb-4"><i
+                                class="fa-solid fa-times-circle text-rose-400 mr-2"></i>Not Included</h3>
+                        <ul class="space-y-3 text-sm text-warm/50">
+                            <li class="flex gap-2"><i class="fa-solid fa-xmark text-rose-400 mt-0.5"></i>Travel
+                                insurance</li>
+                            <li class="flex gap-2"><i class="fa-solid fa-xmark text-rose-400 mt-0.5"></i>ZIC entry
+                                insurance ($44)</li>
+                            <li class="flex gap-2"><i class="fa-solid fa-xmark text-rose-400 mt-0.5"></i>Meals (unless
+                                specified)</li>
+                            <li class="flex gap-2"><i class="fa-solid fa-xmark text-rose-400 mt-0.5"></i>Personal
+                                expenses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--combine the iternary-->
+        <!-- ZANZIBAR + TANZANIA + TREKKING – BOLD COMBINED SECTION -->
+        <section class="py-20 md:py-32 bg-[#1a3c34] relative z-20 text-center overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute inset-0 pointer-events-none opacity-10">
+                <i class="fa-solid fa-earth-africa absolute -top-10 -right-10 text-[22rem] text-golden rotate-12"></i>
+                <i class="fa-solid fa-mountain absolute -bottom-10 -left-10 text-[20rem] text-golden -rotate-6"></i>
+            </div>
+            <div
+                class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-[#1a3c34]/80 to-[#1a3c34]">
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-golden font-bold mb-4 block reveal-in">
+                    <i class="fa-solid fa-circle text-[6px] align-middle mr-2 text-golden"></i> Zanzibar &amp; Beyond
+                </span>
+                <h2
+                    class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold text-white mb-6 leading-tight reveal-in">
+                    Island Dreams.<br class="sm:hidden">
+                    <span class="text-golden">Wild Safaris. Epic Treks.</span>
+                </h2>
+                <p class="text-white/70 text-base md:text-xl mb-12 max-w-2xl mx-auto font-light reveal-in">
+                    From Zanzibar's turquoise waters to Tanzania's legendary savannahs and breathtaking mountain trails
+                    — one seamless journey, three extraordinary experiences.
+                </p>
+
+                <!-- Dual CTAs: Tanzania Safaris + Tanzania Trekking (always side by side) -->
+                <div class="flex flex-row items-center justify-center gap-4 md:gap-6 reveal-in">
+                    <a href="tanzania.html"
+                        class="w-auto inline-flex items-center justify-center gap-3 bg-golden hover:bg-amber-400 text-[#1a3c34] font-extrabold px-6 py-3 md:px-8 md:py-4 rounded-full shadow-[0_0_30px_rgba(212,168,83,0.6)] hover:shadow-[0_0_40px_rgba(212,168,83,0.8)] transition-all duration-300 transform hover:scale-105 text-sm md:text-base">
+                        <i class="fa-solid fa-paw text-lg"></i> Tanzania Safaris
+                    </a>
+                    <a href="trecking.html"
+                        class="w-auto inline-flex items-center justify-center gap-3 border-2 border-white hover:border-golden text-white hover:text-golden font-extrabold px-6 py-3 md:px-8 md:py-4 rounded-full transition-all duration-300 transform hover:scale-105 text-sm md:text-base">
+                        <i class="fa-solid fa-person-hiking text-lg"></i> Trekking
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!--testmonie-->
+
+        <!-- TESTIMONIALS – Powerful Modern Design on White -->
+        <section class="py-20 md:py-32 bg-white relative z-20 overflow-hidden">
+            <!-- Decorative background icons (subtle, golden) -->
+            <div class="absolute inset-0 pointer-events-none opacity-[0.03]">
+                <i class="fa-solid fa-quote-right absolute top-10 left-10 text-[18rem] text-golden rotate-12"></i>
+                <i class="fa-solid fa-star absolute bottom-10 right-10 text-[14rem] text-golden -rotate-12"></i>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <!-- Section heading -->
+                <div class="text-center mb-16 md:mb-20 reveal-in">
+                    <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-golden font-bold mb-4 block">
+                        <i class="fa-solid fa-circle text-[6px] align-middle mr-2 text-golden"></i> From Our Travelers
+                    </span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold text-[#1a3c34] leading-tight">
+                        What Our Zanzibar<br class="sm:hidden"> Guests Say
+                    </h2>
+                </div>
+
+                <!-- Testimonials grid (desktop 3 col, mobile 1 col) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Card 1 -->
+                    <div
+                        class="group relative bg-white border border-[#1a3c34]/10 rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl hover:border-golden/40 transition-all duration-500 reveal-in flex flex-col">
+                        <!-- Stars -->
+                        <div class="flex gap-1 mb-6 text-golden">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <!-- Quote -->
+                        <p class="text-[#1a3c34]/70 italic text-base md:text-lg mb-8 flex-1 leading-relaxed">
+                            “Safari Blue and Mnemba dolphin tour were the highlight of our entire Africa trip.”
+                        </p>
+                        <!-- Author -->
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#1a3c34]/10 flex items-center justify-center text-[#1a3c34] font-bold text-sm">
+                                CB
+                            </div>
+                            <div>
+                                <p class="text-[#1a3c34] font-bold text-sm">Claire &amp; Ben</p>
+                                <p class="text-[#1a3c34]/50 text-xs">United Kingdom</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="group relative bg-white border border-[#1a3c34]/10 rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl hover:border-golden/40 transition-all duration-500 reveal-in flex flex-col">
+                        <div class="flex gap-1 mb-6 text-golden">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-[#1a3c34]/70 italic text-base md:text-lg mb-8 flex-1 leading-relaxed">
+                            “Swimming with turtles at Baraka Aquarium was absolutely magical. A memory for life.”
+                        </p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#1a3c34]/10 flex items-center justify-center text-[#1a3c34] font-bold text-sm">
+                                LM
+                            </div>
+                            <div>
+                                <p class="text-[#1a3c34] font-bold text-sm">Lukas M.</p>
+                                <p class="text-[#1a3c34]/50 text-xs">Germany</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="group relative bg-white border border-[#1a3c34]/10 rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl hover:border-golden/40 transition-all duration-500 reveal-in flex flex-col">
+                        <div class="flex gap-1 mb-6 text-golden">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-[#1a3c34]/70 italic text-base md:text-lg mb-8 flex-1 leading-relaxed">
+                            “Stone Town with a local guide was so much richer than wandering alone. Highly recommended!”
+                        </p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#1a3c34]/10 flex items-center justify-center text-[#1a3c34] font-bold text-sm">
+                                PS
+                            </div>
+                            <div>
+                                <p class="text-[#1a3c34] font-bold text-sm">Priya S.</p>
+                                <p class="text-[#1a3c34]/50 text-xs">United States</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="final-cta" class="py-24 md:py-36 bg-[#d4a853] relative overflow-hidden">
+            <!-- Decorative background icons (very faint) -->
+            <div class="absolute inset-0 pointer-events-none opacity-[0.06]">
+                <i class="fa-solid fa-compass absolute -top-10 -right-10 text-[20rem] text-[#1a3c34] rotate-45"></i>
+                <i class="fa-solid fa-star absolute bottom-0 left-10 text-[16rem] text-[#1a3c34] -rotate-12"></i>
+            </div>
+            <!-- Radial gradient for depth -->
+            <div class="absolute inset-0 bg-gradient-radial from-white/20 to-transparent"></div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <!-- Small eyebrow -->
+                <span
+                    class="text-xs md:text-sm uppercase tracking-[0.4em] text-[#1a3c34] font-bold mb-4 block reveal-in">
+                    <i class="fa-solid fa-circle text-[6px] align-middle mr-2 text-[#1a3c34]"></i> The Journey Starts
+                    Here
+                </span>
+
+                <!-- Powerful heading -->
+                <h2
+                    class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold text-[#1a3c34] mb-6 leading-tight reveal-in">
+                    Your Zanzibar<br class="sm:hidden"> Adventure Is Waiting
+                </h2>
+
+                <!-- Subtitle -->
+                <p class="text-[#1a3c34]/70 text-base md:text-xl mb-10 max-w-2xl mx-auto font-light reveal-in">
+                    From high‑speed water sports to sunset dhow cruises, Zanzibar has a side for every kind of traveler.
+                </p>
+
+                <!-- Bold CTA button -->
+                <a href="tanzania.html"
+                    class="ripple-container inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-[#1a3c34] font-extrabold px-10 py-5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.25)] transition-all duration-300 transform hover:scale-105 text-base md:text-lg reveal-in">
+                    <i class="fa-solid fa-paper-plane"></i> Start Planning Tanzania Safaris
                 </a>
             </div>
-        </div>
+        </section>
+
+        <div id="footer-container"></div>
     </div>
 
-    <!-- ========== VIEW 2: ACTIVITY DETAIL (per category) ========== -->
-    <div id="categoryDetailView" class="hidden py-12 md:py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <button onclick="hideCategory()" class="mb-6 inline-flex items-center gap-2 text-forest hover:text-golden font-semibold transition">
-                <i class="fas fa-arrow-left"></i> Back to all categories
-            </button>
-
-            <!-- Category Hero -->
-            <div id="detailHero" class="relative h-64 md:h-96 rounded-2xl overflow-hidden mb-10 shadow-xl">
-                <img id="detailHeroImage" src="" alt="" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 p-6 md:p-10 text-white">
-                    <h2 id="detailCategoryTitle" class="text-4xl md:text-5xl font-bold mb-2"></h2>
-                    <p id="detailCategoryDesc" class="text-white/80 text-lg max-w-3xl"></p>
-                </div>
-            </div>
-
-            <!-- Activities container -->
-            <div id="detailToursContainer" class="space-y-12"></div>
-        </div>
-    </div>
-
-    <!-- ===== TESTIMONIAL STRIP ===== -->
-    <section class="bg-forest py-12 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <h3 class="text-2xl md:text-3xl serif text-white mb-8">What our guests say</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-white">
-                    <div class="text-golden mb-2">★★★★★</div>
-                    <p class="my-3 italic">"The clear kayak photoshoot was magical! Professional photographer and stunning setting."</p>
-                    <p class="font-semibold">— Sarah M.</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-white">
-                    <div class="text-golden mb-2">★★★★★</div>
-                    <p class="my-3 italic">"Safari Blue was the highlight of our trip. Friendly guides and amazing seafood."</p>
-                    <p class="font-semibold">— David K.</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-white">
-                    <div class="text-golden mb-2">★★★★★</div>
-                    <p class="my-3 italic">"Everything was seamless from booking to the actual experience. Highly recommend!"</p>
-                    <p class="font-semibold">— Olivia T.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== QUICK QUOTE FLOATING BUTTON ===== -->
-
-</main>
-
-
-
-<script>
-    (function(){
-        "use strict";
-
-        // ---------- COMPLETE TOURS DATABASE ----------
-        const toursDatabase = {
-            'water-sports': {
-                id: 'water-sports',
-                title: '🌊 Water Sports',
-                desc: 'Dive into excitement with our thrilling water sports experiences. From high-speed jet ski rides to stunning clear kayak adventures and unique jet car experiences.',
-                heroImage: 'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1400',
-                tours: [
-                    {
-                        name: 'Clear Kayak Photoshoot',
-                        intro: 'Experience Zanzibar’s crystal-clear waters like never before.',
-                        desc: 'Glide over the turquoise ocean in a transparent kayak while capturing stunning, Instagram-worthy photos and videos. Perfect for couples, solo travelers, and content creators.',
-                        images: [
-                            'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Transparent kayak', 'Professional photographer', '30 min session', '10 edited photos'],
-                        notIncluded: ['Transport to beach', 'Swimwear', 'Meals'],
-                        price: '$85'
-                    },
-                    {
-                        name: 'Jet Ski Adventure',
-                        intro: 'Feel the adrenaline as you ride across the Indian Ocean.',
-                        desc: 'Whether you’re a beginner or experienced rider, this activity offers the perfect mix of excitement, freedom, and breathtaking ocean views.',
-                        images: [
-                            'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['30 min jet ski rental', 'Safety gear', 'Instructor guidance'],
-                        notIncluded: ['Transport', 'Photos/videos', 'Food & drinks'],
-                        price: '$120'
-                    },
-                    {
-                        name: 'Jet Car Experience',
-                        intro: 'Drive a luxury-style “car” on water in this one-of-a-kind experience.',
-                        desc: 'The Jet Car combines speed, style, and fun — giving you a unique way to explore the ocean while turning heads and creating unforgettable content.',
-                        images: [
-                            'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['15 min jet car ride', 'Life jacket', 'Brief orientation'],
-                        notIncluded: ['Transportation', 'Professional photos'],
-                        price: '$150'
-                    }
-                ]
-            },
-            'ocean-experiences': {
-                id: 'ocean-experiences',
-                title: '⛵ Ocean Experiences',
-                desc: 'Explore the beauty of Zanzibar’s crystal-clear waters with unforgettable ocean experiences. From relaxing sandbank escapes and sunset cruises to dolphin tours and snorkeling adventures.',
-                heroImage: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1400',
-                tours: [
-                    {
-                        name: 'Nakupenda Sandbank',
-                        intro: 'Relax on a stunning white sandbank surrounded by crystal-clear waters.',
-                        desc: 'Enjoy sunbathing, swimming, and a fresh seafood lunch in one of Zanzibar’s most beautiful natural settings.',
-                        images: [
-                            'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Boat transfer', 'Seafood lunch', 'Soft drinks', 'Snorkeling gear'],
-                        notIncluded: ['Alcoholic drinks', 'Towels', 'Tips'],
-                        price: '$65'
-                    },
-                    {
-                        name: 'Safari Blue Experience',
-                        intro: 'A full-day ocean adventure featuring snorkeling, dhow sailing, and seafood feast.',
-                        desc: 'Swim in natural lagoons, explore coral reefs, and enjoy a delicious seafood barbecue. One of the most popular and unforgettable experiences in Zanzibar.',
-                        images: [
-                            'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Boat trip', 'Snorkeling equipment', 'Seafood buffet', 'Fruits & drinks'],
-                        notIncluded: ['Transport to departure point', 'Alcoholic beverages'],
-                        price: '$95'
-                    },
-                    {
-                        name: 'Dolphin Tours',
-                        intro: 'Swim alongside wild dolphins in their natural habitat.',
-                        desc: 'This early morning experience offers a magical opportunity to connect with nature in the open ocean.',
-                        images: [
-                            'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Boat trip', 'Snorkeling mask', 'Guide'],
-                        notIncluded: ['Transport', 'Breakfast', 'Underwater camera'],
-                        price: '$55'
-                    },
-                    {
-                        name: 'Snorkeling Trips',
-                        intro: 'Explore vibrant coral reefs and marine life beneath the surface.',
-                        desc: 'Perfect for beginners and experienced swimmers, this activity reveals the hidden beauty of Zanzibar’s underwater world.',
-                        images: [
-                            'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Boat', 'Snorkeling gear', 'Guide', 'Water'],
-                        notIncluded: ['Transport', 'Lunch', 'Tips'],
-                        price: '$45'
-                    },
-                    {
-                        name: 'Sunset Cruise',
-                        intro: 'Sail into the golden hour on a traditional dhow boat.',
-                        desc: 'Enjoy the breathtaking Zanzibar sunset with soft drinks and snacks. Ideal for couples and anyone seeking a peaceful, romantic experience.',
-                        images: [
-                            'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['2‑hour cruise', 'Soft drinks & snacks', 'Live music (on request)'],
-                        notIncluded: ['Transport', 'Alcoholic drinks', 'Dinner'],
-                        price: '$40'
-                    }
-                ]
-            },
-            'nature-adventure': {
-                id: 'nature-adventure',
-                title: '🌿 Nature & Adventure Tours',
-                desc: 'Discover the wild side of Zanzibar through immersive nature and adventure tours. Wander through lush forests, explore hidden caves, and experience the island’s natural beauty up close.',
-                heroImage: 'https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=1400',
-                tours: [
-                    {
-                        name: 'Jozani Forest Tour',
-                        intro: 'Discover Zanzibar’s only national park, home to the rare red colobus monkeys.',
-                        desc: 'Walk through lush forest trails and mangroves while learning about the island’s unique ecosystem.',
-                        images: [
-                            'https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Park fees', 'Expert guide', 'Walking tour'],
-                        notIncluded: ['Transport', 'Lunch', 'Tips'],
-                        price: '$35'
-                    },
-                    {
-                        name: 'Salaam Cave Experience',
-                        intro: 'Swim in a natural cave pool with crystal-clear water surrounded by rock formations with turtles.',
-                        desc: 'A peaceful and refreshing experience perfect for relaxation and unique photos.',
-                        images: [
-                            'https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Entrance fee', 'Guide', 'Swimming opportunity'],
-                        notIncluded: ['Towels', 'Transport', 'Snacks'],
-                        price: '$25'
-                    }
-                ]
-            },
-            'cultural-historical': {
-                id: 'cultural-historical',
-                title: '🏛️ Cultural, Historical & Lifestyle',
-                desc: 'Step into the heart of Zanzibar’s rich culture and history. Explore ancient streets, visit iconic landmarks, and experience local lifestyle, traditions, and flavors.',
-                heroImage: 'https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=1400',
-                tours: [
-                    {
-                        name: 'Stone Town Tour',
-                        intro: 'Explore the historic heart of Zanzibar, a UNESCO World Heritage Site.',
-                        desc: 'Walk through narrow streets, discover ancient architecture, and learn about the island’s rich culture and history.',
-                        images: [
-                            'https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/2777828/pexels-photo-2777828.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/159862/art-school-of-athens-italian-painter-159862.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Guide', 'City tour'],
-                        notIncluded: ['Entrance fees (museums)', 'Meals'],
-                        price: '$30'
-                    },
-                    {
-                        name: 'Prison Island Tour',
-                        intro: 'Visit this beautiful island known for its giant tortoises and stunning ocean views.',
-                        desc: 'Enjoy a mix of history, nature, and relaxation in one unique location.',
-                        images: [
-                            'https://images.pexels.com/photos/2777828/pexels-photo-2777828.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Boat transfer', 'Entrance fee', 'Guide'],
-                        notIncluded: ['Snorkeling gear', 'Lunch'],
-                        price: '$40'
-                    },
-                    {
-                        name: 'Spice Farm Tour',
-                        intro: 'Experience why Zanzibar is called the “Spice Island.”',
-                        desc: 'See, smell, and taste fresh spices and tropical fruits while learning about their uses and cultural importance.',
-                        images: [
-                            'https://images.pexels.com/photos/4110255/pexels-photo-4110255.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/4197999/pexels-photo-4197999.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/4198021/pexels-photo-4198021.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Guide', 'Spice tasting', 'Lunch'],
-                        notIncluded: ['Transport', 'Personal purchases'],
-                        price: '$45'
-                    },
-                    {
-                        name: 'Local Market Experience',
-                        intro: 'Immerse yourself in everyday Zanzibar life by visiting a bustling local market.',
-                        desc: 'Discover fresh produce, spices, and authentic interactions with local people.',
-                        images: [
-                            'https://images.pexels.com/photos/4198021/pexels-photo-4198021.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/4110255/pexels-photo-4110255.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Guide', 'Market tour'],
-                        notIncluded: ['Purchases', 'Transport'],
-                        price: '$25'
-                    },
-                    {
-                        name: 'The Rock Restaurant Experience',
-                        intro: 'Dine at Zanzibar’s most iconic restaurant, located on a rock in the ocean.',
-                        desc: 'Enjoy fresh seafood and breathtaking views in a truly unforgettable setting.',
-                        images: [
-                            'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Reservation assistance', 'Boat transfer (tide dependent)'],
-                        notIncluded: ['Meal cost', 'Drinks', 'Transport to beach'],
-                        price: 'À la carte'
-                    }
-                ]
-            },
-            'special-luxury': {
-                id: 'special-luxury',
-                title: '✨ Special & Luxury Experiences',
-                desc: 'Indulge in the finest Zanzibar has to offer. From private tours and premium beach setups to personalized services, enjoy comfort, elegance, and VIP treatment.',
-                heroImage: 'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1400',
-                tours: [
-                    {
-                        name: 'Flying Dress Photoshoot',
-                        intro: 'Feel like royalty as you pose in a flowing gown on Zanzibar’s stunning beaches.',
-                        desc: 'Perfect for creating dramatic, elegant, and unforgettable photos.',
-                        images: [
-                            'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Dress rental', 'Photographer', '20 edited photos'],
-                        notIncluded: ['Hair & makeup', 'Transport'],
-                        price: '$180'
-                    },
-                    {
-                        name: 'Romantic & Proposal Setups',
-                        intro: 'Celebrate love with beautifully designed beach setups.',
-                        desc: 'Perfect for proposals, anniversaries, or special moments. From candles to flowers, every detail is crafted to perfection.',
-                        images: [
-                            'https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Private setup', 'Flowers & decor', 'Photographer (optional)'],
-                        notIncluded: ['Dinner', 'Alcohol', 'Music'],
-                        price: 'From $250'
-                    },
-                    {
-                        name: 'Drone Photography & Videography',
-                        intro: 'Capture your experience from a breathtaking aerial perspective.',
-                        desc: 'Our professional drone services create cinematic photos and videos that you’ll treasure forever.',
-                        images: [
-                            'https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=800',
-                            'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800'
-                        ],
-                        included: ['Licensed drone pilot', 'Edited 2-3 min video', '10 aerial photos'],
-                        notIncluded: ['Location permits if required'],
-                        price: '$160'
-                    }
-                ]
-            }
-        };
-
-        const categories = [
-            { id: 'water-sports', icon: 'fa-water', name: 'Water Sports', count: 3 },
-            { id: 'ocean-experiences', icon: 'fa-ship', name: 'Ocean Experiences', count: 5 },
-            { id: 'nature-adventure', icon: 'fa-tree', name: 'Nature & Adventure', count: 2 },
-            { id: 'cultural-historical', icon: 'fa-landmark', name: 'Cultural & Historical', count: 5 },
-            { id: 'special-luxury', icon: 'fa-gem', name: 'Special & Luxury', count: 3 }
-        ];
-
-        const carouselIntervals = new Map();
-
-        function clearAllIntervals() {
-            for (let [id, interval] of carouselIntervals.entries()) clearInterval(interval);
-            carouselIntervals.clear();
-        }
-
-        function renderCategoryGrid() {
-            const grid = document.getElementById('categoryGrid');
-            let html = '';
-            categories.forEach(cat => {
-                const data = toursDatabase[cat.id];
-                html += `
-                    <div onclick="showCategory('${cat.id}')" class="category-card group relative aspect-square rounded-3xl overflow-hidden shadow-xl cursor-pointer card-hover">
-                        <img src="${data.heroImage}" alt="${cat.name}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                        <div class="absolute bottom-0 left-0 p-6 text-white w-full">
-                            <i class="fas ${cat.icon} text-4xl mb-3"></i>
-                            <h3 class="text-3xl font-bold mb-2">${cat.name}</h3>
-                            <p class="text-white/80 text-base mb-4 line-clamp-2">${data.desc.substring(0, 80)}...</p>
-                            <span class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-5 py-2 rounded-full text-sm font-semibold group-hover:bg-forest transition">
-                                Explore ${cat.count} Tours <i class="fas fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                `;
-            });
-            grid.innerHTML = html;
-        }
-
-        function renderCategoryNav() {
-            const nav = document.getElementById('categoryNavPills');
-            let html = '';
-            categories.forEach(cat => {
-                html += `
-                    <button onclick="showCategory('${cat.id}')" class="category-pill whitespace-nowrap px-6 py-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium text-sm flex items-center gap-2 transition">
-                        <i class="fas ${cat.icon}"></i> ${cat.name}
+    <!-- DETAIL OVERLAY -->
+    <div id="zanzibar-detail-page" class="hidden">
+        <div id="kimondo-header"></div>
+        <div class="relative h-[65vh] flex items-center justify-center overflow-hidden"><img id="zanzibar-hero-img"
+                src="" alt="" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/60 bg-gradient-to-t from-dark/90 via-black/40 to-transparent"></div>
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto"><span id="zanzibar-hero-subtitle"
+                    class="text-golden text-sm uppercase tracking-[0.3em] font-bold block mb-4"></span>
+                <h1 id="zanzibar-hero-title"
+                    class="text-4xl sm:text-5xl md:text-7xl font-serif font-extrabold text-white mb-6 drop-shadow-2xl">
+                </h1>
+                <p id="zanzibar-hero-desc" class="text-white/70 text-base md:text-lg max-w-2xl mx-auto mb-8"></p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="closeZanzibarPage()"
+                        class="ripple-container inline-flex items-center gap-2 bg-white/10 hover:bg-white/25 backdrop-blur-md text-white border-2 border-white/30 font-bold px-7 py-3.5 rounded-full active:scale-95">
+                        <i class="fa-solid fa-arrow-left"></i> Go Back
                     </button>
-                `;
-            });
-            nav.innerHTML = html;
-        }
+                    <a href="#zanzibar-booking-section"
+                        class="ripple-container inline-flex items-center gap-2 bg-golden hover:bg-amber-400 text-dark font-bold px-7 py-3.5 rounded-full transition-all shadow-[0_0_25px_rgba(245,166,35,0.45)] active:scale-95">
+                        <i class="fa-solid fa-cart-plus"></i> Book This Experience
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="zanzibar-page-content" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24"></div>
+        <div id="footer-container-route"></div>
+    </div>
 
-        window.showCategory = function(categoryId) {
-            const category = toursDatabase[categoryId];
-            if (!category) return;
-            clearAllIntervals();
-            
-            document.getElementById('categoriesView').classList.add('hidden');
-            document.getElementById('categoryDetailView').classList.remove('hidden');
-            document.getElementById('stickyCategoryNav').classList.remove('hidden');
-
-            document.getElementById('detailHeroImage').src = category.heroImage;
-            document.getElementById('detailCategoryTitle').innerText = category.title;
-            document.getElementById('detailCategoryDesc').innerText = category.desc;
-
-            const container = document.getElementById('detailToursContainer');
-            let html = '';
-            category.tours.forEach((tour, idx) => {
-                const flexDir = (idx % 2 === 0) ? '' : 'md:flex-row-reverse';
-                const carouselId = `carousel-${categoryId}-${idx}`;
-                
-                html += `
-                    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden card-hover">
-                        <div class="flex flex-col md:flex-row ${flexDir}">
-                            <div class="md:w-1/2 relative group">
-                                <div class="carousel-container relative h-80 md:h-full overflow-hidden" id="${carouselId}">
-                                    ${tour.images.map((img, i) => `
-                                        <img src="${img}" alt="${tour.name}" class="carousel-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0'}" data-index="${i}">
-                                    `).join('')}
-                                </div>
-                                <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2 px-4 z-10">
-                                    ${tour.images.map((img, i) => `
-                                        <button class="carousel-thumb w-10 h-10 rounded-lg overflow-hidden border-2 ${i === 0 ? 'border-golden' : 'border-white/50'} hover:border-golden transition" data-index="${i}">
-                                            <img src="${img}" class="w-full h-full object-cover">
-                                        </button>
-                                    `).join('')}
-                                </div>
-                                <button class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow" onclick="prevSlide('${carouselId}')"><i class="fas fa-chevron-left"></i></button>
-                                <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow" onclick="nextSlide('${carouselId}')"><i class="fas fa-chevron-right"></i></button>
-                            </div>
-                            <div class="md:w-1/2 p-6 lg:p-8">
-                                <div class="flex justify-between items-start mb-3">
-                                    <h3 class="text-2xl md:text-3xl font-bold serif text-forest">${tour.name}</h3>
-                                    <span class="text-2xl font-bold text-golden">${tour.price}</span>
-                                </div>
-                                <p class="text-gray-500 italic mb-3">${tour.intro}</p>
-                                <p class="text-gray-700 mb-5">${tour.desc}</p>
-                                <div class="grid grid-cols-2 gap-4 mb-5">
-                                    <div class="bg-green-50 p-4 rounded-xl">
-                                        <p class="font-bold text-green-700 mb-2 text-sm"><i class="fas fa-check-circle mr-1"></i> Included</p>
-                                        <ul class="text-sm space-y-1">${tour.included.map(i => `<li class="flex items-start gap-1"><i class="fas fa-check text-green-600 text-xs mt-1"></i><span>${i}</span></li>`).join('')}</ul>
-                                    </div>
-                                    <div class="bg-red-50 p-4 rounded-xl">
-                                        <p class="font-bold text-red-700 mb-2 text-sm"><i class="fas fa-times-circle mr-1"></i> Not Included</p>
-                                        <ul class="text-sm space-y-1">${tour.notIncluded.map(i => `<li class="flex items-start gap-1"><i class="fas fa-times text-red-500 text-xs mt-1"></i><span>${i}</span></li>`).join('')}</ul>
-                                    </div>
-                                </div>
-                                <button class="w-full bg-forest hover:bg-green-800 text-white font-bold py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2" onclick="addToBooking('${tour.name}')">
-                                    Add to Booking <i class="fas fa-cart-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-            initCarousels();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-
-        window.hideCategory = function() {
-            clearAllIntervals();
-            document.getElementById('categoriesView').classList.remove('hidden');
-            document.getElementById('categoryDetailView').classList.add('hidden');
-            document.getElementById('stickyCategoryNav').classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-
-        function updateCarousel(carouselId, newIndex) {
-            const carousel = document.getElementById(carouselId);
-            if (!carousel) return;
-            const slides = carousel.querySelectorAll('.carousel-slide');
-            const container = carousel.closest('.group');
-            const thumbs = container ? container.querySelectorAll('.carousel-thumb') : [];
-            
-            slides.forEach((s, i) => {
-                s.classList.toggle('opacity-100', i === newIndex);
-                s.classList.toggle('opacity-0', i !== newIndex);
-            });
-            thumbs.forEach((t, i) => {
-                t.classList.toggle('border-golden', i === newIndex);
-                t.classList.toggle('border-white/50', i !== newIndex);
-            });
-            carousel.dataset.currentIdx = newIndex;
-
-            if (carouselIntervals.has(carouselId)) clearInterval(carouselIntervals.get(carouselId));
-            const newInterval = setInterval(() => nextSlide(carouselId), 5000);
-            carouselIntervals.set(carouselId, newInterval);
-        }
-
-        function nextSlide(carouselId) {
-            const carousel = document.getElementById(carouselId);
-            if (!carousel) return;
-            const slides = carousel.querySelectorAll('.carousel-slide');
-            let current = parseInt(carousel.dataset.currentIdx) || 0;
-            current = (current + 1) % slides.length;
-            updateCarousel(carouselId, current);
-        }
-
-        function prevSlide(carouselId) {
-            const carousel = document.getElementById(carouselId);
-            if (!carousel) return;
-            const slides = carousel.querySelectorAll('.carousel-slide');
-            let current = parseInt(carousel.dataset.currentIdx) || 0;
-            current = (current - 1 + slides.length) % slides.length;
-            updateCarousel(carouselId, current);
-        }
-
-        function initCarousels() {
-            clearAllIntervals();
-            document.querySelectorAll('[id^="carousel-"]').forEach(carousel => {
-                const slides = carousel.querySelectorAll('.carousel-slide');
-                if (slides.length === 0) return;
-                carousel.dataset.currentIdx = 0;
-                const interval = setInterval(() => nextSlide(carousel.id), 5000);
-                carouselIntervals.set(carousel.id, interval);
-                slides.forEach((s, i) => {
-                    s.classList.toggle('opacity-100', i === 0);
-                    s.classList.toggle('opacity-0', i !== 0);
-                });
-            });
-        }
-
-        document.addEventListener('click', (e) => {
-            const thumb = e.target.closest('.carousel-thumb');
-            if (!thumb) return;
-            const group = thumb.closest('.group');
-            const carousel = group ? group.querySelector('[id^="carousel-"]') : null;
-            if (carousel) {
-                const idx = parseInt(thumb.dataset.index);
-                updateCarousel(carousel.id, idx);
+    <script>
+        (function () {
+            // Use the shared booking toast and cart logic from script.js.
+            // ==================== BUTTON GENERATOR (FIXED: inline-flex instead of w-full) ====================
+            function getAddButtonHTML(itemName, price) {
+                var safeName = itemName.replace(/'/g, "\\'");
+                var safeId = itemName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                var safePrice = String(price).replace(/'/g, "\\'");
+                return '<button onclick="window.addToBooking({ id: \'' + 'zanzibar-' + safeId + '\', name: \'' + safeName + '\', description: \'' + safeName + '\', price: \'' + safePrice + '\', type: \'activity\' })" class="inline-flex bg-golden hover:bg-amber-400 text-forest font-bold py-3 px-6 rounded-full transition-all text-sm items-center justify-center gap-2 active:scale-95"><i class="fa-solid fa-cart-plus text-xs"></i> Add</button>';
             }
-        });
 
-        window.addToBooking = function(tourName) {
-            alert(`"${tourName}" added to your booking! (Demo)`);
-        };
+            // ==================== ACTIVITY DATA ====================
+            var waterSportsActivities = {
+                'clear-kayak': { name: 'Clear Kayak', subtitle: 'Transparent Kayak Photoshoot', price: 'From $35', img: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Paddle a transparent‑bottomed kayak over turquoise waters.', about: 'The Clear Kayak experience lets you glide directly over coral and marine life, with a professional photographer capturing your adventure.', suitable: 'Best for couples, solo travelers, and anyone looking for unique photos.', why: 'Unique transparent kayak · Professional photoshoot · 10 edited photos · 30 min session · Guided', includes: ['Transparent kayak', 'Professional photographer', '30 min session', '10 edited photos', 'Safety equipment'], excludes: ['Transport to beach', 'Swimwear', 'Meals'], activities: [{ title: 'The Experience', detail: 'Arrive at the beach, receive a brief safety orientation, then paddle out in your transparent kayak while the photographer captures stunning photos.' }], packages: [{ duration: '15 mins', price: '$35' }, { duration: '30 mins', price: '$65' }, { duration: '1 hour', price: '$125' }, { duration: '15 mins + Drone', price: '$135' }] },
+                'jetski': { name: 'Jetski Adventure', subtitle: 'Guided Ocean Ride', price: 'From $65', img: 'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Race across Zanzibar\'s open turquoise waters on a guided jetski tour.', about: 'Feel the adrenaline as you ride across the Indian Ocean.', suitable: 'Best for thrill‑seekers and couples.', why: '30 min guided ride · Safety gear included · Open water adventure', includes: ['30 min jet ski rental', 'Safety gear', 'Instructor guidance'], excludes: ['Transport', 'Photos/videos', 'Food & drinks'], activities: [{ title: 'The Ride', detail: 'Meet your instructor, get fitted with a life jacket, and race across the turquoise waters.' }], packages: [{ duration: '15 mins', price: '$35' }, { duration: '30 mins', price: '$65' }, { duration: '1 hour', price: '$125' }, { duration: '15 mins + Drone', price: '$135' }] },
+                'jetcar': { name: 'JetCar Experience', subtitle: 'Drive a Car on Water', price: 'From $150', img: 'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'A unique hybrid of jetski power and go‑kart‑style handling.', about: 'The JetCar combines speed, style, and fun.', suitable: 'Perfect for travelers looking for something unique.', why: 'One‑of‑a‑kind experience · 15 min ride · Life jacket provided', includes: ['15 min jet car ride', 'Life jacket', 'Brief orientation'], excludes: ['Transportation', 'Professional photos'], activities: [{ title: 'The Experience', detail: 'Strap into the JetCar, receive a quick orientation, then drive across the water.' }], packages: [{ duration: '15 mins', price: '$150' }, { duration: '30 mins', price: '$280' }, { duration: '15 mins + Drone', price: '$250' }] },
+                'snorkelling': { name: 'Snorkelling Trips', subtitle: 'Explore Coral Reefs', price: 'From $45', img: 'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Explore vibrant coral reefs and tropical marine life.', about: 'Perfect for beginners and experienced swimmers.', suitable: 'Best for nature lovers, families.', why: 'Vibrant coral reefs · Professional guides · All gear provided', includes: ['Boat trip', 'Snorkeling gear', 'Guide', 'Water'], excludes: ['Transport', 'Lunch', 'Tips'], activities: [{ title: 'The Trip', detail: 'Depart by boat to a carefully selected reef site.' }], packages: [{ duration: 'Half Day (2h)', price: '$45' }, { duration: 'Full Day (4h)', price: '$85' }] },
+                'parasailing': { name: 'Parasailing', subtitle: 'Aerial Ocean Views', price: 'From $70', img: 'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Soar above the coastline for sweeping aerial views.', about: 'Parasailing gives you a bird\'s‑eye view of Zanzibar.', suitable: 'Ideal for adventure lovers, couples.', why: 'Aerial views · Safe and guided · Bucket‑list experience', includes: ['Parasailing flight', 'Safety harness', 'Boat ride', 'Instruction'], excludes: ['Transport', 'Photos/videos', 'Meals'], activities: [{ title: 'The Flight', detail: 'After a safety briefing, you\'re harnessed and lifted into the sky.' }], packages: [{ duration: '10 mins', price: '$70' }, { duration: '15 mins', price: '$100' }] },
+                'drone': { name: 'Drone Aerial Content', subtitle: 'Professional Aerial Footage', price: 'From $160', img: 'https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Capture your adventure from above with professional drone footage.', about: 'Our licensed drone pilot creates stunning aerial content.', suitable: 'Best for content creators, couples.', why: 'Professional drone pilot · Edited video · Aerial photos', includes: ['Licensed drone pilot', 'Edited 2‑3 min video', '10 aerial photos'], excludes: ['Location permits', 'Additional editing'], activities: [{ title: 'The Shoot', detail: 'Our pilot meets you at your activity location.' }], packages: [{ duration: 'Basic Package', price: '$160' }, { duration: 'Extended (4-5 min)', price: '$250' }] },
+                'water-sports-package': { name: 'Water Sports Package', subtitle: 'All 6 Activities · One Price', price: '$299', img: 'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'The ultimate water sports bundle — all six activities in one day.', about: 'Experience all six of Zanzibar\'s most thrilling water activities in a single, perfectly coordinated package.', suitable: 'Best for adventure lovers.', why: 'All six activities · One convenient booking · Perfectly timed schedule', includes: ['Clear Kayak (30 min)', 'Jetski Adventure (30 min)', 'JetCar Experience (15 min)', 'Snorkelling Trip (Half Day)', 'Parasailing (10 min)', 'Drone Aerial Footage (Basic Package)'], excludes: ['Transport to beach', 'Meals', 'Personal expenses'], activities: [{ title: 'Clear Kayak', detail: 'Start your day with a 30‑minute transparent kayak paddle.' }, { title: 'Jetski Adventure', detail: 'Race across the open water.' }, { title: 'JetCar Experience', detail: 'Take a 15‑minute spin in the JetCar.' }, { title: 'Snorkelling Trip', detail: 'Explore vibrant coral reefs.' }, { title: 'Parasailing', detail: 'Soar above the coastline.' }, { title: 'Drone Aerial Content', detail: 'Capture the day from above.' }], packages: [] }
+            };
 
-        window.prevSlide = prevSlide;
-        window.nextSlide = nextSlide;
-        
-        renderCategoryGrid();
-        renderCategoryNav();
-    })();
-</script>
+            var zanzibarCategories = {
+                'safari-blue': { name: 'Safari Blue', subtitle: 'Full-Day Ocean Adventure', price: 'From $95', img: 'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Dhow sailing, snorkeling, and a fresh seafood lunch grilled on a sandbank.', about: 'Safari Blue is the quintessential Zanzibar experience.', suitable: 'Perfect for couples, families.', why: 'Traditional dhow sailing · Snorkeling · Sandbank lunch · Full-day adventure', includes: ['Boat trip', 'Snorkeling equipment', 'Seafood buffet', 'Fruits & drinks', 'Professional guide'], excludes: ['Transport', 'Alcoholic beverages', 'Tips'], activities: [{ title: 'Morning Dhow', detail: 'Set sail aboard a traditional wooden dhow.' }, { title: 'Snorkeling', detail: 'Stop at pristine coral reefs.' }, { title: 'Lunch', detail: 'Fresh seafood barbecue on a sandbank.' }] },
+                'ocean-experiences': { name: 'Ocean Experiences', subtitle: 'Mnemba Dolphin · Turtle Swim · Sunset Dhow', price: 'From $40', img: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Wild dolphins, sea turtles, and golden‑hour sailing.', about: 'Zanzibar\'s ocean experiences take you beyond the shore.', suitable: 'Best for nature lovers, families.', why: 'Wild dolphin encounters · Sea turtle swimming · Sunset dhow sailing', includes: ['Boat transfer', 'Snorkeling gear', 'Guide', 'Safety equipment'], excludes: ['Transport', 'Camera', 'Meals', 'Tips'], activities: [{ title: 'Mnemba Atoll', detail: 'Swim alongside wild dolphins.' }, { title: 'Turtle Swim', detail: 'Swim with sea turtles in a natural lagoon.' }, { title: 'Sunset Cruise', detail: 'Sail into the sunset on a traditional dhow.' }] },
+                'nature-experiences': { name: 'Nature Experiences', subtitle: 'Spice Farm · Jozani Forest · Caves · The Rock', price: 'From $25', img: 'https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Forests, spice farms, hidden caves, and the iconic Rock Restaurant.', about: 'Beyond the beaches lies a lush, green Zanzibar.', suitable: 'Best for nature enthusiasts, families.', why: 'Red colobus monkeys · Working spice farm · Cave swimming · Rock Restaurant', includes: ['Expert local guide', 'Entrance fees', 'Tastings (spice tour)'], excludes: ['Transport', 'Meals', 'Personal purchases'], activities: [{ title: 'Spice Farm', detail: 'Taste, smell, and learn the origins of spices.' }, { title: 'Jozani Forest', detail: 'Home to the rare Red Colobus monkey.' }, { title: 'Caves', detail: 'Swim in hidden freshwater caves.' }, { title: 'The Rock', detail: 'Iconic dining surrounded by ocean.' }] },
+                'cultural-experiences': { name: 'Cultural Experiences', subtitle: 'Stone Town · Prison Island · Sandbank · Markets', price: 'From $25', img: 'https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/2777828/pexels-photo-2777828.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Stories, streets, and sandbanks — Zanzibar\'s living culture.', about: 'Walk the narrow streets of Stone Town, visit giant tortoises.', suitable: 'Best for history buffs, culture seekers.', why: 'UNESCO Stone Town · Giant tortoises · Nakupenda sandbank · Local markets', includes: ['Professional local guide', 'Entrance fees', 'Boat transfers'], excludes: ['Meals', 'Personal purchases'], activities: [{ title: 'Prison Island', detail: 'Home to giant Aldabra tortoises.' }, { title: 'Nakupenda', detail: 'White sandbank surrounded by turquoise ocean.' }, { title: 'Stone Town', detail: 'Guided walk through UNESCO heritage.' }, { title: 'Markets', detail: 'Immerse in bustling local markets.' }] },
+                'luxury-experiences': { name: 'Luxury Experiences', subtitle: 'Flying Dress · Private Dhow · Proposals', price: 'From $160', img: 'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Editorial photoshoots, private charters, and flawless proposals.', about: 'For those seeking the extraordinary.', suitable: 'Best for couples, honeymooners.', why: 'Flying dress photoshoot · Private dhow charter · Proposal setups · VIP', includes: ['Professional photographer', 'Dress rental', 'Private charter', 'Decor & setup'], excludes: ['Hair & makeup', 'Transport', 'Meals'], activities: [{ title: 'Flying Dress', detail: 'Dramatic editorial-style photoshoot.' }, { title: 'Private Dhow', detail: 'Exclusively chartered traditional dhow.' }, { title: 'Proposal Setup', detail: 'Fully arranged private beach proposal.' }] }
+            };
 
-<style>
-    .line-clamp-2 {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        line-clamp: 2;
-        overflow: hidden;
-    }
-</style>
-<div id="footer-container"></div>
-  <script src="script.js"></script>
+            var mainContent = document.getElementById('main-content');
+            var zanzibarDetailPage = document.getElementById('zanzibar-detail-page');
+            var zanzibarHeroImg = document.getElementById('zanzibar-hero-img');
+            var zanzibarHeroTitle = document.getElementById('zanzibar-hero-title');
+            var zanzibarHeroSubtitle = document.getElementById('zanzibar-hero-subtitle');
+            var zanzibarHeroDesc = document.getElementById('zanzibar-hero-desc');
+            var zanzibarPageContent = document.getElementById('zanzibar-page-content');
+
+            function escapeHtml(value) {
+                return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+            }
+
+            function renderZanzibarDetail(data, mode) {
+                var heroData = data;
+                zanzibarHeroImg.src = heroData.img;
+                zanzibarHeroTitle.textContent = heroData.name;
+                zanzibarHeroSubtitle.textContent = heroData.subtitle;
+                zanzibarHeroDesc.textContent = heroData.heroDesc;
+
+                var html = '';
+                html += '<section><div class="flex flex-col md:flex-row items-center gap-8"><div class="flex-1"><span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4 block">About This Experience</span><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-5">' + escapeHtml(heroData.name) + ' – ' + escapeHtml(heroData.subtitle) + '</h2><p class="text-warm/70 leading-relaxed">' + escapeHtml(heroData.about) + '</p></div><div class="flex-1"><img src="' + heroData.aboutImg + '" alt="' + escapeHtml(heroData.name) + '" class="rounded-3xl shadow-2xl w-full h-auto object-cover max-h-96"></div></div></section>';
+                html += '<section><span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4 block">Activity Details</span><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-8">What You\'ll Do</h2><div class="space-y-6">';
+                heroData.activities.forEach(function (item) {
+                    html += '<div class="timeline-item pl-8 ml-2"><div class="bg-white rounded-2xl p-5 shadow-sm border border-warm/10"><strong class="text-forest text-lg">' + escapeHtml(item.title) + '</strong><p class="text-warm/60 text-sm mt-1">' + escapeHtml(item.detail) + '</p></div></div>';
+                });
+                html += '</div></section>';
+                html += '<section><div class="flex flex-col md:flex-row items-start gap-8"><div class="flex-1"><img src="' + heroData.aboutImg + '" alt="' + escapeHtml(heroData.name) + '" class="rounded-3xl shadow-2xl w-full h-auto object-cover max-h-96"></div><div class="flex-1 space-y-6"><div><span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4"><i class="fa-solid fa-star text-golden"></i> Why Choose This</span><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-4">What Makes ' + escapeHtml(heroData.name) + ' Special</h2><div class="flex flex-wrap gap-3">';
+                heroData.why.split('·').forEach(function (item) {
+                    html += '<span class="px-5 py-3 bg-golden/10 text-forest text-sm rounded-full border border-golden/20 flex items-center gap-2"><i class="fa-solid fa-check text-golden text-xs"></i> ' + escapeHtml(item.trim()) + '</span>';
+                });
+                html += '</div></div><div class="bg-forest/5 rounded-2xl p-6 border border-forest/10"><h3 class="font-bold text-forest text-xl mb-2"><i class="fa-solid fa-circle-question text-forest"></i> Who This Is For</h3><p class="text-warm/70">' + escapeHtml(heroData.suitable) + '</p></div></div></div></section>';
+                html += '<section><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="bg-white rounded-2xl p-6 border"><h3 class="font-bold text-forest text-xl mb-4"><i class="fa-solid fa-check-circle text-green-500"></i> Included</h3><ul class="space-y-3 text-sm">';
+                heroData.includes.forEach(function (item) {
+                    html += '<li class="flex gap-2"><i class="fa-solid fa-check text-golden mt-0.5"></i>' + escapeHtml(item) + '</li>';
+                });
+                html += '</ul></div><div class="bg-white rounded-2xl p-6 border"><h3 class="font-bold text-forest text-xl mb-4"><i class="fa-solid fa-times-circle text-rose-400"></i> Not Included</h3><ul class="space-y-3 text-sm">';
+                heroData.excludes.forEach(function (item) {
+                    html += '<li class="flex gap-2"><i class="fa-solid fa-xmark text-rose-400 mt-0.5"></i>' + escapeHtml(item) + '</li>';
+                });
+                html += '</ul></div></div></section>';
+
+                if (heroData.packages && heroData.packages.length) {
+                    html += '<section id="zanzibar-booking-section" class="bg-forest text-white rounded-3xl p-8 md:p-12 text-center"><div class="relative z-10"><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-white mb-4">Choose Your Package</h2><p class="text-white/70 max-w-xl mx-auto mb-8">Select the duration that fits your adventure.</p><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">';
+                    heroData.packages.forEach(function (pkg) {
+                        var itemName = heroData.name + ' - ' + pkg.duration;
+                        html += '<div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 flex flex-col justify-between"><div class="text-lg font-bold text-white mb-1">' + escapeHtml(pkg.duration) + '</div><div class="text-2xl font-extrabold text-golden mb-3">' + escapeHtml(pkg.price) + '</div>' + getAddButtonHTML(itemName, pkg.price) + '</div>';
+                    });
+                    html += '</div></div></section>';
+                } else {
+                    html += '<section id="zanzibar-booking-section" class="bg-forest text-white rounded-3xl p-8 md:p-12 text-center"><div class="relative z-10"><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-white mb-4">Ready to Book ' + escapeHtml(heroData.name) + '?</h2><p class="text-white/70 max-w-xl mx-auto mb-6">Secure your spot — limited availability.</p><div class="text-5xl md:text-6xl font-extrabold mb-2">' + escapeHtml(heroData.price) + '</div><p class="text-white/40 text-xs mb-8">' + escapeHtml(heroData.subtitle) + '</p>' + getAddButtonHTML(heroData.name, heroData.price) + '</div></section>';
+                }
+
+                html += '<section class="text-center py-10"><h2 class="text-3xl font-serif font-extrabold text-forest mb-4">Start Your Zanzibar Adventure</h2><p class="text-warm/60 max-w-xl mx-auto mb-8">Chat with our specialists for instant answers.</p><div class="flex flex-wrap justify-center gap-4"><button onclick="closeZanzibarPage()" class="ripple-container inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-dark font-bold px-8 py-4 rounded-full border-2 border-gray-300 active:scale-95"><i class="fa-solid fa-arrow-left"></i> Go Back</button><a href="https://wa.me/255658840425" target="_blank" class="ripple-container inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-full shadow-lg active:scale-95"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a><a href="mailto:hello@kimondoadventures.com" class="ripple-container inline-flex items-center gap-2 bg-forest hover:bg-forest/90 text-white font-bold px-8 py-4 rounded-full shadow-lg active:scale-95"><i class="fa-regular fa-envelope"></i> Contact</a></div></section>';
+
+                zanzibarPageContent.innerHTML = html;
+                mainContent.classList.add('hidden');
+                zanzibarDetailPage.classList.remove('hidden');
+                window.scrollTo(0, 0);
+                attachAllRipples();
+            }
+
+            window.openZanzibarActivity = function (activityId) {
+                var activity = waterSportsActivities[activityId];
+                if (!activity) return;
+                renderZanzibarDetail(activity, 'activity');
+            };
+
+            window.openZanzibarCategory = function (id) {
+                var category = zanzibarCategories[id];
+                if (!category) return;
+                renderZanzibarDetail(category, 'category');
+            };
+
+            window.closeZanzibarPage = function () {
+                mainContent.classList.remove('hidden');
+                zanzibarDetailPage.classList.add('hidden');
+                window.scrollTo(0, 0);
+            };
+
+            function attachRipple(btn) {
+                if (!btn || btn.dataset.rippleBound) return;
+                btn.dataset.rippleBound = 'true';
+                btn.addEventListener('click', function (e) {
+                    var rect = btn.getBoundingClientRect(), size = Math.max(rect.width, rect.height);
+                    var ripple = document.createElement('span');
+                    ripple.className = 'ripple-wave';
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                    btn.appendChild(ripple);
+                    ripple.addEventListener('animationend', function () { ripple.remove(); });
+                });
+            }
+            function attachAllRipples() { document.querySelectorAll('.ripple-container').forEach(attachRipple); }
+            function observeReveal() {
+                var els = document.querySelectorAll('.reveal-in');
+                if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }); return; }
+                var obs = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; obs.unobserve(e.target); } }); }, { threshold: 0.12 });
+                els.forEach(function (el) { el.style.animationPlayState = 'paused'; obs.observe(el); });
+            }
+            window.addEventListener('DOMContentLoaded', function () { attachAllRipples(); observeReveal(); });
+            var observer = new MutationObserver(function () { if (!zanzibarDetailPage.classList.contains('hidden')) attachAllRipples(); });
+            observer.observe(zanzibarDetailPage, { attributes: true, attributeFilter: ['class'] });
+        })();
+    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>

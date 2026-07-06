@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Trekking & Kilimanjaro Climbs | Kimondo Adventures</title>
+    <meta name="description" content="Conquer Kilimanjaro and Mount Meru with certified guides.">
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        forest: '#2E7D32', golden: '#F5A623', warm: '#5D4037', light: '#fcfbf9', dark: '#0a0f0d',
+                    },
+                    animation: {
+                        'pulse-soft': 'pulseSoft 2.5s ease-in-out infinite',
+                        'bounce-slow': 'bounceSlow 2s infinite',
+                    },
+                    keyframes: {
+                        pulseSoft: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.5' } },
+                        bounceSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar-link.active {
+            color: #F5A623;
+            background-color: rgba(245, 166, 35, 0.08);
+            border-left: 3px solid #F5A623;
+        }
+
+        .policy-section {
+            border-left: 4px solid #F5A623;
+            transition: all 0.25s ease;
+        }
+
+        .policy-section:hover {
+            box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .number-badge {
+            background-color: #F5A623;
+            color: #0a0f0d;
+            font-weight: 700;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
+        }
+
+        /* ✅ Ripple effect – keeps button size stable */
+        .ripple-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple-wave {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                display: none;
+            }
+
+            .collapsible-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .collapsible-content.open {
+                max-height: 2000px;
+            }
+
+            .toggle-arrow {
+                transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .toggle-arrow.open {
+                transform: rotate(180deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light text-warm font-sans antialiased">
+
+    <div id="kimondo-header"></div>
+    <div id="main-content">
+
+        <!--hero section-->
+        <section class="relative h-[70vh] flex items-center justify-center overflow-hidden w-full">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1508873535684-277a3cb6f48e?auto=format&fit=crop&w=2000&q=80"
+                    alt="Kilimanjaro"
+                    class="w-full h-full object-cover scale-110 transition-transform duration-[25s] ease-out">
+                <div class="absolute inset-0 bg-black/65"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-dark/80 via-forest/40 to-dark/90"></div>
+                <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-light to-transparent"></div>
+            </div>
+            <div class="relative z-10 text-center w-full max-w-4xl mx-auto px-6 flex flex-col items-center mt-24">
+                <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6 shadow-xl reveal-in"
+                    style="animation-delay:0.1s;">
+                    <span class="w-2 h-2 rounded-full bg-golden animate-pulse-soft"></span>
+                    <span class="text-xs uppercase tracking-[0.25em] text-white font-bold">Certified Guide Teams</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold text-white mb-5 tracking-tight drop-shadow-2xl leading-[1.1] reveal-in"
+                    style="animation-delay:0.2s;">
+                    Conquer the Roof of Africa<br class="hidden sm:block">
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-golden via-amber-300 to-golden italic font-light">Guided
+                        by Those Who've Stood on Top</span>
+                </h1>
+                <p class="text-base md:text-lg text-white/80 max-w-2xl mx-auto font-light leading-relaxed mb-8 drop-shadow-md reveal-in"
+                    style="animation-delay:0.35s;">Kilimanjaro and Mount Meru — achievements that stay with you for
+                    life.</p>
+                <div class="flex flex-nowrap justify-center gap-4 reveal-in" style="animation-delay:0.5s;">
+                    <a href="#routes"
+                        class="ripple-container bg-golden hover:bg-amber-400 text-dark font-bold px-7 py-3.5 rounded-full transition-all duration-300 flex items-center gap-2 shadow-[0_0_25px_rgba(245,166,35,0.45)] transform hover:-translate-y-1 active:scale-95 text-sm"><i
+                            class="fa-solid fa-mountain-sun"></i> Choose Your Route</a>
+                    <a href="#contact"
+                        class="ripple-container bg-white/10 hover:bg-white/25 backdrop-blur-md text-white border-2 border-white/30 font-bold px-7 py-3.5 rounded-full transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-1 active:scale-95 text-sm"><i
+                            class="fa-solid fa-paper-plane"></i> Start Planning</a>
+                </div>
+            </div>
+        </section>
+
+        <!--why trecking with kimondo-->
+        <section class="py-16 md:py-24 bg-white relative z-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14 reveal-in">
+                    <span class="text-xs md:text-sm uppercase tracking-[0.3em] text-golden font-bold mb-4 block">Why
+                        Trek With Kimondo</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest">Your Summit Deserves More
+                        Than a Generic Tour Group</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="group bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in relative overflow-hidden"
+                        style="animation-delay:0.1s;">
+                        <div
+                            class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-golden">
+                            <i class="fa-solid fa-mountain text-xl text-golden group-hover:text-dark"></i>
+                        </div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Guides Who've Summited</h3>
+                        <p class="text-warm/55 text-sm">Certified guides with personal summit experience.</p>
+                        <span
+                            class="absolute -bottom-2 -right-2 text-6xl font-serif font-extrabold text-warm/5">01</span>
+                    </div>
+                    <div class="group bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in relative overflow-hidden"
+                        style="animation-delay:0.2s;">
+                        <div
+                            class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-golden">
+                            <i class="fa-solid fa-heart-pulse text-xl text-golden group-hover:text-dark"></i>
+                        </div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Safety‑First Altitude</h3>
+                        <p class="text-warm/55 text-sm">Extra acclimatization days and oxygen.</p>
+                        <span
+                            class="absolute -bottom-2 -right-2 text-6xl font-serif font-extrabold text-warm/5">02</span>
+                    </div>
+                    <div class="group bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in relative overflow-hidden"
+                        style="animation-delay:0.3s;">
+                        <div
+                            class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-golden">
+                            <i class="fa-solid fa-users text-xl text-golden group-hover:text-dark"></i>
+                        </div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Small Personal Teams</h3>
+                        <p class="text-warm/55 text-sm">No overcrowded groups.</p>
+                        <span
+                            class="absolute -bottom-2 -right-2 text-6xl font-serif font-extrabold text-warm/5">03</span>
+                    </div>
+                    <div class="group bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-in relative overflow-hidden"
+                        style="animation-delay:0.4s;">
+                        <div
+                            class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-golden">
+                            <i class="fa-solid fa-suitcase-rolling text-xl text-golden group-hover:text-dark"></i>
+                        </div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Full‑Service Support</h3>
+                        <p class="text-warm/55 text-sm">Airport pickup, permits, porters, meals.</p>
+                        <span
+                            class="absolute -bottom-2 -right-2 text-6xl font-serif font-extrabold text-warm/5">04</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--routes-->
+        <!-- TREKKING ROUTES – Equal Card Sizes -->
+        <section id="routes" class="py-20 md:py-32 bg-[#0f2a24] relative z-20 overflow-hidden">
+            <!-- Atmospheric background elements -->
+            <div class="absolute inset-0 pointer-events-none opacity-[0.03]"
+                style="background-image: radial-gradient(circle, #d4a853 1px, transparent 1px); background-size: 50px 50px;">
+            </div>
+            <div class="absolute top-10 left-10 w-72 h-72 bg-golden/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-golden/5 rounded-full blur-3xl"></div>
+            <div
+                class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0a1f1a] to-transparent pointer-events-none">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <!-- Heading -->
+                <div class="text-center mb-16 md:mb-20 reveal-in">
+                    <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-golden font-bold mb-4 block">
+                        <i class="fa-solid fa-mountain text-[10px] align-middle mr-2 text-golden"></i> Choose Your Route
+                    </span>
+                    <h2
+                        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold text-white leading-tight max-w-4xl mx-auto">
+                        Every Route Has a<br class="sm:hidden"> <span class="text-golden italic">Different Story</span>
+                        to Tell
+                    </h2>
+                    <p class="mt-5 text-white/50 text-base md:text-lg max-w-2xl mx-auto font-light">
+                        From scenic high‑altitude traverses to wildlife‑rich warm‑up climbs — find the path that matches
+                        your spirit.
+                    </p>
+                </div>
+
+                <!-- Routes Grid – All cards equal size -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+
+                    <!-- Card 1: Machame -->
+                    <div class="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-[0_20px_50px_rgba(212,168,83,0.25)] transition-all duration-700 flex flex-col reveal-in cursor-pointer"
+                        onclick="openRoutePage('machame')">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="PIC/machame.JPG" alt="Machame Route"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0f2a24]/70 via-transparent to-transparent">
+                            </div>
+                            <div class="absolute top-3 left-3 z-10">
+                                <span
+                                    class="bg-[#0f2a24]/70 backdrop-blur-sm text-golden text-[10px] font-bold uppercase px-2.5 py-1 rounded-full tracking-wider border border-golden/30">Challenging</span>
+                            </div>
+                            <div class="absolute top-3 right-3 z-10">
+                                <span
+                                    class="bg-golden text-[#0f2a24] text-lg font-serif font-extrabold px-2.5 py-1 rounded-lg shadow-lg leading-none">7<span
+                                        class="text-[10px] font-normal">d</span></span>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34] mb-1">Machame</h3>
+                            <p class="text-golden text-[10px] font-semibold uppercase tracking-[0.2em] mb-2">The Whiskey
+                                Route</p>
+                            <p class="text-[#1a3c34]/60 text-xs leading-relaxed mb-4 flex-1">Highest acclimatization
+                                profile, breathtaking scenery, most popular path to Uhuru Peak.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xl font-extrabold text-[#1a3c34]">$2,450</span>
+                                <button
+                                    class="bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-2.5 px-4 rounded-full text-sm flex items-center gap-2 transition-all shadow-md">
+                                    Explore <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Marangu -->
+                    <div class="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-[0_20px_50px_rgba(212,168,83,0.25)] transition-all duration-700 flex flex-col reveal-in cursor-pointer"
+                        onclick="openRoutePage('marangu')">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="PIC/marangu.JPG" alt="Marangu Route"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0f2a24]/70 via-transparent to-transparent">
+                            </div>
+                            <div class="absolute top-3 left-3 z-10">
+                                <span
+                                    class="bg-[#0f2a24]/70 backdrop-blur-sm text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full tracking-wider">Moderate</span>
+                            </div>
+                            <div class="absolute top-3 right-3 z-10">
+                                <span
+                                    class="bg-golden text-[#0f2a24] text-lg font-serif font-extrabold px-2.5 py-1 rounded-lg shadow-lg leading-none">6<span
+                                        class="text-[10px] font-normal">d</span></span>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34] mb-1">Marangu</h3>
+                            <p class="text-golden text-[10px] font-semibold uppercase tracking-[0.2em] mb-2">Coca‑Cola
+                                Route</p>
+                            <p class="text-[#1a3c34]/60 text-xs leading-relaxed mb-4 flex-1">Hut accommodation, shorter
+                                duration — the only route with dorm‑style lodging.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xl font-extrabold text-[#1a3c34]">$2,150</span>
+                                <button
+                                    class="bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-2.5 px-4 rounded-full text-sm flex items-center gap-2 transition-all shadow-md">
+                                    Explore <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Lemosho -->
+                    <div class="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-[0_20px_50px_rgba(212,168,83,0.25)] transition-all duration-700 flex flex-col reveal-in cursor-pointer"
+                        onclick="openRoutePage('lemosho')">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="PIC/lemosho.JPG" alt="Lemosho Route"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0f2a24]/70 via-transparent to-transparent">
+                            </div>
+                            <div class="absolute top-3 left-3 z-10">
+                                <span
+                                    class="bg-[#0f2a24]/70 backdrop-blur-sm text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full tracking-wider">Challenging</span>
+                            </div>
+                            <div class="absolute top-3 right-3 z-10">
+                                <span
+                                    class="bg-golden text-[#0f2a24] text-lg font-serif font-extrabold px-2.5 py-1 rounded-lg shadow-lg leading-none">8<span
+                                        class="text-[10px] font-normal">d</span></span>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34] mb-1">Lemosho</h3>
+                            <p class="text-golden text-[10px] font-semibold uppercase tracking-[0.2em] mb-2">Highest
+                                Success Rate</p>
+                            <p class="text-[#1a3c34]/60 text-xs leading-relaxed mb-4 flex-1">Remote, pristine, excellent
+                                acclimatization — the top choice for summit success.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xl font-extrabold text-[#1a3c34]">$2,850</span>
+                                <button
+                                    class="bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-2.5 px-4 rounded-full text-sm flex items-center gap-2 transition-all shadow-md">
+                                    Explore <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Mount Meru -->
+                    <div class="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-[0_20px_50px_rgba(212,168,83,0.25)] transition-all duration-700 flex flex-col reveal-in cursor-pointer"
+                        onclick="openRoutePage('meru')">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1549366021-9f761d7f1e75?auto=format&fit=crop&w=600&q=80"
+                                alt="Mount Meru"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#0f2a24]/70 via-transparent to-transparent">
+                            </div>
+                            <div class="absolute top-3 left-3 z-10 flex gap-2">
+                                <span
+                                    class="bg-[#0f2a24]/70 backdrop-blur-sm text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full tracking-wider">Moderate</span>
+                                <span
+                                    class="bg-golden text-[#0f2a24] text-[10px] font-bold uppercase px-2.5 py-1 rounded-full tracking-wider"><i
+                                        class="fa-solid fa-paw mr-1 text-[8px]"></i> Wildlife</span>
+                            </div>
+                            <div class="absolute top-3 right-3 z-10">
+                                <span
+                                    class="bg-golden text-[#0f2a24] text-lg font-serif font-extrabold px-2.5 py-1 rounded-lg shadow-lg leading-none">4<span
+                                        class="text-[10px] font-normal">d</span></span>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <h3 class="font-serif font-bold text-xl md:text-2xl text-[#1a3c34] mb-1">Mount Meru</h3>
+                            <p class="text-golden text-[10px] font-semibold uppercase tracking-[0.2em] mb-2">Perfect
+                                Warm‑Up</p>
+                            <p class="text-[#1a3c34]/60 text-xs leading-relaxed mb-4 flex-1">Ideal Kilimanjaro warm‑up
+                                with game sightings en route — Tanzania's hidden gem.</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xl font-extrabold text-[#1a3c34]">$1,450</span>
+                                <button
+                                    class="bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold py-2.5 px-4 rounded-full text-sm flex items-center gap-2 transition-all shadow-md">
+                                    Explore <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- HOW TO PREPARE (new section) -->
+        <section class="py-16 md:py-24 bg-white relative z-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-14 reveal-in">
+                    <span
+                        class="text-xs md:text-sm uppercase tracking-[0.3em] text-golden font-bold mb-4 block">Preparing
+                        for Your Climb</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest">What You Need to Know Before
+                        You Go</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-md transition-all reveal-in"
+                        style="animation-delay:0.1s;">
+                        <div class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5"><i
+                                class="fa-solid fa-heart-pulse text-xl text-golden"></i></div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Fitness</h3>
+                        <p class="text-warm/55 text-sm">No technical climbing skill is required, but a solid base of
+                            cardiovascular fitness significantly improves your experience.</p>
+                    </div>
+                    <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-md transition-all reveal-in"
+                        style="animation-delay:0.2s;">
+                        <div class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5"><i
+                                class="fa-solid fa-suitcase text-xl text-golden"></i></div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Packing</h3>
+                        <p class="text-warm/55 text-sm">Layered clothing for five climate zones, from rainforest heat to
+                            arctic summit-night cold. We provide a full packing list upon booking.</p>
+                    </div>
+                    <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-md transition-all reveal-in"
+                        style="animation-delay:0.3s;">
+                        <div class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5"><i
+                                class="fa-solid fa-mountain-sun text-xl text-golden"></i></div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Altitude Awareness</h3>
+                        <p class="text-warm/55 text-sm">Understanding basic altitude sickness symptoms helps you
+                            communicate clearly with your guide if something feels off.</p>
+                    </div>
+                    <div class="bg-light rounded-3xl p-7 border border-warm/5 shadow-sm hover:shadow-md transition-all reveal-in"
+                        style="animation-delay:0.4s;">
+                        <div class="w-12 h-12 bg-golden/10 rounded-2xl flex items-center justify-center mb-5"><i
+                                class="fa-solid fa-shield-heart text-xl text-golden"></i></div>
+                        <h3 class="font-bold text-forest text-lg mb-2">Insurance</h3>
+                        <p class="text-warm/55 text-sm">Comprehensive travel insurance with medical evacuation coverage
+                            is strongly recommended for all trekkers.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-10 reveal-in" style="animation-delay:0.5s;">
+                    <a href="#"
+                        class="ripple-container inline-flex items-center gap-2 bg-forest hover:bg-forest/90 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg">
+                        <i class="fa-solid fa-book-open"></i> Read Our Full Kilimanjaro Packing Guide
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT TREKKERS SAY (updated) -->
+        <!-- TESTIMONIALS – Powerful Modern Design for Trekking -->
+        <section class="py-20 md:py-32 bg-[#0f2a24] relative z-20 overflow-hidden">
+            <!-- Background atmosphere -->
+            <div class="absolute inset-0 pointer-events-none opacity-[0.03]"
+                style="background-image: radial-gradient(circle, #d4a853 1px, transparent 1px); background-size: 50px 50px;">
+            </div>
+            <div class="absolute top-10 right-10 w-80 h-80 bg-golden/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 left-10 w-72 h-72 bg-golden/5 rounded-full blur-3xl"></div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] text-golden/5 pointer-events-none">
+                <i class="fa-solid fa-quote-right"></i>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <!-- Heading -->
+                <div class="text-center mb-16 md:mb-20 reveal-in">
+                    <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-golden font-bold mb-4 block">
+                        <i class="fa-solid fa-circle text-[6px] align-middle mr-2 text-golden"></i> From Our Trekkers
+                    </span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold text-white leading-tight">
+                        Real Stories from the Summit
+                    </h2>
+                </div>
+
+                <!-- Testimonials grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Card 1 -->
+                    <div
+                        class="group relative bg-white rounded-3xl p-8 md:p-10 shadow-xl hover:shadow-2xl border border-white/20 transition-all duration-500 hover:border-golden/50 reveal-in flex flex-col">
+                        <!-- Stars -->
+                        <div class="flex gap-1 mb-6 text-golden">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <!-- Quote -->
+                        <p class="text-[#1a3c34]/80 italic text-base md:text-lg mb-8 flex-1 leading-relaxed">
+                            “Our guide's pacing on summit night made all the difference. I genuinely believe I wouldn't
+                            have made it to the top with a different team.”
+                        </p>
+                        <!-- Author -->
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#1a3c34]/10 flex items-center justify-center text-[#1a3c34] font-bold text-sm">
+                                JK</div>
+                            <div>
+                                <p class="text-[#1a3c34] font-bold text-sm">James K.</p>
+                                <p class="text-[#1a3c34]/50 text-xs">Australia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="group relative bg-white rounded-3xl p-8 md:p-10 shadow-xl hover:shadow-2xl border border-white/20 transition-all duration-500 hover:border-golden/50 reveal-in flex flex-col">
+                        <div class="flex gap-1 mb-6 text-golden">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-[#1a3c34]/80 italic text-base md:text-lg mb-8 flex-1 leading-relaxed">
+                            “Professional from day one — the acclimatization schedule on Lemosho was clearly built with
+                            real safety knowledge, not just a sales pitch.”
+                        </p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#1a3c34]/10 flex items-center justify-center text-[#1a3c34] font-bold text-sm">
+                                NS</div>
+                            <div>
+                                <p class="text-[#1a3c34] font-bold text-sm">Nadia S.</p>
+                                <p class="text-[#1a3c34]/50 text-xs">Netherlands</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="group relative bg-white rounded-3xl p-8 md:p-10 shadow-xl hover:shadow-2xl border border-white/20 transition-all duration-500 hover:border-golden/50 reveal-in flex flex-col">
+                        <div class="flex gap-1 mb-6 text-golden">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-[#1a3c34]/80 italic text-base md:text-lg mb-8 flex-1 leading-relaxed">
+                            “Small group, attentive guides, and they handled every permit and logistic detail. All I had
+                            to do was walk.”
+                        </p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#1a3c34]/10 flex items-center justify-center text-[#1a3c34] font-bold text-sm">
+                                TR</div>
+                            <div>
+                                <p class="text-[#1a3c34] font-bold text-sm">Tom R.</p>
+                                <p class="text-[#1a3c34]/50 text-xs">Canada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA (updated) -->
+        <!-- FINAL CALL-TO-ACTION with white background -->
+        <section id="contact" class="py-20 md:py-28 bg-white relative flex items-center min-h-[350px] overflow-hidden">
+            <div
+                class="absolute top-0 right-0 w-[500px] h-[500px] bg-forest/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-golden/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4">
+            </div>
+            <div class="max-w-3xl mx-auto px-4 text-center relative z-10 w-full reveal-in">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold text-forest mb-6">Your Summit
+                    Story Starts Here</h2>
+                <p class="text-warm/70 text-base md:text-lg font-light mb-10 max-w-xl mx-auto">Whether you're aiming for
+                    Kilimanjaro's Uhuru Peak or using Mount Meru as your warm-up climb, Kimondo's guide teams are ready
+                    to get you there — safely, and with a story worth telling.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#"
+                        class="ripple-container inline-flex bg-golden hover:bg-amber-400 text-dark font-extrabold px-10 py-4 rounded-full transition-all duration-300 items-center gap-3 shadow-[0_0_30px_rgba(245,166,35,0.5)] transform hover:-translate-y-2 active:scale-95">
+                        <i class="fa-solid fa-paper-plane"></i> Start Planning My Trek
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ==================== ROUTE DETAIL PAGE ==================== -->
+    <div id="route-page" class="hidden">
+        <!-- route page (header is global) -->
+
+        <div class="relative h-[65vh] flex items-center justify-center overflow-hidden">
+            <img id="route-hero-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/60 bg-gradient-to-t from-dark/90 via-black/40 to-transparent"></div>
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+                <span id="route-hero-subtitle"
+                    class="text-golden text-sm uppercase tracking-[0.3em] font-bold block mb-4"></span>
+                <h1 id="route-hero-title"
+                    class="text-4xl sm:text-5xl md:text-7xl font-serif font-extrabold text-white mb-6 drop-shadow-2xl">
+                </h1>
+                <p id="route-hero-desc" class="text-white/70 text-base md:text-lg max-w-2xl mx-auto mb-8"></p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="closeRoutePage()"
+                        class="ripple-container inline-flex items-center gap-2 bg-white/10 hover:bg-white/25 backdrop-blur-md text-white border-2 border-white/30 font-bold px-7 py-3.5 rounded-full transition-all active:scale-95"><i
+                            class="fa-solid fa-arrow-left"></i> Go Back</button>
+                    <a href="#booking-section"
+                        class="ripple-container inline-flex items-center gap-2 bg-golden hover:bg-amber-400 text-dark font-bold px-7 py-3.5 rounded-full transition-all shadow-[0_0_25px_rgba(245,166,35,0.45)] active:scale-95"><i
+                            class="fa-solid fa-cart-plus"></i> Book This Route</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="route-page-content" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24"></div>
+    </div>
+
+    <script>
+            (function () {
+                const routes = {
+                    machame: {
+                        name: 'Machame Route', subtitle: '7 Days · Whiskey Route', price: '$2,450',
+                        img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80',
+                        aboutImg: 'pic/machame.JPG',
+                        heroDesc: 'The most scenic path to the Roof of Africa, designed for first-timers with optimal acclimatization.',
+                        about: 'The Machame Route, nicknamed the "Whiskey Route," is our most recommended trek for first‑time climbers. It offers longer acclimatization, stunning scenery through five climate zones, and a higher summit success rate than shorter routes.',
+                        suitable: 'Best for first‑time Kilimanjaro climbers, reasonably fit trekkers who want a scenic, well‑paced ascent with strong acclimatization. Also ideal for photographers and nature lovers.',
+                        why: 'Extra acclimatization days · Most scenic route · "Climb high, sleep low" strategy · Small guide teams · Full‑service support · Highest success rate among 7‑day routes',
+                        includes: ['Certified guides & crew', 'Park fees, camping permits', 'All meals on trek', 'Porters', 'Pre‑climb briefing', 'Airport transfers', 'Emergency oxygen'],
+                        excludes: ['International flights', 'Personal gear', 'Tips', 'Travel insurance', 'Pre/post accommodation'],
+                        itinerary: [
+                            { day: 1, title: 'Machame Gate → Machame Camp', dist: '~11 km', time: '5‑7 hrs', alt: '1,800m → 3,000m', habitat: 'Rainforest' },
+                            { day: 2, title: 'Machame Camp → Shira Camp', dist: '~5 km', time: '4‑6 hrs', alt: '3,000m → 3,840m', habitat: 'Moorland' },
+                            { day: 3, title: 'Shira → Lava Tower → Barranco', dist: '~10 km', time: '6‑8 hrs', alt: '3,840m → 4,630m → 3,960m', habitat: 'Semi‑Desert' },
+                            { day: 4, title: 'Barranco Camp → Karanga Camp', dist: '~5 km', time: '4‑5 hrs', alt: '3,960m → 4,035m', habitat: 'Alpine Desert' },
+                            { day: 5, title: 'Karanga Camp → Barafu Camp', dist: '~4 km', time: '3‑4 hrs', alt: '4,035m → 4,673m', habitat: 'Alpine Desert' },
+                            { day: 6, title: 'Barafu → Uhuru Peak → Mweka', dist: '~17 km', time: '10‑14 hrs', alt: '4,673m → 5,895m → 3,100m', habitat: 'Arctic→Rainforest' },
+                            { day: 7, title: 'Mweka Camp → Mweka Gate', dist: '~10 km', time: '3‑4 hrs', alt: '3,100m → 1,640m', habitat: 'Rainforest' }
+                        ]
+                    },
+                    marangu: {
+                        name: 'Marangu Route', subtitle: '6 Days · Coca‑Cola Route', price: '$2,150',
+                        img: 'https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&w=1400&q=80',
+                        aboutImg: 'pic/marangu.JPG',
+                        heroDesc: 'The only route with comfortable mountain huts – perfect for those who value a warm bed after a day of trekking.',
+                        about: 'The Marangu Route is the only Kilimanjaro route with hut‑style accommodation. It\'s a shorter trek best suited for those who prioritize sleeping comfort and a more direct ascent.',
+                        suitable: 'Best for trekkers who prefer hut accommodation, those with limited time, or anyone who wants a comfortable, well‑established path.',
+                        why: 'Only route with hut accommodation · Shorter duration · Built‑in acclimatization day · Well‑maintained trail · Cozy mountain hut experience',
+                        includes: ['Certified guides', 'Park fees, hut fees', 'All meals', 'Porters', 'Pre‑climb briefing', 'Transfers', 'Emergency oxygen'],
+                        excludes: ['International flights', 'Personal gear', 'Tips', 'Travel insurance', 'Pre/post accommodation'],
+                        itinerary: [
+                            { day: 1, title: 'Marangu Gate → Mandara Hut', dist: '~8 km', time: '4‑5 hrs', alt: '1,860m → 2,700m', habitat: 'Rainforest' },
+                            { day: 2, title: 'Mandara Hut → Horombo Hut', dist: '~12 km', time: '6‑8 hrs', alt: '2,700m → 3,720m', habitat: 'Moorland' },
+                            { day: 3, title: 'Horombo Hut — Acclimatization', dist: '~4 km optional', time: '—', alt: '3,720m (up to 4,200m)', habitat: 'Moorland/Alpine' },
+                            { day: 4, title: 'Horombo Hut → Kibo Hut', dist: '~10 km', time: '5‑6 hrs', alt: '3,720m → 4,700m', habitat: 'Alpine Desert' },
+                            { day: 5, title: 'Kibo Hut → Uhuru Peak → Horombo', dist: '~21 km', time: '11‑15 hrs', alt: '4,700m → 5,895m → 3,720m', habitat: 'Arctic→Moorland' },
+                            { day: 6, title: 'Horombo Hut → Marangu Gate', dist: '~18 km', time: '5‑7 hrs', alt: '3,720m → 1,860m', habitat: 'Rainforest' }
+                        ]
+                    },
+                    lemosho: {
+                        name: 'Lemosho Route', subtitle: '8 Days · Highest Success Rate', price: '$2,850',
+                        img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80',
+                        aboutImg: 'pic/lemosho.JPG',
+                        heroDesc: 'The remote, uncrowded trail with the highest summit success probability – for those who want the best chance to stand on Uhuru Peak.',
+                        about: 'The Lemosho Route is a remote, less‑crowded path offering the best acclimatization profile on Kilimanjaro. With 8 days on the mountain, it maximizes summit success while delivering breathtaking scenery.',
+                        suitable: 'Best for trekkers who want the highest summit success probability, photographers, and anyone seeking a quieter, more immersive wilderness experience.',
+                        why: 'Highest success rate · Remote & uncrowded · Excellent acclimatization · Stunning Shira Plateau · Full‑service support · Gradual ascent profile',
+                        includes: ['Certified guides', 'Park fees, camping permits', 'All meals', 'Porters', 'Pre‑climb briefing', 'Transfers', 'Emergency oxygen'],
+                        excludes: ['International flights', 'Personal gear', 'Tips', 'Travel insurance', 'Pre/post accommodation'],
+                        itinerary: [
+                            { day: 1, title: 'Lemosho Gate → Mti Mkubwa', dist: '~6 km', time: '3‑4 hrs', alt: '2,100m → 2,830m', habitat: 'Rainforest' },
+                            { day: 2, title: 'Mti Mkubwa → Shira 1', dist: '~8 km', time: '4‑5 hrs', alt: '2,830m → 3,500m', habitat: 'Moorland' },
+                            { day: 3, title: 'Shira 1 → Shira 2', dist: '~10 km', time: '4‑6 hrs', alt: '3,500m → 3,850m', habitat: 'Moorland' },
+                            { day: 4, title: 'Shira 2 → Lava Tower → Barranco', dist: '~15 km', time: '6‑8 hrs', alt: '3,850m→4,630m→3,960m', habitat: 'Semi‑Desert' },
+                            { day: 5, title: 'Barranco → Karanga', dist: '~5 km', time: '4‑5 hrs', alt: '3,960m→4,035m', habitat: 'Alpine Desert' },
+                            { day: 6, title: 'Karanga → Barafu', dist: '~4 km', time: '3‑4 hrs', alt: '4,035m→4,673m', habitat: 'Alpine Desert' },
+                            { day: 7, title: 'Barafu → Uhuru Peak → Mweka', dist: '~17 km', time: '10‑14 hrs', alt: '4,673m→5,895m→3,100m', habitat: 'Arctic→Rainforest' },
+                            { day: 8, title: 'Mweka Camp → Mweka Gate', dist: '~10 km', time: '3‑4 hrs', alt: '3,100m→1,640m', habitat: 'Rainforest' }
+                        ]
+                    },
+                    meru: {
+                        name: 'Mount Meru', subtitle: '4 Days · Wildlife En Route', price: '$1,450',
+                        img: 'https://images.unsplash.com/photo-1549366021-9f761d7f1e75?auto=format&fit=crop&w=1400&q=80',
+                        aboutImg: 'https://images.unsplash.com/photo-1590073242678-70ee3b3c7b8b?auto=format&fit=crop&w=800&q=80',
+                        heroDesc: 'A thrilling warm‑up to Kilimanjaro with real wildlife sightings – the perfect short African peak adventure.',
+                        about: 'Mount Meru is Tanzania\'s second‑highest peak and an ideal warm‑up for Kilimanjaro. The trek passes through Arusha National Park, offering genuine wildlife sightings.',
+                        suitable: 'Best as a Kilimanjaro warm‑up, for trekkers wanting wildlife with their climb, or anyone seeking a shorter but challenging African peak.',
+                        why: 'Wildlife en route · Ideal acclimatization · Shorter commitment · Stunning crater views · Full‑service support · Less crowded than Kilimanjaro',
+                        includes: ['Certified guides', 'Park fees, hut fees', 'All meals', 'Porters', 'Pre‑climb briefing', 'Transfers', 'Emergency equipment'],
+                        excludes: ['International flights', 'Personal gear', 'Tips', 'Travel insurance', 'Pre/post accommodation'],
+                        itinerary: [
+                            { day: 1, title: 'Momella Gate → Miriakamba Hut', dist: '~14 km', time: '4‑5 hrs', alt: '1,500m→2,514m', habitat: 'Forest/Savanna' },
+                            { day: 2, title: 'Miriakamba → Saddle Hut', dist: '~5 km', time: '3‑4 hrs', alt: '2,514m→3,570m', habitat: 'Moorland' },
+                            { day: 3, title: 'Saddle Hut → Socialist Peak → Miriakamba', dist: '~9+15 km', time: '8‑10 hrs', alt: '3,570m→4,562m→2,514m', habitat: 'Alpine→Forest' },
+                            { day: 4, title: 'Miriakamba → Momella Gate', dist: '~14 km', time: '4‑5 hrs', alt: '2,514m→1,500m', habitat: 'Forest/Savanna' }
+                        ]
+                    }
+                };
+
+                const mainContent = document.getElementById('main-content');
+                const routePage = document.getElementById('route-page');
+                const routeHeroImg = document.getElementById('route-hero-img');
+                const routeHeroTitle = document.getElementById('route-hero-title');
+                const routeHeroSubtitle = document.getElementById('route-hero-subtitle');
+                const routeHeroDesc = document.getElementById('route-hero-desc');
+                const routePageContent = document.getElementById('route-page-content');
+
+                window.openRoutePage = function (routeId) {
+                    const r = routes[routeId];
+                    if (!r) return;
+                    routeHeroImg.src = r.img;
+                    routeHeroImg.alt = r.name;
+                    routeHeroTitle.textContent = r.name;
+                    routeHeroSubtitle.textContent = r.subtitle;
+                    routeHeroDesc.textContent = r.heroDesc;
+
+                    let html = '';
+
+                    // ABOUT SECTION
+                    html += `
+                <section>
+                    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                        <div class="flex-1">
+                            <span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4 block">About The Route</span>
+                            <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-5">${r.name} – ${r.subtitle}</h2>
+                            <p class="text-warm/70 leading-relaxed text-base md:text-lg">${r.about}</p>
+                        </div>
+                        <div class="flex-1">
+                            <img src="${r.aboutImg}" alt="${r.name} landscape" class="rounded-3xl shadow-2xl w-full h-auto object-cover max-h-96">
+                        </div>
+                    </div>
+                </section>`;
+
+                    // ITINERARY
+                    html += `
+                <section>
+                    <span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4 block">Day‑by‑Day Itinerary</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-8">Your Journey, Step by Step</h2>
+                    <div class="space-y-6">
+                        ${r.itinerary.map((d) => `
+                        <div class="timeline-item pl-8 md:pl-10 ml-2">
+                            <div class="bg-white rounded-2xl p-5 shadow-sm border border-warm/10 hover:shadow-md transition-shadow">
+                                <div class="flex flex-wrap items-center gap-3 mb-3">
+                                    <span class="w-10 h-10 bg-golden text-dark rounded-full flex items-center justify-center font-bold text-sm shrink-0 shadow">${d.day}</span>
+                                    <strong class="text-forest text-lg md:text-xl">${d.title}</strong>
+                                </div>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm text-warm/60 ml-12">
+                                    <span class="flex items-center gap-1"><i class="fa-solid fa-ruler text-golden text-xs"></i> ${d.dist}</span>
+                                    <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-golden text-xs"></i> ${d.time}</span>
+                                    <span class="flex items-center gap-1"><i class="fa-solid fa-mountain text-golden text-xs"></i> ${d.alt}</span>
+                                    <span class="flex items-center gap-1"><i class="fa-solid fa-tree text-golden text-xs"></i> ${d.habitat}</span>
+                                </div>
+                            </div>
+                        </div>`).join('')}
+                    </div>
+                </section>`;
+
+                    // WHY CHOOSE + WHO THIS ROUTE IS FOR (image left, text right, aligned top)
+                    html += `
+                <section>
+                    <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+                        <div class="flex-1">
+                            <img src="${r.aboutImg}" alt="${r.name}" class="rounded-3xl shadow-2xl w-full h-auto object-cover max-h-96">
+                        </div>
+                        <div class="flex-1 space-y-6">
+                            <div>
+                                <span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-star text-golden"></i> Why Choose This Route
+                                </span>
+                                <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-4">What Makes ${r.name} Special</h2>
+                                <div class="flex flex-wrap gap-3">
+                                    ${r.why.split('·').map((w, i) => {
+                        const icons = ['fa-mountain', 'fa-route', 'fa-bed', 'fa-users', 'fa-headset', 'fa-trophy'];
+                        const icon = icons[i % icons.length];
+                        return `<span class="px-5 py-3 bg-golden/10 text-forest text-sm md:text-base rounded-full font-medium border border-golden/20 flex items-center gap-2">
+                                            <i class="fa-solid ${icon} text-golden text-xs"></i> ${w.trim()}
+                                        </span>`;
+                    }).join('')}
+                                </div>
+                            </div>
+                            <div class="bg-forest/5 rounded-2xl p-6 border border-forest/10">
+                                <h3 class="font-bold text-forest text-xl mb-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-question text-forest"></i> Who This Route Is For
+                                </h3>
+                                <p class="text-warm/70 leading-relaxed">${r.suitable}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>`;
+
+                    // INCLUDES / EXCLUDES
+                    html += `
+                <section>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-2xl p-6 border border-warm/10 shadow-sm">
+                            <h3 class="font-bold text-forest text-xl mb-4 flex items-center gap-2"><i class="fa-solid fa-check-circle text-green-500"></i> What's Included</h3>
+                            <ul class="space-y-3 text-sm text-warm/70">
+                                ${r.includes.map(i => `<li class="flex gap-2"><i class="fa-solid fa-check text-golden mt-0.5 shrink-0"></i> ${i}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 border border-warm/10 shadow-sm">
+                            <h3 class="font-bold text-forest text-xl mb-4 flex items-center gap-2"><i class="fa-solid fa-times-circle text-rose-400"></i> What's Not Included</h3>
+                            <ul class="space-y-3 text-sm text-warm/50">
+                                ${r.excludes.map(i => `<li class="flex gap-2"><i class="fa-solid fa-xmark text-rose-400 mt-0.5 shrink-0"></i> ${i}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </section>`;
+
+                    // PRICING & BOOKING
+                    html += `
+                <section id="booking-section" class="bg-forest text-white rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+                    <div class="absolute bottom-0 left-0 w-40 h-40 bg-golden/10 rounded-full translate-y-1/2 -translate-x-1/3 blur-2xl"></div>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-white mb-4">Secure Your Spot on the Roof of Africa</h2>
+                        <p class="text-white/70 max-w-xl mx-auto mb-6">Book now and lock in your adventure. Limited slots available for the upcoming season.</p>
+                        <div class="text-5xl md:text-6xl font-extrabold mb-2 tracking-tight">${r.price}</div>
+                        <p class="text-white/60 text-sm mb-2">per person</p>
+                        <p class="text-white/40 text-xs mb-8">${r.subtitle}</p>
+                        <button onclick="window.addToBooking({ id: 'trekking-${r.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}', name: '${r.name}', description: '${r.subtitle}', price: '${r.price}', type: 'trek', image: '${r.img}' })" class="ripple-container inline-flex bg-golden hover:bg-amber-400 text-dark font-bold px-10 py-4 rounded-full transition-all items-center gap-3 shadow-[0_0_30px_rgba(245,166,35,0.5)] active:scale-95">
+                            <i class="fa-solid fa-cart-plus"></i> Add to My Booking
+                        </button>
+                    </div>
+                </section>`;
+
+                    // FINAL CTA
+                    html += `
+                <section class="text-center py-10">
+                    <h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-4">Ready to Turn Your Dream into Reality?</h2>
+                    <p class="text-warm/60 max-w-xl mx-auto mb-8">Chat with our trekking specialists for instant answers, or send us an email with your questions.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="closeRoutePage()" class="ripple-container inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-dark font-bold px-8 py-4 rounded-full transition-all border-2 border-gray-300 active:scale-95">
+                            <i class="fa-solid fa-arrow-left"></i> Go Back
+                        </button>
+                        <a href="https://wa.me/255658840425" target="_blank" class="ripple-container inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg active:scale-95">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp Instant Booking
+                        </a>
+                        <a href="mailto:hello@kimondoadventures.com" class="ripple-container inline-flex items-center gap-2 bg-forest hover:bg-forest/90 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg active:scale-95">
+                            <i class="fa-regular fa-envelope"></i> Contact Us
+                        </a>
+                    </div>
+                </section>`;
+
+                    routePageContent.innerHTML = html;
+                    mainContent.classList.add('hidden');
+                    routePage.classList.remove('hidden');
+                    window.scrollTo(0, 0);
+                    attachAllRipples();
+                };
+
+                window.closeRoutePage = function () {
+                    mainContent.classList.remove('hidden');
+                    routePage.classList.add('hidden');
+                    window.scrollTo(0, 0);
+                };
+
+                function attachRipple(btn) {
+                    if (!btn || btn.dataset.rippleBound) return;
+                    btn.dataset.rippleBound = 'true';
+                    btn.addEventListener('click', function (e) {
+                        const rect = btn.getBoundingClientRect(), size = Math.max(rect.width, rect.height);
+                        const ripple = document.createElement('span');
+                        ripple.className = 'ripple-wave';
+                        ripple.style.width = ripple.style.height = size + 'px';
+                        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                        btn.appendChild(ripple);
+                        ripple.addEventListener('animationend', () => ripple.remove());
+                    });
+                }
+                function attachAllRipples() {
+                    document.querySelectorAll('.ripple-container').forEach(attachRipple);
+                }
+                function observeReveal() {
+                    const els = document.querySelectorAll('.reveal-in');
+                    if (!('IntersectionObserver' in window)) { els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }); return; }
+                    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; obs.unobserve(e.target); } }); }, { threshold: 0.12 });
+                    els.forEach(el => { el.style.animationPlayState = 'paused'; obs.observe(el); });
+                }
+                window.addEventListener('DOMContentLoaded', () => {
+                    attachAllRipples();
+                    observeReveal();
+                });
+                const observer = new MutationObserver(() => { if (!routePage.classList.contains('hidden')) attachAllRipples(); });
+                observer.observe(routePage, { attributes: true, attributeFilter: ['class'] });
+            })();
+    </script>
+    <div id="footer-container"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

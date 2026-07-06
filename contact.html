@@ -1,103 +1,181 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Contact Us | Kimondo Adventures</title>
+    <meta name="description"
+        content="Start planning your East African journey with Kimondo Adventures. Contact our local team in Zanzibar for safaris, Kilimanjaro treks, island tours, and volunteering.">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
-
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        forest: '#2E7D32',
+                        golden: '#F5A623',
+                        warm: '#5D4037',
+                        light: '#fcfbf9',
+                        dark: '#0a0f0d',
+                    },
+                    animation: {
+                        'pulse-soft': 'pulseSoft 2.5s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseSoft: {
+                            '0%, 100%': {
+                                opacity: '1'
+                            },
+                            '50%': {
+                                opacity: '0.5'
+                            },
+                        },
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0px)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
 
     <style>
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        html {
+            scroll-behavior: smooth;
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        body {
+            font-family: 'Inter', sans-serif;
         }
 
-        /* Form Input focus styling */
-        .input-field {
-            transition: all 0.3s ease;
+        .sidebar-link.active {
+            color: #F5A623;
+            background-color: rgba(245, 166, 35, 0.08);
+            border-left: 3px solid #F5A623;
         }
 
-        .input-field:focus {
-            outline: none;
-            border-color: #F5A623;
-            box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.1);
+        .policy-section {
+            border-left: 4px solid #F5A623;
+            transition: all 0.25s ease;
+        }
+
+        .policy-section:hover {
+            box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .number-badge {
+            background-color: #F5A623;
+            color: #0a0f0d;
+            font-weight: 700;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
+        }
+
+        /* Accordion animation for mobile */
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                display: none;
+            }
+
+            .collapsible-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .collapsible-content.open {
+                max-height: 2000px;
+                /* large enough for any content */
+            }
+
+            .toggle-arrow {
+                transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .toggle-arrow.open {
+                transform: rotate(180deg);
+            }
         }
     </style>
 </head>
 
-<body class="bg-light text-warm font-sans antialiased overflow-x-hidden flex flex-col min-h-screen pt-24">
+<body class="bg-light text-warm font-sans antialiased" style="padding-top: 0 !important; margin-top: 0 !important;">
 
+    <!-- Header placeholder (overlay) -->
     <div id="kimondo-header"></div>
 
-    <section
-        class="relative min-h-[60vh] md:min-h-[70vh] w-full flex items-center justify-center overflow-hidden pt-24 pb-20">
-
-        <div class="absolute inset-0 z-0 bg-black">
-            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2070&auto=format&fit=crop"
-                alt="Contact Kimondo Adventures"
-                class="w-full h-full object-cover opacity-50 transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/60 to-light"></div>
-        </div>
-
-        <div
-            class="relative z-10 text-center w-full max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10 reveal active">
-
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO SECTION -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden w-full"
+        style="margin-top: 0 !important; padding-top: 0 !important;">
+        <div class="absolute inset-0 z-0">
+            <img src="IMG/1 (7).jpg" alt="Tanzania landscape" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/55"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-forest/70 via-dark/50 to-forest/80"></div>
             <div
-                class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
-                <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
-                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">YOUR ADVENTURE
-                    AWAITS</span>
+                class="absolute top-0 right-0 w-80 h-80 bg-golden/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4">
             </div>
-
-            <h1
-                class="text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1]">
-                Let’s Design Your Ultimate <br>
+            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-light to-transparent"></div>
+        </div>
+        <div class="relative z-10 text-center w-full max-w-4xl mx-auto px-6 py-20 md:py-28 flex flex-col items-center">
+            <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl reveal-in"
+                style="animation-delay: 0.1s;">
+                <span class="w-2 h-2 rounded-full bg-golden animate-pulse-soft"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Your Adventure
+                    Awaits</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.15] reveal-in"
+                style="animation-delay: 0.2s;">
+                Let's Start Planning Your <br class="hidden sm:block">
                 <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">Zanzibar
-                    Escape</span>
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">East
+                    African Journey</span>
             </h1>
-
-            <p
-                class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed mb-4 drop-shadow-md">
-                Ready to step off the grid and into paradise? Whether you want to lock down a high-speed jet ski thrill,
-                organize a high-fashion photoshoot on a vanishing sandbank, or engineer a completely custom multi-day
-                island itinerary from scratch, the Kimondo Adventures elite team is fully prepared to make it seamless.
-                Reach out to our native island coordinators right now, and let’s turn your travel blueprints into
-                unforgettable reality.
+            <p class="text-lg md:text-xl text-white/85 max-w-2xl mx-auto font-light leading-relaxed mb-6 drop-shadow-md reveal-in"
+                style="animation-delay: 0.35s;">
+                Whether you're dreaming of a safari, a Zanzibar escape, a Kilimanjaro summit, or a volunteer placement —
+                this is where it begins. Reach out, and our local team will respond directly, not a call center.
             </p>
         </div>
     </section>
 
-    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 relative z-20 -mt-10">
-
+    <!-- rest of the page unchanged -->
+    <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative z-20">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-
             <div class="lg:col-span-5 space-y-10">
-
-                <div class="reveal">
-                    <h3 class="text-3xl font-serif font-bold text-forest mb-6">Begin Your Journey</h3>
-
+                <div class="reveal-in" style="animation-delay: 0.1s;">
+                    <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold mb-4 block">Prefer
+                        to Reach Us Directly?</span>
+                    <h2 class="text-3xl font-serif font-bold text-forest mb-8">Get in Touch</h2>
                     <div class="space-y-4">
                         <a href="https://wa.me/255658840425" target="_blank" rel="noopener"
-                            class="flex items-start gap-5 p-6 bg-white rounded-3xl border border-warm/10 shadow-sm hover:shadow-lg transition-all group relative overflow-hidden">
-                            <div
-                                class="absolute top-0 right-0 bg-golden text-dark text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-bl-xl z-10">
-                                Recommended</div>
+                            class="contact-card flex items-start gap-5 p-6 bg-white rounded-2xl border border-warm/8 shadow-sm group cursor-pointer block">
                             <div
                                 class="w-14 h-14 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] text-2xl shrink-0 group-hover:scale-110 transition-transform">
                                 <i class="fa-brands fa-whatsapp"></i>
@@ -110,154 +188,302 @@
                                 <p class="text-warm/70 font-light mt-1">+255 65 884 0425</p>
                             </div>
                         </a>
-
-                        <a href="mailto:info@kimondoadventures.com"
-                            class="flex items-start gap-5 p-6 bg-white rounded-3xl border border-warm/10 shadow-sm hover:shadow-lg transition-all group">
+                        <a href="mailto:hello@kimondoadventures.com"
+                            class="contact-card flex items-start gap-5 p-6 bg-white rounded-2xl border border-warm/8 shadow-sm group cursor-pointer block">
                             <div
                                 class="w-14 h-14 rounded-full bg-golden/10 flex items-center justify-center text-golden text-xl shrink-0 group-hover:scale-110 transition-transform">
                                 <i class="fa-regular fa-envelope"></i>
                             </div>
                             <div>
-                                <p class="text-xs font-bold text-warm/50 uppercase tracking-widest mb-1">Custom Packages
-                                </p>
+                                <p class="text-xs font-bold text-warm/50 uppercase tracking-widest mb-1">Detailed
+                                    Inquiries</p>
                                 <h4 class="text-lg font-bold text-forest group-hover:text-golden transition-colors">Send
                                     an Email</h4>
-                                <p class="text-warm/70 font-light mt-1">info@kimondoadventures.com</p>
+                                <p class="text-warm/70 font-light mt-1">hello@kimondoadventures.com</p>
                             </div>
                         </a>
-
-                        <div class="flex items-start gap-5 p-6 bg-white rounded-3xl border border-warm/10 shadow-sm">
+                        <a href="tel:+255658840425"
+                            class="contact-card flex items-start gap-5 p-6 bg-white rounded-2xl border border-warm/8 shadow-sm group cursor-pointer block">
                             <div
-                                class="w-14 h-14 rounded-full bg-forest/10 flex items-center justify-center text-forest text-xl shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
+                                class="w-14 h-14 rounded-full bg-forest/10 flex items-center justify-center text-forest text-xl shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold text-forest">Headquarters</h4>
-                                <p class="text-warm/70 font-light mt-1">Zanzibar, Tanzania</p>
-                                <div class="mt-3 flex items-center gap-2 text-sm font-medium text-forest">
-                                    <i class="fa-regular fa-clock text-golden"></i> Available daily — quick response
-                                    guaranteed
-                                </div>
+                                <p class="text-xs font-bold text-warm/50 uppercase tracking-widest mb-1">Direct Call</p>
+                                <h4 class="text-lg font-bold text-forest group-hover:text-forest transition-colors">
+                                    Phone</h4>
+                                <p class="text-warm/70 font-light mt-1">+255 65 884 0425</p>
+                            </div>
+                        </a>
+                        <div class="flex items-start gap-5 p-6 bg-forest/5 rounded-2xl border border-forest/10">
+                            <div
+                                class="w-14 h-14 rounded-full bg-forest/10 flex items-center justify-center text-forest text-xl shrink-0">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-forest">Business Hours</h4>
+                                <p class="text-warm/70 font-light mt-1">Available Daily — Quick Response Guaranteed</p>
+                                <p class="text-xs text-warm/50 mt-1">East Africa Time, GMT+3</p>
                             </div>
                         </div>
                     </div>
+                    <p class="text-sm text-warm/50 mt-6 italic leading-relaxed">
+                        <i class="fa-solid fa-lightbulb text-golden mr-2"></i>
+                        International travelers: WhatsApp is the fastest way to reach us, and works from anywhere in the
+                        world without international calling fees.
+                    </p>
                 </div>
-
-                <div class="bg-forest/5 rounded-3xl p-8 border border-forest/10 reveal">
-                    <h3 class="text-2xl font-serif font-bold text-forest mb-6">Why Contact Us?</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3 text-warm/80 font-light">
-                            <i class="fa-solid fa-circle-check text-golden"></i> Fast and friendly responses
-                        </li>
-                        <li class="flex items-center gap-3 text-warm/80 font-light">
-                            <i class="fa-solid fa-circle-check text-golden"></i> Personalized travel planning
-                        </li>
-                        <li class="flex items-center gap-3 text-warm/80 font-light">
-                            <i class="fa-solid fa-circle-check text-golden"></i> Expert local guidance
-                        </li>
-                        <li class="flex items-center gap-3 text-warm/80 font-light">
-                            <i class="fa-solid fa-circle-check text-golden"></i> Flexible booking options
-                        </li>
-                    </ul>
-                </div>
-
             </div>
-
-            <div class="lg:col-span-7 reveal">
+            <div class="lg:col-span-7 reveal-in" style="animation-delay: 0.25s;">
                 <div
                     class="bg-white rounded-[2.5rem] shadow-[0_8px_40px_rgba(0,0,0,0.06)] border border-warm/5 p-8 md:p-12 relative overflow-hidden">
                     <div
                         class="absolute top-0 right-0 w-64 h-64 bg-golden/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
                     </div>
-
-                    <h3 class="text-3xl font-serif font-bold text-forest mb-2 relative z-10">Send an Inquiry</h3>
-                    <p class="text-warm/60 font-light mb-8 relative z-10">Fill out the form below and our team will get
-                        back to you shortly.</p>
-
+                    <span
+                        class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold mb-2 block relative z-10">Send
+                        Us a Message</span>
+                    <h2 class="text-3xl font-serif font-bold text-forest mb-2 relative z-10">Tell Us What You're
+                        Planning</h2>
+                    <p class="text-warm/60 font-light mb-8 relative z-10">Fill out the form below and our local team
+                        will respond directly.</p>
                     <form class="space-y-6 relative z-10"
-                        onsubmit="event.preventDefault(); alert('Inquiry Sent Successfully!');">
-
+                        onsubmit="event.preventDefault(); alert('Thank you! Your inquiry has been sent. We typically respond within 24 hours.');">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="space-y-2">
-                                <label class="text-sm font-bold text-forest ml-1">Full Name</label>
-                                <input type="text" placeholder="John Doe" required
-                                    class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl">
+                                <label class="text-sm font-bold text-forest ml-1">Full Name *</label>
+                                <input type="text" placeholder="Your full name" required
+                                    class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl placeholder:text-warm/30">
                             </div>
-
                             <div class="space-y-2">
-                                <label class="text-sm font-bold text-forest ml-1">Phone / WhatsApp</label>
-                                <input type="tel" placeholder="+1 234 567 890" required
-                                    class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl">
+                                <label class="text-sm font-bold text-forest ml-1">Email Address *</label>
+                                <input type="email" placeholder="you@example.com" required
+                                    class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl placeholder:text-warm/30">
                             </div>
                         </div>
-
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-forest ml-1">Email Address</label>
-                            <input type="email" placeholder="john@example.com" required
-                                class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-forest ml-1">Phone / WhatsApp Number</label>
+                                <input type="tel" placeholder="+1 234 567 890"
+                                    class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl placeholder:text-warm/30">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-forest ml-1">Country</label>
+                                <input type="text" placeholder="Your country of residence"
+                                    class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl placeholder:text-warm/30">
+                            </div>
                         </div>
-
                         <div class="space-y-2">
-                            <label for="interested-in" class="text-sm font-bold text-forest ml-1">Interested In</label>
+                            <label for="interested-in" class="text-sm font-bold text-forest ml-1">I'm Interested In
+                                *</label>
                             <div class="relative">
                                 <select id="interested-in" required
                                     class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl appearance-none cursor-pointer">
-                                    <option value="" disabled selected>Select a Service...</option>
-                                    <option value="Tours">Tours</option>
-                                    <option value="Safaris">Safaris</option>
-                                    <option value="Gift Shop">Gift Shop</option>
-                                    <option value="Special Experiences">Special Experiences</option>
-                                    <option value="Other">Other Inquiry</option>
+                                    <option value="" disabled selected>Select your experience...</option>
+                                    <option value="Tanzania Safari">Tanzania Safari</option>
+                                    <option value="Zanzibar Tour">Zanzibar Tour</option>
+                                    <option value="Kilimanjaro Trekking">Kilimanjaro Trekking</option>
+                                    <option value="Volunteering & Internships">Volunteering & Internships</option>
+                                    <option value="Artisan Shop">Artisan Shop</option>
+                                    <option value="Something Custom">Something Custom</option>
                                 </select>
                                 <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-warm/50">
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-forest ml-1">Message</label>
-                            <textarea rows="4" placeholder="Tell us about your dream trip..." required
-                                class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl resize-none"></textarea>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-forest ml-1">Preferred Travel Dates</label>
+                                <input type="text" placeholder="e.g. July 2026 or flexible"
+                                    class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl placeholder:text-warm/30">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-forest ml-1">Number of Travelers</label>
+                                <input type="number" placeholder="e.g. 2" min="1"
+                                    class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl placeholder:text-warm/30">
+                            </div>
                         </div>
-
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-forest ml-1">Your Message *</label>
+                            <textarea rows="4"
+                                placeholder="Tell us about your dream trip — interests, budget range, any special requests..."
+                                required
+                                class="input-field w-full bg-light border border-warm/10 text-warm px-5 py-4 rounded-2xl resize-none placeholder:text-warm/30"></textarea>
+                        </div>
                         <button type="submit"
-                            class="w-full bg-golden hover:bg-amber-400 text-dark font-bold text-lg py-5 rounded-2xl transition-all duration-300 shadow-[0_4px_20px_rgba(245,166,35,0.3)] transform hover:-translate-y-1 flex items-center justify-center gap-3 mt-4">
-                            Submit Inquiry <i class="fa-solid fa-paper-plane"></i>
+                            class="ripple-container w-full bg-golden hover:bg-amber-400 text-dark font-bold text-lg py-5 rounded-2xl transition-all duration-300 shadow-[0_4px_20px_rgba(245,166,35,0.3)] transform hover:-translate-y-1 active:scale-[0.98] flex items-center justify-center gap-3 mt-4">
+                            <i class="fa-solid fa-paper-plane"></i> Send Inquiry
                         </button>
+                        <p class="text-xs text-warm/40 text-center mt-4">
+                            We typically respond within 24 hours. No spam, no pressure — just honest answers from people
+                            who actually know East Africa.
+                        </p>
                     </form>
                 </div>
             </div>
-
         </div>
     </main>
 
-    <section class="py-24 bg-white relative">
+    <!-- remaining sections unchanged -->
+    <section class="py-16 md:py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="relative rounded-[3rem] overflow-hidden shadow-2xl h-[400px] md:h-[500px] reveal">
+            <div class="text-center mb-10 reveal-in">
+                <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold mb-4 block">Find
+                    Us</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mb-4">Based at Kendwa Beach, Zanzibar
+                </h2>
+                <p class="text-warm/60 font-light max-w-xl mx-auto">While we're based in Zanzibar, our safaris and treks
+                    cover mainland Tanzania — we coordinate your entire journey from this single home base.</p>
+            </div>
+            <div class="relative rounded-[2.5rem] overflow-hidden shadow-xl h-[350px] md:h-[450px] reveal-in">
                 <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2000&auto=format&fit=crop"
-                    class="absolute inset-0 w-full h-full object-cover" alt="Zanzibar Aerial">
-                <div class="absolute inset-0 bg-dark/60"></div>
-
+                    class="absolute inset-0 w-full h-full object-cover" alt="Zanzibar aerial view">
+                <div class="absolute inset-0 bg-dark/50"></div>
                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
                     <div
-                        class="w-20 h-20 bg-golden/20 backdrop-blur-md rounded-full flex items-center justify-center mb-6 animate-bounce">
+                        class="w-20 h-20 bg-golden/20 backdrop-blur-md rounded-full flex items-center justify-center mb-6 animate-float">
                         <i class="fa-solid fa-location-dot text-4xl text-golden"></i>
                     </div>
-                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4">Our Base</h2>
-                    <p
-                        class="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto backdrop-blur-sm bg-white/5 p-4 rounded-2xl border border-white/10">
-                        We are based in Zanzibar and operate across the island and all major Tanzania safari
-                        destinations.
-                    </p>
+                    <h3 class="text-2xl md:text-3xl font-serif font-bold text-white mb-3">Kimondo Adventures</h3>
+                    <p class="text-white/80 font-light text-lg">Paje, Zanzibar, Tanzania</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="py-16 md:py-20 bg-forest relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center reveal-in">
+            <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold mb-4 block">Stay
+                Connected</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Follow Our Journeys</h2>
+            <p class="text-white/70 font-light max-w-xl mx-auto mb-10">See real trips, real travelers, and real East
+                Africa — not stock photography — on our social channels.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" target="_blank" rel="noopener"
+                    class="contact-card w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-sm flex items-center justify-center text-white hover:bg-golden hover:text-dark transition-all text-xl">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener"
+                    class="contact-card w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-sm flex items-center justify-center text-white hover:bg-golden hover:text-dark transition-all text-xl">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener"
+                    class="contact-card w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-sm flex items-center justify-center text-white hover:bg-golden hover:text-dark transition-all text-xl">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener"
+                    class="contact-card w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-sm flex items-center justify-center text-white hover:bg-golden hover:text-dark transition-all text-xl">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
+    <section class="py-16 md:py-20 bg-forest/5 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center reveal-in">
+            <span class="text-xs md:text-sm uppercase tracking-[0.25em] text-golden font-bold mb-4 block">Before You
+                Message Us</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mb-4">Have a Quick Question?</h2>
+            <p class="text-warm/60 font-light max-w-xl mx-auto mb-8">Many common questions — visa requirements, ZIC
+                insurance, cancellation policy, and more — are already answered on our FAQ page. Check there first if
+                you're looking for a fast answer.</p>
+            <a href="#"
+                class="ripple-container inline-flex bg-white hover:bg-forest hover:text-white text-forest font-bold px-8 py-4 rounded-full transition-all duration-300 items-center gap-3 border-2 border-forest/20 hover:border-forest shadow-sm transform hover:-translate-y-1 active:scale-95">
+                <i class="fa-solid fa-circle-question text-lg"></i> View FAQs
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-28 bg-forest relative flex items-center min-h-[350px] overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-72 h-72 bg-golden/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3">
+        </div>
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10 w-full reveal-in">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+                No Pressure. <br class="hidden sm:block"><span class="text-golden italic font-light">Just a Real
+                    Conversation.</span>
+            </h2>
+            <p class="text-white/75 text-base md:text-lg font-light mb-10 max-w-xl mx-auto leading-relaxed">
+                You don't need a finalized plan to reach out — many of the best Kimondo itineraries started as a single
+                question. Tell us what you're curious about, and we'll take it from there.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#top"
+                    onclick="document.querySelector('main').scrollIntoView({behavior:'smooth'}); return false;"
+                    class="ripple-container inline-flex bg-golden hover:bg-amber-400 text-dark font-bold px-8 md:px-10 py-4 rounded-full transition-all duration-300 items-center gap-3 shadow-lg transform hover:-translate-y-1 active:scale-95">
+                    <i class="fa-solid fa-paper-plane text-lg"></i> Send Us a Message
+                </a>
+            </div>
+        </div>
+    </section>
 
     <div id="footer-container"></div>
+
+    <script>
+            (function () {
+                function attachRipple(btn) {
+                    if (!btn || btn.dataset.rippleBound) return;
+                    btn.dataset.rippleBound = 'true';
+                    btn.addEventListener('click', function (e) {
+                        const rect = btn.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        const ripple = document.createElement('span');
+                        ripple.className = 'ripple-wave';
+                        ripple.style.width = ripple.style.height = size + 'px';
+                        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                        btn.appendChild(ripple);
+                        ripple.addEventListener('animationend', () => ripple.remove());
+                    });
+                }
+                function attachRippleToAll(selector) {
+                    document.querySelectorAll(selector).forEach(attachRipple);
+                }
+                function observeRevealElements() {
+                    const revealElements = document.querySelectorAll('.reveal-in');
+                    if (!('IntersectionObserver' in window)) {
+                        revealElements.forEach(el => {
+                            el.style.opacity = '1';
+                            el.style.transform = 'translateY(0)';
+                        });
+                        return;
+                    }
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.style.animationPlayState = 'running';
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+                    revealElements.forEach(el => {
+                        el.style.animationPlayState = 'paused';
+                        observer.observe(el);
+                    });
+                    setTimeout(() => {
+                        revealElements.forEach(el => {
+                            const rect = el.getBoundingClientRect();
+                            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                                el.style.animationPlayState = 'running';
+                                observer.unobserve(el);
+                            }
+                        });
+                    }, 150);
+                }
+                function init() {
+                    attachRippleToAll('.ripple-container');
+                    observeRevealElements();
+                }
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', init);
+                } else {
+                    init();
+                }
+            })();
+    </script>
 
     <script src="script.js"></script>
 </body>

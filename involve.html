@@ -6,23 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Involved | Kimondo Adventures</title>
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --forest: #2E7D32;
+            --golden: #F5A623;
+            --choco: #6D3A1F;
+            --turquoise: #00BCD4;
+            --warm: #5D4037;
         }
 
-        .reveal {
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-forest {
+            background-color: var(--forest);
+        }
+
+        .text-forest {
+            color: var(--forest);
+        }
+
+        .bg-golden {
+            background-color: var(--golden);
+        }
+
+        .text-golden {
+            color: var(--golden);
+        }
+
+        .border-golden {
+            border-color: var(--golden);
+        }
+
+        .bg-choco {
+            background-color: var(--choco);
+        }
+
+        .bg-turquoise {
+            background-color: var(--turquoise);
+        }
+
+        .text-turquoise {
+            color: var(--turquoise);
+        }
+
+        .bg-warm {
+            background-color: var(--warm);
+        }
+
+        .text-warm {
+            color: var(--warm);
+        }
+
+        .reveal,
+        .reveal-card {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .reveal.active {
+        .reveal.active,
+        .reveal-card.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .dot.active,
+        .carousel-number.active {
+            background-color: #F5A623 !important;
+            transform: scale(1.2);
+        }
+
+        .carousel-number.active {
+            color: #0D1F14 !important;
+            background-color: #F5A623 !important;
+            box-shadow: 0 0 12px rgba(245, 166, 35, 0.5);
+        }
+
+        [id$="MobileTrack"] {
+            backface-visibility: hidden;
         }
 
         .hide-scrollbar::-webkit-scrollbar {
@@ -34,595 +106,914 @@
             scrollbar-width: none;
         }
     </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="font-sans antialiased text-gray-800">
+<body class="antialiased">
 
-    <!-- ================== HEADER ================== -->
+    <!-- ===== HEADER ===== -->
     <div id="kimondo-header"></div>
 
-    <!-- ================== HERO SECTION ================== -->
-    <section id="hero" class="relative flex items-center justify-center min-h-screen bg-cover bg-center"
-        style="background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
-        <div class="relative z-10 text-center px-4 max-w-5xl reveal">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">
-                Travel with Purpose. <br class="hidden md:block"> Impact with Passion.
-            </h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto">
-                Discover Tanzania and Zanzibar beyond the typical tourist trails. Embark on a transformative journey
-                that blends life‑changing volunteer work and professional internships with breathtaking African
-                adventures.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#volunteering"
-                    class="bg-golden hover:bg-yellow-500 text-white px-8 py-4 rounded-md font-semibold text-lg shadow-lg transition transform hover:-translate-y-1">
-                    Explore Volunteering
+    <main class="pt-20">
+        <!-- ===== HERO ===== -->
+        <section class="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden w-full">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80"
+                    class="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out"
+                    alt="Community volunteering in Tanzania">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-forest/90"></div>
+            </div>
+            <div
+                class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10">
+                <div
+                    class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
+                    <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
+                    <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Get Involved</span>
+                </div>
+                <h1
+                    class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1]">
+                    Travel With Purpose.<br class="hidden sm:block">
+                    <span class="text-golden">Leave More Than You Take.</span>
+                </h1>
+                <p
+                    class="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light leading-relaxed mb-10 drop-shadow-md">
+                    Not every journey with Kimondo is about wildlife sightings and sunset dhow cruises. Some are about
+                    rolling up your sleeves — teaching in a village classroom, supporting a conservation project, or
+                    gaining hands-on experience in East Africa's tourism industry. This is travel that gives back,
+                    guided by the same local team you already trust.
+                </p>
+                <a href="#application"
+                    class="inline-flex items-center gap-3 bg-golden hover:bg-yellow-500 text-white font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 rounded-full shadow-2xl shadow-golden/30 hover:shadow-golden/50 transition-all duration-300 transform hover:-translate-y-1">
+                    Apply to Get Involved
+                    <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><i
+                            class="fa-solid fa-arrow-right text-xs"></i></span>
                 </a>
-                <a href="#internship"
-                    class="border-2 border-white text-white hover:bg-white hover:text-forest px-8 py-4 rounded-md font-semibold text-lg transition transform hover:-translate-y-1">
-                    Apply for Internship
-                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ================== VOLUNTEERING SECTION ================== -->
-    <section id="volunteering" class="py-20 px-4 bg-gray-50">
-        <div class="max-w-7xl mx-auto text-center reveal">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mb-6">
-                Make a Meaningful Impact in Tanzania & Zanzibar
-            </h2>
-            <p class="text-lg text-warm max-w-3xl mx-auto mb-16">
-                At Kimondo Adventures, we believe in sustainable travel that uplifts local communities and preserves our
-                pristine environment. Our volunteer programs connect passionate global citizens with authentic,
-                grassroots projects that leave a lasting legacy.
-            </p>
+        <!-- ===== WHY KIMONDO (IMAGE LEFT, TEXT RIGHT) ===== -->
+        <section class="py-14 md:py-24 bg-white relative overflow-hidden reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
 
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
-                    <i class="fa-solid fa-chalkboard-user text-5xl text-golden mb-4"></i>
-                    <h3 class="text-xl font-bold text-forest mb-3">Community Development & Education</h3>
-                    <p class="text-gray-600">Teach English, support underfunded schools, and empower youth in local
-                        villages and Zanzibar schools.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
-                    <i class="fa-solid fa-heart-pulse text-5xl text-golden mb-4"></i>
-                    <h3 class="text-xl font-bold text-forest mb-3">Healthcare & Wellness Outreach</h3>
-                    <p class="text-gray-600">Assist local medical clinics and participate in health awareness campaigns
-                        to improve rural community well‑being.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
-                    <i class="fa-solid fa-leaf text-5xl text-golden mb-4"></i>
-                    <h3 class="text-xl font-bold text-forest mb-3">Environmental & Marine Conservation</h3>
-                    <p class="text-gray-600">Protect East Africa's rich ecosystems, from planting trees on the mainland
-                        to marine preservation along the Zanzibar coast.</p>
-                </div>
-            </div>
+                    <!-- Image (left column) – hidden on mobile, visible from lg up, or shown above on mobile if preferred -->
+                    <div class="order-2 lg:order-1 relative w-full max-w-lg mx-auto lg:max-w-none">
+                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                            alt="Community volunteering in Tanzania"
+                            class="w-full h-auto md:h-[450px] object-cover rounded-2xl md:rounded-3xl shadow-xl border-4 border-white">
+                        <!-- Decorative accent -->
+                        <div
+                            class="absolute -bottom-4 -right-4 w-24 h-24 bg-golden/20 rounded-full blur-2xl hidden lg:block">
+                        </div>
+                    </div>
 
-            <div class="bg-white rounded-xl shadow-md p-8 md:p-12 text-left max-w-4xl mx-auto">
-                <h3 class="text-2xl font-serif font-bold text-forest mb-6 flex items-center">
-                    <i class="fa-solid fa-star text-golden mr-3"></i> Why Volunteer with Kimondo Adventures?
-                </h3>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-circle-check text-green-600 mt-1 mr-3 text-xl"></i>
-                        <span><strong>Fully Guided & Safe:</strong> Comprehensive 24/7 in‑country support, safe airport
-                            transfers, and verified local accommodations.</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-circle-check text-green-600 mt-1 mr-3 text-xl"></i>
-                        <span><strong>The Perfect Blend:</strong> We perfectly blend your impactful volunteer work with
-                            unforgettable weekend wildlife safaris and exotic Zanzibar excursions.</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-circle-check text-green-600 mt-1 mr-3 text-xl"></i>
-                        <span><strong>Authentic Cultural Immersion:</strong> Live among the locals, learn basic Swahili,
-                            and experience the warm, world‑famous hospitality of the Tanzanian people.</span>
-                    </li>
-                </ul>
-            </div>
+                    <!-- Text (right column) -->
+                    <div class="order-1 lg:order-2 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                            <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                            <span class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold">Why
+                                Kimondo</span>
+                        </div>
+                        <h2
+                            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-forest mb-4 md:mb-6 leading-tight">
+                            Real Impact, Not Performative Tourism
+                        </h2>
+                        <p class="text-warm/80 text-base md:text-lg leading-relaxed font-light">
+                            Plenty of "volunteer travel" programs exist to sell you a feel-good photo, not to create
+                            lasting change. Kimondo takes a different approach. Every program is built in partnership
+                            with the local communities and conservation groups it supports — designed around what they
+                            actually need, not what looks good on social media.
+                        </p>
+                        <p class="text-warm/80 text-base md:text-lg leading-relaxed font-light mt-4">
+                            Because we're the same locally-run team behind your safari and Zanzibar bookings, you get
+                            the same standard of safety, planning, and on-the-ground support — just applied to a program
+                            built around contribution instead of consumption.
+                        </p>
+                    </div>
 
-            <a href="#application"
-                class="inline-block mt-12 bg-forest hover:bg-green-700 text-white px-8 py-4 rounded-md font-semibold text-lg shadow-lg transition transform hover:-translate-y-1">
-                Secure Your Volunteer Spot
-            </a>
-        </div>
-    </section>
-
-    <!-- ================== INTERNSHIP SECTION ================== -->
-    <section id="internship" class="py-20 px-4 bg-gradient-to-b from-white to-gray-100">
-        <div class="max-w-7xl mx-auto text-center reveal">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mb-6">
-                Kickstart Your Career with a Tropical Edge
-            </h2>
-            <p class="text-lg text-warm max-w-3xl mx-auto mb-16">
-                Ready to gain invaluable, real‑world experience in one of the world's most vibrant tourism hubs? Our
-                internships are designed for students, graduates, and professionals looking to build their resumes while
-                exploring the magical landscapes of East Africa.
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-golden hover:shadow-xl transition">
-                    <i class="fa-solid fa-hotel text-4xl text-golden mb-4"></i>
-                    <h3 class="text-xl font-bold text-forest mb-3">Sustainable Tourism & Hospitality</h3>
-                    <p class="text-gray-600">Learn the ins and outs of boutique hotel management, ecolodge operations,
-                        and tour itinerary curation.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-golden hover:shadow-xl transition">
-                    <i class="fa-solid fa-camera-retro text-4xl text-golden mb-4"></i>
-                    <h3 class="text-xl font-bold text-forest mb-3">Digital Marketing & Travel Media</h3>
-                    <p class="text-gray-600">Master content creation, SEO, social media management, and travel
-                        photography/videography in a fast‑paced environment.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-golden hover:shadow-xl transition">
-                    <i class="fa-solid fa-briefcase text-4xl text-golden mb-4"></i>
-                    <h3 class="text-xl font-bold text-forest mb-3">Business Administration & NGO Management</h3>
-                    <p class="text-gray-600">Gain hands‑on experience in cross‑cultural business operations, logistics,
-                        and managing impactful community projects.</p>
                 </div>
             </div>
+        </section>
 
-            <div class="bg-white rounded-xl shadow-md p-8 md:p-12 text-left max-w-4xl mx-auto">
-                <h3 class="text-2xl font-serif font-bold text-forest mb-6 flex items-center">
-                    <i class="fa-solid fa-gem text-golden mr-3"></i> What You Will Gain
-                </h3>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-circle-check text-forest mt-1 mr-3 text-xl"></i>
-                        <span><strong>Global Professional Network:</strong> Build lifelong connections with
-                            international tourism experts, local businesses, and global travelers.</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-circle-check text-forest mt-1 mr-3 text-xl"></i>
-                        <span><strong>Certified Experience:</strong> Receive an official Certificate of Completion and a
-                            professional recommendation letter from Kimondo Adventures.</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fa-solid fa-circle-check text-forest mt-1 mr-3 text-xl"></i>
-                        <span><strong>Work & Play Balance:</strong> Fast‑track your career during weekdays, and explore
-                            the Serengeti or relax on Zanzibar beaches during weekends!</span>
-                    </li>
-                </ul>
+        <!-- ===== OUR PROGRAMS (2 cards) ===== -->
+        <section class="py-14 md:py-24 bg-[#fcfbf9] relative overflow-hidden reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-20">
+                    <div class="inline-flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold">Our
+                            Programs</span>
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                    </div>
+                    <h2
+                        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-forest mb-2 leading-tight">
+                        Two Ways to Get Involved
+                    </h2>
+                </div>
+
+                <!-- Desktop side-by-side, mobile stacked compact -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                    <!-- Volunteering -->
+                    <div class="reveal-card bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col"
+                        style="transition-delay: 0.1s;">
+                        <span class="text-5xl font-serif font-bold text-golden/20 mb-2">01</span>
+                        <h3 class="text-xl md:text-2xl font-serif font-bold text-forest mb-3">Community & Conservation
+                            Volunteering</h3>
+                        <p class="text-warm/70 text-sm md:text-base leading-relaxed mb-4 flex-1">
+                            Join grassroots programs across Tanzania and Zanzibar — from environmental conservation and
+                            wildlife protection initiatives to education and community development projects. Placements
+                            range from short-term (1–2 weeks) to extended stays for travelers who want deeper immersion.
+                        </p>
+                        <p class="text-sm font-semibold text-forest mb-2">What you might work on:</p>
+                        <ul class="text-sm text-warm/70 space-y-1 mb-4">
+                            <li><i class="fa-solid fa-check text-golden text-xs mr-2"></i>Environmental & wildlife
+                                conservation</li>
+                            <li><i class="fa-solid fa-check text-golden text-xs mr-2"></i>Teaching and youth education
+                            </li>
+                            <li><i class="fa-solid fa-check text-golden text-xs mr-2"></i>Community infrastructure &
+                                development</li>
+                            <li><i class="fa-solid fa-check text-golden text-xs mr-2"></i>Coastal and marine
+                                conservation</li>
+                        </ul>
+                    </div>
+
+                    <!-- Internship -->
+                    <div class="reveal-card bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col"
+                        style="transition-delay: 0.2s;">
+                        <span class="text-5xl font-serif font-bold text-golden/20 mb-2">02</span>
+                        <h3 class="text-xl md:text-2xl font-serif font-bold text-forest mb-3">Internships in Tourism &
+                            Hospitality</h3>
+                        <p class="text-warm/70 text-sm md:text-base leading-relaxed mb-4 flex-1">
+                            Gain real, hands-on experience in East Africa's tourism industry — working alongside our
+                            safari planning, guest experience, and operations teams. Ideal for students and early-career
+                            professionals building a global portfolio.
+                        </p>
+                        <p class="text-sm font-semibold text-forest mb-2">What you might gain:</p>
+                        <ul class="text-sm text-warm/70 space-y-1">
+                            <li><i class="fa-solid fa-check text-golden text-xs mr-2"></i>Direct mentorship from travel
+                                professionals</li>
+                            <li><i class="fa-solid fa-check text-golden text-xs mr-2"></i>Real operational experience —
+                                not shadowing</li>
+                            <li><i class="fa-solid fa-check text-golden text-xs mr-2"></i>A ground-level view of East
+                                African tourism</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <a href="#application"
-                class="inline-block mt-12 bg-golden hover:bg-yellow-500 text-white px-8 py-4 rounded-md font-semibold text-lg shadow-lg transition transform hover:-translate-y-1">
-                Apply for a Professional Internship
-            </a>
-        </div>
-    </section>
-
-    <!-- ================== APPLICATION FORM SECTION ================== -->
-    <section id="application" class="py-20 px-4 bg-cover bg-center relative"
-        style="background-image: url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');">
-        <div class="absolute inset-0 bg-forest/90"></div>
-        <div class="relative z-10 max-w-3xl mx-auto reveal">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-8 text-center">
-                Start Your Journey With Kimondo Adventures
-            </h2>
-
-            <form id="get-involved-form" class="bg-white rounded-xl p-8 md:p-10 shadow-2xl">
-                <div class="grid md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label class="block text-warm font-semibold mb-1">First Name *</label>
-                        <input type="text" required
-                            class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-forest">
+        <!-- ===== WHAT'S INCLUDED (mobile carousel) ===== -->
+        <section class="py-14 md:py-24 bg-white relative overflow-hidden reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-20">
+                    <div class="inline-flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold">What's
+                            Included</span>
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
                     </div>
-                    <div>
-                        <label class="block text-warm font-semibold mb-1">Last Name *</label>
-                        <input type="text" required
-                            class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-forest">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-forest leading-tight">
+                        Everything You Need to Make a Difference
+                    </h2>
+                </div>
+
+                <!-- Desktop grid (5 cards) -->
+                <div class="hidden lg:grid lg:grid-cols-5 gap-4 md:gap-6">
+                    <div class="reveal-card bg-[#fcfbf9] rounded-2xl p-5 md:p-6 border border-gray-100 text-center shadow-sm"
+                        style="transition-delay: 0.1s;">
+                        <div class="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fa-solid fa-shield-halved text-2xl text-forest"></i>
+                        </div>
+                        <h4 class="font-bold text-forest text-sm mb-1">Safe, Vetted Placements</h4>
+                        <p class="text-warm/70 text-xs">Every program is pre-arranged and personally vetted by our local
+                            team.</p>
+                    </div>
+                    <div class="reveal-card bg-[#fcfbf9] rounded-2xl p-5 md:p-6 border border-gray-100 text-center shadow-sm"
+                        style="transition-delay: 0.2s;">
+                        <div class="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fa-solid fa-house text-2xl text-golden"></i>
+                        </div>
+                        <h4 class="font-bold text-forest text-sm mb-1">Accommodation Support</h4>
+                        <p class="text-warm/70 text-xs">Guidance for safe, comfortable housing during your placement.
+                        </p>
+                    </div>
+                    <div class="reveal-card bg-[#fcfbf9] rounded-2xl p-5 md:p-6 border border-gray-100 text-center shadow-sm"
+                        style="transition-delay: 0.3s;">
+                        <div
+                            class="w-12 h-12 bg-turquoise/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fa-solid fa-compass text-2xl text-turquoise"></i>
+                        </div>
+                        <h4 class="font-bold text-forest text-sm mb-1">Local Orientation</h4>
+                        <p class="text-warm/70 text-xs">Cultural and safety briefing before you begin.</p>
+                    </div>
+                    <div class="reveal-card bg-[#fcfbf9] rounded-2xl p-5 md:p-6 border border-gray-100 text-center shadow-sm"
+                        style="transition-delay: 0.4s;">
+                        <div class="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fa-solid fa-headset text-2xl text-forest"></i>
+                        </div>
+                        <h4 class="font-bold text-forest text-sm mb-1">24/7 On-the-Ground Support</h4>
+                        <p class="text-warm/70 text-xs">Same team supporting our safari and tour guests.</p>
+                    </div>
+                    <div class="reveal-card bg-[#fcfbf9] rounded-2xl p-5 md:p-6 border border-gray-100 text-center shadow-sm"
+                        style="transition-delay: 0.5s;">
+                        <div class="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fa-solid fa-calendar-check text-2xl text-golden"></i>
+                        </div>
+                        <h4 class="font-bold text-forest text-sm mb-1">Flexible Durations</h4>
+                        <p class="text-warm/70 text-xs">From short-term placements to multi-month internships.</p>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label class="block text-warm font-semibold mb-1">Email Address *</label>
-                        <input type="email" required
-                            class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-forest">
+                <!-- Mobile carousel (5 slides + clone) -->
+                <div class="lg:hidden relative">
+                    <div class="overflow-hidden rounded-2xl">
+                        <div id="includedMobileTrack" class="flex will-change-transform"
+                            style="transition: transform 0.5s ease-in-out;">
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <div
+                                    class="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fa-solid fa-shield-halved text-2xl text-forest"></i>
+                                </div>
+                                <h4 class="font-bold text-forest mb-1">Safe, Vetted Placements</h4>
+                                <p class="text-warm/70 text-xs">Every program is pre-arranged and personally vetted by
+                                    our local team.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <div
+                                    class="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fa-solid fa-house text-2xl text-golden"></i>
+                                </div>
+                                <h4 class="font-bold text-forest mb-1">Accommodation Support</h4>
+                                <p class="text-warm/70 text-xs">Guidance for safe, comfortable housing during your
+                                    placement.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <div
+                                    class="w-12 h-12 bg-turquoise/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fa-solid fa-compass text-2xl text-turquoise"></i>
+                                </div>
+                                <h4 class="font-bold text-forest mb-1">Local Orientation</h4>
+                                <p class="text-warm/70 text-xs">Cultural and safety briefing before you begin.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <div
+                                    class="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fa-solid fa-headset text-2xl text-forest"></i>
+                                </div>
+                                <h4 class="font-bold text-forest mb-1">24/7 Support</h4>
+                                <p class="text-warm/70 text-xs">Same team supporting our safari and tour guests.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <div
+                                    class="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fa-solid fa-calendar-check text-2xl text-golden"></i>
+                                </div>
+                                <h4 class="font-bold text-forest mb-1">Flexible Durations</h4>
+                                <p class="text-warm/70 text-xs">From short-term placements to multi-month internships.
+                                </p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4 clone-slide">
+                                <div
+                                    class="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fa-solid fa-shield-halved text-2xl text-forest"></i>
+                                </div>
+                                <h4 class="font-bold text-forest mb-1">Safe, Vetted Placements</h4>
+                                <p class="text-warm/70 text-xs">Every program is pre-arranged and personally vetted by
+                                    our local team.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-warm font-semibold mb-1">WhatsApp Number *</label>
-                        <input type="tel" required
-                            class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-forest">
+                    <div id="includedDots" class="flex justify-center gap-2 mt-5">
+                        <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+                            style="background-color:#2E7D32;" data-index="0"></span>
+                        <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+                            style="background-color:#2E7D32;" data-index="1"></span>
+                        <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+                            style="background-color:#2E7D32;" data-index="2"></span>
+                        <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+                            style="background-color:#2E7D32;" data-index="3"></span>
+                        <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+                            style="background-color:#2E7D32;" data-index="4"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WHO THIS IS FOR (mobile carousel) ===== -->
+        <section class="py-14 md:py-24 bg-[#fcfbf9] relative overflow-hidden reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-20">
+                    <div class="inline-flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold">Who This Is
+                            For</span>
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-forest leading-tight">
+                        Built for Travelers Who Want More Than a Vacation
+                    </h2>
+                </div>
+
+                <!-- Desktop grid (4 cards) -->
+                <div class="hidden lg:grid lg:grid-cols-4 gap-4 md:gap-6">
+                    <div class="reveal-card bg-white rounded-2xl p-5 md:p-6 border border-gray-100 text-center shadow-sm"
+                        style="transition-delay: 0.1s;">
+                        <i class="fa-solid fa-graduation-cap text-3xl text-golden mb-3"></i>
+                        <p class="text-warm/70 text-sm">Students seeking hands-on international experience in tourism,
+                            hospitality, or conservation</p>
+                    </div>
+                    <div class="reveal-card bg-white rounded-2xl p-5 md:p-6 border border-gray-100 text-center shadow-sm"
+                        style="transition-delay: 0.2s;">
+                        <i class="fa-solid fa-arrows-rotate text-3xl text-turquoise mb-3"></i>
+                        <p class="text-warm/70 text-sm">Career-changers exploring a future in the travel industry</p>
+                    </div>
+                    <div class="reveal-card bg-white rounded-2xl p-5 md:p-6 border border-gray-100 text-center shadow-sm"
+                        style="transition-delay: 0.3s;">
+                        <i class="fa-solid fa-earth-africa text-3xl text-forest mb-3"></i>
+                        <p class="text-warm/70 text-sm">Gap-year travelers who want their trip to mean something</p>
+                    </div>
+                    <div class="reveal-card bg-white rounded-2xl p-5 md:p-6 border border-gray-100 text-center shadow-sm"
+                        style="transition-delay: 0.4s;">
+                        <i class="fa-solid fa-heart text-3xl text-golden mb-3"></i>
+                        <p class="text-warm/70 text-sm">Conscious travelers who want to combine adventure with genuine
+                            contribution</p>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label class="block text-warm font-semibold mb-1">Nationality *</label>
-                        <input type="text" required
-                            class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-forest">
+                <!-- Mobile carousel (4 slides + clone) -->
+                <div class="lg:hidden relative">
+                    <div class="overflow-hidden rounded-2xl">
+                        <div id="whoMobileTrack" class="flex will-change-transform"
+                            style="transition: transform 0.5s ease-in-out;">
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <i class="fa-solid fa-graduation-cap text-3xl text-golden mb-3 block"></i>
+                                <p class="text-warm/70 text-sm">Students seeking hands-on international experience in
+                                    tourism, hospitality, or conservation</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <i class="fa-solid fa-arrows-rotate text-3xl text-turquoise mb-3 block"></i>
+                                <p class="text-warm/70 text-sm">Career-changers exploring a future in the travel
+                                    industry</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <i class="fa-solid fa-earth-africa text-3xl text-forest mb-3 block"></i>
+                                <p class="text-warm/70 text-sm">Gap-year travelers who want their trip to mean something
+                                </p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <i class="fa-solid fa-heart text-3xl text-golden mb-3 block"></i>
+                                <p class="text-warm/70 text-sm">Conscious travelers who want to combine adventure with
+                                    genuine contribution</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4 clone-slide">
+                                <i class="fa-solid fa-graduation-cap text-3xl text-golden mb-3 block"></i>
+                                <p class="text-warm/70 text-sm">Students seeking hands-on international experience in
+                                    tourism, hospitality, or conservation</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-warm font-semibold mb-1">City *</label>
-                        <input type="text" required
-                            class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-forest">
+                    <div id="whoDots" class="flex justify-center gap-2 mt-5">
+                        <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+                            style="background-color:#2E7D32;" data-index="0"></span>
+                        <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+                            style="background-color:#2E7D32;" data-index="1"></span>
+                        <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+                            style="background-color:#2E7D32;" data-index="2"></span>
+                        <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
+                            style="background-color:#2E7D32;" data-index="3"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOW IT WORKS (4 steps, mobile carousel with numbers) ===== -->
+        <section class="py-14 md:py-24 bg-white relative overflow-hidden reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-20">
+                    <div class="inline-flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold">How It
+                            Works</span>
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-forest leading-tight">
+                        From Application to Impact in Four Steps
+                    </h2>
+                </div>
+
+                <!-- Desktop grid (4 columns) -->
+                <div class="hidden lg:grid lg:grid-cols-4 gap-6">
+                    <div class="reveal-card bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-sm relative"
+                        style="transition-delay: 0.1s;">
+                        <span class="text-5xl font-serif font-bold text-golden/15 block mb-2">01</span>
+                        <h4 class="font-bold text-forest mb-2">Tell Us About Yourself</h4>
+                        <p class="text-warm/70 text-sm">Share your interests, availability, and what you're hoping to
+                            gain.</p>
+                    </div>
+                    <div class="reveal-card bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-sm relative"
+                        style="transition-delay: 0.2s;">
+                        <span class="text-5xl font-serif font-bold text-golden/15 block mb-2">02</span>
+                        <h4 class="font-bold text-forest mb-2">We Match You to a Program</h4>
+                        <p class="text-warm/70 text-sm">Our local team places you with a program that fits your goals
+                            and timeline.</p>
+                    </div>
+                    <div class="reveal-card bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-sm relative"
+                        style="transition-delay: 0.3s;">
+                        <span class="text-5xl font-serif font-bold text-golden/15 block mb-2">03</span>
+                        <h4 class="font-bold text-forest mb-2">Arrive Prepared</h4>
+                        <p class="text-warm/70 text-sm">Receive full orientation, accommodation guidance, and safety
+                            briefing.</p>
+                    </div>
+                    <div class="reveal-card bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-sm relative"
+                        style="transition-delay: 0.4s;">
+                        <span class="text-5xl font-serif font-bold text-golden/15 block mb-2">04</span>
+                        <h4 class="font-bold text-forest mb-2">Make an Impact</h4>
+                        <p class="text-warm/70 text-sm">Work alongside local communities — with Kimondo's support behind
+                            you.</p>
                     </div>
                 </div>
 
-                <!-- Program Type (no pre-selection) -->
-                <div class="grid md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label class="block text-warm font-semibold mb-1">I am interested in: *</label>
-                        <select id="program-type" required
-                            class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-forest">
-                            <option value="">-- Select --</option>
-                            <option value="volunteer">Volunteer Program</option>
-                            <option value="internship">Internship Program</option>
-                        </select>
+                <!-- Mobile carousel with number indicators -->
+                <div class="lg:hidden relative">
+                    <div class="overflow-hidden rounded-2xl">
+                        <div id="howMobileTrack" class="flex will-change-transform"
+                            style="transition: transform 0.5s ease-in-out;">
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <span class="text-4xl font-serif font-bold text-golden/30 block mb-2">01</span>
+                                <h4 class="font-bold text-forest mb-2">Tell Us About Yourself</h4>
+                                <p class="text-warm/70 text-sm">Share your interests, availability, and what you're
+                                    hoping to gain.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <span class="text-4xl font-serif font-bold text-golden/30 block mb-2">02</span>
+                                <h4 class="font-bold text-forest mb-2">We Match You to a Program</h4>
+                                <p class="text-warm/70 text-sm">Our local team places you with a program that fits your
+                                    goals and timeline.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <span class="text-4xl font-serif font-bold text-golden/30 block mb-2">03</span>
+                                <h4 class="font-bold text-forest mb-2">Arrive Prepared</h4>
+                                <p class="text-warm/70 text-sm">Receive full orientation, accommodation guidance, and
+                                    safety briefing.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4">
+                                <span class="text-4xl font-serif font-bold text-golden/30 block mb-2">04</span>
+                                <h4 class="font-bold text-forest mb-2">Make an Impact</h4>
+                                <p class="text-warm/70 text-sm">Work alongside local communities — with Kimondo's
+                                    support behind you.</p>
+                            </div>
+                            <div
+                                class="flex-shrink-0 w-[80vw] max-w-[280px] bg-[#fcfbf9] rounded-2xl p-6 border border-gray-100 text-center shadow-md mr-4 clone-slide">
+                                <span class="text-4xl font-serif font-bold text-golden/30 block mb-2">01</span>
+                                <h4 class="font-bold text-forest mb-2">Tell Us About Yourself</h4>
+                                <p class="text-warm/70 text-sm">Share your interests, availability, and what you're
+                                    hoping to gain.</p>
+                            </div>
+                        </div>
                     </div>
+                    <div id="howDots" class="flex justify-center gap-3 mt-5">
+                        <span
+                            class="carousel-number w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold cursor-pointer transition-all duration-300 bg-forest/10 text-forest"
+                            data-index="0">01</span>
+                        <span
+                            class="carousel-number w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold cursor-pointer transition-all duration-300 bg-forest/10 text-forest"
+                            data-index="1">02</span>
+                        <span
+                            class="carousel-number w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold cursor-pointer transition-all duration-300 bg-forest/10 text-forest"
+                            data-index="2">03</span>
+                        <span
+                            class="carousel-number w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold cursor-pointer transition-all duration-300 bg-forest/10 text-forest"
+                            data-index="3">04</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROGRAM FEES ===== -->
+        <section class="py-14 md:py-24 bg-[#fcfbf9] relative overflow-hidden reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-20">
+                    <div class="inline-flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold">Program
+                            Fees</span>
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-forest mb-4 leading-tight">
+                        Transparent Pricing — No Hidden Costs, No Surprises
+                    </h2>
+                    <p class="text-warm/70 text-base max-w-3xl mx-auto font-light">
+                        Every Kimondo program carries a placement fee that directly funds your accommodation
+                        arrangements, local orientation, in-country support, and a contribution to the community or
+                        conservation project you join.
+                    </p>
+                </div>
+
+                <!-- Desktop tables side-by-side -->
+                <div class="hidden lg:grid lg:grid-cols-2 gap-8 lg:gap-12">
+                    <!-- Volunteering -->
                     <div>
-                        <label class="block text-warm font-semibold mb-1">Program of Interest *</label>
-                        <select id="program-topics" required
-                            class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-forest">
-                            <option value="">-- Select Topic --</option>
-                        </select>
+                        <h3 class="text-xl font-serif font-bold text-forest mb-4">Community & Conservation Volunteering
+                        </h3>
+                        <div class="overflow-hidden rounded-2xl border border-gray-200">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr class="bg-forest text-white">
+                                        <th class="p-4 text-sm">Duration</th>
+                                        <th class="p-4 text-sm">Fee</th>
+                                        <th class="p-4 text-sm">What's Covered</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                    <tr class="border-b border-gray-100">
+                                        <td class="p-4 text-sm font-medium">1–2 Weeks</td>
+                                        <td class="p-4 text-sm text-golden font-bold">$[XXX]</td>
+                                        <td class="p-4 text-sm text-warm/70">Orientation, placement, local support,
+                                            accommodation guidance</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="p-4 text-sm font-medium">3–4 Weeks</td>
+                                        <td class="p-4 text-sm text-golden font-bold">$[XXX]</td>
+                                        <td class="p-4 text-sm text-warm/70">Same as above + extended in-country support
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-sm font-medium">1–2 Months</td>
+                                        <td class="p-4 text-sm text-golden font-bold">$[XXX]</td>
+                                        <td class="p-4 text-sm text-warm/70">Same as above + ongoing project involvement
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Internship -->
+                    <div>
+                        <h3 class="text-xl font-serif font-bold text-forest mb-4">Tourism & Hospitality Internships</h3>
+                        <div class="overflow-hidden rounded-2xl border border-gray-200">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr class="bg-forest text-white">
+                                        <th class="p-4 text-sm">Duration</th>
+                                        <th class="p-4 text-sm">Fee</th>
+                                        <th class="p-4 text-sm">What's Covered</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                    <tr class="border-b border-gray-100">
+                                        <td class="p-4 text-sm font-medium">1 Month</td>
+                                        <td class="p-4 text-sm text-golden font-bold">$[XXX]</td>
+                                        <td class="p-4 text-sm text-warm/70">Orientation, placement, mentorship, local
+                                            support</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100">
+                                        <td class="p-4 text-sm font-medium">2 Months</td>
+                                        <td class="p-4 text-sm text-golden font-bold">$[XXX]</td>
+                                        <td class="p-4 text-sm text-warm/70">Same as above + extended hands-on
+                                            experience</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 text-sm font-medium">3+ Months</td>
+                                        <td class="p-4 text-sm text-golden font-bold">$[XXX]</td>
+                                        <td class="p-4 text-sm text-warm/70">Same as above + structured mentorship track
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Start & End Date -->
-                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <!-- Mobile stacked compact cards -->
+                <div class="lg:hidden space-y-6">
                     <div>
-                        <label class="block text-warm font-semibold mb-1">Start Date *</label>
-                        <div class="relative">
-                            <input type="date" id="start-date" required
-                                class="w-full border border-gray-300 rounded-md p-3 pl-10 focus:outline-none focus:ring-2 focus:ring-forest appearance-none">
-                            <i
-                                class="fa-solid fa-calendar-days absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                        <h3 class="text-lg font-serif font-bold text-forest mb-3">Community & Conservation Volunteering
+                        </h3>
+                        <div class="space-y-3">
+                            <div
+                                class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex justify-between items-center">
+                                <div><span class="font-bold text-forest text-sm">1–2 Weeks</span>
+                                    <p class="text-warm/70 text-xs">Orientation, placement, support</p>
+                                </div>
+                                <span class="text-golden font-bold">$[XXX]</span>
+                            </div>
+                            <div
+                                class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex justify-between items-center">
+                                <div><span class="font-bold text-forest text-sm">3–4 Weeks</span>
+                                    <p class="text-warm/70 text-xs">Extended in-country support</p>
+                                </div>
+                                <span class="text-golden font-bold">$[XXX]</span>
+                            </div>
+                            <div
+                                class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex justify-between items-center">
+                                <div><span class="font-bold text-forest text-sm">1–2 Months</span>
+                                    <p class="text-warm/70 text-xs">Ongoing project involvement</p>
+                                </div>
+                                <span class="text-golden font-bold">$[XXX]</span>
+                            </div>
                         </div>
                     </div>
                     <div>
-                        <label class="block text-warm font-semibold mb-1">End Date *</label>
-                        <div class="relative">
-                            <input type="date" id="end-date" required
-                                class="w-full border border-gray-300 rounded-md p-3 pl-10 focus:outline-none focus:ring-2 focus:ring-forest appearance-none">
-                            <i
-                                class="fa-solid fa-calendar-days absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                        <h3 class="text-lg font-serif font-bold text-forest mb-3">Tourism & Hospitality Internships</h3>
+                        <div class="space-y-3">
+                            <div
+                                class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex justify-between items-center">
+                                <div><span class="font-bold text-forest text-sm">1 Month</span>
+                                    <p class="text-warm/70 text-xs">Orientation, placement, mentorship</p>
+                                </div>
+                                <span class="text-golden font-bold">$[XXX]</span>
+                            </div>
+                            <div
+                                class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex justify-between items-center">
+                                <div><span class="font-bold text-forest text-sm">2 Months</span>
+                                    <p class="text-warm/70 text-xs">Extended hands-on experience</p>
+                                </div>
+                                <span class="text-golden font-bold">$[XXX]</span>
+                            </div>
+                            <div
+                                class="bg-white rounded-xl p-4 border border-gray-100 shadow-sm flex justify-between items-center">
+                                <div><span class="font-bold text-forest text-sm">3+ Months</span>
+                                    <p class="text-warm/70 text-xs">Structured mentorship track</p>
+                                </div>
+                                <span class="text-golden font-bold">$[XXX]</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mb-6">
-                    <label class="block text-warm font-semibold mb-1">Tell Us About Yourself & Your Goals</label>
-                    <textarea rows="4"
-                        class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-forest"></textarea>
-                </div>
+                <p class="text-center text-warm/60 text-xs md:text-sm mt-8 italic">
+                    *Flights, visas, travel insurance, and personal spending are not included.
+                </p>
+            </div>
+        </section>
 
-                <button type="submit"
-                    class="w-full bg-golden hover:bg-yellow-500 text-white font-bold py-4 rounded-md text-lg transition shadow-md">
-                    Submit Application
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <!-- ================== OUR IMPACT SECTION ================== -->
-    <section id="impact" class="py-20 px-4 bg-white">
-        <div class="max-w-6xl mx-auto text-center reveal">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-forest mb-6">
-                Our Impact in Numbers
-            </h2>
-            <p class="text-lg text-warm max-w-2xl mx-auto mb-12">
-                Every journey with Kimondo Adventures creates a ripple effect of positive change. Here’s what we’ve
-                achieved together.
-            </p>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
-                    <i class="fa-solid fa-users text-4xl text-golden mb-4"></i>
-                    <div class="text-4xl font-bold text-forest">
-                        <span class="count-up" data-target="500">0</span>+
-                    </div>
-                    <div class="text-gray-600 mt-2">Volunteers & Interns Hosted</div>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
-                    <i class="fa-solid fa-school text-4xl text-golden mb-4"></i>
-                    <div class="text-4xl font-bold text-forest">
-                        <span class="count-up" data-target="25">0</span>+
-                    </div>
-                    <div class="text-gray-600 mt-2">Community Projects Completed</div>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
-                    <i class="fa-solid fa-tree text-4xl text-golden mb-4"></i>
-                    <div class="text-4xl font-bold text-forest">
-                        <span class="count-up" data-target="10000">0</span>+
-                    </div>
-                    <div class="text-gray-600 mt-2">Trees Planted Along the Coast</div>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition">
-                    <i class="fa-solid fa-globe-africa text-4xl text-golden mb-4"></i>
-                    <div class="text-4xl font-bold text-forest">
-                        <span class="count-up" data-target="50">0</span>+
-                    </div>
-                    <div class="text-gray-600 mt-2">Villages Reached with Healthcare</div>
+        <!-- ===== OUR IMPACT (compact) ===== -->
+        <section class="py-14 md:py-20 bg-forest text-white relative overflow-hidden reveal">
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <div
+                    class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-golden/30 rounded-full blur-[120px]">
                 </div>
             </div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-serif font-bold text-white mb-10">Our Impact in Numbers</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    <div>
+                        <div class="text-3xl md:text-4xl font-serif font-bold text-golden">500+</div>
+                        <div class="text-white/70 text-sm mt-1">Volunteers & Interns Hosted</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-serif font-bold text-golden">25+</div>
+                        <div class="text-white/70 text-sm mt-1">Community Projects Completed</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-serif font-bold text-golden">10,000+</div>
+                        <div class="text-white/70 text-sm mt-1">Trees Planted</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-serif font-bold text-golden">50+</div>
+                        <div class="text-white/70 text-sm mt-1">Villages Reached</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <p class="mt-12 text-warm max-w-2xl mx-auto italic text-lg">
-                "Be part of something bigger. Your adventure leaves a lasting legacy."
-            </p>
-        </div>
-    </section>
+        <!-- ===== APPLICATION FORM ===== -->
+        <section id="application" class="py-14 md:py-24 bg-white relative overflow-hidden reveal">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <div class="inline-flex items-center gap-3 md:gap-4 mb-3">
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold">Apply
+                            Now</span>
+                        <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-forest leading-tight">
+                        Start Your Journey With Kimondo
+                    </h2>
+                </div>
+                <form class="bg-[#fcfbf9] rounded-2xl md:rounded-3xl p-6 md:p-10 border border-gray-100 shadow-lg">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                        <div><label class="block text-warm font-semibold text-sm mb-1">First Name *</label><input
+                                type="text" required
+                                class="w-full border border-gray-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-forest text-sm">
+                        </div>
+                        <div><label class="block text-warm font-semibold text-sm mb-1">Last Name *</label><input
+                                type="text" required
+                                class="w-full border border-gray-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-forest text-sm">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                        <div><label class="block text-warm font-semibold text-sm mb-1">Email *</label><input
+                                type="email" required
+                                class="w-full border border-gray-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-forest text-sm">
+                        </div>
+                        <div><label class="block text-warm font-semibold text-sm mb-1">WhatsApp *</label><input
+                                type="tel" required
+                                class="w-full border border-gray-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-forest text-sm">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                        <div><label class="block text-warm font-semibold text-sm mb-1">Program Type *</label>
+                            <select id="program-type" required
+                                class="w-full border border-gray-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-forest text-sm">
+                                <option value="">-- Select --</option>
+                                <option value="volunteer">Volunteer Program</option>
+                                <option value="internship">Internship Program</option>
+                            </select>
+                        </div>
+                        <div><label class="block text-warm font-semibold text-sm mb-1">Duration *</label>
+                            <select required
+                                class="w-full border border-gray-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-forest text-sm">
+                                <option value="">-- Select --</option>
+                                <option>1–2 Weeks</option>
+                                <option>3–4 Weeks</option>
+                                <option>1 Month</option>
+                                <option>2 Months</option>
+                                <option>3+ Months</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label class="block text-warm font-semibold text-sm mb-1">Tell Us About Yourself & Your
+                            Goals</label>
+                        <textarea rows="3"
+                            class="w-full border border-gray-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-forest text-sm"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-golden hover:bg-yellow-500 text-white font-bold py-4 rounded-xl text-base transition shadow-lg">
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </section>
 
-    <!-- ================== SCRIPTS ================== -->
+        <!-- ===== FINAL CTA ===== -->
+        <section class="relative py-16 md:py-24 bg-[#0D1F14] overflow-hidden reveal">
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute -top-40 -right-40 w-96 h-96 bg-golden/10 rounded-full blur-[120px]"></div>
+                <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-forest/30 rounded-full blur-[120px]"></div>
+            </div>
+            <div class="relative max-w-4xl mx-auto px-4 text-center reveal">
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-5 leading-tight">
+                    Ready to Make Your Trip Mean Something?
+                </h2>
+                <p class="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-8 font-light">
+                    Whether you have two weeks or two months, there's a place for you in one of our community,
+                    conservation, or tourism programs. Let's find the right fit.
+                </p>
+                <a href="#application"
+                    class="inline-flex items-center gap-3 bg-golden hover:bg-yellow-500 text-white font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 rounded-full shadow-2xl shadow-golden/30 hover:shadow-golden/50 transition-all duration-300 transform hover:-translate-y-1">
+                    Apply to Get Involved
+                    <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><i
+                            class="fa-solid fa-arrow-right text-xs"></i></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="script.js"></script>
+
     <script>
-        // ---------- FONTS & ICONS ----------
-        const fontLink = document.createElement('link');
-        fontLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap';
-        fontLink.rel = 'stylesheet';
-        document.head.appendChild(fontLink);
-
-        if (!document.querySelector('link[href*="font-awesome"]')) {
-            const faLink = document.createElement('link');
-            faLink.rel = 'stylesheet';
-            faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-            document.head.appendChild(faLink);
-        }
-
-        // ---------- TAILWIND CONFIG ----------
-        window.tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        forest: '#2E7D32',
-                        golden: '#F5A623',
-                        choco: '#6D3A1F',
-                        turquoise: '#00BCD4',
-                        warm: '#5D4037',
-                    },
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    }
-                }
-            }
-        };
-
-        // ---------- HEADER DATA ----------
-        const translations = {
-            en: {
-                location: "Dar es Salaam, Tanzania",
-                navHome: "Home", navZanzibar: "Zanzibar Tour", navSafari: "Tanzania Safaris",
-                navTrekking: "Trekking", navShop: "Gift Shop", navGallery: "Gallery",
-                navContact: "Contact", navMyBooking: "My Booking",
-                navAbout: "About Us", navWhy: "Why Choose Us", navGetInvolved: "Get Involved",
-                navBlog: "Blog", navPrivacy: "Privacy", navFaqs: "FAQs", navTerms: "Terms"
-            }
-        };
-
-        const navLinksMain = [
-            { name: 'Home', url: 'index.html', i18n: 'navHome' },
-            { name: 'Zanzibar Tour', url: 'zanzibar.html', i18n: 'navZanzibar' },
-            { name: 'Tanzania Safaris', url: 'tanzania-safaris.html', i18n: 'navSafari' },
-            { name: 'Trekking', url: 'trekking.html', i18n: 'navTrekking' },
-            { name: 'Gift Shop', url: 'gift-shop.html', i18n: 'navShop' },
-            { name: 'Gallery', url: 'gallery.html', i18n: 'navGallery' },
-            { name: 'Contact', url: 'contact.html', i18n: 'navContact' }
-        ];
-        const bookingLink = { name: 'My Booking', url: 'booking.html', i18n: 'navMyBooking' };
-        const infoLinks = [
-            { name: 'About Us', url: 'about-us.html', i18n: 'navAbout' },
-            { name: 'Why Choose Us', url: 'why-choose-us.html', i18n: 'navWhy' },
-            { name: 'Get Involved', url: 'get-involved.html', i18n: 'navGetInvolved' },
-            { name: 'Blog', url: 'blog.html', i18n: 'navBlog' },
-            { name: 'Privacy', url: 'privacy.html', i18n: 'navPrivacy' },
-            { name: 'FAQs', url: 'faqs.html', i18n: 'navFaqs' },
-            { name: 'Terms', url: 'terms.html', i18n: 'navTerms' }
-        ];
-
-        function buildHeaderHTML() {
-            const t = translations.en;
-            const desktopLinksHTML = navLinksMain.map(link => {
-                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-                const isActive = decodeURIComponent(currentPage) === decodeURIComponent(link.url);
-                const baseClasses = "transition-colors duration-300 text-[13px] xl:text-sm 2xl:text-base tracking-wide whitespace-nowrap px-1.5 xl:px-2 2xl:px-3";
-                const stateClasses = isActive ? "text-forest font-bold underline underline-offset-4 decoration-2" : "text-warm font-medium hover:text-forest";
-                return `<a href="${link.url}" class="${baseClasses} ${stateClasses}">${t[link.i18n]}</a>`;
-            }).join('');
-
-            const mobileNavLinks = [...navLinksMain, bookingLink];
-            const mobileLinksHTML = mobileNavLinks.map(link => {
-                if (link === bookingLink) {
-                    return `<a href="${link.url}" class="block mx-4 my-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-md font-semibold tracking-wider shadow-sm transition-colors duration-300 text-center whitespace-nowrap">${t[link.i18n]}</a>`;
-                }
-                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-                const isActive = decodeURIComponent(currentPage) === decodeURIComponent(link.url);
-                const baseClasses = "block px-6 py-3 transition-colors duration-300 border-b border-gray-100 whitespace-nowrap";
-                const stateClasses = isActive ? "text-forest font-bold underline underline-offset-4 decoration-2" : "text-warm font-medium hover:bg-forest hover:text-white";
-                return `<a href="${link.url}" class="${baseClasses} ${stateClasses}">${t[link.i18n]}</a>`;
-            }).join('');
-
-            const infoRightHTML = infoLinks.map(link => {
-                return `<a href="${link.url}" class="text-xs font-medium tracking-wide text-white/90 hover:text-golden transition-colors whitespace-nowrap">${t[link.i18n]}</a>`;
-            }).join(' <span class="text-white/40">|</span> ');
-
-            return `
-            <header class="bg-white shadow-md fixed w-full top-0 z-[9999]">
-                <div class="bg-gradient-to-r from-warm to-choco text-white py-2 md:py-3">
-                    <div class="w-full px-2 lg:px-4 flex flex-row items-center justify-center lg:justify-between flex-nowrap">
-                        <div class="flex flex-row items-center gap-3 md:gap-6 text-[13px] font-medium whitespace-nowrap overflow-x-auto hide-scrollbar">
-                            <a href="https://maps.google.com/?q=Dar+es+Salaam" target="_blank" class="flex items-center gap-2 hover:text-golden transition-colors group">
-                                <i class="fa-solid fa-location-dot text-golden text-base group-hover:scale-110 transition-transform"></i>
-                                <span class="hidden sm:inline">${t.location}</span>
-                                <span class="sm:hidden">Dar es Salaam</span>
-                            </a>
-                            <a href="https://wa.me/255123456789" target="_blank" class="flex items-center gap-2 hover:text-golden transition-colors group">
-                                <i class="fa-brands fa-whatsapp text-green-400 text-[18px] group-hover:scale-110 transition-transform"></i>
-                                <span class="inline">+255 123 456 789</span>
-                            </a>
-                            <a href="mailto:hello@kimondoadventures.com" class="hidden md:flex items-center gap-2 hover:text-golden transition-colors group">
-                                <i class="fa-solid fa-envelope text-golden text-base group-hover:scale-110 transition-transform"></i>
-                                <span>hello@kimondoadventures.com</span>
-                            </a>
-                        </div>
-                        <div class="hidden lg:flex items-center gap-3 lg:gap-5 flex-shrink-0 ml-4">
-                            ${infoRightHTML}
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full px-2 lg:px-4 flex items-center justify-between py-3 md:py-5">
-                    <div class="flex-shrink-0">
-                        <a href="index.html" class="text-2xl md:text-2xl lg:text-3xl font-serif font-bold text-forest flex items-center gap-2 whitespace-nowrap">
-                            Kimondo <span class="text-golden italic">Adventures</span>
-                        </a>
-                    </div>
-                    <nav class="hidden xl:flex items-center justify-center flex-1 min-w-0 gap-0.5 2xl:gap-4 px-2">
-                        ${desktopLinksHTML}
-                    </nav>
-                    <div class="hidden xl:flex items-center flex-shrink-0">
-                        <a href="${bookingLink.url}" class="bg-golden hover:bg-yellow-500 text-white px-5 xl:px-6 py-2 xl:py-3 rounded-md font-semibold tracking-wider shadow-md transition-all duration-300 transform hover:-translate-y-0.5 text-sm xl:text-base whitespace-nowrap">
-                            ${t[bookingLink.i18n]}
-                        </a>
-                    </div>
-                    <div class="xl:hidden flex-shrink-0">
-                        <button id="mobile-menu-btn" class="text-forest hover:text-golden focus:outline-none p-2">
-                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div id="mobile-menu" class="hidden xl:hidden bg-white border-r border-b border-t border-gray-100 shadow-xl absolute font-sans top-full left-0 w-max rounded-br-2xl overflow-hidden">
-                    <div class="flex flex-col py-2">
-                        ${mobileLinksHTML}
-                    </div>
-                </div>
-            </header>`;
-        }
-
-        // ---------- DYNAMIC TOPICS (only on change) ----------
-        function setupDynamicTopics() {
-            const programType = document.getElementById('program-type');
-            const topicsSelect = document.getElementById('program-topics');
-
-            const volunteerOptions = [
-                "Community Development & Education",
-                "Healthcare & Wellness Outreach",
-                "Environmental & Marine Conservation"
-            ];
-            const internshipOptions = [
-                "Sustainable Tourism & Hospitality",
-                "Digital Marketing & Travel Media",
-                "Business Administration & NGO Management"
-            ];
-
-            function updateTopics() {
-                const val = programType.value;
-                topicsSelect.innerHTML = ''; // clear all
-
-                if (val === 'volunteer') {
-                    topicsSelect.innerHTML += '<option value="">-- Select Topic --</option>';
-                    volunteerOptions.forEach(opt => {
-                        topicsSelect.innerHTML += `<option>${opt}</option>`;
-                    });
-                } else if (val === 'internship') {
-                    topicsSelect.innerHTML += '<option value="">-- Select Topic --</option>';
-                    internshipOptions.forEach(opt => {
-                        topicsSelect.innerHTML += `<option>${opt}</option>`;
-                    });
-                } else {
-                    topicsSelect.innerHTML = '<option value="">-- Select Topic --</option>';
-                }
-            }
-
-            programType.addEventListener('change', updateTopics);
-            // Do NOT call updateTopics() on load – keep placeholder
-        }
-
-        // ---------- ANIMATED COUNTERS ----------
-        function animateCountUp(el) {
-            const target = parseInt(el.getAttribute('data-target'), 10);
-            if (isNaN(target)) return;
-
-            let current = 0;
-            const duration = 2000;
-            const stepTime = 20;
-            const steps = duration / stepTime;
-            const increment = target / steps;
-            let step = 0;
-
-            if (el._countUpInterval) clearInterval(el._countUpInterval);
-
-            el._countUpInterval = setInterval(() => {
-                step++;
-                current = Math.min(Math.floor(increment * step), target);
-                el.textContent = current;
-
-                if (step >= steps) {
-                    el.textContent = target;
-                    clearInterval(el._countUpInterval);
-                    el._countUpInterval = null;
-                }
-            }, stepTime);
-        }
-
-        function resetCountUp(el) {
-            if (el._countUpInterval) {
-                clearInterval(el._countUpInterval);
-                el._countUpInterval = null;
-            }
-            el.textContent = '0';
-        }
-
-        function setupCountUpObserver() {
-            const countElements = document.querySelectorAll('.count-up');
-            if (!countElements.length) return;
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const el = entry.target;
-                    if (entry.isIntersecting) {
-                        resetCountUp(el);
-                        animateCountUp(el);
-                    } else {
-                        resetCountUp(el);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            countElements.forEach(el => observer.observe(el));
-        }
-
-        // ---------- INITIALIZATION ----------
-        document.addEventListener("DOMContentLoaded", () => {
-            // Header
-            const headerContainer = document.getElementById('kimondo-header');
-            if (headerContainer) {
-                headerContainer.innerHTML = buildHeaderHTML();
-                const mobileBtn = document.getElementById('mobile-menu-btn');
-                const mobileMenu = document.getElementById('mobile-menu');
-                const menuIcon = document.getElementById('menu-icon');
-                if (mobileBtn && mobileMenu) {
-                    mobileBtn.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                        menuIcon.setAttribute('d', mobileMenu.classList.contains('hidden')
-                            ? 'M4 6h16M4 12h16M4 18h16'
-                            : 'M6 18L18 6M6 6l12 12');
-                    });
-                }
-            }
-
-            setupDynamicTopics();
-
-            // Scroll reveal for sections
-            const reveals = document.querySelectorAll('.reveal');
-            const revealObserver = new IntersectionObserver((entries, observer) => {
+        (function () {
+            // Reveal animations
+            const reveals = document.querySelectorAll('.reveal, .reveal-card');
+            const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
+                        revealObserver.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-            reveals.forEach(reveal => revealObserver.observe(reveal));
+            }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+            reveals.forEach(el => revealObserver.observe(el));
 
-            // Count-up animation
-            setupCountUpObserver();
-        });
+            // Infinite carousel helper
+            function initCarousel(trackId, dotsContainerId, realSlidesCount, autoplayDelay) {
+                const track = document.getElementById(trackId);
+                const dots = document.querySelectorAll(`#${dotsContainerId} .dot, #${dotsContainerId} .carousel-number`);
+                if (!track || dots.length === 0) return;
+
+                const TOTAL_SLIDES = track.children.length;
+                const CLONE_INDEX = realSlidesCount;
+                let currentIndex = 0, autoplayTimer = null, isTransitioning = false;
+
+                function getSlideWidth() {
+                    const first = track.children[0];
+                    return first ? first.offsetWidth + 16 : 280 + 16;
+                }
+
+                function updateDots(index) {
+                    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+                }
+
+                function goToSlide(index, animate = true) {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    currentIndex = index;
+                    track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+                    track.style.transform = `translateX(${-index * getSlideWidth()}px)`;
+                    const realIndex = (index === CLONE_INDEX) ? 0 : index;
+                    updateDots(realIndex);
+                    if (!animate) track.getBoundingClientRect();
+                    const handler = () => {
+                        track.removeEventListener('transitionend', handler);
+                        isTransitioning = false;
+                        if (currentIndex === CLONE_INDEX) {
+                            track.style.transition = 'none';
+                            track.style.transform = 'translateX(0px)';
+                            track.getBoundingClientRect();
+                            currentIndex = 0;
+                            updateDots(0);
+                            requestAnimationFrame(() => { track.style.transition = 'transform 0.5s ease-in-out'; });
+                        }
+                    };
+                    track.addEventListener('transitionend', handler, { once: true });
+                }
+
+                function startAutoplay() {
+                    stopAutoplay();
+                    autoplayTimer = setInterval(() => {
+                        goToSlide((currentIndex === realSlidesCount - 1) ? CLONE_INDEX : currentIndex + 1, true);
+                    }, autoplayDelay);
+                }
+                function stopAutoplay() { clearInterval(autoplayTimer); }
+
+                dots.forEach(dot => {
+                    dot.addEventListener('click', () => {
+                        const idx = parseInt(dot.getAttribute('data-index'), 10);
+                        if (idx === currentIndex) return;
+                        stopAutoplay();
+                        goToSlide(idx, true);
+                        startAutoplay();
+                    });
+                });
+
+                let touchX = 0;
+                const vp = track.parentNode;
+                vp.addEventListener('touchstart', (e) => { touchX = e.changedTouches[0].screenX; stopAutoplay(); }, { passive: true });
+                vp.addEventListener('touchend', (e) => {
+                    const diff = touchX - e.changedTouches[0].screenX;
+                    if (Math.abs(diff) > 40) {
+                        if (diff > 0 && currentIndex < TOTAL_SLIDES - 1) goToSlide(currentIndex + 1, true);
+                        else if (diff < 0 && currentIndex > 0) goToSlide(currentIndex - 1, true);
+                    }
+                    startAutoplay();
+                });
+
+                const sec = track.closest('section');
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => { if (e.isIntersecting) startAutoplay(); else stopAutoplay(); });
+                }, { threshold: 0.2 });
+                if (sec) obs.observe(sec);
+
+                updateDots(0);
+                track.style.transform = 'translateX(0px)';
+                startAutoplay();
+            }
+
+            initCarousel('includedMobileTrack', 'includedDots', 5, 3500);
+            initCarousel('whoMobileTrack', 'whoDots', 4, 3500);
+            initCarousel('howMobileTrack', 'howDots', 4, 4000);
+
+            // Dynamic topics (if program-type exists)
+            const programType = document.getElementById('program-type');
+            if (programType) {
+                const topicsSelect = document.getElementById('program-topics');
+                if (topicsSelect) {
+                    const opts = {
+                        volunteer: ['Community Development & Education', 'Healthcare & Wellness Outreach', 'Environmental & Marine Conservation'],
+                        internship: ['Sustainable Tourism & Hospitality', 'Digital Marketing & Travel Media', 'Business Administration & NGO Management']
+                    };
+                    programType.addEventListener('change', () => {
+                        const val = programType.value;
+                        topicsSelect.innerHTML = '<option value="">-- Select Topic --</option>';
+                        if (opts[val]) opts[val].forEach(o => { topicsSelect.innerHTML += `<option>${o}</option>`; });
+                    });
+                }
+            }
+        })();
     </script>
-    <script src="script.js"></script>
 </body>
 
 </html>

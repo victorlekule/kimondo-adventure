@@ -1,449 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Conditions – Kimondo Adventure</title>
-    <meta name="description" content="Comprehensive terms and conditions for Kimondo Adventure tours, safaris, and travel services in Tanzania.">
+    <title>Terms & Conditions | Kimondo Adventures</title>
+    <meta name="description"
+        content="Terms and conditions for booking safaris, Zanzibar tours, Kilimanjaro treks, volunteering programs, and artisan products with Kimondo Adventures.">
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind + Kimondo config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: { DEFAULT: '#1645aa', light: '#1e5acf' },
-                        gold: '#facc15',
-                        dark: '#0f172a',
                         forest: '#2E7D32',
                         golden: '#F5A623',
-                        choco: '#6D3A1F',
-                        turquoise: '#00BCD4',
                         warm: '#5D4037',
-                        'brand-dark': '#0B0C0E',
-                        'brand-blue': '#0D8ABC',
-                        'brand-yellow': '#FCEE21'
+                        light: '#fcfbf9',
+                        dark: '#0a0f0d',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
                     },
                 }
             }
         }
     </script>
-    <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body { font-family: 'Inter', sans-serif; padding-top: 0; margin: 0; }
-        html { scroll-behavior: smooth; }
-        #kimondo-header {
-            position: relative;
-            z-index: 9999;
+        html {
+            scroll-behavior: smooth;
         }
-        .section-number {
-            background: linear-gradient(135deg, #1645aa, #1e5acf);
-            box-shadow: 0 4px 15px rgba(22, 69, 170, 0.4);
+
+        body {
+            font-family: 'Inter', sans-serif;
         }
-        .card-hover:hover {
-            background-color: #facc15;
-            color: #0f172a;
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(250, 204, 21, 0.2);
-            border-color: #facc15;
+
+        .sidebar-link.active {
+            color: #F5A623;
+            background-color: rgba(245, 166, 35, 0.08);
+            border-left: 3px solid #F5A623;
         }
-        .card-hover:hover .section-number {
-            background: #0f172a;
-            color: #facc15;
-            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.4);
+
+        .terms-section {
+            border-left: 4px solid #F5A623;
+            transition: all 0.25s ease;
         }
-        .card-hover:hover h2, .card-hover:hover p, .card-hover:hover li, .card-hover:hover span, .card-hover:hover strong, .card-hover:hover em {
-            color: #0f172a;
+
+        .terms-section:hover {
+            box-shadow: 0 10px 25px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
-        .card-hover:hover a {
-            color: #1645aa;
-            text-decoration: underline;
+
+        .number-badge {
+            background-color: #F5A623;
+            color: #0a0f0d;
+            font-weight: 700;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
         }
-        .card-hover:hover table {
-            color: #0f172a;
-        }
-        .card-hover:hover th {
-            background-color: #0f172a;
-            color: #facc15;
-        }
-        .card-hover:hover td {
-            border-color: #e5e7eb;
+
+        /* Mobile accordion */
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                display: none;
+            }
+
+            .collapsible-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .collapsible-content.open {
+                max-height: 2000px;
+            }
+
+            .toggle-arrow {
+                transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .toggle-arrow.open {
+                transform: rotate(180deg);
+            }
         }
     </style>
 </head>
-<body class="bg-white text-gray-800 antialiased">
 
+<body class="bg-light text-warm antialiased">
+
+    <!-- Header placeholder -->
     <div id="kimondo-header"></div>
 
-
-
-    <!-- ====== HERO BANNER ====== -->
-    <div class="relative bg-forest py-20 md:py-24 overflow-hidden pt-16 mt-24 md:mt-32">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-gold/20 rounded-full mix-blend-multiply filter blur-[120px] pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-72 h-72 bg-gold/10 rounded-full mix-blend-multiply filter blur-[100px] pointer-events-none"></div>
-
-        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
-            <span class="inline-block bg-brand-blue text-gold text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide backdrop-blur-sm">LEGAL INFORMATION</span>
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4">
-                Terms <span class="text-gold">&amp;</span> Conditions
-            </h1>
-            <p class="text-white/80 text-lg max-w-2xl mx-auto">
-                Everything you need to know about booking, cancellations, and your adventure with Kimondo Adventure.
-            </p>
-            <p class="text-white/60 text-sm mt-6">Effective Date: January 1, 2026</p>
+    <!-- HERO SECTION (image background, consistent with privacy page) -->
+    <section class="relative min-h-[55vh] md:min-h-[65vh] flex items-center justify-center overflow-hidden w-full">
+        <div class="absolute inset-0 z-0">
+            <img src="IMG/1 (7).jpg" alt="Tanzania landscape" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-forest/70 via-dark/50 to-forest/80"></div>
+            <div
+                class="absolute top-0 right-0 w-80 h-80 bg-golden/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4">
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-light to-transparent"></div>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 md:py-28 text-center">
+            <div
+                class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
+                <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
+                <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Legal
+                    Information</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
+                Terms & Conditions
+            </h1>
+            <p class="text-lg md:text-xl text-white/85 max-w-2xl mx-auto font-light leading-relaxed mb-6">
+                Everything you need to know about booking, cancellations, and your adventure with Kimondo Adventures.
+            </p>
+            <p class="text-sm text-white/50">Effective Date: [Insert Date] &nbsp;|&nbsp; Last Updated: [Insert Date]</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT WITH SIDEBAR -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-20">
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- SIDEBAR NAVIGATION (desktop only) -->
+            <aside class="hidden lg:block w-64 shrink-0">
+                <div class="sticky top-28 space-y-1 sidebar-nav">
+                    <p class="text-xs font-semibold text-warm/50 uppercase tracking-wider mb-4 px-2">On this page</p>
+                    <a href="#who-we-are"
+                        class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="who-we-are">1. Who We Are</a>
+                    <a href="#bookings" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="bookings">2. Bookings & Confirmation</a>
+                    <a href="#payments" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="payments">3. Payments & Platform</a>
+                    <a href="#cancellations"
+                        class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="cancellations">4. Cancellations & Refunds</a>
+                    <a href="#responsibilities"
+                        class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="responsibilities">5. Your Responsibilities</a>
+                    <a href="#health" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="health">6. Health, Safety & Risk</a>
+                    <a href="#liability" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="liability">7. Limitation of Liability</a>
+                    <a href="#volunteering"
+                        class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="volunteering">8. Volunteering & Internships</a>
+                    <a href="#ip" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="ip">9. Intellectual Property</a>
+                    <a href="#changes" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="changes">10. Changes to Terms</a>
+                    <a href="#governing-law"
+                        class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="governing-law">11. Governing Law & Disputes</a>
+                    <a href="#contact" class="sidebar-link block px-3 py-2 text-sm text-warm/70 rounded-lg transition"
+                        data-target="contact">12. Contact Us</a>
+                </div>
+            </aside>
+
+            <!-- POLICY SECTIONS (accordion on mobile) -->
+            <div class="flex-1 space-y-12" id="terms-accordion-container">
+
+                <!-- 1. Who We Are -->
+                <section id="who-we-are"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">1</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Who We Are</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">Kimondo Adventures is a locally-owned tourism
+                                    company based in Zanzibar, Tanzania, offering Tanzania safaris, Zanzibar island
+                                    tours, Kilimanjaro & Mount Meru trekking, volunteering/internship programs, and
+                                    artisan products, to travelers worldwide.</p>
+                                <div class="mt-4 text-sm text-warm/60 space-y-1">
+                                    <p><strong class="text-warm">Business Address:</strong> Paje, Zanzibar, Tanzania</p>
+                                    <p><strong class="text-warm">Contact Email:</strong> hello@kimondoadventures.com</p>
+                                    <p><strong class="text-warm">Contact Phone/WhatsApp:</strong> +255 65 884 0425</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Bookings & Confirmation -->
+                <section id="bookings"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">2</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Bookings &
+                                    Confirmation</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <ul class="list-disc list-inside text-warm/80 space-y-2">
+                                    <li>A booking is confirmed only once you have received written confirmation from
+                                        Kimondo and the required deposit or full payment has been received.</li>
+                                    <li>All prices quoted are per person unless otherwise stated, and are subject to
+                                        change until a booking is confirmed.</li>
+                                    <li>It is your responsibility to ensure that all personal details provided (name,
+                                        passport information, travel dates) are accurate, as errors may affect permits,
+                                        park entry, or travel documentation.</li>
+                                    <li>Kimondo reserves the right to decline or cancel a booking prior to confirmation
+                                        for any legitimate business reason, including but not limited to availability,
+                                        safety concerns, or incomplete information.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Payments & Our Payment Platform Partner -->
+                <section id="payments"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">3</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Payments & Our
+                                    Payment Platform Partner</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed mb-4">To securely process bookings and payments,
+                                    Kimondo Adventures uses <strong class="text-forest">Tab (Tab.travel)</strong>, a
+                                    third-party booking and payment platform built for tourism businesses. When you make
+                                    a booking or payment through our website, your payment is processed directly by Tab
+                                    under its own terms of service and privacy policy, available at tab.travel.</p>
+                                <ul class="list-disc list-inside text-warm/80 space-y-2">
+                                    <li>Kimondo does not collect or store your full card details; all payment card data
+                                        is handled by Tab under applicable card industry security standards (PCI-DSS).
+                                    </li>
+                                    <li>Accepted payment methods, deposit requirements, and balance due dates will be
+                                        clearly stated at the time of booking.</li>
+                                    <li>In the event of a payment dispute, you agree to first contact Kimondo directly
+                                        to resolve the matter before initiating a chargeback through Tab or your card
+                                        issuer.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Cancellations & Refunds -->
+                <section id="cancellations"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">4</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Cancellations &
+                                    Refunds</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 font-medium">Cancellations by You:</p>
+                                <p class="text-warm/80 leading-relaxed mb-4">[Insert cancellation policy — e.g., refund
+                                    percentage by number of days before departure]</p>
+                                <p class="text-warm/80 font-medium">Cancellations by Kimondo:</p>
+                                <p class="text-warm/80 leading-relaxed mb-4">In the rare event that Kimondo must cancel
+                                    a confirmed booking (e.g., due to safety concerns, government restrictions, or
+                                    extraordinary circumstances), you will be offered a full refund or the option to
+                                    reschedule at no additional cost.</p>
+                                <p class="text-warm/80 font-medium">Force Majeure:</p>
+                                <p class="text-warm/80 leading-relaxed mb-4">Kimondo is not liable for cancellations,
+                                    delays, or changes caused by events beyond our reasonable control, including but not
+                                    limited to extreme weather, natural disasters, government action, civil unrest, or
+                                    global health emergencies. In such cases, we will work with you in good faith to
+                                    reschedule or minimize loss where possible.</p>
+                                <p class="text-warm/80 leading-relaxed">Refunds, where applicable, will be processed
+                                    back through Tab to your original payment method within a commercially reasonable
+                                    time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Your Responsibilities as a Traveler -->
+                <section id="responsibilities"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">5</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Your Responsibilities
+                                    as a Traveler</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <ul class="list-disc list-inside text-warm/80 space-y-2">
+                                    <li>You hold valid travel documentation, including passport, visa, and any required
+                                        entry permits, for Tanzania and Zanzibar.</li>
+                                    <li>You hold valid personal travel insurance, in addition to any locally mandated
+                                        insurance (such as ZIC insurance for Zanzibar entry, currently $44 per person).
+                                    </li>
+                                    <li>You have disclosed any relevant medical conditions, physical limitations, or
+                                        dietary requirements that may affect your safari, trek, or tour experience.</li>
+                                    <li>You will follow the reasonable safety instructions of your guide at all times,
+                                        particularly during safaris, water activities, and mountain trekking.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. Health, Safety & Assumption of Risk -->
+                <section id="health"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">6</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Health, Safety &
+                                    Assumption of Risk</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">Adventure travel, including safaris, water
+                                    sports, and mountain trekking, carries inherent risks. While Kimondo takes
+                                    reasonable precautions — including certified guides, safety equipment, and route
+                                    planning — you acknowledge and accept that participation in these activities
+                                    involves risk, and you do so at your own discretion and risk.</p>
+                                <p class="text-warm/80 leading-relaxed mt-4">Kimondo strongly recommends comprehensive
+                                    travel and medical evacuation insurance for all safari and trekking participants.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. Limitation of Liability -->
+                <section id="liability"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">7</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Limitation of
+                                    Liability</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">To the maximum extent permitted by law,
+                                    Kimondo's liability for any claim arising from your booking or participation in our
+                                    Services is limited to the amount paid for that specific booking. Kimondo is not
+                                    liable for indirect, incidental, or consequential damages, including but not limited
+                                    to missed flights, lost enjoyment, or third-party service failures (such as airlines
+                                    or independently-booked accommodations not arranged by Kimondo).</p>
+                                <p class="text-warm/80 leading-relaxed mt-4">This limitation does not exclude liability
+                                    for death or personal injury caused by proven negligence on the part of Kimondo,
+                                    where such exclusion is not permitted by law.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. Volunteering & Internship Program Terms -->
+                <section id="volunteering"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">8</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Volunteering &
+                                    Internship Program Terms</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <ul class="list-disc list-inside text-warm/80 space-y-2">
+                                    <li>Program fees cover the inclusions specified at the time of application and do
+                                        not guarantee employment, certification, or academic credit unless explicitly
+                                        stated.</li>
+                                    <li>Placements are subject to availability and suitability assessment by Kimondo and
+                                        its partner organizations.</li>
+                                    <li>Participants are responsible for their own visas, vaccinations, and personal
+                                        travel insurance for the duration of the program.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9. Intellectual Property -->
+                <section id="ip" class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">9</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Intellectual Property
+                                </h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">All content on this website — including text,
+                                    photography, videos, and branding — is the property of Kimondo Adventures unless
+                                    otherwise credited, and may not be reproduced or used without prior written
+                                    permission.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. Changes to These Terms -->
+                <section id="changes"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">10</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Changes to These
+                                    Terms</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">We may update these Terms from time to time to
+                                    reflect changes in our services, our booking/payment platform arrangements, or legal
+                                    requirements. The "Last Updated" date at the top of this page will reflect the most
+                                    recent revision. Continued use of our website or services after changes take effect
+                                    constitutes acceptance of the updated Terms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 11. Governing Law & Disputes -->
+                <section id="governing-law"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">11</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Governing Law &
+                                    Disputes</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 leading-relaxed">These Terms are governed by the laws of Tanzania
+                                    and Zanzibar. Any disputes arising from these Terms or your booking will be subject
+                                    to the jurisdiction of the courts of Zanzibar, Tanzania. Where a dispute relates
+                                    specifically to a payment transaction, Tab's own terms of service (available at
+                                    tab.travel) will also apply to that transaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 12. Contact Us -->
+                <section id="contact"
+                    class="terms-section bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-warm/5">
+                    <div class="flex items-start gap-4">
+                        <span class="number-badge">12</span>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start cursor-pointer" onclick="toggleSection(this)">
+                                <h2 class="text-2xl font-serif font-bold text-forest mb-4 md:mb-4">Contact Us</h2>
+                                <span class="md:hidden text-warm/50 hover:text-golden toggle-arrow ml-2 mt-1">
+                                    <i class="fa-solid fa-chevron-down text-lg"></i>
+                                </span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p class="text-warm/80 mb-4">If you have questions about these Terms & Conditions,
+                                    please contact us:</p>
+                                <div class="space-y-2 text-warm/80 text-sm">
+                                    <p><strong class="text-forest">Email:</strong> hello@kimondoadventures.com</p>
+                                    <p><strong class="text-forest">WhatsApp/Phone:</strong> +255 65 884 0425</p>
+                                    <p><strong class="text-forest">Address:</strong> Paje, Zanzibar, Tanzania</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer contact banner -->
+                <div class="bg-forest text-white rounded-2xl p-8 text-center">
+                    <i class="fa-solid fa-file-contract text-golden text-5xl mb-4"></i>
+                    <h2 class="text-2xl font-serif font-bold mb-3">Still have questions about our terms?</h2>
+                    <p class="text-white/70 mb-6 max-w-xl mx-auto">We're here to help – typically responding within 24
+                        hours.</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm">
+                        <a href="mailto:hello@kimondoadventures.com"
+                            class="flex items-center gap-2 hover:text-golden transition">
+                            <i class="fa-regular fa-envelope"></i> hello@kimondoadventures.com
+                        </a>
+                        <a href="https://wa.me/255658840425"
+                            class="flex items-center gap-2 hover:text-golden transition">
+                            <i class="fa-brands fa-whatsapp"></i> +255 65 884 0425
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- ====== MAIN CONTENT WITH CARDS ====== -->
-    <main class="max-w-5xl mx-auto px-6 py-12 lg:py-16 space-y-10">
+    <!-- Footer placeholder -->
+    <div id="footer-container"></div>
 
-        <!-- Section 1 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">1</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Acceptance of Terms</h2>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        By booking any tour, safari, trek, beach holiday, or travel‑related service ("Tour" or "Service") with <strong>Kimondo Adventure</strong> ("we", "us", "our"), you ("the Client", "you") agree to be bound by these Terms &amp; Conditions. Please read them carefully before confirming your reservation.
-                    </p>
-                    <p class="text-white/70 text-sm">These terms form the entire agreement between Kimondo Adventure and the Client. Any variation requires written consent.</p>
-                </div>
-            </div>
-        </section>
+    <!-- Sidebar active state + mobile accordion script -->
+    <script>
+            (function () {
+                // Desktop sidebar active state
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.sidebar-link');
+                window.addEventListener('scroll', () => {
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop - 120;
+                        if (window.scrollY >= sectionTop) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('data-target') === current) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
 
-        <!-- Section 2 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">2</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Definitions</h2>
-                    <ul class="space-y-3 text-white/90">
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="caret-forward-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>“Tour”</strong> – any travel package, safari, Kilimanjaro trek, Zanzibar holiday, day trip, or custom itinerary provided by Kimondo Adventure.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="caret-forward-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>“Client”</strong> – the person or legal entity making the booking, including all participants.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="caret-forward-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>“Booking”</strong> – a confirmed reservation acknowledged by us in writing.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="caret-forward-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>“Price”</strong> – total amount payable as per the invoice.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="caret-forward-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>“Force Majeure”</strong> – unforeseeable events beyond our reasonable control (see Section 10).</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                // Mobile accordion toggle
+                window.toggleSection = function (headerElement) {
+                    if (window.innerWidth > 768) return;
+                    const section = headerElement.closest('section');
+                    const content = section.querySelector('.collapsible-content');
+                    const arrow = headerElement.querySelector('.toggle-arrow');
+                    const allSections = document.querySelectorAll('#terms-accordion-container .terms-section');
+                    allSections.forEach(sec => {
+                        if (sec !== section) {
+                            const otherContent = sec.querySelector('.collapsible-content');
+                            const otherArrow = sec.querySelector('.toggle-arrow');
+                            if (otherContent && otherContent.classList.contains('open')) {
+                                otherContent.classList.remove('open');
+                                if (otherArrow) otherArrow.classList.remove('open');
+                            }
+                        }
+                    });
+                    if (content && arrow) {
+                        content.classList.toggle('open');
+                        arrow.classList.toggle('open');
+                    }
+                };
+            })();
+    </script>
 
-        <!-- Section 3 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">3</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Booking &amp; Reservations</h2>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        All bookings are subject to availability. A reservation is confirmed only after we issue a written confirmation and you pay the required deposit (typically 30–50% of the total Price). The balance must be settled no later than the date stated in your invoice – usually 30 to 45 days before departure. For last‑minute bookings (less than 14 days before departure), full payment is required immediately.
-                    </p>
-                    <p class="text-white/90 leading-relaxed">
-                        You must provide accurate personal details (full names, passport numbers, dietary needs, medical conditions, etc.). Incorrect information may lead to extra charges or cancellation.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">4</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Prices &amp; Payment</h2>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        All prices are in <strong>US Dollars (USD)</strong> unless otherwise noted. The price includes only items explicitly listed in the Tour itinerary. It does <em>not</em> cover international flights, visas, travel insurance, tips, personal expenses, etc.
-                    </p>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        We reserve the right to adjust prices due to government taxes, park fee changes, fuel surcharges, or exchange rate fluctuations. You may cancel without penalty if an increase exceeds 10% of the original Price, provided you do so within 7 days of notification.
-                    </p>
-                    <p class="text-white/90 leading-relaxed">
-                        Accepted payment methods: bank transfer, credit/debit cards (processing fees may apply), and mobile money. Any bank charges are borne by you.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 5 – Cancellation Table -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">5</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Cancellation &amp; Refund Policy</h2>
-                    <p class="text-white/90 leading-relaxed mb-5">Cancellations must be in writing. The following charges apply from the date we receive written notice:</p>
-                    <div class="overflow-x-auto mb-5">
-                        <table class="w-full text-sm border border-white/30 rounded-xl overflow-hidden">
-                            <thead>
-                                <tr class="bg-white/20 text-white">
-                                    <th class="p-4 text-left">Days Before Departure</th>
-                                    <th class="p-4 text-left">Cancellation Charge</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-white/20">
-                                <tr class="hover:bg-white/10 transition-colors">
-                                    <td class="p-4">More than 60 days</td>
-                                    <td class="p-4">10% of total Price (minimum admin fee)</td>
-                                </tr>
-                                <tr class="hover:bg-white/10 transition-colors bg-white/5">
-                                    <td class="p-4">45 – 60 days</td>
-                                    <td class="p-4">25% of total Price</td>
-                                </tr>
-                                <tr class="hover:bg-white/10 transition-colors">
-                                    <td class="p-4">30 – 44 days</td>
-                                    <td class="p-4">50% of total Price</td>
-                                </tr>
-                                <tr class="hover:bg-white/10 transition-colors bg-white/5">
-                                    <td class="p-4">15 – 29 days</td>
-                                    <td class="p-4">75% of total Price</td>
-                                </tr>
-                                <tr class="hover:bg-white/10 transition-colors">
-                                    <td class="p-4">0 – 14 days</td>
-                                    <td class="p-4 text-gold font-semibold">100% of total Price</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        Partial refunds for unused services (early departure, missed activities) are <strong>not</strong> granted. Kilimanjaro/Serengeti permits and domestic flights are non‑refundable once issued.
-                    </p>
-                    <p class="text-white/70 text-sm flex items-center gap-2">
-                        <ion-icon name="shield-checkmark-outline" class="text-gold"></ion-icon>
-                        We strongly recommend comprehensive travel insurance that covers trip cancellation.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">6</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Changes by the Client</h2>
-                    <p class="text-white/90 leading-relaxed">
-                        Requests to modify travel dates, itineraries, or participant names are subject to availability and a $50 USD fee per change, plus any supplier costs. Major changes may be treated as a cancellation and rebooking.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 7 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">7</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Changes by Kimondo Adventure</h2>
-                    <p class="text-white/90 leading-relaxed mb-4">
-                        Itineraries may need adjustment due to weather, road conditions, or safety. In case of a major change we will offer:
-                    </p>
-                    <ul class="space-y-2 text-white/90 mb-4">
-                        <li class="flex items-center gap-2"><ion-icon name="checkmark-circle-outline" class="text-gold"></ion-icon> Accepting the modified arrangement</li>
-                        <li class="flex items-center gap-2"><ion-icon name="checkmark-circle-outline" class="text-gold"></ion-icon> Switching to an alternative Tour (price difference adjusted)</li>
-                        <li class="flex items-center gap-2"><ion-icon name="checkmark-circle-outline" class="text-gold"></ion-icon> Cancelling with a full refund</li>
-                    </ul>
-                    <p class="text-white/70 text-sm">No compensation is given for changes beyond our control.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 8 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">8</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Insurance, Health &amp; Documents</h2>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        <strong>Travel insurance is mandatory</strong> and must cover medical emergencies, evacuation, trip cancellation, luggage, and personal liability. Proof may be required.
-                    </p>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        You must obtain valid visas, passports (6 months validity), and health certificates (e.g. yellow fever). We are not liable for entry refusal due to incomplete documents.
-                    </p>
-                    <p class="text-white/90 leading-relaxed">
-                        Disclose any medical conditions or dietary needs at booking. We reserve the right to decline participation if safety is at risk.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 9 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">9</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Liability &amp; Responsibility</h2>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        We arrange tours with independent suppliers and are not liable for their acts or omissions. Adventure travel involves inherent risks (wildlife, altitude, remote areas). By booking, you accept these risks and release Kimondo Adventure from claims, except in cases of gross negligence.
-                    </p>
-                    <p class="text-white/90 leading-relaxed">Our liability will never exceed the total amount paid by you for the Tour.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 10 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">10</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Force Majeure</h2>
-                    <p class="text-white/90 leading-relaxed">
-                        We will not be liable for failures caused by events beyond our control: natural disasters, war, terrorism, pandemics, airport closures, extreme weather, strikes, or government actions. We will attempt to reschedule or issue a credit voucher; cash refunds depend on recoverable costs.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 11 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">11</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Complaints &amp; Dispute Resolution</h2>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        Report any issue immediately to our guide. If unresolved, send a detailed written complaint to <a href="mailto:info@kimondoadventure.com" class="text-gold hover:underline">info@kimondoadventure.com</a> within 14 days of the Tour’s end.
-                    </p>
-                    <p class="text-white/90 leading-relaxed">Disputes will first seek amicable settlement, then be referred to Tanzanian courts under Tanzanian law.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 12 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">12</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Privacy &amp; Data Protection</h2>
-                    <p class="text-white/90 leading-relaxed">
-                        We collect personal data solely to process bookings. View our <a href="privacy.html" class="text-gold hover:underline">Privacy Policy</a> for details on data handling, storage, and your rights.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 13 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">13</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Intellectual Property</h2>
-                    <p class="text-white/90 leading-relaxed">
-                        All content on our website, brochures, and itineraries (text, images, logos) belongs to Kimondo Adventure or our licensors. Reproduction without written consent is prohibited.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 14 -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">14</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Governing Law</h2>
-                    <p class="text-white/90 leading-relaxed">
-                        These Terms are governed by the laws of the United Republic of Tanzania. The courts of Tanzania shall have exclusive jurisdiction.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 15 – NEW: Gift Shop & Art Sales -->
-        <section class="card-hover bg-brand-blue text-white rounded-3xl p-6 md:p-8 border-2 border-brand transition-all duration-300">
-            <div class="flex items-start gap-5">
-                <span class="section-number w-12 h-12 rounded-2xl flex items-center justify-center text-gold font-bold text-xl shrink-0">15</span>
-                <div>
-                    <h2 class="text-2xl font-bold mb-3">Gift Shop &amp; Art Sales</h2>
-                    <p class="text-white/90 leading-relaxed mb-3">
-                        Our gift shop offers a curated selection of handcrafted art, textiles, carvings, and jewellery created by talented local artisans. Every piece is a unique expression of Tanzania's rich cultural heritage.
-                    </p>
-                    <ul class="space-y-3 text-white/90 mb-4">
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="checkmark-circle-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>Authenticity:</strong> All items are genuine, handmade human art. We guarantee the origin and craftsmanship of each piece.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="checkmark-circle-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>Pricing:</strong> Prices are clearly marked and include applicable taxes unless stated otherwise.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="checkmark-circle-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>Purchases:</strong> Artworks can be bought onsite during your tour or pre‑ordered via our website. Full payment is required at the time of purchase.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="checkmark-circle-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>Custom Orders:</strong> Custom designs or commissions are possible. A 50% deposit is required upfront, with the balance due upon completion before shipping.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="checkmark-circle-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>Shipping &amp; Handling:</strong> We can arrange secure packaging and worldwide shipping. Costs vary by size, weight, and destination and will be quoted separately.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="checkmark-circle-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>Returns &amp; Exchanges:</strong> Due to the unique nature of handcrafted art, all sales are final. In the rare case of damage during transit, photographic evidence must be provided within 48 hours of delivery, and we will work with you to provide a replacement or refund.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <ion-icon name="checkmark-circle-outline" class="text-gold mt-1 shrink-0"></ion-icon>
-                            <span><strong>Intellectual Property on Artworks:</strong> The design and imagery of the art remain the intellectual property of the artist or Kimondo Adventure. Reproduction is prohibited.</span>
-                        </li>
-                    </ul>
-                    <p class="text-white/70 text-sm">
-                        By purchasing from our gift shop, you acknowledge and agree to these terms. For any questions, email <a href="mailto:arts@kimondoadventure.com" class="text-gold hover:underline">arts@kimondoadventure.com</a>.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ====== CONTACT SECTION ====== -->
-        <div class="bg-brand/5 border border-brand/20 rounded-3xl p-8 md:p-10 text-center">
-            <ion-icon name="chatbubble-ellipses-outline" class="text-brand text-5xl mx-auto mb-4"></ion-icon>
-            <h2 class="text-2xl font-bold text-gray-900 mb-3">Still have questions?</h2>
-            <p class="text-gray-600 mb-6 max-w-xl mx-auto">
-                We’re here to help. Contact us directly using the details below, and our team will respond promptly.
-            </p>
-            <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-700">
-                <a href="mailto:info@kimondoadventure.com" class="flex items-center gap-2 hover:text-brand transition-colors">
-                    <ion-icon name="mail-outline" class="text-xl text-brand"></ion-icon> info@kimondoadventure.com
-                </a>
-                <span class="flex items-center gap-2">
-                    <ion-icon name="call-outline" class="text-xl text-brand"></ion-icon> +255 XXX XXX XXX
-                </span>
-                <span class="flex items-center gap-2">
-                    <ion-icon name="location-outline" class="text-xl text-brand"></ion-icon> Tanzania, East Africa
-                </span>
-            </div>
-        </div>
-
-      
-    </main>
-
-<div id="footer-container"></div>
-        
-
-        <script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-</html>  
+
+</html>

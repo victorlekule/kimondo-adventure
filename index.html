@@ -36,37 +36,39 @@
       <div class="relative z-10 text-center w-full max-w-6xl mx-auto">
         <h1
           class="text-2xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white mb-3 md:mb-6 tracking-tight drop-shadow-2xl">
-          Discover Zanzibar & <br> Tanzania
+          Africa's Most Trusted Name in Tailor-Made
           <span
             class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-yellow-200 italic font-light inline">
-            Like Never Before</span>
+            Safari & Island Experiences</span>
         </h1>
         <p
           class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-200 font-sans font-light mb-4 md:mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-2">
-          Premium wildlife safaris, epic mountain trekking, authentic island experiences, and a
-          unique artisan gift shop—all crafted flawlessly around your dreams. <span
-            class="font-medium text-white">shop—all crafted flawlessly around your dreams. </span>
+          From the wild plains of the Serengeti to the turquoise waters of Zanzibar and the summit of Kilimanjaro —
+          Kimondo Adventures designs journeys no travel agency can replicate.<span class="font-medium text-white"> Every
+            detail, handled by the people who
+            call this land home.
+          </span>
         </p>
 
         <!-- Buttons (2 rows on mobile) -->
         <div class="flex flex-wrap justify-center items-center gap-1.5 sm:gap-4 mb-4 md:mb-8 w-full px-2 sm:px-0">
-          <a href="#zanzibar-tours"
+          <a href="zanzibar.html"
             class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-golden hover:bg-yellow-500 text-warm font-bold font-sans rounded-full shadow-[0_0_20px_rgba(245,166,35,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
             Zanzibar Tours
           </a>
-          <a href="#tanzania-safaris"
+          <a href="tanzania.html"
             class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
             Tanzania Safaris
           </a>
-          <a href="#trekking"
+          <a href="trecking.html"
             class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
             Trekking
           </a>
-          <a href="#gift-shop"
+          <a href="gift shop.html"
             class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 border-2 border-turquoise text-turquoise hover:bg-turquoise hover:text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
             Gift Shop
           </a>
-          <a href="#get-involved"
+          <a href="involve.html"
             class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-forest hover:bg-green-800 text-white font-bold font-sans rounded-full shadow-md transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
             Get Involved
           </a>
@@ -126,11 +128,10 @@
         if (!container) return;
 
         const images = [
-          'IMG/1.jpg',
-          'IMG/2.jpg',
-          'IMG/3.jpg',
-          'IMG/4.jpg',
-          'IMG/5.jpg'
+          'pic/hero1.jpg',
+          'pic/hero3.jpg',
+          'pic/homehero4.jpg',
+          'pic/hero2.jpg',
         ];
 
         let currentIndex = 0;
@@ -185,35 +186,60 @@
               <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
               <h2 class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold">Who We Are</h2>
             </div>
-            <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold logo-font text-forest mb-4 md:mb-6 leading-tight">
-              Your Ultimate Gateway to East Africa</h3>
-            <p class="text-warm/80 text-base md:text-lg leading-relaxed mb-6 font-light">
-              At Kimondo Adventures, we don’t just guide tours; we curate deeply immersive, tailormade journeys. From
-              the jaw-dropping wildlife spectacles of the Serengeti mainland
-              and the challenging snow-capped peak of Mount Kilimanjaro, to the crystal-clear
-              waters and rich heritage of Zanzibar, we bring you closer to the authentic spirit of
-              Africa.
 
+            <!-- ✅ Reduced heading: text-2xl on mobile, text-3xl on sm, text-5xl on md+ -->
+            <h3
+              class="text-base sm:text-lg md:text-2xl font-bold logo-font text-forest mb-4 md:mb-6 leading-snug md:leading-tight">
+              The Only Local Team That Gives You <span class="text-golden">All of East Africa</span> — In One Seamless
+              Journey
+            </h3>
+
+            <!-- ✅ Fixed: text-left on mobile, text-justify on md+ (avoids awkward word spacing on narrow screens) -->
+            <p class="text-warm/80 text-base md:text-lg leading-relaxed mb-6 font-light text-left text-justify">
+              Most operators specialize in one thing: a safari, or an island trip, or a mountain climb. Kimondo
+              Adventures is different. We are the single point of contact for your entire East African journey — from
+              the roaring wildlife of the Serengeti and Ngorongoro Crater, to the snow-capped summit of Kilimanjaro, to
+              the spice-scented streets of Stone Town. One team. One standard of excellence. Zero compromises.
             </p>
-            <div class="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 mt-6 md:mt-8">
-              <div class="flex items-center gap-3">
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-turquoise/10 flex items-center justify-center"><i
-                    class="fa-solid fa-earth-africa text-turquoise text-xs md:text-sm"></i></div><span
-                  class="font-bold text-xs md:text-sm">Local Experts</span>
+
+            <!-- ✅ Fixed: text-left on mobile, text-justify on md+ -->
+            <p class="text-warm/80 text-base md:text-lg leading-relaxed mb-6 font-light text-left text-justify">
+              We're not a booking platform reselling packages. We're the people on the ground — Tanzanian and Zanzibari
+              specialists who have walked these trails, dived these reefs, and built relationships with the guides,
+              rangers, and communities that make your journey authentic.
+            </p>
+
+            <!-- ✅ Badges now stack neatly on very small screens with better spacing -->
+            <div class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-6 mt-6 md:mt-8">
+              <div class="flex items-center gap-2 md:gap-3">
+                <div
+                  class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-turquoise/10 flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-earth-africa text-turquoise text-xs md:text-sm"></i>
+                </div>
+                <span class="font-bold text-xs md:text-sm whitespace-nowrap">Local Experts</span>
               </div>
-              <div class="flex items-center gap-3">
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-golden/10 flex items-center justify-center"><i
-                    class="fa-solid fa-bullseye text-golden text-xs md:text-sm"></i></div><span
-                  class="font-bold text-xs md:text-sm">Tailor-Made</span>
+              <div class="flex items-center gap-2 md:gap-3">
+                <div
+                  class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-golden/10 flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-bullseye text-golden text-xs md:text-sm"></i>
+                </div>
+                <span class="font-bold text-xs md:text-sm whitespace-nowrap">Tailor-Made</span>
+              </div>
+              <div class="flex items-center gap-2 md:gap-3">
+                <div
+                  class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-golden/10 flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-bullseye text-golden text-xs md:text-sm"></i>
+                </div>
+                <span class="font-bold text-xs md:text-sm whitespace-nowrap">One Team, Every Experience</span>
               </div>
             </div>
           </div>
 
           <!-- Image container – hidden on mobile, visible from lg upward -->
           <div class="hidden lg:block relative w-full aspect-square md:aspect-auto md:h-[500px]">
-            <img src="IMG/1 (2).jpg" alt="Zanzibar Dhow"
+            <img src="pic/zanzibar home 2.jpg" alt="Zanzibar Dhow"
               class="absolute top-0 right-0 w-3/4 aspect-square md:h-[400px] object-cover rounded-2xl md:rounded-3xl shadow-xl z-10 border-4 border-white transition-transform hover:scale-105 duration-500">
-            <img src="IMG/1 (9).jpg" alt="Safari"
+            <img src="pic/tanzania home.JPG" alt="Safari"
               class="absolute bottom-0 left-0 w-2/3 aspect-square md:h-[300px] object-cover rounded-2xl md:rounded-3xl shadow-2xl z-20 border-4 md:border-8 border-[#fcfbf9] transition-transform hover:scale-105 duration-500">
           </div>
 
@@ -240,31 +266,40 @@
 
       <div class="relative max-w-7xl mx-auto">
 
-        <!-- Header -->
-        <div class="text-center mb-20 reveal">
+        <!-- ========== HEADER ========== -->
+        <div class="text-center mb-16 md:mb-20 reveal">
+          <!-- Eyebrow -->
           <div class="inline-flex items-center gap-6 mb-4">
             <span class="h-px w-12 bg-golden hidden sm:block"></span>
             <span class="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-golden">Our Core
               Experiences</span>
             <span class="h-px w-12 bg-golden hidden sm:block"></span>
           </div>
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-forest leading-tight max-w-3xl mx-auto">
-            Five Unique Ways to <span class="text-transparent bg-clip-text bg-golden">Experience Africa</span>
-            with Kimondo
+
+          <!-- Headline -->
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-forest leading-tight max-w-3xl mx-auto">
+            Five Ways to <span class="text-transparent bg-clip-text bg-golden">Experience Africa</span> — All Under One
+            Roof
           </h2>
+
+          <!-- Intro line -->
+          <p class="mt-5 max-w-2xl mx-auto text-base md:text-lg text-warm/70 leading-relaxed font-light">
+            Other companies make you piece together separate bookings with separate operators. Kimondo gives you one
+            seamless experience across every corner of East Africa.
+          </p>
         </div>
 
-        <!-- DESKTOP GRID (hidden on mobile) -->
+        <!-- ========== DESKTOP GRID (hidden on mobile) ========== -->
         <div class="hidden lg:grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
-          <!-- Card 1 (Featured) ... keep exactly as original for desktop -->
+
+          <!-- Card 1 (Featured) -->
           <div
             class="lg:col-span-2 experience-card group relative rounded-3xl overflow-hidden shadow-2xl flex flex-col">
             <div class="absolute -top-10 -right-10 w-64 h-64 bg-golden/10 rounded-full blur-3xl"></div>
             <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-forest/10 rounded-full blur-3xl"></div>
             <div class="relative h-80 lg:h-full min-h-[400px] overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                alt="Tanzania Safari"
+              <img src="pic/mikumi home.JPG" alt="Tanzania Safari"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 style="clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);">
               <div
@@ -276,61 +311,70 @@
               <div class="text-white max-w-xl">
                 <span
                   class="text-6xl md:text-8xl font-serif font-bold text-white/20 absolute -top-10 left-4 select-none">01</span>
-                <h3 class="text-2xl md:text-3xl lg:text-4xl font-serif font-bold mb-3 relative">Tanzania Safaris</h3>
-                <p class="text-sm md:text-base text-gray-200 max-w-md opacity-90 leading-relaxed">Witness the untamed
-                  majesty of the wild. Explore the Serengeti, Ngorongoro Crater, and Tarangire with our premium
-                  expert‑led local guides.</p>
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-serif font-bold mb-1 relative">Tanzania Safaris</h3>
+                <p class="text-sm md:text-base text-golden/90 italic mb-2 font-medium">Where the Wild Never Sleeps</p>
+                <p class="text-sm md:text-base text-gray-200 max-w-md opacity-90 leading-relaxed">
+                  Track the Big Five across the Serengeti, descend into the Ngorongoro Crater, and witness the Great
+                  Migration with guides who read the bush like a second language. Every safari is privately tailored —
+                  no shared itineraries, no generic routes.
+                </p>
               </div>
-              <a href="#safaris"
-                class="mt-4 md:mt-0 inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">View
-                Safari Packages <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+              <a href="tanzania.html"
+                class="mt-4 md:mt-0 inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">
+                View Safari Packages <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Cards 2‑5 (same original markup) -->
-          <!-- Card 2 -->
+          <!-- Card 2 — Zanzibar -->
           <div
             class="experience-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col">
             <div class="relative h-56 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1586861639681-15e4ef49f2c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Zanzibar"
+              <img src="pic/botanist (3).JPG" alt="Zanzibar"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">02</span>
             </div>
             <div class="p-6 flex flex-col flex-1">
-              <h3 class="text-xl font-bold text-forest mb-2">Zanzibar Island Tours</h3>
-              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">Immerse yourself in the magical Spice
-                Islands. From crystal‑clear kayaking and snorkeling to historical Stone Town and Prison Island.</p>
-              <a href="#zanzibar-tours"
-                class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">View
-                Zanzibar Tours <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+              <h3 class="text-xl font-bold text-forest mb-1">Zanzibar Island Tours</h3>
+              <p class="text-sm text-golden/80 italic mb-2 font-medium">Paradise, Curated by Locals</p>
+              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
+                Kayak over crystal-clear lagoons, snorkel untouched reefs, and walk the 500-year-old streets of Stone
+                Town — a UNESCO World Heritage Site. This is Zanzibar as locals experience it, not the tourist-trail
+                version.
+              </p>
+              <a href="zanzibar.html"
+                class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">
+                View Zanzibar Tours <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Card 3 -->
+          <!-- Card 3 — Mountain Trekking -->
           <div
             class="experience-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col">
             <div class="relative h-56 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1559027615-cfa5a0465c4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Kilimanjaro"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <img src="pic/marangu.JPG" alt="Kilimanjaro"
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">03</span>
             </div>
             <div class="p-6 flex flex-col flex-1">
-              <h3 class="text-xl font-bold text-forest mb-2">Mountain Trekking</h3>
-              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">Conquer the roof of Africa. Take on the
-                ultimate bucket‑list challenge with our highly certified Kilimanjaro and Mount Meru teams.</p>
-              <a href="#trekking"
-                class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">View
-                Trekking Routes <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+              <h3 class="text-xl font-bold text-forest mb-1">Mountain Trekking</h3>
+              <p class="text-sm text-golden/80 italic mb-2 font-medium">Conquer the Roof of Africa</p>
+              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
+                Summit Kilimanjaro and Mount Meru with certified guide teams trusted for safety, pacing, and
+                summit-success rates that rival any operator on the continent. Your climb, planned by people who've made
+                the summit themselves.
+              </p>
+              <a href="trecking.html"
+                class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">
+                View Trekking Routes <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Card 4 -->
+          <!-- Card 4 — Artisan Gift Shop -->
           <div
             class="experience-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col">
             <div class="relative h-56 overflow-hidden">
@@ -342,16 +386,20 @@
               <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">04</span>
             </div>
             <div class="p-6 flex flex-col flex-1">
-              <h3 class="text-xl font-bold text-forest mb-2">Artisan Gift Shop</h3>
-              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">Take home a piece of authentic Tanzanian
-                heritage. Discover hand‑polished ebony sculptures, traditional masks, and exquisite local treasures.</p>
-              <a href="#gift-shop"
-                class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">Shop
-                the Collection <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+              <h3 class="text-xl font-bold text-forest mb-1">Artisan Gift Shop</h3>
+              <p class="text-sm text-golden/80 italic mb-2 font-medium">Take Africa Home With You</p>
+              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
+                Hand-carved ebony sculptures, Makonde masterworks, and authentic Maasai art — sourced directly from
+                local artisans, shipped worldwide. Every piece purchased supports the craftsmen who made it.
+              </p>
+              <a href="gift shop.html"
+                class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">
+                Shop the Collection <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Card 5 -->
+          <!-- Card 5 — Volunteering & Internships -->
           <div
             class="experience-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col">
             <div class="relative h-56 overflow-hidden">
@@ -363,90 +411,101 @@
               <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">05</span>
             </div>
             <div class="p-6 flex flex-col flex-1">
-              <h3 class="text-xl font-bold text-forest mb-2">Volunteering & Internships</h3>
-              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">Travel with a profound purpose. Join our
-                sustainable grassroots programs to uplift local communities while gaining invaluable global experience.
+              <h3 class="text-xl font-bold text-forest mb-1">Volunteering &amp; Internships</h3>
+              <p class="text-sm text-golden/80 italic mb-2 font-medium">Travel With Purpose</p>
+              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
+                Join grassroots community and conservation programs that create real, lasting impact — not performative
+                tourism. Gain a global experience while giving back to the communities that welcome you.
               </p>
-              <a href="get-involved.html"
-                class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">Join
-                Our Programs <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+              <a href="involve.html"
+                class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 whitespace-nowrap">
+                Join Our Programs <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+              </a>
             </div>
           </div>
+
         </div><!-- /desktop grid -->
 
-        <!-- MOBILE CAROUSEL (visible only below lg) -->
+        <!-- ========== MOBILE CAROUSEL (visible only below lg) ========== -->
         <div class="lg:hidden relative">
           <!-- Scrollable track -->
           <div id="mobileCarouselTrack"
             class="carousel-track flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 pb-4 -mx-4 px-4 no-scrollbar"
             style="scrollbar-width: none; -ms-overflow-style: none;">
-            <!-- Card 1 (Featured) -->
+
+            <!-- Card 1 — Tanzania Safaris -->
             <div
               class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col">
               <div class="relative h-52 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1586861639681-15e4ef49f2c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  alt="Tanzania Safari"
+                <img src="pic/mikumi home.JPG" alt="Tanzania Safari"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">01</span>
               </div>
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold text-forest mb-2">Tanzania Safari</h3>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">Witness the untamed
-                  majesty of the wild. Explore the Serengeti, Ngorongoro Crater, and Tarangire with our premium
-                  expert‑led local guides.
+                <h3 class="text-xl font-bold text-forest mb-1">Tanzania Safaris</h3>
+                <p class="text-sm text-golden/80 italic mb-2 font-medium">Where the Wild Never Sleeps</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">
+                  Track the Big Five across the Serengeti, descend into the Ngorongoro Crater, and witness the Great
+                  Migration with guides who read the bush like a second language. Every safari is privately tailored —
+                  no shared itineraries, no generic routes.
                 </p>
-                <a href="#safaris"
-                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">View
-                  Safari Packages <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                <a href="tanzania.html"
+                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">
+                  View Safari Packages <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                </a>
               </div>
             </div>
 
-            <!-- Card 2 -->
+            <!-- Card 2 — Zanzibar -->
             <div
               class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col">
               <div class="relative h-52 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1586861639681-15e4ef49f2c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  alt="Zanzibar"
+                <img src="pic/botanist (3).JPG" alt="Zanzibar"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">02</span>
               </div>
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold text-forest mb-2">Zanzibar Island Tours</h3>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">Immerse yourself in the
-                  magical Spice Islands. Crystal‑clear kayaking, snorkeling, historical Stone Town and Prison Island.
+                <h3 class="text-xl font-bold text-forest mb-1">Zanzibar Island Tours</h3>
+                <p class="text-sm text-golden/80 italic mb-2 font-medium">Paradise, Curated by Locals</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">
+                  Kayak over crystal-clear lagoons, snorkel untouched reefs, and walk the 500-year-old streets of Stone
+                  Town — a UNESCO World Heritage Site. This is Zanzibar as locals experience it, not the tourist-trail
+                  version.
                 </p>
-                <a href="#zanzibar-tours"
-                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">View
-                  Zanzibar Tours <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                <a href="zanzibar.html"
+                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">
+                  View Zanzibar Tours <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                </a>
               </div>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Card 3 — Mountain Trekking -->
             <div
               class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col">
               <div class="relative h-52 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1559027615-cfa5a0465c4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  alt="Kilimanjaro"
+                <img src="pic/marangu.JPG" alt="Kilimanjaro"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">03</span>
               </div>
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold text-forest mb-2">Mountain Trekking</h3>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">Conquer the roof of Africa.
-                  Take on the ultimate bucket‑list challenge with our highly certified teams.</p>
-                <a href="#trekking"
-                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">View
-                  Trekking Routes <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                <h3 class="text-xl font-bold text-forest mb-1">Mountain Trekking</h3>
+                <p class="text-sm text-golden/80 italic mb-2 font-medium">Conquer the Roof of Africa</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">
+                  Summit Kilimanjaro and Mount Meru with certified guide teams trusted for safety, pacing, and
+                  summit-success rates that rival any operator on the continent. Your climb, planned by people who've
+                  made the summit themselves.
+                </p>
+                <a href="trecking.html"
+                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">
+                  View Trekking Routes <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                </a>
               </div>
             </div>
 
-            <!-- Card 4 -->
+            <!-- Card 4 — Artisan Gift Shop -->
             <div
               class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col">
               <div class="relative h-52 overflow-hidden">
@@ -458,16 +517,20 @@
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">04</span>
               </div>
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold text-forest mb-2">Artisan Gift Shop</h3>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">Take home authentic Tanzanian
-                  heritage. Hand‑polished ebony sculptures, traditional masks, and exquisite treasures.</p>
+                <h3 class="text-xl font-bold text-forest mb-1">Artisan Gift Shop</h3>
+                <p class="text-sm text-golden/80 italic mb-2 font-medium">Take Africa Home With You</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">
+                  Hand-carved ebony sculptures, Makonde masterworks, and authentic Maasai art — sourced directly from
+                  local artisans, shipped worldwide. Every piece purchased supports the craftsmen who made it.
+                </p>
                 <a href="#gift-shop"
-                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">Shop
-                  the Collection <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">
+                  Shop the Collection <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                </a>
               </div>
             </div>
 
-            <!-- Card 5 -->
+            <!-- Card 5 — Volunteering & Internships -->
             <div
               class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col">
               <div class="relative h-52 overflow-hidden">
@@ -479,12 +542,16 @@
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">05</span>
               </div>
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold text-forest mb-2">Volunteering & Internships</h3>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">Travel with purpose. Join our
-                  sustainable grassroots programs to uplift local communities.</p>
+                <h3 class="text-xl font-bold text-forest mb-1">Volunteering &amp; Internships</h3>
+                <p class="text-sm text-golden/80 italic mb-2 font-medium">Travel With Purpose</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">
+                  Join grassroots community and conservation programs that create real, lasting impact — not
+                  performative tourism. Gain a global experience while giving back to the communities that welcome you.
+                </p>
                 <a href="get-involved.html"
-                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">Join
-                  Our Programs <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">
+                  Join Our Programs <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                </a>
               </div>
             </div>
 
@@ -494,26 +561,29 @@
               aria-hidden="true">
               <div class="relative h-52 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1586861639681-15e4ef49f2c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                  src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                   alt="Tanzania Safari"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">01</span>
               </div>
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold text-forest mb-2">Tanzania Safari</h3>
-                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">Witness the untamed
-                  majesty of the wild. Explore the Serengeti, Ngorongoro Crater, and Tarangire with our premium
-                  expert‑led local guides.
+                <h3 class="text-xl font-bold text-forest mb-1">Tanzania Safaris</h3>
+                <p class="text-sm text-golden/80 italic mb-2 font-medium">Where the Wild Never Sleeps</p>
+                <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-3">
+                  Track the Big Five across the Serengeti, descend into the Ngorongoro Crater, and witness the Great
+                  Migration with guides who read the bush like a second language. Every safari is privately tailored —
+                  no shared itineraries, no generic routes.
                 </p>
                 <a href="#safaris"
-                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">View
-                  Safari Packages <i class="fa-solid fa-arrow-right text-xs ml-1"></i></a>
+                  class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">
+                  View Safari Packages <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                </a>
               </div>
             </div>
           </div>
 
-          <!-- Dots at the bottom (only mobile) – still only 5 dots -->
+          <!-- Dots -->
           <div id="mobileDots" class="flex justify-center gap-2 mt-6">
             <span class="dot w-3 h-3 rounded-full transition-all duration-300 cursor-pointer"
               style="background-color: #2E7D32;" data-index="0"></span>
@@ -533,7 +603,6 @@
 
     <!-- Styles for carousel and dots -->
     <style>
-      /* Hide scrollbar on carousel track */
       .no-scrollbar::-webkit-scrollbar {
         display: none;
       }
@@ -554,14 +623,11 @@
         scroll-snap-stop: always;
       }
 
-      /* Active dot – golden */
       .dot.active {
         background-color: #F5A623 !important;
-        /* golden */
         transform: scale(1.2);
       }
 
-      /* Optional: reveal animation for desktop grid */
       .reveal-right {
         opacity: 0;
         transform: translateX(80px);
@@ -574,52 +640,40 @@
       }
     </style>
 
-    <!-- Script: Seamless infinite carousel – NO visible rewind -->
+    <!-- Script: Seamless infinite carousel -->
     <script>
       (function () {
         const track = document.getElementById('mobileCarouselTrack');
         const dots = document.querySelectorAll('#mobileDots .dot');
         if (!track || dots.length === 0) return;
 
-        const REAL_SLIDES = dots.length;            // 5 real slides
-        const TOTAL_SLIDES = track.children.length; // 6 (includes clone at index 5)
-        const CLONE_INDEX = REAL_SLIDES;            // 5
-        const AUTOPLAY_DELAY = 4000;                // ms
+        const REAL_SLIDES = dots.length;
+        const TOTAL_SLIDES = track.children.length;
+        const CLONE_INDEX = REAL_SLIDES;
+        const AUTOPLAY_DELAY = 4000;
 
-        let currentRealIndex = 0;   // always 0‑4, used for dots
+        let currentRealIndex = 0;
         let autoplayTimer = null;
-        let isResetting = false;    // true while we perform the instant jump back
+        let isResetting = false;
 
-        // Update dot indicators
         function setActiveDot(index) {
           dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         }
 
-        // Scroll to a slide using its index in track.children
         function goToSlide(index, behavior = 'smooth') {
           const slide = track.children[index];
           if (!slide) return;
-          slide.scrollIntoView({
-            behavior: behavior,
-            inline: 'center',
-            block: 'nearest'
-          });
-          // Update the logical (real) index
+          slide.scrollIntoView({ behavior, inline: 'center', block: 'nearest' });
           currentRealIndex = (index === CLONE_INDEX) ? 0 : index;
           setActiveDot(currentRealIndex);
         }
 
-        // Instantly jump to the real first slide (no animation)
         function jumpToRealStart() {
           isResetting = true;
-          const previousScrollBehavior = track.style.scrollBehavior;
+          const prevBehavior = track.style.scrollBehavior;
           track.style.scrollBehavior = 'auto';
-          track.children[0].scrollIntoView({
-            behavior: 'auto',
-            inline: 'center',
-            block: 'nearest'
-          });
-          track.style.scrollBehavior = previousScrollBehavior;
+          track.children[0].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+          track.style.scrollBehavior = prevBehavior;
           currentRealIndex = 0;
           setActiveDot(0);
           requestAnimationFrame(() => {
@@ -633,13 +687,7 @@
           stopAutoplay();
           autoplayTimer = setInterval(() => {
             const next = currentRealIndex + 1;
-            // If next would be the clone, scroll to clone (smooth)
-            if (next === CLONE_INDEX) {
-              goToSlide(CLONE_INDEX, 'smooth');
-            } else {
-              // Normal advance
-              goToSlide(next, 'smooth');
-            }
+            goToSlide(next === CLONE_INDEX ? CLONE_INDEX : next, 'smooth');
           }, AUTOPLAY_DELAY);
         }
 
@@ -647,80 +695,58 @@
           clearInterval(autoplayTimer);
         }
 
-        // ---- Handle manual swipes and clone detection ----
         let scrollEndTimer;
         track.addEventListener('scroll', () => {
-          if (isResetting) return; // ignore scroll events while we're resetting
-
+          if (isResetting) return;
           clearTimeout(scrollEndTimer);
           scrollEndTimer = setTimeout(() => {
             if (isResetting) return;
-
-            // Find which slide is closest to the left edge
             const trackRect = track.getBoundingClientRect();
             const trackLeft = trackRect.left;
             const slides = track.children;
-            let closest = 0;
-            let minDist = Infinity;
+            let closest = 0, minDist = Infinity;
             for (let i = 0; i < slides.length; i++) {
-              const slideLeft = slides[i].getBoundingClientRect().left;
-              const dist = Math.abs(slideLeft - trackLeft);
-              if (dist < minDist) {
-                minDist = dist;
-                closest = i;
-              }
+              const dist = Math.abs(slides[i].getBoundingClientRect().left - trackLeft);
+              if (dist < minDist) { minDist = dist; closest = i; }
             }
-
             if (closest === CLONE_INDEX) {
-              // We've landed on the clone → instantly teleport to real first slide
               jumpToRealStart();
             } else {
-              // Normal slide – update state and restart autoplay
               currentRealIndex = closest;
               setActiveDot(currentRealIndex);
               stopAutoplay();
               startAutoplay();
             }
-          }, 150); // debounce
+          }, 150);
         });
 
-        // ---- Dot click: go directly to the real slide ----
         dots.forEach(dot => {
           dot.addEventListener('click', () => {
             const index = parseInt(dot.getAttribute('data-index'), 10);
-            // Go to the real slide (never the clone)
             goToSlide(index, 'smooth');
             stopAutoplay();
             startAutoplay();
           });
         });
 
-        // ---- Intersection Observer: pause autoplay when off‑screen ----
         const section = document.getElementById('core-experiences');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              startAutoplay();
-            } else {
-              stopAutoplay();
-            }
+            entry.isIntersecting ? startAutoplay() : stopAutoplay();
           });
         }, { threshold: 0.2 });
-
         if (section) observer.observe(section);
 
-        // Initialise: start on first slide, active dot 0
         setActiveDot(0);
-        // If the page loads with a weird scroll position, reset it quietly
         if (track.scrollLeft > 10) {
           track.children[0].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
         }
       })();
 
-      // ---- Keep desktop reveal animation ----
+      // Desktop reveal animation
       (function () {
         const revealCards = document.querySelectorAll('.reveal-right');
-        if (revealCards.length === 0) return;
+        if (!revealCards.length) return;
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -734,233 +760,241 @@
     </script>
 
 
-    <!-- ========== WHY CHOOSE KIMONDO (FOREST GREEN – MODERN & POWERFUL) ========== -->
-    <section id="why-kimondo" class="relative py-24 px-4 bg-[#2E7D32] overflow-hidden">
 
-      <!-- Top accent line -->
-      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F5A623] via-[#00BCD4] to-[#F5A623]"></div>
 
-      <!-- Subtle overlay pattern -->
-      <div class="absolute inset-0 opacity-[0.04] pointer-events-none">
-        <svg width="100%" height="100%">
+
+    <!-- ========== WHY CHOOSE KIMONDO (PREMIUM REDESIGN – ANIMATED + SMOOTH CAROUSEL) ========== -->
+    <section id="why-kimondo" class="relative py-24 px-4 bg-[#0D1F14] overflow-hidden">
+
+      <!-- Dynamic background effects -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-golden/5 blur-[120px]"></div>
+        <div class="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-forest/20 blur-[120px]"></div>
+        <svg class="absolute inset-0 w-full h-full opacity-[0.02]" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="forest-dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="1.5" fill="#F5A623" />
+            <pattern id="diagonal-lines" patternUnits="userSpaceOnUse" width="60" height="60"
+              patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="60" stroke="white" stroke-width="0.5" />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#forest-dots)"></rect>
+          <rect width="100%" height="100%" fill="url(#diagonal-lines)" />
         </svg>
       </div>
 
       <div class="relative max-w-7xl mx-auto">
-
-        <!-- Header -->
-        <div class="text-center mb-10 md:mb-20 reveal">
+        <!-- ========== HEADER ========== -->
+        <div class="text-center mb-16 md:mb-20 reveal">
           <div class="inline-flex items-center gap-6 mb-4">
-            <span class="h-px w-12 bg-[#F5A623] hidden sm:block"></span>
-            <span class="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-[#F5A623]">Why Choose
+            <span class="h-px w-12 bg-golden hidden sm:block"></span>
+            <span class="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-golden">Why Choose
               Kimondo</span>
-            <span class="h-px w-12 bg-[#F5A623] hidden sm:block"></span>
+            <span class="h-px w-12 bg-golden hidden sm:block"></span>
           </div>
-          <!-- Heading: smaller on mobile, nowrap to prevent line break -->
           <h2
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight whitespace-nowrap drop-shadow-sm">
-            The Kimondo Difference
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight max-w-4xl mx-auto">
+            The Only Operator That Covers It All — <span class="text-golden">And Still Gets Every Detail Right</span>
           </h2>
-          <p class="mt-6 text-base md:text-lg text-[#e8f5e9] max-w-2xl mx-auto leading-relaxed">
-            We don’t just offer services—we deliver bespoke African experiences designed with
-            uncompromising care, precision, and passion.
+          <p class="mt-6 max-w-2xl mx-auto text-base md:text-lg text-white/70 leading-relaxed font-light">
+            There are safari companies. There are island tour operators. There are trekking outfitters. Kimondo
+            Adventures is the rare operator that masters all three — without ever feeling like a franchise. This is what
+            sets us apart from every other name in East African travel:
           </p>
         </div>
 
-        <!-- DESKTOP GRID (hidden on mobile) -->
-        <div class="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-          <!-- Column 1 -->
+        <!-- ========== DESKTOP GRID (hidden on mobile) ========== -->
+        <div class="hidden lg:grid lg:grid-cols-2 gap-8 lg:gap-10">
+          <!-- Cards now have reveal + staggered delay via inline style -->
           <div
-            class="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-[#F5A623] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#F5A623]/20">
-            <div
-              class="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#F5A623] to-[#00BCD4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+            class="reveal card-animate relative group bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-500 hover:border-golden/40 hover:shadow-[0_0_40px_rgba(245,166,35,0.15)]"
+            style="transition-delay: 0.1s;">
+            <span
+              class="text-7xl font-serif font-bold text-golden/10 absolute top-4 right-6 select-none group-hover:text-golden/20 transition-all duration-500">01</span>
+            <div class="relative z-10 flex gap-5 items-start">
+              <div
+                class="w-14 h-14 rounded-2xl bg-golden/10 flex items-center justify-center shrink-0 group-hover:bg-golden/20 transition-colors duration-300">
+                <i class="fa-solid fa-map-location-dot text-2xl text-golden"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-golden transition-colors duration-300">
+                  Unmatched Local Access</h3>
+                <p class="text-white/60 leading-relaxed">
+                  Built entirely by native Tanzanian and Zanzibari insiders. We don't outsource guides — we know the
+                  hidden trails, the private beaches, and the community connections that don't exist on any booking
+                  platform.
+                </p>
+              </div>
             </div>
-            <div class="mb-6 flex items-center">
-              <span class="text-5xl font-serif font-bold text-[#F5A623] opacity-30">01</span>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-4">Deep Local Knowledge</h3>
-            <p class="text-sm text-[#e8f5e9] leading-relaxed">
-              Designed entirely by native Tanzanian and Zanzibar insiders who know every hidden gem and secret trail.
-            </p>
           </div>
-
-          <!-- Column 2 -->
           <div
-            class="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-[#F5A623] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#F5A623]/20">
-            <div
-              class="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#F5A623] to-[#00BCD4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+            class="reveal card-animate relative group bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-500 hover:border-golden/40 hover:shadow-[0_0_40px_rgba(245,166,35,0.15)]"
+            style="transition-delay: 0.2s;">
+            <span
+              class="text-7xl font-serif font-bold text-golden/10 absolute top-4 right-6 select-none group-hover:text-golden/20 transition-all duration-500">02</span>
+            <div class="relative z-10 flex gap-5 items-start">
+              <div
+                class="w-14 h-14 rounded-2xl bg-golden/10 flex items-center justify-center shrink-0 group-hover:bg-golden/20 transition-colors duration-300">
+                <i class="fa-solid fa-wand-magic-sparkles text-2xl text-golden"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-golden transition-colors duration-300">
+                  Zero Generic Itineraries</h3>
+                <p class="text-white/60 leading-relaxed">
+                  Every safari, trek, and island escape is built from scratch around you. No templates. No shared group
+                  schedules unless you want them. Your trip, engineered to your pace and interests.
+                </p>
+              </div>
             </div>
-            <div class="mb-6 flex items-center">
-              <span class="text-5xl font-serif font-bold text-[#F5A623] opacity-30">02</span>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-4">Tailor-Made Experiences</h3>
-            <p class="text-sm text-[#e8f5e9] leading-relaxed">
-              No generic itineraries. Every single safari, mountain trek, and beach escape is customized to match your
-              exact travel style.
-            </p>
           </div>
-
-          <!-- Column 3 -->
           <div
-            class="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-[#F5A623] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#F5A623]/20">
-            <div
-              class="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#F5A623] to-[#00BCD4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+            class="reveal card-animate relative group bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-500 hover:border-golden/40 hover:shadow-[0_0_40px_rgba(245,166,35,0.15)]"
+            style="transition-delay: 0.3s;">
+            <span
+              class="text-7xl font-serif font-bold text-golden/10 absolute top-4 right-6 select-none group-hover:text-golden/20 transition-all duration-500">03</span>
+            <div class="relative z-10 flex gap-5 items-start">
+              <div
+                class="w-14 h-14 rounded-2xl bg-golden/10 flex items-center justify-center shrink-0 group-hover:bg-golden/20 transition-colors duration-300">
+                <i class="fa-solid fa-headset text-2xl text-golden"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-golden transition-colors duration-300">
+                  End-to-End, Stress-Free Execution</h3>
+                <p class="text-white/60 leading-relaxed">
+                  One point of contact from your first inquiry to your final night. 24/7 support, premium vehicles, and
+                  vetted luxury accommodations — you focus on the experience, we handle everything else.
+                </p>
+              </div>
             </div>
-            <div class="mb-6 flex items-center">
-              <span class="text-5xl font-serif font-bold text-[#F5A623] opacity-30">03</span>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-4">Seamless & Professional</h3>
-            <p class="text-sm text-[#e8f5e9] leading-relaxed">
-              Enjoy 100% stress-free travel. We handle everything with 24/7 dedicated support, premium vehicles, and
-              vetted luxury accommodations.
-            </p>
           </div>
-
-          <!-- Column 4 -->
           <div
-            class="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-[#F5A623] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#F5A623]/20">
-            <div
-              class="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#F5A623] to-[#00BCD4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+            class="reveal card-animate relative group bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-500 hover:border-golden/40 hover:shadow-[0_0_40px_rgba(245,166,35,0.15)]"
+            style="transition-delay: 0.4s;">
+            <span
+              class="text-7xl font-serif font-bold text-golden/10 absolute top-4 right-6 select-none group-hover:text-golden/20 transition-all duration-500">04</span>
+            <div class="relative z-10 flex gap-5 items-start">
+              <div
+                class="w-14 h-14 rounded-2xl bg-golden/10 flex items-center justify-center shrink-0 group-hover:bg-golden/20 transition-colors duration-300">
+                <i class="fa-solid fa-hand-holding-heart text-2xl text-golden"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-golden transition-colors duration-300">
+                  Travel That Gives Back</h3>
+                <p class="text-white/60 leading-relaxed">
+                  A portion of every booking directly funds local community development and wildlife conservation. Your
+                  adventure leaves a positive footprint — not just a photo album.
+                </p>
+              </div>
             </div>
-            <div class="mb-6 flex items-center">
-              <span class="text-5xl font-serif font-bold text-[#F5A623] opacity-30">04</span>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-4">Impact-Driven Travel</h3>
-            <p class="text-sm text-[#e8f5e9] leading-relaxed">
-              Travel responsibly. A portion of every adventure booked directly funds local grassroots community
-              development and wildlife conservation.
-            </p>
           </div>
         </div><!-- /desktop grid -->
 
-        <!-- MOBILE CAROUSEL (visible only below lg) -->
+        <!-- ========== MOBILE CAROUSEL (TRANSFORM‑BASED, NO REWIND) ========== -->
         <div class="lg:hidden relative">
-          <!-- Scrollable track -->
-          <div id="whyCarouselTrack"
-            class="carousel-track flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 pb-4 -mx-4 px-4 no-scrollbar"
-            style="scrollbar-width: none; -ms-overflow-style: none;">
-            <!-- Card 1 -->
-            <div
-              class="flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 transition-all duration-500">
+          <!-- Viewport -->
+          <div class="overflow-hidden rounded-3xl">
+            <!-- Track moved by translateX -->
+            <div id="mobileTrack" class="flex will-change-transform" style="transition: transform 0.5s ease-in-out;">
+              <!-- Real slides -->
               <div
-                class="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#F5A623] to-[#00BCD4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                class="flex-shrink-0 w-[85vw] max-w-sm snap-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-6 flex flex-col mr-4">
+                <span class="text-5xl font-serif font-bold text-golden/20 self-end mb-2">01</span>
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-golden/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-map-location-dot text-xl text-golden"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-white">Unmatched Local Access</h3>
+                </div>
+                <p class="text-sm text-white/60 leading-relaxed flex-1">
+                  Built entirely by native Tanzanian and Zanzibari insiders. We don't outsource guides — we know the
+                  hidden trails, the private beaches, and the community connections that don't exist on any booking
+                  platform.
+                </p>
               </div>
-              <div class="mb-2 flex items-center">
-                <span class="text-3xl font-serif font-bold text-[#F5A623] opacity-30">01</span>
-              </div>
-              <h3 class="text-base font-bold text-white mb-1">Deep Local Knowledge</h3>
-              <p class="text-xs text-[#e8f5e9] leading-snug">
-                Designed entirely by native Tanzanian and Zanzibar insiders who know every hidden gem and secret trail.
-              </p>
-            </div>
-
-            <!-- Card 2 -->
-            <div
-              class="flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 transition-all duration-500">
               <div
-                class="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#F5A623] to-[#00BCD4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                class="flex-shrink-0 w-[85vw] max-w-sm snap-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-6 flex flex-col mr-4">
+                <span class="text-5xl font-serif font-bold text-golden/20 self-end mb-2">02</span>
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-golden/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-wand-magic-sparkles text-xl text-golden"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-white">Zero Generic Itineraries</h3>
+                </div>
+                <p class="text-sm text-white/60 leading-relaxed flex-1">
+                  Every safari, trek, and island escape is built from scratch around you. No templates. No shared group
+                  schedules unless you want them. Your trip, engineered to your pace and interests.
+                </p>
               </div>
-              <div class="mb-2 flex items-center">
-                <span class="text-3xl font-serif font-bold text-[#F5A623] opacity-30">02</span>
-              </div>
-              <h3 class="text-base font-bold text-white mb-1">Tailor-Made Experiences</h3>
-              <p class="text-xs text-[#e8f5e9] leading-snug">
-                No generic itineraries. Every single safari, mountain trek, and beach escape is customized to match your
-                exact travel style.
-              </p>
-            </div>
-
-            <!-- Card 3 -->
-            <div
-              class="flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 transition-all duration-500">
               <div
-                class="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#F5A623] to-[#00BCD4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                class="flex-shrink-0 w-[85vw] max-w-sm snap-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-6 flex flex-col mr-4">
+                <span class="text-5xl font-serif font-bold text-golden/20 self-end mb-2">03</span>
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-golden/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-headset text-xl text-golden"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-white">End-to-End, Stress-Free Execution</h3>
+                </div>
+                <p class="text-sm text-white/60 leading-relaxed flex-1">
+                  One point of contact from your first inquiry to your final night. 24/7 support, premium vehicles, and
+                  vetted luxury accommodations — you focus on the experience, we handle everything else.
+                </p>
               </div>
-              <div class="mb-2 flex items-center">
-                <span class="text-3xl font-serif font-bold text-[#F5A623] opacity-30">03</span>
-              </div>
-              <h3 class="text-base font-bold text-white mb-1">Seamless & Professional</h3>
-              <p class="text-xs text-[#e8f5e9] leading-snug">
-                Enjoy 100% stress-free travel. We handle everything with 24/7 dedicated support, premium vehicles, and
-                vetted luxury accommodations.
-              </p>
-            </div>
-
-            <!-- Card 4 -->
-            <div
-              class="flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 transition-all duration-500">
               <div
-                class="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#F5A623] to-[#00BCD4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                class="flex-shrink-0 w-[85vw] max-w-sm snap-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-6 flex flex-col mr-4">
+                <span class="text-5xl font-serif font-bold text-golden/20 self-end mb-2">04</span>
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-golden/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-hand-holding-heart text-xl text-golden"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-white">Travel That Gives Back</h3>
+                </div>
+                <p class="text-sm text-white/60 leading-relaxed flex-1">
+                  A portion of every booking directly funds local community development and wildlife conservation. Your
+                  adventure leaves a positive footprint — not just a photo album.
+                </p>
               </div>
-              <div class="mb-2 flex items-center">
-                <span class="text-3xl font-serif font-bold text-[#F5A623] opacity-30">04</span>
-              </div>
-              <h3 class="text-base font-bold text-white mb-1">Impact-Driven Travel</h3>
-              <p class="text-xs text-[#e8f5e9] leading-snug">
-                Travel responsibly. A portion of every adventure booked directly funds local grassroots community
-                development and wildlife conservation.
-              </p>
-            </div>
-
-            <!-- Clone of Card 1 (for seamless loop) -->
-            <div
-              class="flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 clone-card transition-all duration-500">
+              <!-- Clone of first slide (for infinite loop) -->
               <div
-                class="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-[#F5A623] to-[#00BCD4] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left">
+                class="flex-shrink-0 w-[85vw] max-w-sm snap-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-6 flex flex-col mr-4 clone-slide">
+                <span class="text-5xl font-serif font-bold text-golden/20 self-end mb-2">01</span>
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-golden/10 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-map-location-dot text-xl text-golden"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-white">Unmatched Local Access</h3>
+                </div>
+                <p class="text-sm text-white/60 leading-relaxed flex-1">
+                  Built entirely by native Tanzanian and Zanzibari insiders. We don't outsource guides — we know the
+                  hidden trails, the private beaches, and the community connections that don't exist on any booking
+                  platform.
+                </p>
               </div>
-              <div class="mb-2 flex items-center">
-                <span class="text-3xl font-serif font-bold text-[#F5A623] opacity-30">01</span>
-              </div>
-              <h3 class="text-base font-bold text-white mb-1">Deep Local Knowledge</h3>
-              <p class="text-xs text-[#e8f5e9] leading-snug">
-                Designed entirely by native Tanzanian and Zanzibar insiders who know every hidden gem and secret trail.
-              </p>
             </div>
           </div>
 
-          <!-- NUMBER INDICATORS (01, 02, 03, 04) -->
-          <div id="whyDots" class="flex justify-center gap-4 mt-4">
-            <span class="carousel-number cursor-pointer transition-all duration-300 text-base font-bold"
-              style="color: #a5d6a7;" data-index="0">01</span>
-            <span class="carousel-number cursor-pointer transition-all duration-300 text-base font-bold"
-              style="color: #a5d6a7;" data-index="1">02</span>
-            <span class="carousel-number cursor-pointer transition-all duration-300 text-base font-bold"
-              style="color: #a5d6a7;" data-index="2">03</span>
-            <span class="carousel-number cursor-pointer transition-all duration-300 text-base font-bold"
-              style="color: #a5d6a7;" data-index="3">04</span>
+          <!-- Numbered indicators -->
+          <div id="mobileDots" class="flex justify-center gap-4 mt-6">
+            <span
+              class="carousel-dot w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold transition-all duration-300 cursor-pointer bg-golden/15 text-golden"
+              data-index="0">01</span>
+            <span
+              class="carousel-dot w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold transition-all duration-300 cursor-pointer bg-golden/15 text-golden"
+              data-index="1">02</span>
+            <span
+              class="carousel-dot w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold transition-all duration-300 cursor-pointer bg-golden/15 text-golden"
+              data-index="2">03</span>
+            <span
+              class="carousel-dot w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold transition-all duration-300 cursor-pointer bg-golden/15 text-golden"
+              data-index="3">04</span>
           </div>
         </div><!-- /mobile carousel -->
-
       </div>
     </section>
 
-    <!-- Styles for carousel and reveal -->
+    <!-- Styles -->
     <style>
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
-      /* Active number indicator – golden, slightly larger */
-      .carousel-number.active {
-        color: #F5A623 !important;
-        transform: scale(1.2);
-        font-weight: 800;
-      }
-
+      /* ---- Reveal animation (desktop cards + header) ---- */
       .reveal {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
         transition: opacity 0.8s ease, transform 0.8s ease;
       }
 
@@ -968,122 +1002,151 @@
         opacity: 1;
         transform: translateY(0);
       }
+
+      /* Staggered delays added via inline style, no extra class needed */
+
+      /* ---- Mobile carousel dots ---- */
+      .carousel-dot.active {
+        background-color: #F5A623 !important;
+        color: #0D1F14 !important;
+        transform: scale(1.15);
+        box-shadow: 0 0 12px rgba(245, 166, 35, 0.5);
+      }
+
+      /* Prevent flickering during transition */
+      #mobileTrack {
+        backface-visibility: hidden;
+      }
     </style>
 
-    <!-- Script for seamless infinite carousel + reveal animation -->
+    <!-- Script -->
     <script>
       (function () {
-        // ---- Seamless carousel logic ----
-        const track = document.getElementById('whyCarouselTrack');
-        const indicators = document.querySelectorAll('#whyDots .carousel-number');
-        if (!track || indicators.length === 0) return;
+        // ---- Animate desktop cards on scroll ----
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+        reveals.forEach(el => revealObserver.observe(el));
 
-        const REAL_SLIDES = indicators.length;       // 4
-        const TOTAL_SLIDES = track.children.length;   // 5 (includes clone)
-        const CLONE_INDEX = REAL_SLIDES;              // 4
-        const AUTOPLAY_DELAY = 4000;
+        // ---- Mobile infinite carousel (transform-based) ----
+        const track = document.getElementById('mobileTrack');
+        const dots = document.querySelectorAll('#mobileDots .carousel-dot');
+        if (!track || dots.length === 0) return;
 
-        let currentRealIndex = 0;
+        const slideWidth = () => {
+          // 85vw + 1rem gap (the mr-4 = 1rem = 16px)
+          return window.innerWidth * 0.85 + 16;
+        };
+
+        let currentIndex = 0;            // real slide index (0-3)
+        const totalSlides = 4;          // without clone
+        let isTransitioning = false;
         let autoplayTimer = null;
-        let isResetting = false;
+        const AUTOPLAY_INTERVAL = 4000;
 
-        function setActiveIndicator(index) {
-          indicators.forEach((ind, i) => {
-            ind.classList.toggle('active', i === index);
-          });
+        // Set active dot
+        function updateDots(index) {
+          dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         }
 
-        function goToSlide(index, behavior = 'smooth') {
-          if (index < 0 || index >= TOTAL_SLIDES) return;
-          const slide = track.children[index];
-          if (!slide) return;
-          slide.scrollIntoView({
-            behavior: behavior,
-            inline: 'center',
-            block: 'nearest'
-          });
-          currentRealIndex = (index === CLONE_INDEX) ? 0 : index;
-          setActiveIndicator(currentRealIndex);
+        // Move to a specific slide index (real, 0-3)
+        function goToSlide(index, animate = true) {
+          if (isTransitioning) return;
+          isTransitioning = true;
+          currentIndex = index;
+
+          // Calculate translateX: each slide's left edge position
+          const offset = -index * slideWidth();
+          track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+          track.style.transform = `translateX(${offset}px)`;
+
+          updateDots(index);
+
+          if (!animate) {
+            // Force reflow for instant jump
+            track.getBoundingClientRect();
+          }
+
+          // When transition ends, check if we landed on clone (which would be index 4)
+          const handleTransitionEnd = () => {
+            track.removeEventListener('transitionend', handleTransitionEnd);
+            isTransitioning = false;
+
+            // If we are at the clone (index 4), instantly reset to real first slide
+            if (currentIndex === totalSlides) {
+              // Disable transition, jump to index 0, then re-enable transition
+              track.style.transition = 'none';
+              track.style.transform = `translateX(0px)`;
+              track.getBoundingClientRect(); // force reflow
+              currentIndex = 0;
+              updateDots(0);
+              // Re-enable transition after a tiny delay
+              setTimeout(() => {
+                track.style.transition = 'transform 0.5s ease-in-out';
+              }, 10);
+            }
+          };
+
+          track.addEventListener('transitionend', handleTransitionEnd, { once: true });
         }
 
-        function jumpToRealStart() {
-          isResetting = true;
-          const previousScrollBehavior = track.style.scrollBehavior;
-          track.style.scrollBehavior = 'auto';
-          track.children[0].scrollIntoView({
-            behavior: 'auto',
-            inline: 'center',
-            block: 'nearest'
-          });
-          track.style.scrollBehavior = previousScrollBehavior;
-          currentRealIndex = 0;
-          setActiveIndicator(0);
-          requestAnimationFrame(() => {
-            isResetting = false;
-            stopAutoplay();
-            startAutoplay();
-          });
-        }
-
+        // Autoplay
         function startAutoplay() {
           stopAutoplay();
           autoplayTimer = setInterval(() => {
-            let next = currentRealIndex + 1;
-            if (next === CLONE_INDEX) {
-              goToSlide(CLONE_INDEX, 'smooth');
-            } else if (next > CLONE_INDEX) {
-              jumpToRealStart();
-            } else {
-              goToSlide(next, 'smooth');
-            }
-          }, AUTOPLAY_DELAY);
+            // Move to next slide; if at last real slide (index 3), next will be clone (index 4)
+            const nextIndex = currentIndex === totalSlides - 1 ? totalSlides : currentIndex + 1;
+            goToSlide(nextIndex, true);
+          }, AUTOPLAY_INTERVAL);
         }
 
         function stopAutoplay() {
           clearInterval(autoplayTimer);
         }
 
-        let scrollTimeout;
-        track.addEventListener('scroll', () => {
-          if (isResetting) return;
-          clearTimeout(scrollTimeout);
-          scrollTimeout = setTimeout(() => {
-            if (isResetting) return;
-            const trackLeft = track.getBoundingClientRect().left;
-            const slides = track.children;
-            let closest = 0;
-            let minDist = Infinity;
-            for (let i = 0; i < slides.length; i++) {
-              const slideLeft = slides[i].getBoundingClientRect().left;
-              const dist = Math.abs(slideLeft - trackLeft);
-              if (dist < minDist) {
-                minDist = dist;
-                closest = i;
-              }
-            }
-            if (closest === CLONE_INDEX) {
-              jumpToRealStart();
-            } else {
-              currentRealIndex = closest;
-              setActiveIndicator(currentRealIndex);
-              stopAutoplay();
-              startAutoplay();
-            }
-          }, 150);
-        });
-
-        // Number indicator click – go to the real slide
-        indicators.forEach(ind => {
-          ind.addEventListener('click', () => {
-            const index = parseInt(ind.getAttribute('data-index'), 10);
-            goToSlide(index, 'smooth');
+        // Dot click handler
+        dots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            const index = parseInt(dot.getAttribute('data-index'), 10);
+            if (index === currentIndex) return;
             stopAutoplay();
+            goToSlide(index, true);
             startAutoplay();
           });
         });
 
+        // Touch/swipe support (basic)
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const viewport = track.parentNode;
+        viewport.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stopAutoplay();
+        }, { passive: true });
+        viewport.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0 && currentIndex < totalSlides) {
+              // Swipe left -> next
+              goToSlide(currentIndex + 1, true);
+            } else if (diff < 0 && currentIndex > 0) {
+              // Swipe right -> previous
+              goToSlide(currentIndex - 1, true);
+            }
+          }
+          startAutoplay();
+        });
+
+        // Pause autoplay when section is not visible
         const section = document.getElementById('why-kimondo');
-        const observer = new IntersectionObserver((entries) => {
+        const sectionObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               startAutoplay();
@@ -1092,27 +1155,16 @@
             }
           });
         }, { threshold: 0.2 });
-        if (section) observer.observe(section);
+        if (section) sectionObserver.observe(section);
 
         // Initialize
-        setActiveIndicator(0);
-        track.children[0].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
-      })();
+        updateDots(0);
+        track.style.transform = `translateX(0px)`;
+        startAutoplay();
 
-      // ---- Reveal animation for headers ----
-      (function () {
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
       })();
     </script>
+
 
     <!--gift shop-->
 
@@ -1131,26 +1183,29 @@
 
       <div class="relative w-[95%] max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Header -->
+        <!-- ========== HEADER ========== -->
         <div
           class="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 md:mb-16 border-b border-gray-200 pb-4 md:pb-8 text-center md:text-left">
           <div class="max-w-2xl">
             <div class="inline-flex items-center justify-center md:justify-start gap-3 md:gap-4 mb-3 md:mb-4">
               <span class="w-8 md:w-12 h-[2px] bg-golden"></span>
-              <h2 class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold font-sans">ARTISAN
-                COLLECTION</h2>
+              <h2 class="text-xs md:text-sm uppercase tracking-widest text-golden font-bold font-sans">Artisan
+                Collection</h2>
             </div>
-            <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold logo-font text-forest mb-3 md:mb-4">Bring
-              Africa Home: The Carving Shop</h3>
+            <h3
+              class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold logo-font text-forest mb-3 md:mb-4 leading-tight">
+              Own a Piece of Tanzania — <span class="text-golden">Delivered Anywhere in the World</span>
+            </h3>
             <p class="text-warm/70 text-base md:text-lg font-light leading-relaxed">
-              Support native artisans. Bring home a genuine piece of Tanzanian heritage with our exclusive hand-crafted
-              Makonde ebony art, iconic wildlife carvings, and intricate sculptures. Worldwide shipping available.
+              Every carving in our collection is hand-made by master Makonde and Tanzanian artisans — no factory
+              reproductions, no imports. When you buy from Kimondo, you're supporting the same craftsmen whose
+              techniques have been passed down for generations.
             </p>
           </div>
-          <!-- This button is hidden on mobile, shown on lg+ -->
+          <!-- Desktop button -->
           <a href="#"
             class="hidden lg:inline-flex mt-6 md:mt-0 group items-center gap-2 bg-golden hover:bg-yellow-500 text-white font-bold uppercase tracking-wide text-xs md:text-sm px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-golden/20 hover:shadow-golden/40">
-            View Collection
+            View Full Collection
             <span
               class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
               <i class="fa-solid fa-arrow-right text-xs md:text-sm"></i>
@@ -1158,7 +1213,7 @@
           </a>
         </div>
 
-        <!-- DESKTOP GRID (hidden on mobile) -->
+        <!-- ========== DESKTOP GRID (hidden on mobile) ========== -->
         <div class="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
           <!-- Product 1 -->
           <div
@@ -1174,8 +1229,9 @@
             </div>
             <div class="p-5 md:p-6 flex flex-col flex-1">
               <h3 class="text-lg md:text-xl font-bold logo-font text-forest mb-1">Family Tree Sculpture</h3>
-              <p class="text-xs md:text-sm text-warm/70 font-light leading-relaxed">African blackwood (Mpingo) – a
-                profound representation of lineage and unity, hand-carved by Makonde masters.</p>
+              <p class="text-xs md:text-sm text-warm/70 font-light leading-relaxed">Carved from African blackwood
+                (Mpingo), this piece is a hand-crafted symbol of lineage and unity — a centerpiece for any collector.
+              </p>
             </div>
           </div>
 
@@ -1193,8 +1249,8 @@
             </div>
             <div class="p-5 md:p-6 flex flex-col flex-1">
               <h3 class="text-lg md:text-xl font-bold logo-font text-forest mb-1">Ebony Elephant Figure</h3>
-              <p class="text-xs md:text-sm text-warm/70 font-light leading-relaxed">Hand-polished wildlife carving
-                symbolizing strength and wisdom, crafted from sustainably sourced ebony.</p>
+              <p class="text-xs md:text-sm text-warm/70 font-light leading-relaxed">A hand-polished tribute to strength
+                and wisdom, sustainably sourced and finished by master carvers.</p>
             </div>
           </div>
 
@@ -1210,9 +1266,9 @@
               </div>
             </div>
             <div class="p-5 md:p-6 flex flex-col flex-1">
-              <h3 class="text-lg md:text-xl font-bold logo-font text-forest mb-1">Hand-carved Wall Mask</h3>
-              <p class="text-xs md:text-sm text-warm/70 font-light leading-relaxed">Decorative mahogany mask embodying
-                ancestral spirits – a stunning focal point for any interior.</p>
+              <h3 class="text-lg md:text-xl font-bold logo-font text-forest mb-1">Hand-Carved Wall Mask</h3>
+              <p class="text-xs md:text-sm text-warm/70 font-light leading-relaxed">A mahogany mask honoring ancestral
+                heritage — a striking statement piece for any interior.</p>
             </div>
           </div>
 
@@ -1229,113 +1285,104 @@
             </div>
             <div class="p-5 md:p-6 flex flex-col flex-1">
               <h3 class="text-lg md:text-xl font-bold logo-font text-forest mb-1">Maasai Warrior Statue</h3>
-              <p class="text-xs md:text-sm text-warm/70 font-light leading-relaxed">Tall, slender traditional figure
-                capturing the elegance of Maasai culture in polished ebony.</p>
+              <p class="text-xs md:text-sm text-warm/70 font-light leading-relaxed">Tall, elegant, and precisely
+                detailed — capturing the spirit of Maasai culture in polished ebony.</p>
             </div>
           </div>
         </div>
 
-        <!-- MOBILE CAROUSEL (visible only below lg) -->
+        <!-- ========== MOBILE CAROUSEL (transform-based infinite loop, no rewind) ========== -->
         <div class="lg:hidden relative">
-          <!-- Scrollable track -->
-          <div id="giftCarouselTrack"
-            class="carousel-track flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 pb-4 -mx-4 px-4 no-scrollbar"
-            style="scrollbar-width: none; -ms-overflow-style: none;">
-            <!-- Card 1 -->
-            <div
-              class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-              <div class="relative aspect-square overflow-hidden">
-                <img src="IMG/1 (13).jpg" alt="Family Tree Sculpture"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute top-4 right-4">
-                  <span
-                    class="bg-forest text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Makonde
-                    Art</span>
+          <div class="overflow-hidden rounded-2xl">
+            <div id="giftMobileTrack" class="flex will-change-transform"
+              style="transition: transform 0.5s ease-in-out;">
+              <!-- Slide 1 -->
+              <div
+                class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4">
+                <div class="relative aspect-square overflow-hidden">
+                  <img src="IMG/1 (13).jpg" alt="Family Tree Sculpture" class="w-full h-full object-cover">
+                  <div class="absolute top-4 right-4">
+                    <span
+                      class="bg-forest text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Makonde
+                      Art</span>
+                  </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                  <h3 class="text-lg font-bold logo-font text-forest mb-1">Family Tree Sculpture</h3>
+                  <p class="text-xs text-warm/70 font-light leading-relaxed">Carved from African blackwood (Mpingo),
+                    this piece is a hand-crafted symbol of lineage and unity — a centerpiece for any collector.</p>
                 </div>
               </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-lg font-bold logo-font text-forest mb-1">Family Tree Sculpture</h3>
-                <p class="text-xs text-warm/70 font-light leading-relaxed line-clamp-3">African blackwood (Mpingo) – a
-                  profound representation of lineage and unity, hand-carved by Makonde masters.</p>
-              </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div
-              class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-              <div class="relative aspect-square overflow-hidden">
-                <img src="IMG/1 (1).jpg" alt="Ebony Elephant Figure"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute top-4 right-4">
-                  <span
-                    class="bg-golden text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Best
-                    Seller</span>
+              <!-- Slide 2 -->
+              <div
+                class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4">
+                <div class="relative aspect-square overflow-hidden">
+                  <img src="IMG/1 (1).jpg" alt="Ebony Elephant Figure" class="w-full h-full object-cover">
+                  <div class="absolute top-4 right-4">
+                    <span
+                      class="bg-golden text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Best
+                      Seller</span>
+                  </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                  <h3 class="text-lg font-bold logo-font text-forest mb-1">Ebony Elephant Figure</h3>
+                  <p class="text-xs text-warm/70 font-light leading-relaxed">A hand-polished tribute to strength and
+                    wisdom, sustainably sourced and finished by master carvers.</p>
                 </div>
               </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-lg font-bold logo-font text-forest mb-1">Ebony Elephant Figure</h3>
-                <p class="text-xs text-warm/70 font-light leading-relaxed line-clamp-3">Hand-polished wildlife carving
-                  symbolizing strength and wisdom, crafted from sustainably sourced ebony.</p>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div
-              class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-              <div class="relative aspect-square overflow-hidden">
-                <img src="IMG/1 (2).jpg" alt="Hand-carved Wall Mask"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute top-4 right-4">
-                  <span
-                    class="bg-[#5D4037] text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Traditional</span>
+              <!-- Slide 3 -->
+              <div
+                class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4">
+                <div class="relative aspect-square overflow-hidden">
+                  <img src="IMG/1 (2).jpg" alt="Hand-carved Wall Mask" class="w-full h-full object-cover">
+                  <div class="absolute top-4 right-4">
+                    <span
+                      class="bg-[#5D4037] text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Traditional</span>
+                  </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                  <h3 class="text-lg font-bold logo-font text-forest mb-1">Hand-Carved Wall Mask</h3>
+                  <p class="text-xs text-warm/70 font-light leading-relaxed">A mahogany mask honoring ancestral heritage
+                    — a striking statement piece for any interior.</p>
                 </div>
               </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-lg font-bold logo-font text-forest mb-1">Hand-carved Wall Mask</h3>
-                <p class="text-xs text-warm/70 font-light leading-relaxed line-clamp-3">Decorative mahogany mask
-                  embodying ancestral spirits – a stunning focal point for any interior.</p>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div
-              class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-              <div class="relative aspect-square overflow-hidden">
-                <img src="IMG/1 (3).jpg" alt="Maasai Warrior Statue"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute top-4 right-4">
-                  <span
-                    class="bg-[#0D8ABC] text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Authentic</span>
+              <!-- Slide 4 -->
+              <div
+                class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4">
+                <div class="relative aspect-square overflow-hidden">
+                  <img src="IMG/1 (3).jpg" alt="Maasai Warrior Statue" class="w-full h-full object-cover">
+                  <div class="absolute top-4 right-4">
+                    <span
+                      class="bg-[#0D8ABC] text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Authentic</span>
+                  </div>
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                  <h3 class="text-lg font-bold logo-font text-forest mb-1">Maasai Warrior Statue</h3>
+                  <p class="text-xs text-warm/70 font-light leading-relaxed">Tall, elegant, and precisely detailed —
+                    capturing the spirit of Maasai culture in polished ebony.</p>
                 </div>
               </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-lg font-bold logo-font text-forest mb-1">Maasai Warrior Statue</h3>
-                <p class="text-xs text-warm/70 font-light leading-relaxed line-clamp-3">Tall, slender traditional figure
-                  capturing the elegance of Maasai culture in polished ebony.</p>
-              </div>
-            </div>
-
-            <!-- Clone of Card 1 (for seamless infinite loop) -->
-            <div
-              class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 clone-card">
-              <div class="relative aspect-square overflow-hidden">
-                <img src="IMG/1 (13).jpg" alt="Family Tree Sculpture"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute top-4 right-4">
-                  <span
-                    class="bg-forest text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Makonde
-                    Art</span>
+              <!-- Clone of Slide 1 (for infinite loop) -->
+              <div
+                class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4 clone-slide">
+                <div class="relative aspect-square overflow-hidden">
+                  <img src="IMG/1 (13).jpg" alt="Family Tree Sculpture" class="w-full h-full object-cover">
+                  <div class="absolute top-4 right-4">
+                    <span
+                      class="bg-forest text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Makonde
+                      Art</span>
+                  </div>
                 </div>
-              </div>
-              <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-lg font-bold logo-font text-forest mb-1">Family Tree Sculpture</h3>
-                <p class="text-xs text-warm/70 font-light leading-relaxed line-clamp-3">African blackwood (Mpingo) – a
-                  profound representation of lineage and unity, hand-carved by Makonde masters.</p>
+                <div class="p-5 flex flex-col flex-1">
+                  <h3 class="text-lg font-bold logo-font text-forest mb-1">Family Tree Sculpture</h3>
+                  <p class="text-xs text-warm/70 font-light leading-relaxed">Carved from African blackwood (Mpingo),
+                    this piece is a hand-crafted symbol of lineage and unity — a centerpiece for any collector.</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Dots (only mobile) – 4 dots -->
+          <!-- Dots -->
           <div id="giftDots" class="flex justify-center gap-2 mt-6">
             <span class="dot w-3 h-3 rounded-full transition-all duration-300 cursor-pointer"
               style="background-color: #2E7D32;" data-index="0"></span>
@@ -1347,11 +1394,11 @@
               style="background-color: #2E7D32;" data-index="3"></span>
           </div>
 
-          <!-- "View Collection" button (mobile only, below dots) -->
+          <!-- Mobile View Collection button -->
           <div class="flex justify-center mt-6">
             <a href="#"
               class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white font-bold uppercase tracking-wide text-xs px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-golden/20 hover:shadow-golden/40">
-              View Collection
+              View Full Collection
               <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                 <i class="fa-solid fa-arrow-right text-xs"></i>
               </span>
@@ -1359,11 +1406,11 @@
           </div>
         </div>
 
-        <!-- Trust Bar (hidden on mobile, visible on desktop) -->
+        <!-- Trust Bar (desktop only) -->
         <div class="hidden lg:flex mt-12 md:mt-16 flex-wrap justify-center gap-6 md:gap-10 text-center">
           <div class="flex items-center gap-2 text-forest font-semibold text-sm md:text-base">
             <i class="fa-solid fa-users text-golden text-xl"></i>
-            <span>500+ Artisans Supported</span>
+            <span>500+ Local Artisans Supported</span>
           </div>
           <div class="flex items-center gap-2 text-forest font-semibold text-sm md:text-base">
             <i class="fa-solid fa-globe text-golden text-xl"></i>
@@ -1371,93 +1418,113 @@
           </div>
           <div class="flex items-center gap-2 text-forest font-semibold text-sm md:text-base">
             <i class="fa-solid fa-hand-sparkles text-golden text-xl"></i>
-            <span>100% Handcrafted</span>
+            <span>100% Handcrafted, Zero Mass Production</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Styles for carousel dots -->
+    <!-- Styles for reveal animation & carousel dots -->
     <style>
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
       }
 
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .dot.active {
         background-color: #F5A623 !important;
         transform: scale(1.2);
       }
+
+      #giftMobileTrack {
+        backface-visibility: hidden;
+      }
     </style>
 
-    <!-- Script for seamless infinite carousel -->
+    <!-- Script: Seamless infinite carousel (no rewind) + reveal animation -->
     <script>
       (function () {
-        const track = document.getElementById('giftCarouselTrack');
+        // ---- Reveal animation ----
+        const reveals = document.querySelectorAll('#gift-shop .reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // ---- Mobile infinite carousel (transform-based) ----
+        const track = document.getElementById('giftMobileTrack');
         const dots = document.querySelectorAll('#giftDots .dot');
         if (!track || dots.length === 0) return;
 
-        const REAL_SLIDES = dots.length;          // 4
-        const TOTAL_SLIDES = track.children.length; // 5 (includes clone)
-        const CLONE_INDEX = REAL_SLIDES;           // 4
+        // Each slide width: 85vw + 1rem gap (mr-4 = 16px)
+        function getSlideWidth() {
+          return window.innerWidth * 0.85 + 16;
+        }
+
+        let currentIndex = 0;          // real slide index (0‑3)
+        const totalSlides = 4;        // without clone
+        let isTransitioning = false;
+        let autoplayTimer = null;
         const AUTOPLAY_DELAY = 4000;
 
-        let currentRealIndex = 0;
-        let autoplayTimer = null;
-        let isResetting = false;
-
-        function setActiveDot(index) {
+        function updateDots(index) {
           dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         }
 
-        function goToSlide(index, behavior = 'smooth') {
-          if (index < 0 || index >= TOTAL_SLIDES) return;
-          const slide = track.children[index];
-          if (!slide) return;
-          slide.scrollIntoView({
-            behavior: behavior,
-            inline: 'center',
-            block: 'nearest'
-          });
-          currentRealIndex = (index === CLONE_INDEX) ? 0 : index;
-          setActiveDot(currentRealIndex);
-        }
+        // Move to a specific slide index (0‑3, or 4 for clone)
+        function goToSlide(index, animate = true) {
+          if (isTransitioning) return;
+          isTransitioning = true;
+          currentIndex = index;
+          const offset = -index * getSlideWidth();
+          track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+          track.style.transform = `translateX(${offset}px)`;
 
-        function jumpToRealStart() {
-          isResetting = true;
-          const previousScrollBehavior = track.style.scrollBehavior;
-          track.style.scrollBehavior = 'auto';
-          track.children[0].scrollIntoView({
-            behavior: 'auto',
-            inline: 'center',
-            block: 'nearest'
-          });
-          track.style.scrollBehavior = previousScrollBehavior;
-          currentRealIndex = 0;
-          setActiveDot(0);
-          requestAnimationFrame(() => {
-            isResetting = false;
-            stopAutoplay();
-            startAutoplay();
-          });
+          // Update dots based on real index
+          const realIndex = (index === totalSlides) ? 0 : index;
+          updateDots(realIndex);
+
+          if (!animate) {
+            track.getBoundingClientRect(); // force reflow
+          }
+
+          const handleTransitionEnd = () => {
+            track.removeEventListener('transitionend', handleTransitionEnd);
+            isTransitioning = false;
+            // If we are on the clone (index 4), instantly jump to real start
+            if (currentIndex === totalSlides) {
+              track.style.transition = 'none';
+              track.style.transform = 'translateX(0px)';
+              track.getBoundingClientRect(); // reflow
+              currentIndex = 0;
+              updateDots(0);
+              // Re-enable smooth transition after reset
+              requestAnimationFrame(() => {
+                track.style.transition = 'transform 0.5s ease-in-out';
+              });
+            }
+          };
+          track.addEventListener('transitionend', handleTransitionEnd, { once: true });
         }
 
         function startAutoplay() {
           stopAutoplay();
           autoplayTimer = setInterval(() => {
-            let next = currentRealIndex + 1;
-            if (next === CLONE_INDEX) {
-              goToSlide(CLONE_INDEX, 'smooth');
-            } else if (next > CLONE_INDEX) {
-              jumpToRealStart();
-            } else {
-              goToSlide(next, 'smooth');
-            }
+            // Move to next slide; if on last real slide, go to clone (index 4) which triggers loop reset
+            const next = (currentIndex === totalSlides - 1) ? totalSlides : currentIndex + 1;
+            goToSlide(next, true);
           }, AUTOPLAY_DELAY);
         }
 
@@ -1465,46 +1532,41 @@
           clearInterval(autoplayTimer);
         }
 
-        let scrollTimeout;
-        track.addEventListener('scroll', () => {
-          if (isResetting) return;
-          clearTimeout(scrollTimeout);
-          scrollTimeout = setTimeout(() => {
-            if (isResetting) return;
-            const trackLeft = track.getBoundingClientRect().left;
-            const slides = track.children;
-            let closest = 0;
-            let minDist = Infinity;
-            for (let i = 0; i < slides.length; i++) {
-              const slideLeft = slides[i].getBoundingClientRect().left;
-              const dist = Math.abs(slideLeft - trackLeft);
-              if (dist < minDist) {
-                minDist = dist;
-                closest = i;
-              }
-            }
-            if (closest === CLONE_INDEX) {
-              jumpToRealStart();
-            } else {
-              currentRealIndex = closest;
-              setActiveDot(currentRealIndex);
-              stopAutoplay();
-              startAutoplay();
-            }
-          }, 150);
-        });
-
+        // Dot click handler
         dots.forEach(dot => {
           dot.addEventListener('click', () => {
             const index = parseInt(dot.getAttribute('data-index'), 10);
-            goToSlide(index, 'smooth');
+            if (index === currentIndex) return;
             stopAutoplay();
+            goToSlide(index, true);
             startAutoplay();
           });
         });
 
+        // Touch/swipe support
+        let touchStartX = 0;
+        const viewport = track.parentNode;
+        viewport.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stopAutoplay();
+        }, { passive: true });
+        viewport.addEventListener('touchend', (e) => {
+          const diff = touchStartX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0 && currentIndex < totalSlides) {
+              // Swipe left → next
+              goToSlide(currentIndex + 1, true);
+            } else if (diff < 0 && currentIndex > 0) {
+              // Swipe right → previous
+              goToSlide(currentIndex - 1, true);
+            }
+          }
+          startAutoplay();
+        });
+
+        // Pause autoplay when section not visible
         const section = document.getElementById('gift-shop');
-        const observer = new IntersectionObserver((entries) => {
+        const sectionObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               startAutoplay();
@@ -1513,10 +1575,12 @@
             }
           });
         }, { threshold: 0.2 });
-        if (section) observer.observe(section);
+        if (section) sectionObserver.observe(section);
 
-        setActiveDot(0);
-        track.children[0].scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+        // Initialize
+        updateDots(0);
+        track.style.transform = 'translateX(0px)';
+        startAutoplay();
       })();
     </script>
 
@@ -1533,7 +1597,7 @@
 
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Header -->
+        <!-- ========== HEADER ========== -->
         <div class="text-center mb-16 md:mb-20">
           <div class="inline-flex items-center gap-4 mb-3">
             <span class="h-px w-8 bg-golden"></span>
@@ -1541,14 +1605,14 @@
             <span class="h-px w-8 bg-golden"></span>
           </div>
           <h2 class="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4 leading-tight">
-            What Our Clients Say
+            What Travelers Say After Their Kimondo Experience
           </h2>
           <p class="text-[#e8f5e9] text-base md:text-lg max-w-xl mx-auto">
-            Real experiences from travelers who trusted us with their African adventure.
+            Real stories from guests who discovered East Africa in a way no other operator could deliver.
           </p>
         </div>
 
-        <!-- DESKTOP GRID (unchanged) – hidden on mobile -->
+        <!-- ========== DESKTOP GRID (hidden on mobile) ========== -->
         <div class="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           <!-- Card 1 -->
           <div
@@ -1563,15 +1627,15 @@
             </div>
             <div class="flex gap-1 text-golden text-lg mb-4">★★★★★</div>
             <p class="text-[#e8f5e9] text-base md:text-lg italic leading-relaxed mb-6">
-              "Everything was perfectly organized. Our mainland safari was absolutely breathtaking, and the clear
-              kayaking in Zanzibar was pure paradise! The best service ever."
+              "Everything was flawlessly organized — the safari was breathtaking and the Zanzibar kayaking was pure
+              paradise. No other company we researched offered both in one seamless trip."
             </p>
             <div class="flex items-center gap-3 pt-4 border-t border-white/10">
               <div
                 class="w-8 h-8 rounded-full bg-golden/20 flex items-center justify-center text-golden font-bold text-xs">
                 SD</div>
-              <span class="text-sm font-semibold text-white uppercase tracking-wide">Sarah & David, United Kingdom
-                (Verified Guest)</span>
+              <span class="text-sm font-semibold text-white uppercase tracking-wide">Sarah & David, United
+                Kingdom</span>
             </div>
           </div>
 
@@ -1588,15 +1652,14 @@
             </div>
             <div class="flex gap-1 text-golden text-lg mb-4">★★★★★</div>
             <p class="text-[#e8f5e9] text-base md:text-lg italic leading-relaxed mb-6">
-              "An incredibly professional team. Climbing Kilimanjaro with Kimondo felt completely safe, motivating, and
-              life-changing. Highly, highly recommended!"
+              "An incredibly professional team. Climbing Kilimanjaro with Kimondo felt completely safe and genuinely
+              life-changing."
             </p>
             <div class="flex items-center gap-3 pt-4 border-t border-white/10">
               <div
                 class="w-8 h-8 rounded-full bg-turquoise/20 flex items-center justify-center text-turquoise font-bold text-xs">
                 MV</div>
-              <span class="text-sm font-semibold text-white uppercase tracking-wide">Markus V., Germany (Adventure
-                Seeker)</span>
+              <span class="text-sm font-semibold text-white uppercase tracking-wide">Markus V., Germany</span>
             </div>
           </div>
 
@@ -1605,7 +1668,7 @@
             class="group relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-white/20 hover:border-forest/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-forest/10">
             <div class="absolute -top-5 -right-3 text-8xl font-serif text-forest/20 select-none">"</div>
             <div
-              class="w-14 h-14 bg-gradient-to-br from-forest to-emerald-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-forest/20">
+              class="w-14 h-14 bg-golden rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-forest/20">
               <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -1613,112 +1676,118 @@
             </div>
             <div class="flex gap-1 text-golden text-lg mb-4">★★★★★</div>
             <p class="text-[#e8f5e9] text-base md:text-lg italic leading-relaxed mb-6">
-              "Our African honeymoon was unforgettable. From exploring Stone Town to the beautiful hand-carved statues
-              we bought from their shop—thank you Kimondo Adventures!"
+              "Our African honeymoon was unforgettable — from Stone Town to the hand-carved statues we brought home.
+              Truly one-of-a-kind."
             </p>
             <div class="flex items-center gap-3 pt-4 border-t border-white/10">
               <div
-                class="w-8 h-8 rounded-full bg-forest/20 flex items-center justify-center text-forest font-bold text-xs">
+                class="w-8 h-8 rounded-full bg-golden/20 flex items-center justify-center text-golden font-bold text-xs">
                 ER</div>
-              <span class="text-sm font-semibold text-white uppercase tracking-wide">Elena R., United States (Safari
-                Guest)</span>
+              <span class="text-sm font-semibold text-white uppercase tracking-wide">Elena R., United States</span>
             </div>
           </div>
         </div>
 
-        <!-- MOBILE CAROUSEL (visible only below md) -->
+        <!-- ========== MOBILE CAROUSEL (infinite loop, no rewind) ========== -->
         <div class="md:hidden relative">
-          <!-- Scrollable Track -->
-          <div id="testimonialTrack"
-            class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 pb-2 no-scrollbar"
-            style="scrollbar-width: none; -ms-overflow-style: none;">
-            <!-- Card 1 -->
-            <div
-              class="flex-shrink-0 w-[85vw] max-w-sm snap-center group relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 transition-all duration-500">
-              <div class="absolute -top-5 -right-3 text-7xl font-serif text-golden/10 select-none">"</div>
+          <div class="overflow-hidden rounded-3xl">
+            <div id="testimonialMobileTrack" class="flex will-change-transform"
+              style="transition: transform 0.5s ease-in-out;">
+              <!-- Slide 1 -->
               <div
-                class="w-12 h-12 bg-gradient-to-br from-golden to-yellow-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-golden/20">
-                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
-              <div class="flex gap-1 text-golden text-base mb-3">★★★★★</div>
-              <p class="text-[#e8f5e9] text-sm italic leading-relaxed mb-4 line-clamp-4">
-                "Everything was perfectly organized. Our mainland safari was absolutely breathtaking, and the clear
-                kayaking in Zanzibar was pure paradise! The best service ever."
-              </p>
-              <div class="flex items-center gap-2 pt-3 border-t border-white/10">
+                class="flex-shrink-0 w-[85vw] max-w-sm bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 mr-4">
+                <div class="absolute -top-5 -right-3 text-7xl font-serif text-golden/10 select-none"
+                  style="position: relative; float: right; margin-top: -40px;">"</div>
                 <div
-                  class="w-7 h-7 rounded-full bg-golden/20 flex items-center justify-center text-golden font-bold text-xs">
-                  SD</div>
-                <span class="text-xs font-semibold text-white uppercase tracking-wide">Sarah & David, UK</span>
+                  class="w-12 h-12 bg-gradient-to-br from-golden to-yellow-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-golden/20">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
+                <div class="flex gap-1 text-golden text-base mb-3">★★★★★</div>
+                <p class="text-[#e8f5e9] text-sm italic leading-relaxed mb-4">
+                  "Everything was flawlessly organized — the safari was breathtaking and the Zanzibar kayaking was pure
+                  paradise. No other company we researched offered both in one seamless trip."
+                </p>
+                <div class="flex items-center gap-2 pt-3 border-t border-white/10">
+                  <div
+                    class="w-7 h-7 rounded-full bg-golden/20 flex items-center justify-center text-golden font-bold text-xs">
+                    SD</div>
+                  <span class="text-xs font-semibold text-white uppercase tracking-wide">Sarah & David, UK</span>
+                </div>
               </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div
-              class="flex-shrink-0 w-[85vw] max-w-sm snap-center group relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 transition-all duration-500">
-              <div class="absolute -top-5 -right-3 text-7xl font-serif text-turquoise/10 select-none">"</div>
+              <!-- Slide 2 -->
               <div
-                class="w-12 h-12 bg-gradient-to-br from-turquoise to-cyan-400 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-turquoise/20">
-                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
-              <div class="flex gap-1 text-golden text-base mb-3">★★★★★</div>
-              <p class="text-[#e8f5e9] text-sm italic leading-relaxed mb-4 line-clamp-4">
-                "An incredibly professional team. Climbing Kilimanjaro with Kimondo felt completely safe, motivating,
-                and life-changing. Highly, highly recommended!"
-              </p>
-              <div class="flex items-center gap-2 pt-3 border-t border-white/10">
+                class="flex-shrink-0 w-[85vw] max-w-sm bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 mr-4">
                 <div
-                  class="w-7 h-7 rounded-full bg-turquoise/20 flex items-center justify-center text-turquoise font-bold text-xs">
-                  MV</div>
-                <span class="text-xs font-semibold text-white uppercase tracking-wide">Markus V., Germany</span>
+                  class="w-12 h-12 bg-gradient-to-br from-turquoise to-cyan-400 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-turquoise/20">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
+                <div class="flex gap-1 text-golden text-base mb-3">★★★★★</div>
+                <p class="text-[#e8f5e9] text-sm italic leading-relaxed mb-4">
+                  "An incredibly professional team. Climbing Kilimanjaro with Kimondo felt completely safe and genuinely
+                  life-changing."
+                </p>
+                <div class="flex items-center gap-2 pt-3 border-t border-white/10">
+                  <div
+                    class="w-7 h-7 rounded-full bg-turquoise/20 flex items-center justify-center text-turquoise font-bold text-xs">
+                    MV</div>
+                  <span class="text-xs font-semibold text-white uppercase tracking-wide">Markus V., Germany</span>
+                </div>
               </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div
-              class="flex-shrink-0 w-[85vw] max-w-sm snap-center group relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 transition-all duration-500">
-              <div class="absolute -top-5 -right-3 text-7xl font-serif text-forest/20 select-none">"</div>
+              <!-- Slide 3 -->
               <div
-                class="w-12 h-12 bg-gradient-to-br from-forest to-emerald-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-forest/20">
-                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
-              <div class="flex gap-1 text-golden text-base mb-3">★★★★★</div>
-              <p class="text-[#e8f5e9] text-sm italic leading-relaxed mb-4 line-clamp-4">
-                "Our African honeymoon was unforgettable. From exploring Stone Town to the beautiful hand-carved statues
-                we bought from their shop—thank you Kimondo Adventures!"
-              </p>
-              <div class="flex items-center gap-2 pt-3 border-t border-white/10">
+                class="flex-shrink-0 w-[85vw] max-w-sm bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 mr-4">
                 <div
-                  class="w-7 h-7 rounded-full bg-forest/20 flex items-center justify-center text-forest font-bold text-xs">
-                  ER</div>
-                <span class="text-xs font-semibold text-white uppercase tracking-wide">Elena R., USA</span>
+                  class="w-12 h-12 bg-gradient-to-br from-forest to-emerald-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-forest/20">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
+                <div class="flex gap-1 text-golden text-base mb-3">★★★★★</div>
+                <p class="text-[#e8f5e9] text-sm italic leading-relaxed mb-4">
+                  "Our African honeymoon was unforgettable — from Stone Town to the hand-carved statues we brought home.
+                  Truly one-of-a-kind."
+                </p>
+                <div class="flex items-center gap-2 pt-3 border-t border-white/10">
+                  <div
+                    class="w-7 h-7 rounded-full bg-golden/20 flex items-center justify-center text-golden font-bold text-xs">
+                    ER</div>
+                  <span class="text-xs font-semibold text-white uppercase tracking-wide">Elena R., USA</span>
+                </div>
+              </div>
+              <!-- Clone of Slide 1 (for seamless infinite loop) -->
+              <div
+                class="flex-shrink-0 w-[85vw] max-w-sm bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 mr-4 clone-slide">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-golden to-yellow-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-golden/20">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
+                <div class="flex gap-1 text-golden text-base mb-3">★★★★★</div>
+                <p class="text-[#e8f5e9] text-sm italic leading-relaxed mb-4">
+                  "Everything was flawlessly organized — the safari was breathtaking and the Zanzibar kayaking was pure
+                  paradise. No other company we researched offered both in one seamless trip."
+                </p>
+                <div class="flex items-center gap-2 pt-3 border-t border-white/10">
+                  <div
+                    class="w-7 h-7 rounded-full bg-golden/20 flex items-center justify-center text-golden font-bold text-xs">
+                    SD</div>
+                  <span class="text-xs font-semibold text-white uppercase tracking-wide">Sarah & David, UK</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Navigation arrows (below the cards) -->
-          <div class="flex justify-center gap-4 mt-4">
-            <button id="prevBtn"
-              class="w-12 h-12 bg-white/10 hover:bg-golden/90 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-lg hover:shadow-golden/30 border border-white/20 hover:border-golden">
-              <i class="fa-solid fa-arrow-left text-lg"></i>
-            </button>
-            <button id="nextBtn"
-              class="w-12 h-12 bg-white/10 hover:bg-golden/90 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-lg hover:shadow-golden/30 border border-white/20 hover:border-golden">
-              <i class="fa-solid fa-arrow-right text-lg"></i>
-            </button>
-          </div>
-
-          <!-- Dot indicators (optional, also below) -->
-          <div id="testimonialDots" class="flex justify-center gap-2 mt-3">
+          <!-- Dot indicators -->
+          <div id="testimonialDots" class="flex justify-center gap-2 mt-5">
             <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
               style="background-color: #F5A623;" data-index="0"></span>
             <span class="dot w-3 h-3 rounded-full cursor-pointer transition-all duration-300"
@@ -1731,25 +1800,46 @@
       </div>
     </section>
 
-    <!-- Styles -->
+
+    <section id="cta" class="relative py-20 md:py-28 bg-[#fcfbf9] overflow-hidden">
+      <!-- Subtle background texture (matches the about section) -->
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <svg width="100%" height="100%">
+          <defs>
+            <pattern id="cta-dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1.5" fill="#2E7D32" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#cta-dots)"></rect>
+        </svg>
+      </div>
+
+      <!-- Soft ambient glows for depth -->
+      <div class="absolute top-0 right-0 w-96 h-96 bg-golden/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-forest/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-4xl mx-auto px-4 text-center reveal">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight text-forest">
+          Your East African Journey Starts With One Conversation
+        </h2>
+        <p class="text-lg md:text-xl text-warm/70 max-w-2xl mx-auto mb-10 font-light">
+          No two Kimondo journeys are the same — because no two travelers are the same. Tell us what you're dreaming of,
+          and we'll build it.
+        </p>
+        <a href="#"
+          class="inline-flex items-center gap-3 bg-golden hover:bg-yellow-500 text-white font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 rounded-full shadow-2xl shadow-golden/30 hover:shadow-golden/50 transition-all duration-300 transform hover:-translate-y-1">
+          Start Planning My Trip
+          <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </span>
+        </a>
+      </div>
+    </section>
+
     <style>
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
-      .dot.active {
-        background-color: #F5A623 !important;
-        transform: scale(1.2);
-      }
-
       .reveal {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
         transition: opacity 0.8s ease, transform 0.8s ease;
       }
 
@@ -1757,89 +1847,140 @@
         opacity: 1;
         transform: translateY(0);
       }
+
+      .dot.active {
+        background-color: #F5A623 !important;
+        transform: scale(1.2);
+      }
+
+      #testimonialMobileTrack {
+        backface-visibility: hidden;
+      }
     </style>
 
-    <!-- Script: Mobile carousel navigation -->
     <script>
       (function () {
-        const track = document.getElementById('testimonialTrack');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const dots = document.querySelectorAll('#testimonialDots .dot');
-        if (!track || !prevBtn || !nextBtn || dots.length === 0) return;
+        // ---- Reveal animation ----
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => revealObserver.observe(el));
 
-        const slides = track.children;
-        let currentIndex = 0;
-        const totalSlides = slides.length;
+        // ---- Infinite Testimonial Carousel (mobile) ----
+        const track = document.getElementById('testimonialMobileTrack');
+        const dots = document.querySelectorAll('#testimonialDots .dot');
+        if (!track || dots.length === 0) return;
+
+        function getSlideWidth() {
+          return window.innerWidth * 0.85 + 16; // 85vw + 1rem gap
+        }
+
+        let currentIndex = 0;           // 0,1,2 (real slides)
+        const totalSlides = 3;         // without clone
+        let isTransitioning = false;
+        let autoplayTimer = null;
+        const AUTOPLAY_DELAY = 5000;
 
         function updateDots(index) {
           dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         }
 
-        function scrollToIndex(index) {
-          if (index < 0 || index >= totalSlides) return;
-          const slide = slides[index];
-          track.scrollTo({
-            left: slide.offsetLeft - track.offsetLeft,
-            behavior: 'smooth'
-          });
+        function goToSlide(index, animate = true) {
+          if (isTransitioning) return;
+          isTransitioning = true;
           currentIndex = index;
-          updateDots(currentIndex);
+          const offset = -index * getSlideWidth();
+          track.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+          track.style.transform = `translateX(${offset}px)`;
+
+          // Update active dot based on real index
+          const realIndex = (index === totalSlides) ? 0 : index;
+          updateDots(realIndex);
+
+          if (!animate) {
+            track.getBoundingClientRect(); // force reflow for instant jump
+          }
+
+          const handleTransitionEnd = () => {
+            track.removeEventListener('transitionend', handleTransitionEnd);
+            isTransitioning = false;
+            // If we just moved to the clone (index 3), silently reset to real start
+            if (currentIndex === totalSlides) {
+              track.style.transition = 'none';
+              track.style.transform = 'translateX(0px)';
+              track.getBoundingClientRect();
+              currentIndex = 0;
+              updateDots(0);
+              requestAnimationFrame(() => {
+                track.style.transition = 'transform 0.5s ease-in-out';
+              });
+            }
+          };
+          track.addEventListener('transitionend', handleTransitionEnd, { once: true });
         }
 
-        prevBtn.addEventListener('click', () => {
-          if (currentIndex > 0) scrollToIndex(currentIndex - 1);
-        });
+        function startAutoplay() {
+          stopAutoplay();
+          autoplayTimer = setInterval(() => {
+            const next = (currentIndex === totalSlides - 1) ? totalSlides : currentIndex + 1;
+            goToSlide(next, true);
+          }, AUTOPLAY_DELAY);
+        }
 
-        nextBtn.addEventListener('click', () => {
-          if (currentIndex < totalSlides - 1) scrollToIndex(currentIndex + 1);
-        });
+        function stopAutoplay() {
+          clearInterval(autoplayTimer);
+        }
 
-        // Dot clicks
+        // Dot navigation
         dots.forEach(dot => {
           dot.addEventListener('click', () => {
             const index = parseInt(dot.getAttribute('data-index'), 10);
-            scrollToIndex(index);
+            if (index === currentIndex) return;
+            stopAutoplay();
+            goToSlide(index, true);
+            startAutoplay();
           });
         });
 
-        // Update active dot on manual scroll
-        let scrollTimeout;
-        track.addEventListener('scroll', () => {
-          clearTimeout(scrollTimeout);
-          scrollTimeout = setTimeout(() => {
-            const trackLeft = track.getBoundingClientRect().left;
-            let closest = 0;
-            let minDist = Infinity;
-            for (let i = 0; i < slides.length; i++) {
-              const slideLeft = slides[i].getBoundingClientRect().left;
-              const dist = Math.abs(slideLeft - trackLeft);
-              if (dist < minDist) {
-                minDist = dist;
-                closest = i;
-              }
+        // Touch swipe support
+        let touchStartX = 0;
+        const viewport = track.parentNode;
+        viewport.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stopAutoplay();
+        }, { passive: true });
+        viewport.addEventListener('touchend', (e) => {
+          const diff = touchStartX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0 && currentIndex < totalSlides) {
+              goToSlide(currentIndex + 1, true);
+            } else if (diff < 0 && currentIndex > 0) {
+              goToSlide(currentIndex - 1, true);
             }
-            currentIndex = closest;
-            updateDots(currentIndex);
-          }, 150);
+          }
+          startAutoplay();
         });
 
-        // Initialise
-        updateDots(0);
-      })();
-
-      // Reveal animation
-      (function () {
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
+        // Pause when section leaves viewport
+        const section = document.getElementById('testimonials');
+        const sectionObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-              observer.unobserve(entry.target);
-            }
+            if (entry.isIntersecting) startAutoplay();
+            else stopAutoplay();
           });
-        }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
+        }, { threshold: 0.2 });
+        if (section) sectionObserver.observe(section);
+
+        // Initialize
+        updateDots(0);
+        track.style.transform = 'translateX(0px)';
+        startAutoplay();
       })();
     </script>
 
