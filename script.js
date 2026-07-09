@@ -236,274 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// --- GALLERY DATA ---
-const galleryData = [
-    {
-        id: "water-sports",
-        title: "🌊 Water Sports & Ocean Experiences",
-        desc: "Experience the thrill and beauty of Zanzibar's ocean through our most popular activities.",
-        images: [
-            "IMG/1 (1).jpg",
-            "IMG/1 (2).jpg",
-            "IMG/1 (3).jpg",
-            "IMG/1 (4).jpg",
-            "IMG/1 (5).jpg"
-        ]
-    },
-    {
-        id: "tours-culture",
-        title: "🏝 Tours & Cultural Experiences",
-        desc: "Discover the culture, history, and iconic locations that make Zanzibar unique.",
-        images: [
-            "IMG/1 (6).jpg",
-            "IMG/1 (7).jpg",
-            "IMG/1 (8).jpg",
-            "IMG/1 (9).jpg"
-        ]
-    },
-    {
-        id: "nature-adventure",
-        title: "🌿 Nature & Adventure",
-        desc: "Reconnect with nature through lush forests, hidden caves, and natural beauty.",
-        images: [
-            "IMG/1 (10).jpg",
-            "IMG/1 (5).jpg",
-            "IMG/1 (1).jpg"
-        ]
-    },
-    {
-        id: "luxury-special",
-        title: "✨ Luxury & Special Moments",
-        desc: "Celebrate life's special moments in the most unforgettable way.",
-        images: [
-            "IMG/1 (11).jpg",
-            "IMG/1 (3).jpg",
-            "IMG/1 (8).jpg",
-            "IMG/1 (9).jpg"
-        ]
-    },
-    {
-        id: "safari",
-        title: "🐘 Safari Experiences",
-        desc: "Witness the wild beauty of Tanzania through powerful safari encounters.",
-        images: [
-            "IMG/1 (12).jpg",
-            "IMG/1 (13).jpg",
-            "IMG/1 (7).jpg"
-        ]
-    },
-    {
-        id: "gift-shop",
-        title: "🛍️ Kimondo Gift Shop",
-        desc: "Whether it's a gift for someone special or a keepsake for yourself, every item supports local artisans and communities.",
-        images: [
-            "IMG/1 (4).jpg",
-            "IMG/1 (1).jpg",
-            "IMG/1 (7).jpg"
-        ]
-    }
-];
-
-// --- DOM ELEMENTS ---
-const filterContainer = document.getElementById('filter-container');
-const galleryGrid = document.getElementById('gallery-grid');
-const catTitle = document.getElementById('cat-title');
-const catDesc = document.getElementById('cat-desc');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const loadMoreBtnContainer = document.getElementById('load-more-container');
-
-// Lightbox state variables
-let currentLightboxImages = [];
-let currentImageIndex = 0;
-let allImagesFlattened = [];
-let currentlyDisplayedCount = 0;
-
-// Only initialize lightbox functions if lightbox elements exist
-const hasLightbox = lightbox && lightboxImg;
-
-// --- INITIALIZATION ---
-function initGallery() {
-    // Exit early if gallery elements don't exist on this page
-    if (!filterContainer || !galleryGrid) {
-        return;
-    }
-
-    // Pre-calculate the flattened 'all' array
-    galleryData.forEach(cat => allImagesFlattened = allImagesFlattened.concat(cat.images));
-
-    renderFilterBtn('all', 'All Experiences', true);
-    galleryData.forEach(cat => renderFilterBtn(cat.id, cat.title.split(' ')[0] + ' ' + cat.title.split(' ')[1]));
-    renderImages('all');
-}
-
-// --- FILTER BUTTONS ---
-function renderFilterBtn(id, label, isActive = false) {
-    const btn = document.createElement('button');
-    btn.className = `filter-btn whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium border transition-all duration-300 ${isActive ? 'bg-forest text-white border-forest shadow-md' : 'bg-white text-warm/70 border-warm/20 hover:border-forest hover:text-forest'}`;
-    btn.innerText = label;
-    btn.onclick = () => {
-        document.querySelectorAll('.filter-btn').forEach(b => {
-            b.classList.remove('bg-forest', 'text-white', 'border-forest', 'shadow-md');
-            b.classList.add('bg-white', 'text-warm/70', 'border-warm/20');
-        });
-        btn.classList.remove('bg-white', 'text-warm/70', 'border-warm/20');
-        btn.classList.add('bg-forest', 'text-white', 'border-forest', 'shadow-md');
-        renderImages(id);
-    };
-    filterContainer.appendChild(btn);
-}
-
-// --- RENDER IMAGES ---
-function renderImages(categoryId) {
-    galleryGrid.innerHTML = '';
-    galleryGrid.classList.remove('fade-in');
-    loadMoreBtnContainer.classList.add('hidden'); // Hide button initially
-
-    let imagesToRender = [];
-
-    if (categoryId === 'all') {
-        catTitle.innerText = "All Experiences";
-        catDesc.innerText = "Discover the beauty, thrill, and culture of Zanzibar and Tanzania.";
-        imagesToRender = allImagesFlattened;
-
-        // Determine initial count based on screen size
-        const screenWidth = window.innerWidth;
-        let limit = 15; // Large screens
-
-        if (screenWidth < 640) {
-            limit = 6; // Mobile
-        } else if (screenWidth < 1024) {
-            limit = 8; // Tablet
-        }
-
-        currentlyDisplayedCount = Math.min(limit, imagesToRender.length);
-
-        // If there are more images than the initial limit, show the "Load More" button
-        if (imagesToRender.length > currentlyDisplayedCount) {
-            loadMoreBtnContainer.classList.remove('hidden');
-        }
-
-    } else {
-        // If it's a specific category, just show them all
-        const category = galleryData.find(c => c.id === categoryId);
-        catTitle.innerText = category.title;
-        catDesc.innerText = category.desc;
-        imagesToRender = category.images;
-        currentlyDisplayedCount = imagesToRender.length;
-    }
-
-    currentLightboxImages = imagesToRender;
-    appendImageBlocks(imagesToRender.slice(0, currentlyDisplayedCount));
-}
-
-// Helper to append image HTML
-function appendImageBlocks(imagesArray) {
-    imagesArray.forEach((imgSrc) => {
-        // Ensure index matches global array for Lightbox navigation
-        const globalIndex = currentLightboxImages.indexOf(imgSrc);
-
-        const imgBlock = `
-            <div class="relative overflow-hidden group cursor-pointer bg-warm/5 aspect-square rounded-2xl" onclick="openLightbox(${globalIndex})">
-                <img src="${imgSrc}" loading="lazy" alt="Gallery Image" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                    <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white border border-white/50 transform scale-50 group-hover:scale-100 transition-transform duration-300">
-                        <i class="fa-solid fa-expand"></i>
-                    </div>
-                </div>
-            </div>
-        `;
-        galleryGrid.insertAdjacentHTML('beforeend', imgBlock);
-    });
-
-    setTimeout(() => galleryGrid.classList.add('fade-in'), 10);
-}
-
-// --- LOAD MORE FUNCTION ---
-function loadMoreImages() {
-    // Append the rest of the array
-    const remainingImages = currentLightboxImages.slice(currentlyDisplayedCount);
-    appendImageBlocks(remainingImages);
-
-    // Hide the button once all are shown
-    loadMoreBtnContainer.classList.add('hidden');
-    currentlyDisplayedCount = currentLightboxImages.length;
-}
-
-// --- ENHANCED LIGHTBOX LOGIC ---
-function openLightbox(index) {
-    if (!hasLightbox) return;
-    currentImageIndex = index;
-    lightboxImg.src = currentLightboxImages[currentImageIndex];
-
-    lightbox.classList.remove('hidden');
-    lightbox.classList.add('flex');
-
-    setTimeout(() => {
-        lightbox.classList.remove('opacity-0');
-        lightboxImg.classList.remove('scale-95');
-        lightboxImg.classList.add('scale-100');
-    }, 10);
-
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox(event) {
-    if (!hasLightbox) return;
-    if (event) event.stopPropagation();
-    lightbox.classList.add('opacity-0');
-    lightboxImg.classList.remove('scale-100');
-    lightboxImg.classList.add('scale-95');
-
-    setTimeout(() => {
-        lightbox.classList.add('hidden');
-        lightbox.classList.remove('flex');
-    }, 300);
-
-    document.body.style.overflow = 'auto';
-}
-
-function navigateLightbox(direction, event) {
-    if (!hasLightbox) return;
-    event.stopPropagation();
-    currentImageIndex = currentImageIndex + direction;
-
-    if (currentImageIndex >= currentLightboxImages.length) {
-        currentImageIndex = 0;
-    } else if (currentImageIndex < 0) {
-        currentImageIndex = currentLightboxImages.length - 1;
-    }
-
-    lightboxImg.classList.add('opacity-0');
-    setTimeout(() => {
-        lightboxImg.src = currentLightboxImages[currentImageIndex];
-        lightboxImg.classList.remove('opacity-0');
-    }, 150);
-}
-
-// Keyboard navigation for Lightbox
-if (hasLightbox) {
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('hidden')) {
-            if (e.key === 'Escape') closeLightbox(null);
-            if (e.key === 'ArrowRight') navigateLightbox(1, e);
-            if (e.key === 'ArrowLeft') navigateLightbox(-1, e);
-        }
-    });
-}
-
-
-
-
-
-
-
-// --- GALLERY PAGE INITIALIZATION ---
-document.addEventListener("DOMContentLoaded", () => {
-    initGallery();
-});
-
-
 
 
 
@@ -928,7 +660,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadFlatIconCDN();
 
     // -------------------------------------------
-    // NEW FOOTER HTML (deep forest background, 6 columns)
+    // NEW FOOTER HTML (mobile: pairs side‑by‑side)
     // -------------------------------------------
     const footerHTML = `
         <footer class="bg-[#0f2a24] text-slate-300 pt-16 pb-8 border-t-4 border-[#d4a853] relative mt-24 overflow-hidden w-full">
@@ -936,18 +668,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
             <div class="w-full px-6 sm:px-12 lg:px-20 2xl:px-32 relative z-10">
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-10 xl:gap-8 mb-12 border-b border-white/10 pb-12">
+                <div class="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:grid-cols-6 mb-12 border-b border-white/10 pb-12">
                     
-                    <!-- Col 1: About Kimondo -->
-                    <div class="space-y-6">
-                    <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">About Kimondo</h3>
-                       
+                    <!-- Col 1: About Kimondo (full width on mobile) -->
+                    <div class="col-span-2 xl:col-span-1 space-y-6">
+                        <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">About Kimondo</h3>
                         <p class="text-sm leading-relaxed text-white/60">
                             Crafting unforgettable safaris, mountain treks, and beach holidays across Tanzania. Experience the wild heart of Africa with our expert guides and tailored itineraries.
                         </p>
                     </div>
 
-                    <!-- Col 2: Quick Links -->
+                    <!-- Col 2: Quick Links (left side of pair) -->
                     <div>
                         <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Quick Links</h3>
                         <ul class="space-y-3">
@@ -959,7 +690,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </ul>
                     </div>
 
-                    <!-- Col 3: Zanzibar Tours -->
+                    <!-- Col 3: Zanzibar Tours (right side of pair) -->
                     <div>
                         <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Zanzibar Tours</h3>
                         <ul class="space-y-3">
@@ -971,7 +702,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </ul>
                     </div>
 
-                    <!-- Col 4: Tanzania Safaris -->
+                    <!-- Col 4: Tanzania Safaris (left side of pair) -->
                     <div>
                         <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Tanzania Safaris</h3>
                         <ul class="space-y-3">
@@ -983,7 +714,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </ul>
                     </div>
 
-                    <!-- Col 5: Trekking -->
+                    <!-- Col 5: Trekking (right side of pair) -->
                     <div>
                         <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Trekking</h3>
                         <ul class="space-y-3">
@@ -994,8 +725,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         </ul>
                     </div>
 
-                    <!-- Col 6: Stay Connected -->
-                    <div class="flex flex-col justify-between">
+                    <!-- Col 6: Stay Connected (full width on mobile) -->
+                    <div class="col-span-2 xl:col-span-1 flex flex-col justify-between">
                         <div>
                             <h3 class="text-white font-bold text-lg mb-6 uppercase tracking-wider">Stay Connected</h3>
                             <div class="space-y-4 text-sm text-white/60 mb-8">
@@ -1042,10 +773,8 @@ document.addEventListener('DOMContentLoaded', function () {
         </button>
     `;
 
-    // 3. Inject the HTML into the page
+    // Inject HTML
     footerContainer.innerHTML = footerHTML;
-
-    // 4. Initialize Interactive Logic
 
     // Dynamic Year
     const yearSpan = document.getElementById('current-year');

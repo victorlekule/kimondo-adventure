@@ -20,7 +20,7 @@
   <main>
     <!--HERO SECTION-->
 
-    <!-- ========== HERO SECTION (HEADING FIX) ========== -->
+    <!-- ========== HERO SECTION (FIXED BUTTONS) ========== -->
     <section id="hero"
       class="relative min-h-[65vh] sm:min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center overflow-hidden py-6 sm:py-20 px-4 sm:px-6">
 
@@ -29,146 +29,199 @@
         <!-- Slides inserted by JS -->
       </div>
 
-      <!-- Dark overlay that fully covers the bottom -->
+      <!-- Dark overlay -->
       <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-forest/90 pointer-events-none"></div>
 
-      <!-- Hero Content (centered vertically) -->
-      <div class="relative z-10 text-center w-full max-w-6xl mx-auto">
-        <h1
-          class="text-2xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white mb-3 md:mb-6 tracking-tight drop-shadow-2xl">
-          Africa's Most Trusted Name in Tailor-Made
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-yellow-200 italic font-light inline">
-            Safari & Island Experiences</span>
-        </h1>
-        <p
-          class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-200 font-sans font-light mb-4 md:mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-2">
-          From the wild plains of the Serengeti to the turquoise waters of Zanzibar and the summit of Kilimanjaro —
-          Kimondo Adventures designs journeys no travel agency can replicate.<span class="font-medium text-white"> Every
-            detail, handled by the people who
-            call this land home.
-          </span>
-        </p>
+      <!-- Hero Content (dynamic via JS) -->
+      <div class="relative z-10 text-center w-full max-w-6xl mx-auto" id="hero-content">
+        <!-- Content will be populated by JS -->
+      </div>
 
-        <!-- Buttons (2 rows on mobile) -->
-        <div class="flex flex-wrap justify-center items-center gap-1.5 sm:gap-4 mb-4 md:mb-8 w-full px-2 sm:px-0">
-          <a href="zanzibar.html"
-            class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-golden hover:bg-yellow-500 text-warm font-bold font-sans rounded-full shadow-[0_0_20px_rgba(245,166,35,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-            Zanzibar Tours
-          </a>
-          <a href="tanzania.html"
-            class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-            Tanzania Safaris
-          </a>
-          <a href="trecking.html"
-            class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-            Trekking
-          </a>
-          <a href="gift shop.html"
-            class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 border-2 border-turquoise text-turquoise hover:bg-turquoise hover:text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-            Gift Shop
-          </a>
-          <a href="involve.html"
-            class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-forest hover:bg-green-800 text-white font-bold font-sans rounded-full shadow-md transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-            Get Involved
-          </a>
+      <!-- Navigation: arrows + dots (centered on mobile, bottom‑right on sm+) -->
+      <div
+        class="absolute bottom-6 left-1/2 -translate-x-1/2 sm:bottom-8 sm:right-8 sm:left-auto sm:translate-x-0 flex items-center gap-3 z-20">
+        <!-- Prev Arrow -->
+        <button id="hero-prev"
+          class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 text-white hover:bg-white/25 transition-all flex items-center justify-center"
+          aria-label="Previous slide">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <!-- Dots container -->
+        <div class="flex items-center gap-2" id="hero-dots">
+          <!-- Dots added by JS -->
         </div>
 
-        <!-- Trust badges -->
-        <div
-          class="flex flex-row flex-wrap justify-center items-center gap-x-2 gap-y-1 md:gap-6 text-[8px] sm:text-xs md:text-sm text-gray-300 font-sans font-medium tracking-wide px-2 sm:px-0">
-          <span class="flex items-center gap-1 md:gap-2 whitespace-nowrap">
-            <svg class="w-3 h-3 md:w-5 md:h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
-            </svg> Trusted Local Specialists
-          </span>
-          <span class="block w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-gray-500"></span>
-          <span class="flex items-center gap-1 md:gap-2 whitespace-nowrap">
-            <svg class="w-3 h-3 md:w-5 md:h-5 text-golden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
-            </svg> 5-Star Tailor-Made Experiences
-          </span>
-          <span class="block w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-gray-500"></span>
-          <span class="flex items-center gap-1 md:gap-2 whitespace-nowrap">
-            <svg class="w-3 h-3 md:w-5 md:h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
-            </svg> Crafted Around You
-          </span>
-        </div>
+        <!-- Next Arrow -->
+        <button id="hero-next"
+          class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 text-white hover:bg-white/25 transition-all flex items-center justify-center"
+          aria-label="Next slide">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
       </div>
     </section>
 
-    <!-- ========== SLIDESHOW CSS & SCRIPT (NO REVERSE) ========== -->
     <style>
       #hero-slideshow .slide {
         position: absolute;
         inset: 0;
         background-size: cover;
         background-position: center;
-        transform: translateX(100%);
-        transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       #hero-slideshow .slide.active {
-        transform: translateX(0);
+        opacity: 1;
       }
 
-      #hero-slideshow .slide.exit {
-        transform: translateX(-100%);
+      .hero-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: background 0.3s;
+        border: none;
       }
 
-      #hero-slideshow .slide.reset {
-        transition: none !important;
+      .hero-dot.active {
+        background: #F2B705;
       }
     </style>
 
     <script>
       (function () {
-        const container = document.getElementById('hero-slideshow');
-        if (!container) return;
+        const slidesContainer = document.getElementById('hero-slideshow');
+        const contentContainer = document.getElementById('hero-content');
+        const dotsContainer = document.getElementById('hero-dots');
+        const prevBtn = document.getElementById('hero-prev');
+        const nextBtn = document.getElementById('hero-next');
+        if (!slidesContainer || !contentContainer || !dotsContainer) return;
 
-        const images = [
-          'pic/hero1.jpg',
-          'pic/hero3.jpg',
-          'pic/hero4.jpg',
-          'pic/hero2.jpg',
+        const slidesData = [
+          {
+            image: 'hero/zbr.jpg',
+            headline: 'Zanzibar: Where the Ocean Sings',
+            subheadline: 'Spice Islands & Turquoise Dreams',
+            description: 'Lose yourself in the rhythm of dhows drifting across the Indian Ocean. From the narrow alleys of Stone Town to the endless white sands of Nungwi, every moment feels like a postcard you never want to send.'
+          },
+          {
+            image: 'hero/tz3.jpg',
+            headline: 'Tanzania Safaris: The Wild Heart of Africa',
+            subheadline: 'Witness the Greatest Show on Earth',
+            description: 'Feel the earth tremble as wildebeest thunder across the Serengeti. Sit just feet from a pride of lions in Ngorongoro Crater. This isn’t a vacation — it’s the story you’ll tell for the rest of your life.'
+          },
+          {
+            image: 'hero/kil1.jpg',
+            headline: 'Summit Dreams: Conquer Kilimanjaro',
+            subheadline: 'Stand on the Roof of Africa',
+            description: 'Every step upward strips away the noise of the world. When you finally watch the sunrise from Uhuru Peak, you’ll understand why this mountain changes everyone who climbs it.'
+          },
+          {
+            image: 'hero/water.jpg',
+            headline: 'Adrenaline on the Indian Ocean',
+            subheadline: 'Jet Skis, Kayaks & Coral Reefs',
+            description: 'Race across turquoise water on a high‑speed jet ski. Paddle a glass‑bottom kayak over vibrant coral gardens. The ocean isn’t just a view here — it’s your playground.'
+          },
+          {
+            image: 'hero/g.jpg',
+            headline: 'Gifts That Carry a Soul',
+            subheadline: 'Handcrafted by Tanzanian Artisans',
+            description: 'Bring home more than memories. Our gift shop overflows with authentic Maasai beadwork, hand‑carved wooden sculptures, and vibrant kanga fabrics — each piece supporting local communities.'
+          },
+          {
+            image: 'hero/vol.jpg',
+            headline: 'Be Part of Something Bigger',
+            subheadline: 'Volunteer, Intern, or Partner',
+            description: 'Trade your desk for the savannah. Whether you’re teaching, conserving wildlife, or building a business partnership, your time here leaves footprints that matter.'
+          }
         ];
 
         let currentIndex = 0;
         const slides = [];
+        const dots = [];
+        let autoInterval;
+        let isTransitioning = false;
 
-        images.forEach((src, i) => {
+        // Create slides and dots
+        slidesData.forEach((data, i) => {
           const slide = document.createElement('div');
-          slide.className = 'slide';
-          slide.style.backgroundImage = `url(${src})`;
-          if (i === 0) slide.classList.add('active');
-          container.appendChild(slide);
+          slide.className = 'slide' + (i === 0 ? ' active' : '');
+          slide.style.backgroundImage = `url(${data.image})`;
+          slidesContainer.appendChild(slide);
           slides.push(slide);
+
+          const dot = document.createElement('button');
+          dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', `Slide ${i + 1}`);
+          dot.addEventListener('click', () => goToSlide(i));
+          dotsContainer.appendChild(dot);
+          dots.push(dot);
         });
 
-        function nextSlide() {
-          const oldSlide = slides[currentIndex];
-          currentIndex = (currentIndex + 1) % slides.length;
-          const newSlide = slides[currentIndex];
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
-          newSlide.classList.add('active');
-          newSlide.classList.remove('exit', 'reset');
-          oldSlide.classList.remove('active');
-          oldSlide.classList.add('exit');
-
-          setTimeout(() => {
-            oldSlide.classList.add('reset');
-            oldSlide.classList.remove('exit');
-            oldSlide.style.transform = 'translateX(100%)';
-            void oldSlide.offsetWidth;
-            oldSlide.classList.remove('reset');
-          }, 1200);
+        // Update content – headline, subheadline, description change, buttons stay fixed
+        function updateContent() {
+          const data = slidesData[currentIndex];
+          contentContainer.innerHTML = `
+                <p class="text-golden text-sm sm:text-base lg:text-lg font-bold uppercase tracking-[0.3em] mb-2 sm:mb-4 drop-shadow">${data.subheadline}</p>
+                <h1 class="text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white mb-3 md:mb-6 tracking-tight drop-shadow-2xl">
+                    ${data.headline}
+                </h1>
+                <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 font-sans font-light mb-4 md:mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-2">
+                    ${data.description}
+                </p>
+                <!-- Fixed button row (always visible) -->
+                <div class="flex flex-wrap justify-center items-center gap-1.5 sm:gap-4 mb-4 md:mb-8 w-full px-2 sm:px-0">
+                    <a href="zanzibar.html" class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-golden hover:bg-yellow-500 text-warm font-bold font-sans rounded-full shadow-[0_0_20px_rgba(245,166,35,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                        Zanzibar Tours
+                    </a>
+                    <a href="tanzania.html" class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                        Tanzania Safaris
+                    </a>
+                    <a href="trecking.html" class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                        Trekking
+                    </a>
+                    <a href="gift shop.html" class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 border-2 border-turquoise text-turquoise hover:bg-turquoise hover:text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                        Gift Shop
+                    </a>
+                    <a href="involve.html" class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-forest hover:bg-green-800 text-white font-bold font-sans rounded-full shadow-md transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                        Get Involved
+                    </a>
+                </div>
+            `;
         }
 
-        setInterval(nextSlide, 4000);
+        function setSlide(index) {
+          if (isTransitioning || index === currentIndex) return;
+          isTransitioning = true;
+          slides[currentIndex].classList.remove('active');
+          dots[currentIndex].classList.remove('active');
+          slides[index].classList.add('active');
+          dots[index].classList.add('active');
+          currentIndex = index;
+          updateContent();
+          setTimeout(() => { isTransitioning = false; }, 600);
+        }
+
+        function nextSlide() { setSlide((currentIndex + 1) % slides.length); resetAuto(); }
+        function prevSlide() { setSlide((currentIndex - 1 + slides.length) % slides.length); resetAuto(); }
+        function goToSlide(index) { setSlide(index); resetAuto(); }
+
+        function startAuto() { clearInterval(autoInterval); autoInterval = setInterval(nextSlide, 8000); }
+        function resetAuto() { clearInterval(autoInterval); startAuto(); }
+
+        updateContent();
+        startAuto();
       })();
     </script>
-
 
 
     <!--ABOUT SECTION-->
@@ -378,10 +431,8 @@
           <div
             class="experience-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col">
             <div class="relative h-56 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Gift Shop"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <img src="pic/giftshop3.jpg" alt="Gift Shop"
+                class="w-full h-full object-cover  transition-transform duration-700 group-hover:scale-110">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">04</span>
             </div>
@@ -403,9 +454,7 @@
           <div
             class="experience-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col">
             <div class="relative h-56 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Volunteering"
+              <img src="pic/volunters.jpg" alt="Volunteering"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">05</span>
@@ -509,9 +558,7 @@
             <div
               class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col">
               <div class="relative h-52 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  alt="Gift Shop"
+                <img src="pic/giftshop3.jpg" alt="Gift Shop"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">04</span>
@@ -523,7 +570,7 @@
                   Hand-carved ebony sculptures, Makonde masterworks, and authentic Maasai art — sourced directly from
                   local artisans, shipped worldwide. Every piece purchased supports the craftsmen who made it.
                 </p>
-                <a href="#gift-shop"
+                <a href="gift shop.html"
                   class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">
                   Shop the Collection <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
                 </a>
@@ -534,9 +581,7 @@
             <div
               class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col">
               <div class="relative h-52 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  alt="Volunteering"
+                <img src="pic/volunters.jpg" alt="Volunteering"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">05</span>
@@ -548,7 +593,7 @@
                   Join grassroots community and conservation programs that create real, lasting impact — not
                   performative tourism. Gain a global experience while giving back to the communities that welcome you.
                 </p>
-                <a href="get-involved.html"
+                <a href="involve.html"
                   class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">
                   Join Our Programs <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
                 </a>
@@ -560,9 +605,7 @@
               class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col clone-card"
               aria-hidden="true">
               <div class="relative h-52 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                  alt="Tanzania Safari"
+                <img src="pic/mikumi home.JPG" alt="Tanzania Safari"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">01</span>
@@ -575,7 +618,7 @@
                   Migration with guides who read the bush like a second language. Every safari is privately tailored —
                   no shared itineraries, no generic routes.
                 </p>
-                <a href="#safaris"
+                <a href="tanzania.html"
                   class="inline-flex items-center gap-2 bg-golden hover:bg-yellow-500 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all self-start">
                   View Safari Packages <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
                 </a>
@@ -758,9 +801,6 @@
         revealCards.forEach(card => observer.observe(card));
       })();
     </script>
-
-
-
 
 
     <!-- ========== WHY CHOOSE KIMONDO (PREMIUM REDESIGN – ANIMATED + SMOOTH CAROUSEL) ========== -->
@@ -1219,7 +1259,7 @@
           <div
             class="group flex flex-col bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
             <div class="relative aspect-square overflow-hidden">
-              <img src="IMG/1 (13).jpg" alt="Family Tree Sculpture"
+              <img src="pic/giftshop7.jpg" alt="Family Tree Sculpture"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
               <div class="absolute top-4 right-4">
                 <span
@@ -1239,7 +1279,7 @@
           <div
             class="group flex flex-col bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
             <div class="relative aspect-square overflow-hidden">
-              <img src="IMG/1 (1).jpg" alt="Ebony Elephant Figure"
+              <img src="pic/giftshop6.jpg" alt="Ebony Elephant Figure"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
               <div class="absolute top-4 right-4">
                 <span
@@ -1258,7 +1298,7 @@
           <div
             class="group flex flex-col bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
             <div class="relative aspect-square overflow-hidden">
-              <img src="IMG/1 (2).jpg" alt="Hand-carved Wall Mask"
+              <img src="pic/giftshop5.jpg" alt="Hand-carved Wall Mask"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
               <div class="absolute top-4 right-4">
                 <span
@@ -1276,7 +1316,7 @@
           <div
             class="group flex flex-col bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
             <div class="relative aspect-square overflow-hidden">
-              <img src="IMG/1 (3).jpg" alt="Maasai Warrior Statue"
+              <img src="pic/giftshop8.jpg" alt="Maasai Warrior Statue"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
               <div class="absolute top-4 right-4">
                 <span
@@ -1300,7 +1340,7 @@
               <div
                 class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4">
                 <div class="relative aspect-square overflow-hidden">
-                  <img src="IMG/1 (13).jpg" alt="Family Tree Sculpture" class="w-full h-full object-cover">
+                  <img src="pic/giftshop7.jpg" alt="Family Tree Sculpture" class="w-full h-full object-cover">
                   <div class="absolute top-4 right-4">
                     <span
                       class="bg-forest text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Makonde
@@ -1317,7 +1357,7 @@
               <div
                 class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4">
                 <div class="relative aspect-square overflow-hidden">
-                  <img src="IMG/1 (1).jpg" alt="Ebony Elephant Figure" class="w-full h-full object-cover">
+                  <img src="pic/giftshop6.jpg" alt="Ebony Elephant Figure" class="w-full h-full object-cover">
                   <div class="absolute top-4 right-4">
                     <span
                       class="bg-golden text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Best
@@ -1334,7 +1374,7 @@
               <div
                 class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4">
                 <div class="relative aspect-square overflow-hidden">
-                  <img src="IMG/1 (2).jpg" alt="Hand-carved Wall Mask" class="w-full h-full object-cover">
+                  <img src="pic/giftshop5.jpg" alt="Hand-carved Wall Mask" class="w-full h-full object-cover">
                   <div class="absolute top-4 right-4">
                     <span
                       class="bg-[#5D4037] text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Traditional</span>
@@ -1350,7 +1390,7 @@
               <div
                 class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4">
                 <div class="relative aspect-square overflow-hidden">
-                  <img src="IMG/1 (3).jpg" alt="Maasai Warrior Statue" class="w-full h-full object-cover">
+                  <img src="pic/giftshop8.jpg" alt="Maasai Warrior Statue" class="w-full h-full object-cover">
                   <div class="absolute top-4 right-4">
                     <span
                       class="bg-[#0D8ABC] text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Authentic</span>
@@ -1366,7 +1406,7 @@
               <div
                 class="flex-shrink-0 w-[85vw] max-w-md bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 mr-4 clone-slide">
                 <div class="relative aspect-square overflow-hidden">
-                  <img src="IMG/1 (13).jpg" alt="Family Tree Sculpture" class="w-full h-full object-cover">
+                  <img src="pic/giftshop7.jpg" alt="Family Tree Sculpture" class="w-full h-full object-cover">
                   <div class="absolute top-4 right-4">
                     <span
                       class="bg-forest text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">Makonde
@@ -1585,7 +1625,6 @@
     </script>
 
 
-
     <!--TESTMONIA-->
 
     <section id="testimonials" class="relative py-20 md:py-28 bg-[#2E7D32] overflow-hidden reveal">
@@ -1800,7 +1839,7 @@
       </div>
     </section>
 
-
+    <!--cta -->
     <section id="cta" class="relative py-20 md:py-28 bg-[#fcfbf9] overflow-hidden">
       <!-- Subtle background texture (matches the about section) -->
       <div class="absolute inset-0 opacity-[0.03] pointer-events-none">

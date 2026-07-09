@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Kimondo Adventures</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap" rel="stylesheet">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flaticon-uicons@2.1.0/uicons-regular-rounded/style.css">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
     <script>
         tailwind.config = {
             theme: {
@@ -37,130 +34,398 @@
         }
     </script>
 </head>
-<body class="bg-light text-warm font-sans antialiased overflow-x-hidden flex flex-col min-h-screen pt-24">
 
+<body class="bg-light text-warm font-sans antialiased overflow-x-hidden flex flex-col min-h-screen pt-24">
     <div id="kimondo-header"></div>
 
-<section class="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden w-full pt-24 pb-20">
-        
+    <!-- Hero (unchanged) -->
+    <section
+        class="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden w-full pt-24 pb-20">
         <div class="absolute inset-0 z-0">
-            <img src="IMG/1 (13).jpg" class="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out" alt="Zanzibar Gallery" />
+            <img src="IMG/1 (13).jpg"
+                class="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform duration-[20s] ease-out"
+                alt="Zanzibar Gallery" />
             <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/50 to-forest/90"></div>
         </div>
-
-        <div class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10 reveal active">
-            
-            <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
+        <div
+            class="relative z-10 text-center w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center mt-10 reveal active">
+            <div
+                class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-xl">
                 <span class="w-2 h-2 rounded-full bg-golden animate-pulse"></span>
                 <span class="text-xs md:text-sm uppercase tracking-[0.2em] text-white font-bold">Kimondo Gallery</span>
             </div>
-            
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1]">
+            <h1
+                class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1]">
                 Moments <br class="hidden sm:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">That Speak for Themselves</span>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-golden to-amber-200 italic font-light">That
+                    Speak for Themselves</span>
             </h1>
-            
             <h3 class="text-xl md:text-2xl text-white/90 font-serif mb-8 drop-shadow-md">
                 Explore real experiences captured across Zanzibar and Tanzania.
             </h3>
-            
-            <p class="text-sm md:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed backdrop-blur-md bg-white/5 p-6 rounded-3xl border border-white/10 shadow-2xl">
-                Every photo tells a story. From crystal-clear waters and breathtaking sunsets to unforgettable safari moments — this is what your journey with Kimondo Adventures looks like.
+            <p
+                class="text-sm md:text-base text-white/80 max-w-2xl mx-auto font-light leading-relaxed backdrop-blur-md bg-white/5 p-6 rounded-3xl border border-white/10 shadow-2xl">
+                Every photo tells a story. From crystal-clear waters and breathtaking sunsets to unforgettable safari
+                moments — this is what your journey with Kimondo Adventures looks like.
             </p>
-            
         </div>
-
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block z-10">
-            <div class="w-8 h-12 rounded-full border-2 border-white/30 flex items-center justify-center p-2 backdrop-blur-sm">
+            <div
+                class="w-8 h-12 rounded-full border-2 border-white/30 flex items-center justify-center p-2 backdrop-blur-sm">
                 <div class="w-1 h-3 bg-golden rounded-full"></div>
             </div>
         </div>
-        
     </section>
 
     <main class="flex-grow max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-20">
-        
+        <!-- Filter Buttons -->
         <div class="mb-12 md:mb-16">
-            <div class="flex overflow-x-auto gap-3 pb-4 no-scrollbar border-b border-warm/10" id="filter-container">
-                </div>
+            <div class="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-3" id="filter-container">
+            </div>
         </div>
 
+        <!-- Category Header -->
         <div id="category-header" class="mb-10 reveal active text-center md:text-left">
             <h2 id="cat-title" class="text-3xl md:text-4xl font-serif font-bold text-forest mb-3">All Experiences</h2>
-            <p id="cat-desc" class="text-warm/70 font-light max-w-3xl text-sm md:text-base leading-relaxed">Discover the beauty and thrill of Zanzibar and Tanzania.</p>
+            <p id="cat-desc" class="text-warm/70 font-light max-w-3xl text-sm md:text-base leading-relaxed">
+                Discover the beauty and thrill of Zanzibar and Tanzania.
+            </p>
         </div>
 
+        <!-- Gallery Grid -->
         <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-            </div>
+        </div>
 
+        <!-- Load More -->
         <div id="load-more-container" class="mt-12 text-center hidden">
-            <button onclick="loadMoreImages()" class="bg-white border-2 border-forest text-forest hover:bg-forest hover:text-white font-bold px-10 py-3 rounded-full transition-all duration-300 shadow-md">
+            <button onclick="loadMoreImages()"
+                class="bg-white border-2 border-forest text-forest hover:bg-forest hover:text-white font-bold px-10 py-3 rounded-full transition-all duration-300 shadow-md">
                 View More
             </button>
         </div>
-
     </main>
 
-    <section class="py-20 md:py-28 bg-white border-y border-warm/5 text-center reveal">
-        <div class="max-w-3xl mx-auto px-4">
-            <div class="w-16 h-16 mx-auto bg-golden/10 text-golden rounded-full flex items-center justify-center text-2xl mb-6">
+    <section class="relative py-20 md:py-32 bg-golden text-center overflow-visible mb-16">
+        <!-- Subtle texture overlay -->
+        <div class="absolute inset-0 opacity-[0.06] pointer-events-none"
+            style="background-image: radial-gradient(circle, #1a3c34 1px, transparent 1px); background-size: 30px 30px;">
+        </div>
+        <!-- Decorative blobs for depth -->
+        <div
+            class="absolute top-0 left-0 w-80 h-80 bg-white/20 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/4">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-72 h-72 bg-forest/10 rounded-full blur-3xl translate-y-1/3 translate-x-1/4">
+        </div>
+
+        <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
+            <!-- Icon circle (forest on golden) -->
+            <div
+                class="w-20 h-20 mx-auto bg-forest rounded-full flex items-center justify-center text-golden text-3xl mb-6 shadow-xl">
                 <i class="fa-solid fa-camera-retro"></i>
             </div>
-            <h2 class="text-4xl md:text-5xl font-serif font-bold text-forest mb-4">Follow Our Journey</h2>
-            <p class="text-warm/80 text-lg mb-10 font-light">
-                See more real experiences, client moments, and behind-the-scenes content.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#" class="bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-90 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-lg transform hover:-translate-y-1">
-                    <i class="fa-brands fa-instagram text-xl"></i> Instagram
-                </a>
-                <a href="#" class="bg-black hover:bg-gray-800 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-lg transform hover:-translate-y-1">
-                    <i class="fa-brands fa-tiktok text-xl"></i> TikTok
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <section class="relative py-24 md:py-32 bg-forest text-center overflow-hidden reveal">
-        <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-golden/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
-        
-        <div class="relative z-10 max-w-4xl mx-auto px-4">
-            <h2 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight">
-                Ready to create your <span class="text-golden italic">own story?</span>
+            <!-- Heading -->
+            <h2 class="text-4xl md:text-6xl font-serif font-extrabold text-white mb-4 leading-tight">
+                Follow Our Journey
             </h2>
-            <p class="text-lg md:text-xl text-white/80 font-light mb-12">
-                Your Zanzibar adventure starts here. Let us craft the perfect experience for you.
+
+            <!-- Subtitle -->
+            <p class="text-brand-dark text-lg md:text-xl mb-10 font-light max-w-xl mx-auto">
+                See more real experiences, client moments, and behind‑the‑scenes content from the heart of Tanzania.
             </p>
+
+            <!-- Social buttons – fully visible, strong contrast -->
             <div class="flex flex-wrap justify-center gap-5">
-                <a href="#" class="bg-golden hover:bg-amber-500 text-dark font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-2 shadow-lg transform hover:-translate-y-1">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Book Now on WhatsApp
+                <a href="#"
+                    class="group bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-90 text-white font-bold px-9 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-xl transform hover:-translate-y-1 hover:shadow-2xl">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                    <span>Instagram</span>
                 </a>
-                <a href="#" class="border border-white/40 hover:bg-white/10 px-8 py-4 rounded-full transition-all duration-300 text-white flex items-center gap-2 backdrop-blur-md">
-                    <i class="fa-regular fa-envelope text-lg"></i> Send Inquiry
+                <a href="#"
+                    class="group bg-forest hover:bg-[#1a3c34] text-white font-bold px-9 py-4 rounded-full transition-all duration-300 flex items-center gap-3 shadow-xl transform hover:-translate-y-1 hover:shadow-2xl">
+                    <i class="fa-brands fa-tiktok text-xl"></i>
+                    <span>TikTok</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <div id="lightbox" class="fixed top-24 bottom-0 left-0 right-0 z-[100] bg-dark/95 hidden items-center justify-center opacity-0" onclick="closeLightbox(event)">
-        
-        <button class="absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 rounded-full bg-white text-dark hover:bg-golden hover:text-white text-2xl transition-all flex items-center justify-center border-2 border-white shadow-lg z-50" onclick="closeLightbox(event)" style="pointer-events: auto;">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
 
-        <button class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white text-dark hover:bg-golden hover:text-white text-xl transition-all flex items-center justify-center border-2 border-white shadow-lg cursor-pointer z-50" onclick="navigateLightbox(-1, event)" style="pointer-events: auto;">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        
-        <button class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white text-dark hover:bg-golden hover:text-white text-xl transition-all flex items-center justify-center border-2 border-white shadow-lg cursor-pointer z-50" onclick="navigateLightbox(1, event)" style="pointer-events: auto;">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
 
-        <img id="lightbox-img" src="" class="max-h-[75vh] max-w-[90vw] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+    <!--cta-->
+    <section class="relative py-16 md:py-40 bg-forest text-center overflow-visible">
+        <!-- Decorative blobs -->
+        <div class="absolute top-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-golden/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3">
+        </div>
+        <!-- Subtle pattern overlay -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+            style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 40px 40px;">
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+            <!-- Small eyebrow -->
+            <span class="text-[10px] md:text-sm uppercase tracking-[0.4em] text-golden font-bold mb-3 md:mb-4 block">
+                <i class="fa-solid fa-circle text-[6px] align-middle mr-2 text-golden"></i> Start Your Journey
+            </span>
+
+            <!-- Bold, powerful heading -->
+            <h2 class="text-3xl md:text-7xl font-serif font-extrabold text-white mb-4 md:mb-8 leading-tight">
+                Your Adventure<br class="sm:hidden">
+                <span class="text-golden italic">Deserves a Story</span>
+            </h2>
+
+            <!-- Engaging description -->
+            <p class="text-sm md:text-xl text-white/80 font-light mb-6 md:mb-12 max-w-3xl mx-auto leading-relaxed">
+                From the turquoise waters of Zanzibar to the wild plains of the Serengeti — we don't just plan trips, we
+                craft life‑changing experiences tailored entirely around you.
+            </p>
+
+            <!-- Dual CTAs – fully visible -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6">
+                <a href="https://wa.me/255658840425"
+                    class="w-full sm:w-auto group bg-golden hover:bg-amber-500 text-dark font-extrabold px-8 py-3 md:px-10 md:py-5 rounded-full transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 shadow-[0_0_30px_rgba(245,166,35,0.5)] hover:shadow-[0_0_45px_rgba(245,166,35,0.7)] transform hover:-translate-y-1 active:scale-95 text-sm md:text-base">
+                    <i class="fa-brands fa-whatsapp text-lg md:text-xl"></i>
+                    <span>Book Now on WhatsApp</span>
+                </a>
+                <a href="contact.html"
+                    class="w-full sm:w-auto group border-2 border-white/60 hover:border-golden text-white hover:text-golden font-extrabold px-8 py-3 md:px-10 md:py-5 rounded-full transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 transform hover:-translate-y-1 active:scale-95 text-sm md:text-base">
+                    <i class="fa-regular fa-envelope text-lg md:text-xl"></i>
+                    <span>Send Inquiry</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox (unchanged) -->
+    <div id="lightbox"
+        class="fixed top-24 bottom-0 left-0 right-0 z-[100] bg-dark/95 hidden items-center justify-center opacity-0"
+        onclick="closeLightbox(event)">
+        <button
+            class="absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 rounded-full bg-white text-dark hover:bg-golden hover:text-white text-2xl transition-all flex items-center justify-center border-2 border-white shadow-lg z-50"
+            onclick="closeLightbox(event)" style="pointer-events: auto;"><i class="fa-solid fa-xmark"></i></button>
+        <button
+            class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white text-dark hover:bg-golden hover:text-white text-xl transition-all flex items-center justify-center border-2 border-white shadow-lg cursor-pointer z-50"
+            onclick="navigateLightbox(-1, event)" style="pointer-events: auto;"><i
+                class="fa-solid fa-chevron-left"></i></button>
+        <button
+            class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white text-dark hover:bg-golden hover:text-white text-xl transition-all flex items-center justify-center border-2 border-white shadow-lg cursor-pointer z-50"
+            onclick="navigateLightbox(1, event)" style="pointer-events: auto;"><i
+                class="fa-solid fa-chevron-right"></i></button>
+        <img id="lightbox-img" src=""
+            class="max-h-[75vh] max-w-[90vw] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300"
+            onclick="event.stopPropagation()">
     </div>
-    
-<div id="footer-container"></div>
+
+    <div id="footer-container"></div>
+    <script src="script.js"></script>
+
+    <script>
+        // --- GALLERY DATA ---
+        const galleryData = [
+            {
+                id: "water-sports",
+                title: "Water Sports",
+                desc: "Thrilling ocean adventures – clear kayaks, jet skis, parasailing and more.",
+                images: ["ga/water25.jpg", "ga/water2.jpg", "ga/water26.jpg", "ga/water10.jpg", "ga/water16.jpg", "ga/water17.jpg", "ga/water7.jpg", "ga/water28.jpg", "ga/water21.jpg", "ga/water20.jpg", "ga/water11.jpg", "ga/water27.jpg", "ga/water15.jpg", "ga/water5.jpg", "ga/water6.jpg", "ga/water18.jpg", "ga/water4.jpg", "ga/water9.jpg", "ga/water12.jpg", "ga/water24.jpeg", "ga/water23.jpg", "ga/water19.jpg"]
+            },
+            {
+                id: "zanzibar-tours",
+                title: "Zanzibar Tours",
+                desc: "Safari Blue, Stone Town, Prison Island, spice farms and cultural gems.",
+                images: ["ga/zb1.jpg", "ga/zb2.jpg", "ga/zb3.jpg", "ga/zb4.jpg", "ga/zb5.jpg", "ga/zb6.jpg", "ga/zb7.jpg", "ga/zb8.jpg", "ga/zb9.jpg", "ga/zb10.jpg", "ga/zb11.jpg", "ga/zb12.jpg", "ga/zb13.jpg", "ga/zb14.jpg", "ga/zb15.jpg", "ga/zb16.webp"]
+            },
+            {
+                id: "tanzania-safaris",
+                title: "Tanzania Safaris",
+                desc: "Serengeti, Ngorongoro, Tarangire, Lake Manyara – the wild heart of Africa.",
+                images: ["ga/tz1.webp", "ga/tz2.webp", "ga/tz3.webp", "ga/tz4.webp", "ga/tz5.webp", "ga/tz6.webp", "ga/tz7.webp", "ga/tz8.webp", "ga/tz9.webp", "ga/tz10.webp", "ga/tz11.webp", "ga/tz12.webp", "ga/tz13.webp", "ga/tz14.webp", "ga/tz15.webp", "ga/tz16.webp", "ga/tz17.webp"]
+            },
+            {
+                id: "trekking",
+                title: "Trekking",
+                desc: "Kilimanjaro, Mount Meru and walking safaris for every adventurer.",
+                images: ["ga/t10.jpg", "ga/t2.jpg", "ga/t9.jpg", "ga/t4.jpg", "ga/t5.jpg", "ga/t12.jpg", "ga/t7.jpg", "ga/t4.jpg", "ga/t1.jpg", "ga/t8.jpg", "ga/t6.jpg"]
+            },
+            {
+                id: "gift-shop",
+                title: "Gift Shop",
+                desc: "Handcrafted souvenirs, fabrics, and authentic Tanzanian crafts.",
+                images: ["ga/g1.JPG", "ga/g2.JPG", "ga/g3.JPG", "ga/g4.JPG", "ga/g5.JPG", "ga/g6.JPG", "ga/g7.JPG", "ga/g8.JPG", "ga/g9.JPG", "ga/g10.JPG", "ga/g11.JPG", "ga/g12.jpg"]
+            }
+        ];
+
+        const categoryIcons = {
+            'all': 'fa-solid fa-globe',
+            'water-sports': 'fa-solid fa-water',
+            'zanzibar-tours': 'fa-solid fa-umbrella-beach',
+            'tanzania-safaris': 'fa-solid fa-paw',
+            'trekking': 'fa-solid fa-mountain',
+            'gift-shop': 'fa-solid fa-gift'
+        };
+
+        const filterContainer = document.getElementById('filter-container');
+        const galleryGrid = document.getElementById('gallery-grid');
+        const catTitle = document.getElementById('cat-title');
+        const catDesc = document.getElementById('cat-desc');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const loadMoreBtnContainer = document.getElementById('load-more-container');
+
+        let currentLightboxImages = [];
+        let currentImageIndex = 0;
+        let allImagesFlattened = [];
+        let currentlyDisplayedCount = 0;
+        const hasLightbox = lightbox && lightboxImg;
+
+        // --- SHUFFLE HELPER (Fisher‑Yates) ---
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function initGallery() {
+            if (!filterContainer || !galleryGrid) return;
+            // Flatten all images and shuffle them so "All Experiences" shows a professional mix
+            allImagesFlattened = galleryData.reduce((arr, cat) => arr.concat(cat.images), []);
+            allImagesFlattened = shuffleArray(allImagesFlattened);
+
+            renderFilterBtn('all', 'All Experiences', true);
+            galleryData.forEach(cat => renderFilterBtn(cat.id, cat.title));
+            renderImages('all');
+        }
+
+        function renderFilterBtn(id, label, isActive = false) {
+            const btn = document.createElement('button');
+            const iconClass = categoryIcons[id] || 'fa-solid fa-images';
+            btn.className = `filter-btn whitespace-nowrap px-4 py-2.5 rounded-full text-sm font-medium border transition-all duration-300 inline-flex items-center justify-center gap-2 ${isActive ? 'bg-forest text-white border-forest shadow-md' : 'bg-white text-warm/70 border-warm/20 hover:bg-forest hover:text-white'}`;
+            btn.innerHTML = `<i class="${iconClass} text-xs"></i> ${label}`;
+            btn.onclick = () => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('bg-forest', 'text-white', 'border-forest', 'shadow-md');
+                    b.classList.add('bg-white', 'text-warm/70', 'border-warm/20');
+                });
+                btn.classList.remove('bg-white', 'text-warm/70', 'border-warm/20');
+                btn.classList.add('bg-forest', 'text-white', 'border-forest', 'shadow-md');
+                renderImages(id);
+            };
+            filterContainer.appendChild(btn);
+        }
+
+        function renderImages(categoryId) {
+            galleryGrid.innerHTML = '';
+            galleryGrid.classList.remove('fade-in');
+            loadMoreBtnContainer.classList.add('hidden');
+
+            let imagesToRender = [];
+            if (categoryId === 'all') {
+                catTitle.innerText = "All Experiences";
+                catDesc.innerText = "A curated mix of water sports, tours, safaris, treks, and gifts.";
+                // Use the already‑shuffled array
+                imagesToRender = allImagesFlattened;
+                const screenWidth = window.innerWidth;
+                let limit = 15;
+                if (screenWidth < 640) limit = 6;
+                else if (screenWidth < 1024) limit = 8;
+                currentlyDisplayedCount = Math.min(limit, imagesToRender.length);
+                if (imagesToRender.length > currentlyDisplayedCount) loadMoreBtnContainer.classList.remove('hidden');
+            } else {
+                const category = galleryData.find(c => c.id === categoryId);
+                if (category) {
+                    catTitle.innerText = category.title;
+                    catDesc.innerText = category.desc;
+                    imagesToRender = category.images;
+                    currentlyDisplayedCount = imagesToRender.length;
+                }
+            }
+            currentLightboxImages = imagesToRender;
+            appendImageBlocks(imagesToRender.slice(0, currentlyDisplayedCount));
+        }
+
+        function appendImageBlocks(imagesArray) {
+            imagesArray.forEach((imgSrc) => {
+                const globalIndex = currentLightboxImages.indexOf(imgSrc);
+                const imgBlock = `
+                <div class="relative overflow-hidden group cursor-pointer bg-warm/5 aspect-square rounded-2xl" onclick="openLightbox(${globalIndex})">
+                    <img src="${imgSrc}" loading="lazy" alt="Gallery Image" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white border border-white/50 transform scale-50 group-hover:scale-100 transition-transform duration-300">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                </div>`;
+                galleryGrid.insertAdjacentHTML('beforeend', imgBlock);
+            });
+            setTimeout(() => galleryGrid.classList.add('fade-in'), 10);
+        }
+
+        function loadMoreImages() {
+            const remainingImages = currentLightboxImages.slice(currentlyDisplayedCount);
+            appendImageBlocks(remainingImages);
+            loadMoreBtnContainer.classList.add('hidden');
+            currentlyDisplayedCount = currentLightboxImages.length;
+        }
+
+        function openLightbox(index) {
+            if (!hasLightbox) return;
+            currentImageIndex = index;
+            lightboxImg.src = currentLightboxImages[currentImageIndex];
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (!hasLightbox) return;
+            if (event) event.stopPropagation();
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        function navigateLightbox(direction, event) {
+            if (!hasLightbox) return;
+            event.stopPropagation();
+            currentImageIndex += direction;
+            if (currentImageIndex >= currentLightboxImages.length) currentImageIndex = 0;
+            if (currentImageIndex < 0) currentImageIndex = currentLightboxImages.length - 1;
+            lightboxImg.classList.add('opacity-0');
+            setTimeout(() => {
+                lightboxImg.src = currentLightboxImages[currentImageIndex];
+                lightboxImg.classList.remove('opacity-0');
+            }, 150);
+        }
+
+        if (hasLightbox) {
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('hidden')) {
+                    if (e.key === 'Escape') closeLightbox(null);
+                    if (e.key === 'ArrowRight') navigateLightbox(1, e);
+                    if (e.key === 'ArrowLeft') navigateLightbox(-1, e);
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", initGallery);
+    </script>
     <script src="script.js"></script>
 </body>
+
 </html>

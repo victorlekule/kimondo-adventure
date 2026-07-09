@@ -168,7 +168,7 @@
     <div id="main-content">
 
         <!-- HERO SECTION (Compact mobile, buttons in one line) -->
-        <section class="relative min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+        <section class="relative min-h-[50vh] md:min-h-screen flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <img src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=2000"
                     alt="Zanzibar"
@@ -575,8 +575,8 @@
                             <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100"
                                 data-slide="1">
                                 <div class="relative h-full w-full">
-                                    <img src="https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                                        alt="Water Sports Bundle" class="absolute inset-0 w-full h-full object-cover">
+                                    <img src="zbr/waterzb.jpg" alt="Water Sports Bundle"
+                                        class="absolute inset-0 w-full h-full object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
                                     </div>
                                     <button onclick="openZanzibarActivity('water-sports-package')"
@@ -599,8 +599,8 @@
                             <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
                                 data-slide="2">
                                 <div class="relative h-full w-full">
-                                    <img src="https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                                        alt="Safari Blue" class="absolute inset-0 w-full h-full object-cover">
+                                    <img src="zbr/safariblue.JPG" alt="Safari Blue"
+                                        class="absolute inset-0 w-full h-full object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
                                     </div>
                                     <button onclick="openZanzibarCategory('safari-blue')"
@@ -623,8 +623,8 @@
                             <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
                                 data-slide="3">
                                 <div class="relative h-full w-full">
-                                    <img src="https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                                        alt="Ocean Encounters" class="absolute inset-0 w-full h-full object-cover">
+                                    <img src="zbr/ocean.JPG" alt="Ocean Encounters"
+                                        class="absolute inset-0 w-full h-full object-cover object-top">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
                                     </div>
                                     <button onclick="openZanzibarCategory('ocean-experiences')"
@@ -647,8 +647,8 @@
                             <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
                                 data-slide="4">
                                 <div class="relative h-full w-full">
-                                    <img src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                                        alt="Nature Trails" class="absolute inset-0 w-full h-full object-cover">
+                                    <img src="zbr/nature2.JPG" alt="Nature Trails"
+                                        class="absolute inset-0 w-full h-full object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
                                     </div>
                                     <button onclick="openZanzibarCategory('nature-experiences')"
@@ -670,8 +670,8 @@
                             <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
                                 data-slide="5">
                                 <div class="relative h-full w-full">
-                                    <img src="https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                                        alt="Cultural Gems" class="absolute inset-0 w-full h-full object-cover">
+                                    <img src="zbr/nature1.JPG" alt="Cultural Gems"
+                                        class="absolute inset-0 w-full h-full object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
                                     </div>
                                     <button onclick="openZanzibarCategory('cultural-experiences')"
@@ -693,8 +693,8 @@
                             <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0"
                                 data-slide="6">
                                 <div class="relative h-full w-full">
-                                    <img src="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                                        alt="Luxury Moments" class="absolute inset-0 w-full h-full object-cover">
+                                    <img src="zbr/luxury.JPG" alt="Luxury Moments"
+                                        class="absolute inset-0 w-full h-full object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-[#1a3c34]/50 to-transparent">
                                     </div>
                                     <button onclick="openZanzibarCategory('luxury-experiences')"
@@ -1433,12 +1433,14 @@
     </div>
 
     <!-- DETAIL OVERLAY -->
+    <!-- DETAIL OVERLAY -->
     <div id="zanzibar-detail-page" class="hidden">
         <div id="kimondo-header"></div>
-        <div class="relative h-[65vh] flex items-center justify-center overflow-hidden"><img id="zanzibar-hero-img"
-                src="" alt="" class="absolute inset-0 w-full h-full object-cover">
+        <div class="relative h-[65vh] flex items-center justify-center overflow-hidden">
+            <img id="zanzibar-hero-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/60 bg-gradient-to-t from-dark/90 via-black/40 to-transparent"></div>
-            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto"><span id="zanzibar-hero-subtitle"
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+                <span id="zanzibar-hero-subtitle"
                     class="text-golden text-sm uppercase tracking-[0.3em] font-bold block mb-4"></span>
                 <h1 id="zanzibar-hero-title"
                     class="text-4xl sm:text-5xl md:text-7xl font-serif font-extrabold text-white mb-6 drop-shadow-2xl">
@@ -1462,8 +1464,6 @@
 
     <script>
         (function () {
-            // Use the shared booking toast and cart logic from script.js.
-            // ==================== BUTTON GENERATOR (FIXED: inline-flex instead of w-full) ====================
             function getAddButtonHTML(itemName, price) {
                 var safeName = itemName.replace(/'/g, "\\'");
                 var safeId = itemName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -1471,25 +1471,145 @@
                 return '<button onclick="window.addToBooking({ id: \'' + 'zanzibar-' + safeId + '\', name: \'' + safeName + '\', description: \'' + safeName + '\', price: \'' + safePrice + '\', type: \'activity\' })" class="inline-flex bg-golden hover:bg-amber-400 text-forest font-bold py-3 px-6 rounded-full transition-all text-sm items-center justify-center gap-2 active:scale-95"><i class="fa-solid fa-cart-plus text-xs"></i> Add</button>';
             }
 
-            // ==================== ACTIVITY DATA ====================
+            // ==================== ACTIVITY DATA (with whyImg) ====================
             var waterSportsActivities = {
-                'clear-kayak': { name: 'Clear Kayak', subtitle: 'Transparent Kayak Photoshoot', price: 'From $35', img: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Paddle a transparent‑bottomed kayak over turquoise waters.', about: 'The Clear Kayak experience lets you glide directly over coral and marine life, with a professional photographer capturing your adventure.', suitable: 'Best for couples, solo travelers, and anyone looking for unique photos.', why: 'Unique transparent kayak · Professional photoshoot · 10 edited photos · 30 min session · Guided', includes: ['Transparent kayak', 'Professional photographer', '30 min session', '10 edited photos', 'Safety equipment'], excludes: ['Transport to beach', 'Swimwear', 'Meals'], activities: [{ title: 'The Experience', detail: 'Arrive at the beach, receive a brief safety orientation, then paddle out in your transparent kayak while the photographer captures stunning photos.' }], packages: [{ duration: '15 mins', price: '$35' }, { duration: '30 mins', price: '$65' }, { duration: '1 hour', price: '$125' }, { duration: '15 mins + Drone', price: '$135' }] },
-                'jetski': { name: 'Jetski Adventure', subtitle: 'Guided Ocean Ride', price: 'From $65', img: 'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Race across Zanzibar\'s open turquoise waters on a guided jetski tour.', about: 'Feel the adrenaline as you ride across the Indian Ocean.', suitable: 'Best for thrill‑seekers and couples.', why: '30 min guided ride · Safety gear included · Open water adventure', includes: ['30 min jet ski rental', 'Safety gear', 'Instructor guidance'], excludes: ['Transport', 'Photos/videos', 'Food & drinks'], activities: [{ title: 'The Ride', detail: 'Meet your instructor, get fitted with a life jacket, and race across the turquoise waters.' }], packages: [{ duration: '15 mins', price: '$35' }, { duration: '30 mins', price: '$65' }, { duration: '1 hour', price: '$125' }, { duration: '15 mins + Drone', price: '$135' }] },
-                'jetcar': { name: 'JetCar Experience', subtitle: 'Drive a Car on Water', price: 'From $150', img: 'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'A unique hybrid of jetski power and go‑kart‑style handling.', about: 'The JetCar combines speed, style, and fun.', suitable: 'Perfect for travelers looking for something unique.', why: 'One‑of‑a‑kind experience · 15 min ride · Life jacket provided', includes: ['15 min jet car ride', 'Life jacket', 'Brief orientation'], excludes: ['Transportation', 'Professional photos'], activities: [{ title: 'The Experience', detail: 'Strap into the JetCar, receive a quick orientation, then drive across the water.' }], packages: [{ duration: '15 mins', price: '$150' }, { duration: '30 mins', price: '$280' }, { duration: '15 mins + Drone', price: '$250' }] },
-                'snorkelling': { name: 'Snorkelling Trips', subtitle: 'Explore Coral Reefs', price: 'From $45', img: 'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Explore vibrant coral reefs and tropical marine life.', about: 'Perfect for beginners and experienced swimmers.', suitable: 'Best for nature lovers, families.', why: 'Vibrant coral reefs · Professional guides · All gear provided', includes: ['Boat trip', 'Snorkeling gear', 'Guide', 'Water'], excludes: ['Transport', 'Lunch', 'Tips'], activities: [{ title: 'The Trip', detail: 'Depart by boat to a carefully selected reef site.' }], packages: [{ duration: 'Half Day (2h)', price: '$45' }, { duration: 'Full Day (4h)', price: '$85' }] },
-                'parasailing': { name: 'Parasailing', subtitle: 'Aerial Ocean Views', price: 'From $70', img: 'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Soar above the coastline for sweeping aerial views.', about: 'Parasailing gives you a bird\'s‑eye view of Zanzibar.', suitable: 'Ideal for adventure lovers, couples.', why: 'Aerial views · Safe and guided · Bucket‑list experience', includes: ['Parasailing flight', 'Safety harness', 'Boat ride', 'Instruction'], excludes: ['Transport', 'Photos/videos', 'Meals'], activities: [{ title: 'The Flight', detail: 'After a safety briefing, you\'re harnessed and lifted into the sky.' }], packages: [{ duration: '10 mins', price: '$70' }, { duration: '15 mins', price: '$100' }] },
-                'drone': { name: 'Drone Aerial Content', subtitle: 'Professional Aerial Footage', price: 'From $160', img: 'https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Capture your adventure from above with professional drone footage.', about: 'Our licensed drone pilot creates stunning aerial content.', suitable: 'Best for content creators, couples.', why: 'Professional drone pilot · Edited video · Aerial photos', includes: ['Licensed drone pilot', 'Edited 2‑3 min video', '10 aerial photos'], excludes: ['Location permits', 'Additional editing'], activities: [{ title: 'The Shoot', detail: 'Our pilot meets you at your activity location.' }], packages: [{ duration: 'Basic Package', price: '$160' }, { duration: 'Extended (4-5 min)', price: '$250' }] },
-                'water-sports-package': { name: 'Water Sports Package', subtitle: 'All 6 Activities · One Price', price: '$299', img: 'https://images.pexels.com/photos/1634440/pexels-photo-1634440.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'The ultimate water sports bundle — all six activities in one day.', about: 'Experience all six of Zanzibar\'s most thrilling water activities in a single, perfectly coordinated package.', suitable: 'Best for adventure lovers.', why: 'All six activities · One convenient booking · Perfectly timed schedule', includes: ['Clear Kayak (30 min)', 'Jetski Adventure (30 min)', 'JetCar Experience (15 min)', 'Snorkelling Trip (Half Day)', 'Parasailing (10 min)', 'Drone Aerial Footage (Basic Package)'], excludes: ['Transport to beach', 'Meals', 'Personal expenses'], activities: [{ title: 'Clear Kayak', detail: 'Start your day with a 30‑minute transparent kayak paddle.' }, { title: 'Jetski Adventure', detail: 'Race across the open water.' }, { title: 'JetCar Experience', detail: 'Take a 15‑minute spin in the JetCar.' }, { title: 'Snorkelling Trip', detail: 'Explore vibrant coral reefs.' }, { title: 'Parasailing', detail: 'Soar above the coastline.' }, { title: 'Drone Aerial Content', detail: 'Capture the day from above.' }], packages: [] }
+                'clear-kayak': {
+                    name: 'Clear Kayak', subtitle: 'Transparent Kayak Photoshoot', price: 'From $35',
+                    img: 'zbr/kayk.jpg',
+                    aboutImg: 'zbr/kaykss.jpg',
+                    whyImg: 'zbr/kaykwhy.jpg',  // ← dedicated image for "Why Choose This"
+                    heroDesc: 'Paddle a transparent‑bottomed kayak over turquoise waters.',
+                    about: 'The Clear Kayak experience lets you glide directly over coral and marine life.',
+                    suitable: 'Best for couples, solo travelers.',
+                    why: 'Unique transparent kayak · Professional photoshoot · 10 edited photos',
+                    includes: ['Transparent kayak', 'Professional photographer', '30 min session', '10 edited photos'],
+                    excludes: ['Transport to beach', 'Swimwear', 'Meals'],
+                    activities: [{ title: 'The Experience', detail: 'Arrive at the beach, receive a brief safety orientation, then paddle out.' }],
+                    packages: [{ duration: '15 mins', price: '$35' }, { duration: '30 mins', price: '$65' }]
+                },
+                'jetski': {
+                    name: 'Jetski Adventure', subtitle: 'Guided Ocean Ride', price: 'From $65',
+                    img: 'zbr/jeskwhy.jpg',
+                    aboutImg: 'zbr/jesk.jpg',
+                    whyImg: 'zbr/jeskabout.jpg',
+                    heroDesc: 'Race across Zanzibar\'s open turquoise waters.',
+                    about: 'Feel the adrenaline as you ride across the Indian Ocean.',
+                    suitable: 'Best for thrill‑seekers and couples.',
+                    why: '30 min guided ride · Safety gear included · Open water adventure',
+                    includes: ['30 min jet ski rental', 'Safety gear', 'Instructor guidance'],
+                    excludes: ['Transport', 'Photos/videos', 'Food & drinks'],
+                    activities: [{ title: 'The Ride', detail: 'Meet your instructor, get fitted with a life jacket.' }],
+                    packages: [{ duration: '15 mins', price: '$35' }, { duration: '30 mins', price: '$65' }]
+                },
+                'jetcar': {
+                    name: 'JetCar Experience', subtitle: 'Drive a Car on Water', price: 'From $150',
+                    img: 'zbr/jetcar.jpg',
+                    aboutImg: 'zbr/jetcarabout.jpg',
+                    whyImg: 'zbr/jetcarwhy.jpg',
+                    heroDesc: 'A unique hybrid of jetski power and go‑kart‑style handling.',
+                    about: 'The JetCar combines speed, style, and fun.',
+                    suitable: 'Perfect for travelers looking for something unique.',
+                    why: 'One‑of‑a‑kind experience · 15 min ride · Life jacket provided',
+                    includes: ['15 min jet car ride', 'Life jacket', 'Brief orientation'],
+                    excludes: ['Transportation', 'Professional photos'],
+                    activities: [{ title: 'The Experience', detail: 'Strap into the JetCar and drive across the water.' }],
+                    packages: [{ duration: '15 mins', price: '$150' }, { duration: '30 mins', price: '$280' }]
+                },
+                'snorkelling': {
+                    name: 'Snorkelling Trips', subtitle: 'Explore Coral Reefs', price: 'From $45',
+                    img: 'zbr/snok.jpg',
+                    aboutImg: 'zbr/snok1.jpg',
+                    whyImg: 'zbr/snok2.jpg',
+                    heroDesc: 'Explore vibrant coral reefs and tropical marine life.',
+                    about: 'Perfect for beginners and experienced swimmers.',
+                    suitable: 'Best for nature lovers, families.',
+                    why: 'Vibrant coral reefs · Professional guides · All gear provided',
+                    includes: ['Boat trip', 'Snorkeling gear', 'Guide', 'Water'],
+                    excludes: ['Transport', 'Lunch', 'Tips'],
+                    activities: [{ title: 'The Trip', detail: 'Depart by boat to a carefully selected reef site.' }],
+                    packages: [{ duration: 'Half Day (2h)', price: '$45' }, { duration: 'Full Day (4h)', price: '$85' }]
+                },
+                'parasailing': {
+                    name: 'Parasailing', subtitle: 'Aerial Ocean Views', price: 'From $70',
+                    img: 'zbr/p6.jpg',
+                    aboutImg: 'zbr/p2.jpg',
+                    whyImg: 'zbr/p1.jpg',
+                    heroDesc: 'Soar above the coastline for sweeping aerial views.',
+                    about: 'Parasailing gives you a bird\'s‑eye view of Zanzibar.',
+                    suitable: 'Ideal for adventure lovers, couples.',
+                    why: 'Aerial views · Safe and guided · Bucket‑list experience',
+                    includes: ['Parasailing flight', 'Safety harness', 'Boat ride', 'Instruction'],
+                    excludes: ['Transport', 'Photos/videos', 'Meals'],
+                    activities: [{ title: 'The Flight', detail: 'After a safety briefing, you\'re harnessed and lifted into the sky.' }],
+                    packages: [{ duration: '10 mins', price: '$70' }, { duration: '15 mins', price: '$100' }]
+                },
+                'drone': {
+                    name: 'Drone Aerial Content', subtitle: 'Professional Aerial Footage', price: 'From $160',
+                    img: 'zbr/dronehero.jpg',
+                    aboutImg: 'zbr/droneabout.jpg',
+                    whyImg: 'zbr/dronewhy.jpg',
+                    heroDesc: 'Capture your adventure from above with professional drone footage.',
+                    about: 'Our licensed drone pilot creates stunning aerial content.',
+                    suitable: 'Best for content creators, couples.',
+                    why: 'Professional drone pilot · Edited video · Aerial photos',
+                    includes: ['Licensed drone pilot', 'Edited 2‑3 min video', '10 aerial photos'],
+                    excludes: ['Location permits', 'Additional editing'],
+                    activities: [{ title: 'The Shoot', detail: 'Our pilot meets you at your activity location.' }],
+                    packages: [{ duration: 'Basic Package', price: '$160' }, { duration: 'Extended (4-5 min)', price: '$250' }]
+                },
+                'water-sports-package': {
+                    name: 'Water Sports Package', subtitle: 'All 6 Activities · One Price', price: '$299',
+                    img: 'zbr/waterzb.jpg',
+                    aboutImg: 'zbr/water3.jpg',
+                    whyImg: 'zbr/watersport2.jpg',
+                    heroDesc: 'The ultimate water sports bundle — all six activities in one day.',
+                    about: 'Experience all six of Zanzibar\'s most thrilling water activities in a single package.',
+                    suitable: 'Best for adventure lovers.',
+                    why: 'All six activities · One convenient booking · Perfectly timed schedule',
+                    includes: ['Clear Kayak (30 min)', 'Jetski Adventure (30 min)', 'JetCar Experience (15 min)', 'Snorkelling Trip (Half Day)', 'Parasailing (10 min)', 'Drone Aerial Footage (Basic Package)'],
+                    excludes: ['Transport to beach', 'Meals', 'Personal expenses'],
+                    activities: [{ title: 'Clear Kayak', detail: 'Start your day with a 30‑minute transparent kayak paddle.' }, { title: 'Jetski Adventure', detail: 'Race across the open water.' }, { title: 'JetCar Experience', detail: 'Take a 15‑minute spin in the JetCar.' }, { title: 'Snorkelling Trip', detail: 'Explore vibrant coral reefs.' }, { title: 'Parasailing', detail: 'Soar above the coastline.' }, { title: 'Drone Aerial Content', detail: 'Capture the day from above.' }],
+                    packages: []
+                }
             };
 
             var zanzibarCategories = {
-                'safari-blue': { name: 'Safari Blue', subtitle: 'Full-Day Ocean Adventure', price: 'From $95', img: 'https://images.pexels.com/photos/1266831/pexels-photo-1266831.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Dhow sailing, snorkeling, and a fresh seafood lunch grilled on a sandbank.', about: 'Safari Blue is the quintessential Zanzibar experience.', suitable: 'Perfect for couples, families.', why: 'Traditional dhow sailing · Snorkeling · Sandbank lunch · Full-day adventure', includes: ['Boat trip', 'Snorkeling equipment', 'Seafood buffet', 'Fruits & drinks', 'Professional guide'], excludes: ['Transport', 'Alcoholic beverages', 'Tips'], activities: [{ title: 'Morning Dhow', detail: 'Set sail aboard a traditional wooden dhow.' }, { title: 'Snorkeling', detail: 'Stop at pristine coral reefs.' }, { title: 'Lunch', detail: 'Fresh seafood barbecue on a sandbank.' }] },
-                'ocean-experiences': { name: 'Ocean Experiences', subtitle: 'Mnemba Dolphin · Turtle Swim · Sunset Dhow', price: 'From $40', img: 'https://images.pexels.com/photos/1738434/pexels-photo-1738434.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Wild dolphins, sea turtles, and golden‑hour sailing.', about: 'Zanzibar\'s ocean experiences take you beyond the shore.', suitable: 'Best for nature lovers, families.', why: 'Wild dolphin encounters · Sea turtle swimming · Sunset dhow sailing', includes: ['Boat transfer', 'Snorkeling gear', 'Guide', 'Safety equipment'], excludes: ['Transport', 'Camera', 'Meals', 'Tips'], activities: [{ title: 'Mnemba Atoll', detail: 'Swim alongside wild dolphins.' }, { title: 'Turtle Swim', detail: 'Swim with sea turtles in a natural lagoon.' }, { title: 'Sunset Cruise', detail: 'Sail into the sunset on a traditional dhow.' }] },
-                'nature-experiences': { name: 'Nature Experiences', subtitle: 'Spice Farm · Jozani Forest · Caves · The Rock', price: 'From $25', img: 'https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Forests, spice farms, hidden caves, and the iconic Rock Restaurant.', about: 'Beyond the beaches lies a lush, green Zanzibar.', suitable: 'Best for nature enthusiasts, families.', why: 'Red colobus monkeys · Working spice farm · Cave swimming · Rock Restaurant', includes: ['Expert local guide', 'Entrance fees', 'Tastings (spice tour)'], excludes: ['Transport', 'Meals', 'Personal purchases'], activities: [{ title: 'Spice Farm', detail: 'Taste, smell, and learn the origins of spices.' }, { title: 'Jozani Forest', detail: 'Home to the rare Red Colobus monkey.' }, { title: 'Caves', detail: 'Swim in hidden freshwater caves.' }, { title: 'The Rock', detail: 'Iconic dining surrounded by ocean.' }] },
-                'cultural-experiences': { name: 'Cultural Experiences', subtitle: 'Stone Town · Prison Island · Sandbank · Markets', price: 'From $25', img: 'https://images.pexels.com/photos/2087391/pexels-photo-2087391.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/2777828/pexels-photo-2777828.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Stories, streets, and sandbanks — Zanzibar\'s living culture.', about: 'Walk the narrow streets of Stone Town, visit giant tortoises.', suitable: 'Best for history buffs, culture seekers.', why: 'UNESCO Stone Town · Giant tortoises · Nakupenda sandbank · Local markets', includes: ['Professional local guide', 'Entrance fees', 'Boat transfers'], excludes: ['Meals', 'Personal purchases'], activities: [{ title: 'Prison Island', detail: 'Home to giant Aldabra tortoises.' }, { title: 'Nakupenda', detail: 'White sandbank surrounded by turquoise ocean.' }, { title: 'Stone Town', detail: 'Guided walk through UNESCO heritage.' }, { title: 'Markets', detail: 'Immerse in bustling local markets.' }] },
-                'luxury-experiences': { name: 'Luxury Experiences', subtitle: 'Flying Dress · Private Dhow · Proposals', price: 'From $160', img: 'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80', aboutImg: 'https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=800&q=80', heroDesc: 'Editorial photoshoots, private charters, and flawless proposals.', about: 'For those seeking the extraordinary.', suitable: 'Best for couples, honeymooners.', why: 'Flying dress photoshoot · Private dhow charter · Proposal setups · VIP', includes: ['Professional photographer', 'Dress rental', 'Private charter', 'Decor & setup'], excludes: ['Hair & makeup', 'Transport', 'Meals'], activities: [{ title: 'Flying Dress', detail: 'Dramatic editorial-style photoshoot.' }, { title: 'Private Dhow', detail: 'Exclusively chartered traditional dhow.' }, { title: 'Proposal Setup', detail: 'Fully arranged private beach proposal.' }] }
-            };
+                'safari-blue': {
+                    name: 'Safari Blue', subtitle: 'Full-Day Ocean Adventure', price: 'From $95',
+                    img: 'zbr/nakupenda.jpg',
+                    aboutImg: 'zbr/blue1.JPG',
+                    whyImg: 'zbr/mtende.jpg',
+                    heroDesc: 'Dhow sailing, snorkeling, and a fresh seafood lunch grilled on a sandbank.', about: 'Safari Blue is the quintessential Zanzibar experience.', suitable: 'Perfect for couples, families.', why: 'Traditional dhow sailing · Snorkeling · Sandbank lunch · Full-day adventure', includes: ['Boat trip', 'Snorkeling equipment', 'Seafood buffet', 'Fruits & drinks', 'Professional guide'], excludes: ['Transport', 'Alcoholic beverages', 'Tips'], activities: [{ title: 'Morning Dhow', detail: 'Set sail aboard a traditional wooden dhow.' }, { title: 'Snorkeling', detail: 'Stop at pristine coral reefs.' }, { title: 'Lunch', detail: 'Fresh seafood barbecue on a sandbank.' }]
+                },
 
+                'ocean-experiences': {
+                    name: 'Ocean Experiences', subtitle: 'Mnemba Dolphin · Turtle Swim · Sunset Dhow', price: 'From $40',
+                    img: 'zbr/mnemba.jpg',
+                    aboutImg: 'zbr/shark.JPG',
+                    whyImg: 'zbr/mnemba.jpg', heroDesc: 'Wild dolphins, sea turtles, and golden‑hour sailing.', about: 'Zanzibar\'s ocean experiences take you beyond the shore.', suitable: 'Best for nature lovers, families.', why: 'Wild dolphin encounters · Sea turtle swimming · Sunset dhow sailing', includes: ['Boat transfer', 'Snorkeling gear', 'Guide', 'Safety equipment'], excludes: ['Transport', 'Camera', 'Meals', 'Tips'], activities: [{ title: 'Mnemba Atoll', detail: 'Swim alongside wild dolphins.' }, { title: 'Turtle Swim', detail: 'Swim with sea turtles in a natural lagoon.' }, { title: 'Sunset Cruise', detail: 'Sail into the sunset on a traditional dhow.' }]
+                },
+
+                'nature-experiences': {
+                    name: 'Nature Experiences', subtitle: 'Spice Farm · Jozani Forest · Caves · The Rock', price: 'From $25',
+                    img: 'zbr/nakupenda.jpg',
+                    aboutImg: 'zbr/prison.jpg',
+                    whyImg: 'zbr/johanzi.jpg', heroDesc: 'Forests, spice farms, hidden caves, and the iconic Rock Restaurant.', about: 'Beyond the beaches lies a lush, green Zanzibar.', suitable: 'Best for nature enthusiasts, families.', why: 'Red colobus monkeys · Working spice farm · Cave swimming · Rock Restaurant', includes: ['Expert local guide', 'Entrance fees', 'Tastings (spice tour)'], excludes: ['Transport', 'Meals', 'Personal purchases'], activities: [{ title: 'Spice Farm', detail: 'Taste, smell, and learn the origins of spices.' }, { title: 'Jozani Forest', detail: 'Home to the rare Red Colobus monkey.' }, { title: 'Caves', detail: 'Swim in hidden freshwater caves.' }, { title: 'The Rock', detail: 'Iconic dining surrounded by ocean.' }]
+                },
+
+                'cultural-experiences': {
+                    name: 'Cultural Experiences', subtitle: 'Stone Town · Prison Island · Sandbank · Markets', price: 'From $25',
+                    img: 'zbr/culture.JPG',
+                    aboutImg: 'zbr/culture1.JPG',
+                    whyImg: 'zbr/culture2.JPG', heroDesc: 'Stories, streets, and sandbanks — Zanzibar\'s living culture.', about: 'Walk the narrow streets of Stone Town, visit giant tortoises.', suitable: 'Best for history buffs, culture seekers.', why: 'UNESCO Stone Town · Giant tortoises · Nakupenda sandbank · Local markets', includes: ['Professional local guide', 'Entrance fees', 'Boat transfers'], excludes: ['Meals', 'Personal purchases'], activities: [{ title: 'Prison Island', detail: 'Home to giant Aldabra tortoises.' }, { title: 'Nakupenda', detail: 'White sandbank surrounded by turquoise ocean.' }, { title: 'Stone Town', detail: 'Guided walk through UNESCO heritage.' }, { title: 'Markets', detail: 'Immerse in bustling local markets.' }]
+                },
+
+                'luxury-experiences': {
+                    name: 'Luxury Experiences', subtitle: 'Flying Dress · Private Dhow · Proposals', price: 'From $160',
+                    img: 'zbr/lx.JPG',
+                    aboutImg: 'zbr/l1.JPG',
+                    whyImg: 'zbr/l2.JPG', heroDesc: 'Editorial photoshoots, private charters, and flawless proposals.', about: 'For those seeking the extraordinary.', suitable: 'Best for couples, honeymooners.', why: 'Flying dress photoshoot · Private dhow charter · Proposal setups · VIP', includes: ['Professional photographer', 'Dress rental', 'Private charter', 'Decor & setup'], excludes: ['Hair & makeup', 'Transport', 'Meals'], activities: [{ title: 'Flying Dress', detail: 'Dramatic editorial-style photoshoot.' }, { title: 'Private Dhow', detail: 'Exclusively chartered traditional dhow.' }, { title: 'Proposal Setup', detail: 'Fully arranged private beach proposal.' }]
+                }
+            };
             var mainContent = document.getElementById('main-content');
             var zanzibarDetailPage = document.getElementById('zanzibar-detail-page');
             var zanzibarHeroImg = document.getElementById('zanzibar-hero-img');
@@ -1509,18 +1629,27 @@
                 zanzibarHeroSubtitle.textContent = heroData.subtitle;
                 zanzibarHeroDesc.textContent = heroData.heroDesc;
 
+                // Use dedicated whyImg if available, otherwise fall back to img
+                var whyImage = heroData.whyImg || heroData.img;
+                var aboutImage = heroData.aboutImg || heroData.img;
+
                 var html = '';
-                html += '<section><div class="flex flex-col md:flex-row items-center gap-8"><div class="flex-1"><span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4 block">About This Experience</span><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-5">' + escapeHtml(heroData.name) + ' – ' + escapeHtml(heroData.subtitle) + '</h2><p class="text-warm/70 leading-relaxed">' + escapeHtml(heroData.about) + '</p></div><div class="flex-1"><img src="' + heroData.aboutImg + '" alt="' + escapeHtml(heroData.name) + '" class="rounded-3xl shadow-2xl w-full h-auto object-cover max-h-96"></div></div></section>';
+                // About This Experience
+                html += '<section><div class="flex flex-col md:flex-row items-center gap-8"><div class="flex-1"><span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4 block">About This Experience</span><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-5">' + escapeHtml(heroData.name) + ' – ' + escapeHtml(heroData.subtitle) + '</h2><p class="text-warm/70 leading-relaxed">' + escapeHtml(heroData.about) + '</p></div><div class="flex-1"><img src="' + aboutImage + '" alt="' + escapeHtml(heroData.name) + '" class="rounded-3xl shadow-2xl w-full h-auto object-cover max-h-96"></div></div></section>';
+
                 html += '<section><span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4 block">Activity Details</span><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-8">What You\'ll Do</h2><div class="space-y-6">';
                 heroData.activities.forEach(function (item) {
                     html += '<div class="timeline-item pl-8 ml-2"><div class="bg-white rounded-2xl p-5 shadow-sm border border-warm/10"><strong class="text-forest text-lg">' + escapeHtml(item.title) + '</strong><p class="text-warm/60 text-sm mt-1">' + escapeHtml(item.detail) + '</p></div></div>';
                 });
                 html += '</div></section>';
-                html += '<section><div class="flex flex-col md:flex-row items-start gap-8"><div class="flex-1"><img src="' + heroData.aboutImg + '" alt="' + escapeHtml(heroData.name) + '" class="rounded-3xl shadow-2xl w-full h-auto object-cover max-h-96"></div><div class="flex-1 space-y-6"><div><span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4"><i class="fa-solid fa-star text-golden"></i> Why Choose This</span><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-4">What Makes ' + escapeHtml(heroData.name) + ' Special</h2><div class="flex flex-wrap gap-3">';
+
+                // Why Choose This – uses whyImage (dedicated image)
+                html += '<section><div class="flex flex-col md:flex-row items-start gap-8"><div class="flex-1"><img src="' + whyImage + '" alt="' + escapeHtml(heroData.name) + '" class="rounded-3xl shadow-2xl w-full h-auto object-cover max-h-96"></div><div class="flex-1 space-y-6"><div><span class="text-xs uppercase tracking-[0.3em] text-golden font-bold mb-4"><i class="fa-solid fa-star text-golden"></i> Why Choose This</span><h2 class="text-3xl md:text-4xl font-serif font-extrabold text-forest mb-4">What Makes ' + escapeHtml(heroData.name) + ' Special</h2><div class="flex flex-wrap gap-3">';
                 heroData.why.split('·').forEach(function (item) {
                     html += '<span class="px-5 py-3 bg-golden/10 text-forest text-sm rounded-full border border-golden/20 flex items-center gap-2"><i class="fa-solid fa-check text-golden text-xs"></i> ' + escapeHtml(item.trim()) + '</span>';
                 });
                 html += '</div></div><div class="bg-forest/5 rounded-2xl p-6 border border-forest/10"><h3 class="font-bold text-forest text-xl mb-2"><i class="fa-solid fa-circle-question text-forest"></i> Who This Is For</h3><p class="text-warm/70">' + escapeHtml(heroData.suitable) + '</p></div></div></div></section>';
+
                 html += '<section><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="bg-white rounded-2xl p-6 border"><h3 class="font-bold text-forest text-xl mb-4"><i class="fa-solid fa-check-circle text-green-500"></i> Included</h3><ul class="space-y-3 text-sm">';
                 heroData.includes.forEach(function (item) {
                     html += '<li class="flex gap-2"><i class="fa-solid fa-check text-golden mt-0.5"></i>' + escapeHtml(item) + '</li>';
