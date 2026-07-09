@@ -763,7 +763,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <a href="terms.html" class="hover:text-[#d4a853] transition-colors">Terms &amp; Conditions</a>
                     </div>
                     
-                    <p>Powered by <a href="#" class="text-[#d4a853] hover:text-white transition-colors font-semibold tracking-wide">Africana Tech</a></p>
+                    <p>Powered by <a href="https://africana-tech.com/" class="text-[#d4a853] hover:text-white transition-colors font-semibold tracking-wide">Africana Tech</a></p>
                 </div>
             </div>
         </footer>
