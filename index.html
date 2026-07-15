@@ -72,6 +72,7 @@
         background-size: cover;
         background-position: center;
         opacity: 0;
+        /* 1.2s fade transition — smooth but not sluggish */
         transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
@@ -92,6 +93,40 @@
       .hero-dot.active {
         background: #F2B705;
       }
+
+      /* Subtle text fade-up on slide change */
+      #hero-content>* {
+        animation: heroFadeIn 0.8s ease-out forwards;
+        opacity: 0;
+      }
+
+      #hero-content>*:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+
+      #hero-content>*:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+
+      #hero-content>*:nth-child(3) {
+        animation-delay: 0.25s;
+      }
+
+      #hero-content>*:nth-child(4) {
+        animation-delay: 0.35s;
+      }
+
+      @keyframes heroFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
 
     <script>
@@ -103,50 +138,46 @@
         const nextBtn = document.getElementById('hero-next');
         if (!slidesContainer || !contentContainer || !dotsContainer) return;
 
-        const slidesData = [
-          {
-            image: 'hero/zbr.jpg',
-            headline: 'Zanzibar: Where the Ocean Sings',
-            subheadline: 'Spice Islands & Turquoise Dreams',
-            description: 'Lose yourself in the rhythm of dhows drifting across the Indian Ocean. From the narrow alleys of Stone Town to the endless white sands of Nungwi, every moment feels like a postcard you never want to send.'
-          },
-          {
-            image: 'hero/tz3.jpg',
-            headline: 'Tanzania Safaris: The Wild Heart of Africa',
-            subheadline: 'Witness the Greatest Show on Earth',
-            description: 'Feel the earth tremble as wildebeest thunder across the Serengeti. Sit just feet from a pride of lions in Ngorongoro Crater. This isn’t a vacation — it’s the story you’ll tell for the rest of your life.'
-          },
-          {
-            image: 'hero/kil1.jpg',
-            headline: 'Summit Dreams: Conquer Kilimanjaro',
-            subheadline: 'Stand on the Roof of Africa',
-            description: 'Every step upward strips away the noise of the world. When you finally watch the sunrise from Uhuru Peak, you’ll understand why this mountain changes everyone who climbs it.'
-          },
-          {
-            image: 'hero/water.jpg',
-            headline: 'Adrenaline on the Indian Ocean',
-            subheadline: 'Jet Skis, Kayaks & Coral Reefs',
-            description: 'Race across turquoise water on a high‑speed jet ski. Paddle a glass‑bottom kayak over vibrant coral gardens. The ocean isn’t just a view here — it’s your playground.'
-          },
-          {
-            image: 'hero/g.jpg',
-            headline: 'Gifts That Carry a Soul',
-            subheadline: 'Handcrafted by Tanzanian Artisans',
-            description: 'Bring home more than memories. Our gift shop overflows with authentic Maasai beadwork, hand‑carved wooden sculptures, and vibrant kanga fabrics — each piece supporting local communities.'
-          },
-          {
-            image: 'hero/vol.jpg',
-            headline: 'Be Part of Something Bigger',
-            subheadline: 'Volunteer, Intern, or Partner',
-            description: 'Trade your desk for the savannah. Whether you’re teaching, conserving wildlife, or building a business partnership, your time here leaves footprints that matter.'
-          }
-        ];
+        const slidesData = [{
+          image: 'hero/zbr.jpg',
+          headline: 'Zanzibar: Where the Ocean Sings',
+          subheadline: 'Spice Islands & Turquoise Dreams',
+          description: 'Lose yourself in the rhythm of dhows drifting across the Indian Ocean. From the narrow alleys of Stone Town to the endless white sands of Nungwi, every moment feels like a postcard you never want to send.'
+        }, {
+          image: 'hero/tz3.jpg',
+          headline: 'Tanzania Safaris: The Wild Heart of Africa',
+          subheadline: 'Witness the Greatest Show on Earth',
+          description: 'Feel the earth tremble as wildebeest thunder across the Serengeti. Sit just feet from a pride of lions in Ngorongoro Crater. This isn\'t a vacation — it\'s the story you\'ll tell for the rest of your life.'
+        }, {
+          image: 'hero/kil1.jpg',
+          headline: 'Summit Dreams: Conquer Kilimanjaro',
+          subheadline: 'Stand on the Roof of Africa',
+          description: 'Every step upward strips away the noise of the world. When you finally watch the sunrise from Uhuru Peak, you\'ll understand why this mountain changes everyone who climbs it.'
+        }, {
+          image: 'hero/water.jpg',
+          headline: 'Adrenaline on the Indian Ocean',
+          subheadline: 'Jet Skis, Kayaks & Coral Reefs',
+          description: 'Race across turquoise water on a high‑speed jet ski. Paddle a glass‑bottom kayak over vibrant coral gardens. The ocean isn\'t just a view here — it\'s your playground.'
+        }, {
+          image: 'hero/g.jpg',
+          headline: 'Gifts That Carry a Soul',
+          subheadline: 'Handcrafted by Tanzanian Artisans',
+          description: 'Bring home more than memories. Our gift shop overflows with authentic Maasai beadwork, hand‑carved wooden sculptures, and vibrant kanga fabrics — each piece supporting local communities.'
+        }, {
+          image: 'hero/vol.jpg',
+          headline: 'Be Part of Something Bigger',
+          subheadline: 'Volunteer, Intern, or Partner',
+          description: 'Trade your desk for the savannah. Whether you\'re teaching, conserving wildlife, or building a business partnership, your time here leaves footprints that matter.'
+        }];
 
         let currentIndex = 0;
         const slides = [];
         const dots = [];
         let autoInterval;
         let isTransitioning = false;
+
+        /* ─── each slide stays for 10 seconds ─── */
+        const SLIDE_DURATION_MS = 10000; // 10 sec
 
         // Create slides and dots
         slidesData.forEach((data, i) => {
@@ -167,36 +198,35 @@
         if (prevBtn) prevBtn.addEventListener('click', prevSlide);
         if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
-        // Update content – headline, subheadline, description change, buttons stay fixed
         function updateContent() {
           const data = slidesData[currentIndex];
           contentContainer.innerHTML = `
-                <p class="text-golden text-sm sm:text-base lg:text-lg font-bold uppercase tracking-[0.3em] mb-2 sm:mb-4 drop-shadow">${data.subheadline}</p>
-                <h1 class="text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white mb-3 md:mb-6 tracking-tight drop-shadow-2xl">
-                    ${data.headline}
-                </h1>
-                <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 font-sans font-light mb-4 md:mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-2">
-                    ${data.description}
-                </p>
-                <!-- Fixed button row (always visible) -->
-                <div class="flex flex-wrap justify-center items-center gap-1.5 sm:gap-4 mb-4 md:mb-8 w-full px-2 sm:px-0">
-                    <a href="zanzibar.html" class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-golden hover:bg-yellow-500 text-warm font-bold font-sans rounded-full shadow-[0_0_20px_rgba(245,166,35,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-                        Zanzibar Tours
-                    </a>
-                    <a href="tanzania.html" class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-                        Tanzania Safaris
-                    </a>
-                    <a href="trecking.html" class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-                        Trekking
-                    </a>
-                    <a href="gift shop.html" class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 border-2 border-turquoise text-turquoise hover:bg-turquoise hover:text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-                        Gift Shop
-                    </a>
-                    <a href="involve.html" class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-forest hover:bg-green-800 text-white font-bold font-sans rounded-full shadow-md transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
-                        Get Involved
-                    </a>
-                </div>
-            `;
+                    <p class="text-golden text-sm sm:text-base lg:text-lg font-bold uppercase tracking-[0.3em] mb-2 sm:mb-4 drop-shadow">${data.subheadline}</p>
+                    <h1 class="text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white mb-3 md:mb-6 tracking-tight drop-shadow-2xl">
+                        ${data.headline}
+                    </h1>
+                    <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 font-sans font-light mb-4 md:mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-2">
+                        ${data.description}
+                    </p>
+                    <!-- Fixed button row (always visible) -->
+                    <div class="flex flex-wrap justify-center items-center gap-1.5 sm:gap-4 mb-4 md:mb-8 w-full px-2 sm:px-0">
+                        <a href="zanzibar.html" class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-golden hover:bg-yellow-500 text-warm font-bold font-sans rounded-full shadow-[0_0_20px_rgba(245,166,35,0.4)] transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                            Zanzibar Tours
+                        </a>
+                        <a href="tanzania.html" class="w-[calc(50%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                            Tanzania Safaris
+                        </a>
+                        <a href="trecking.html" class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                            Trekking
+                        </a>
+                        <a href="gift shop.html" class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 border-2 border-turquoise text-turquoise hover:bg-turquoise hover:text-white font-bold font-sans rounded-full transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                            Gift Shop
+                        </a>
+                        <a href="involve.html" class="w-[calc(33.333%-0.5rem)] sm:w-auto px-2 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3.5 bg-forest hover:bg-green-800 text-white font-bold font-sans rounded-full shadow-md transition-all duration-300 transform hover:-translate-y-1 text-[10px] sm:text-sm md:text-base text-center whitespace-nowrap">
+                            Get Involved
+                        </a>
+                    </div>
+                `;
         }
 
         function setSlide(index) {
@@ -211,12 +241,30 @@
           setTimeout(() => { isTransitioning = false; }, 600);
         }
 
-        function nextSlide() { setSlide((currentIndex + 1) % slides.length); resetAuto(); }
-        function prevSlide() { setSlide((currentIndex - 1 + slides.length) % slides.length); resetAuto(); }
-        function goToSlide(index) { setSlide(index); resetAuto(); }
+        function nextSlide() {
+          setSlide((currentIndex + 1) % slides.length);
+          resetAuto();
+        }
 
-        function startAuto() { clearInterval(autoInterval); autoInterval = setInterval(nextSlide, 8000); }
-        function resetAuto() { clearInterval(autoInterval); startAuto(); }
+        function prevSlide() {
+          setSlide((currentIndex - 1 + slides.length) % slides.length);
+          resetAuto();
+        }
+
+        function goToSlide(index) {
+          setSlide(index);
+          resetAuto();
+        }
+
+        function startAuto() {
+          clearInterval(autoInterval);
+          autoInterval = setInterval(nextSlide, SLIDE_DURATION_MS);
+        }
+
+        function resetAuto() {
+          clearInterval(autoInterval);
+          startAuto();
+        }
 
         updateContent();
         startAuto();
@@ -407,7 +455,7 @@
           <div
             class="experience-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col">
             <div class="relative h-56 overflow-hidden">
-              <img src="pic/marangu.JPG" alt="Kilimanjaro"
+              <img src="trk/marangu.JPG" alt="Kilimanjaro"
                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">03</span>
@@ -534,7 +582,7 @@
             <div
               class="experience-card flex-shrink-0 w-[85vw] max-w-md snap-center group relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col">
               <div class="relative h-52 overflow-hidden">
-                <img src="pic/marangu.JPG" alt="Kilimanjaro"
+                <img src="trk/marangu.JPG" alt="Kilimanjaro"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <span class="absolute top-4 left-4 text-4xl font-serif font-bold text-white/30">03</span>

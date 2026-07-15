@@ -326,6 +326,7 @@
     </main>
 
     <!-- remaining sections unchanged -->
+    <!-- ========== FIND US – KENDWA BEACH, ZANZIBAR ========== -->
     <section class="py-16 md:py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 reveal-in">
@@ -336,21 +337,63 @@
                 <p class="text-warm/60 font-light max-w-xl mx-auto">While we're based in Zanzibar, our safaris and treks
                     cover mainland Tanzania — we coordinate your entire journey from this single home base.</p>
             </div>
-            <div class="relative rounded-[2.5rem] overflow-hidden shadow-xl h-[350px] md:h-[450px] reveal-in">
+
+            <!-- Clickable map card – opens Google Maps -->
+            <a href="https://maps.app.goo.gl/4dkvPnrcPUXHnUUx9?g_st=aw" target="_blank" rel="noopener noreferrer"
+                class="relative rounded-[2.5rem] overflow-hidden shadow-xl h-[350px] md:h-[450px] block group transition-all duration-500 hover:shadow-2xl reveal-in">
+                <!-- Background image -->
                 <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2000&auto=format&fit=crop"
-                    class="absolute inset-0 w-full h-full object-cover" alt="Zanzibar aerial view">
-                <div class="absolute inset-0 bg-dark/50"></div>
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    alt="Zanzibar aerial view">
+
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-dark/50 group-hover:bg-dark/40 transition-colors duration-500"></div>
+
+                <!-- Content overlay -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
                     <div
-                        class="w-20 h-20 bg-golden/20 backdrop-blur-md rounded-full flex items-center justify-center mb-6 animate-float">
+                        class="w-20 h-20 bg-golden/20 backdrop-blur-md rounded-full flex items-center justify-center mb-6 animate-float group-hover:bg-golden/30 transition-all duration-500">
                         <i class="fa-solid fa-location-dot text-4xl text-golden"></i>
                     </div>
                     <h3 class="text-2xl md:text-3xl font-serif font-bold text-white mb-3">Kimondo Adventures</h3>
                     <p class="text-white/80 font-light text-lg">Paje, Zanzibar, Tanzania</p>
+
+                    <!-- Open Maps button -->
+                    <div
+                        class="mt-6 inline-flex items-center gap-2 bg-golden/90 hover:bg-golden text-forest font-bold px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Open in Google Maps</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </div>
                 </div>
-            </div>
+
+                <!-- Small "click to open" hint (appears on hover) -->
+                <div
+                    class="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white/60 text-[10px] px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fa-regular fa-hand-pointer mr-1"></i> Click to open map
+                </div>
+            </a>
         </div>
     </section>
+
+    <!-- Add subtle float animation if not already defined -->
+    <style>
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
 
     <section class="py-16 md:py-20 bg-forest relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center reveal-in">

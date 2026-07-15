@@ -128,7 +128,7 @@ function buildHeaderHTML() {
         <div class="bg-gradient-to-r from-warm to-choco text-white py-2 md:py-3">
             <div class="w-full px-2 lg:px-4 flex flex-row items-center justify-center lg:justify-between flex-nowrap">
                 <div class="flex flex-row items-center gap-3 md:gap-6 text-[13px] font-medium whitespace-nowrap overflow-x-auto hide-scrollbar">
-                    <a href="https://maps.google.com/?q=Dar+es+Salaam" target="_blank" class="flex items-center gap-2 hover:text-golden transition-colors group">
+                    <a href="https://maps.app.goo.gl/4dkvPnrcPUXHnUUx9?g_st=aw" target="_blank" class="flex items-center gap-2 hover:text-golden transition-colors group">
                         <i class="fa-solid fa-location-dot text-golden text-base group-hover:scale-110 transition-transform"></i>
                         <span class="hidden sm:inline">${t.location}</span>
                         <span class="sm:hidden">Zanzibar Tanzania</span>
